@@ -1,90 +1,62 @@
-PROPERTIES = {
-	VariablePrefix = '';
-	Range = '';
-}
-
 function Initialize()
-	sVariablePrefix = PROPERTIES.VariablePrefix
-	sRange = PROPERTIES.Range
-	if sRange == 'Month' then
-		iRange = 42
-	elseif sRange == 'Week' then
-		iRange = 7
-	end
-	iStartOnMondays = tonumber(SKIN:GetVariable(sVariablePrefix.."CalendarMondays"))
-	iLeadingZeroes = tonumber(SKIN:GetVariable(sVariablePrefix.."CalendarLeadingZeroes"))
-	iDisableDays = tonumber(SKIN:GetVariable(sVariablePrefix.."CalendarExtraDays"))
-	iEDaysColor = iDisableDays == 1 and " | StyleCalendarTextExtra" or " | StyleCalendarTextInvisible"
+	sRange = string.lower(SELF:GetOption('Range','month'))
+	iStarOnMondays = SELF:GetNumberOption('StartOnMonday',0)>0
+	iLeadingZeroes = SELF:GetNumberOption('LeadingZeroes',0)>0
+	iEDaysColor = SELF:GetNumberOption('ExtraDays')>0 and ' | StyleCalendarTextExtra' or ' | StyleCalendarTextInvisible'
+	
+	iRange = {month=42,week=7}
+	if not iRange[sRange] then sRange='month' end
+	tCurrMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
+	iDayOnLastUpdate=0
 	
 	tMeterStyles = {}
-	for a = 1, iRange do
-		mSkin = SKIN:GetMeter(sVariablePrefix..'Day'..a)
+	for a = 1, iRange[sRange] do
+		local mSkin = SKIN:GetMeter('Day'..a)
 		tMeterStyles[a] = mSkin:GetOption('MeterStyle')
 	end
-	tCurrMonth = {31;iFeb;31;30;31;30;31;31;30;31;30;31;}
-	tPrevMonth = {31;31;iFeb;31;30;31;30;31;31;30;31;30;}
-	tLabelsStartingSunday = {'S'; 'M'; 'T'; 'W'; 'R'; 'F'; 'S';}
-	tLabelsStartingMonday = {'M'; 'T'; 'W'; 'R'; 'F'; 'S'; 'S';}
-	
-	iDayOnLastUpdate=0
+	local tLabels = {'S','M','T','W','R','F','S'}
+	for i=1,7 do
+		SKIN:Bang('!SetOption','Day'..i..'Label','Text',tLabels[iStartOnMondays and i%7+1 or i])
+	end
 end
 
 function Update()
-	local iToday = tonumber(os.date("%d"))
-	if iToday ~= iDayOnLastUpdate then
-		local iYear = os.date("%Y")
-		local iFeb = 28+((iYear%4)==0 and 1 or 0)
-		local iMonth = tonumber(os.date("%m"))
-		local iWeekDay = tonumber(os.date("%w"))
-		local when = os.time({year=iYear, month=iMonth, day=1})
-		local iStartDay = os.date("%w", when)
-		
-		----------------------------------------------
-		-- START ON SUNDAY OR MONDAY
-		
-		if iStartOnMondays == 1 then
-			iStartDay = (iStartDay == 0) and 6 or iStartDay-1
-			iWeekDay = (iWeekDay == 0) and 6 or iWeekDay-1
-		end
+	local Date = os.date('*t')
+	if Date.day ~= iDayOnLastUpdate then
+		iDayOnLastUpdate=Date.day
+		tCurrMonth[2] = 28+(((Date.year%4==0 and Date.year%100~=0) or Date.year%400==0) and 1 or 0)
+		local iStartDay = Rotate(tonumber(os.date('%w', os.time({year=Date.year, month=Date.month, day=1}))))
 		
 		----------------------------------------------
 		-- !SETOPTIONS
 		
-		if iStartOnMondays == 1 then
-			for i = 1, 7 do
-				SKIN:Bang('!SetOption "'..sVariablePrefix..'Day'..i..'Label" "Text" "'..tLabelsStartingMonday[i]..'"')
-			end
-		else
-			for i = 1, 7 do
-				SKIN:Bang('!SetOption "'..sVariablePrefix..'Day'..i..'Label" "Text" "'..tLabelsStartingSunday[i]..'"')
-			end
-		end
 		
-		for a = 1, iRange  do
-			if sRange == 'Week' then
-				b = iToday+((a-1)-iWeekDay)
-			elseif sRange == 'Month' then
-				b = a - iStartDay
+		local case={
+			week=function(z) return Date.day+((z-1)-Rotate(Date.wday-1)) end,
+			month=function(z) return z-iStartDay end,
+		}
+		for a = 1, iRange[sRange]  do
+			mStyle=''
+			b=case[sRange](a)
+			if b<1 then
+				b=b+tCurrMonth[Date.month==1 and 12 or Date.month-1 ]
+				mStyle=iEDaysColor
+			elseif b>tCurrMonth[Date.month] then
+				b=b-tCurrMonth[Date.month]
+				mStyle=iEDaysColor
 			end
-			if b < 1 then
-				b = b + tPrevMonth[iMonth]
-				SKIN:Bang('!SetOption "'..sVariablePrefix..'Day'..a..'" "MeterStyle" "'..tMeterStyles[a]..iEDaysColor..'"')
-			elseif b > tCurrMonth[iMonth] then
-				b = b-tCurrMonth[iMonth]
-				SKIN:Bang('!SetOption "'..sVariablePrefix..'Day'..a..'" "MeterStyle" "'..tMeterStyles[a]..iEDaysColor..'"')
-			else
-				SKIN:Bang('!SetOption "'..sVariablePrefix..'Day'..a..'" "MeterStyle" "'..tMeterStyles[a]..'"')
-			end
-			if iLeadingZeroes == 1 then b = string.format("%02d",b) end
-			SKIN:Bang('!SetOption "'..sVariablePrefix..'Day'..a..'" "Text" "'..b..'"')
+			for k,v in pairs({
+				MeterStyle=tMeterStyles[a]..mStyle,
+				Text=iLeadingZeroes and string.format('%02d',b) or b,
+			}) do SKIN:Bang('!SetOption','Day'..a,k,v) end
 		end
-		if sRange == 'Month' then
-			iThisWeek = math.ceil((iToday+iStartDay)/7)
-			SKIN:Bang("!SetVariable "..sVariablePrefix.."ThisWeek "..iThisWeek)
+		if sRange == 'month' then
+			SKIN:Bang('!SetVariable','ThisWeek',math.ceil((Date.day+iStartDay)/7))
 		end
-		SKIN:Bang("!SetVariable "..sVariablePrefix.."Week "..iWeekDay)
+		SKIN:Bang('!SetVariable','Week',Rotate(Date.wday-1))
+		SKIN:Bang('!SetOption','Indicator2','Text',Date.day)
 	end
-	iDayOnLastUpdate=iToday
-	SKIN:Bang('!SetOption "'..sVariablePrefix..'Indicator2" "Text" "'..iToday..'"')
 	return 'Success!'
 end
+
+function Rotate(a) return iStartOnMondays and (a-1+7)%7 or a end
