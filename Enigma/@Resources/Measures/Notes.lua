@@ -23,7 +23,7 @@ function Update()
 	local sRaw=io.read('*all')
 	io.close(sRawFile)
 	
-	local sNoteContent=string.gsub(sRaw,sContentDivider..'.-','')
+	local sNoteContent=string.gsub(sRaw,sContentDivider..'.+','')
 	
 	--sNoteContent = (sContentDivider~='' and string.match(sRaw,sContentDivider)) and string.match(sRaw,'(.-)'..sContentDivider) or sRaw
 		
