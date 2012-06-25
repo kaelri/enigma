@@ -1,185 +1,123 @@
-PROPERTIES = {
-	FeedMeasureName = '';
-	MultipleFeeds = 0;
-	VariablePrefix = '';
-	MinItems = 0;
-	SpecialFormat = '';
-	FinishAction = '';
-}
-
--- When Rainmeter supports escape characters for bangs, use this function to escape quotes.
-function ParseSpecialCharacters(sString)
-	sString = string.gsub(sString, '&nbsp;', ' ')
-	sString = string.gsub(sString, '\"', '')
-	return sString
-end
-
 function Initialize()
-	sFeedMeasureName = PROPERTIES.FeedMeasureName
-	iMultipleFeeds = tonumber(PROPERTIES.MultipleFeeds)
-	sVariablePrefix = PROPERTIES.VariablePrefix
-	iMinItems = tonumber(PROPERTIES.MinItems)
-	sFinishAction = PROPERTIES.FinishAction
-	sSpecialFormat = PROPERTIES.SpecialFormat
-	tFeeds = {}
-	tTitles = {}
-	tLinks = {}
-	tDates = {}
+	Set={
+		vPrefix=SELF:GetOption('VariablePrefix',''),
+		mItems=SELF:GetNumberOption('MinItems',0),
+		Finish=SELF:GetOption('FinishAction',''),
+		Sub=SELF:GetOption('Sub',''),
+		}
+	Matches={
+		'xmlns:gCal',
+		'<subtitle>rememberthemilk.com</subtitle>',
+		'<rss.-version=".-".->',
+		}
+	sPatternFeedLink={
+		'.-<link.-rel=.-alternate.-href=\'(.-)\'',
+		'.-<link.-rel=.-alternate.-href="(.-)"',
+		'.-<link.->(.-)</link>',
+		'.-<link.-href="(.-)"',
+		}
+	sPatternItem={
+		'<entry.-</entry>',
+		'<entry.-</entry>',
+		'<item.-</item>',
+		'<entry.-</entry>',
+		}
+	sPatternItemLink={
+		'.-<link.-href=\'(.-)\'',
+		'.-<link.-href="(.-)"',
+		'.-<link.->(.-)</link>',
+		'.-<link.-href="(.-)"',
+		}
+	sPatternItemDate={
+		'.-When: (.-)<',
+		'<span class="rtm_due_value">(.-)</span>',
+		'.-<pubDate.->(.-)</pubDate>',
+		'.-<updated.->(.-)</updated>',
+		}
+	iCurrentFeed=1
+	Measures={}
+	for a in string.gmatch(SELF:GetOption('FeedMeasureName',''),'[^%|]+') do
+		table.insert(Measures,SKIN:GetMeasure(a))
+	end
+	SKIN:Bang('!SetVariable','NumberOfFeeds',#Measures)
 end
 
 function Update()
-
-	-----------------------------------------------------------------------
-	-- INPUT FEED(S)
-	
-	if iMultipleFeeds == 1 then
-		iNumberOfFeeds = tonumber(SKIN:GetVariable(sVariablePrefix..'NumberOfFeeds'))
-		for i = 1, iNumberOfFeeds do
-			tFeeds[i] = SKIN:GetVariable(sVariablePrefix..'FeedMeasureName'..i)
-		end
-		iCurrentFeed = tonumber(SKIN:GetVariable(sVariablePrefix..'CurrentFeed'))
-		msRaw = SKIN:GetMeasure(tFeeds[iCurrentFeed])
-	else
-		msRaw = SKIN:GetMeasure(sFeedMeasureName)
-	end
-	sRaw = msRaw:GetStringValue()
-	
-	-----------------------------------------------------------------------
+	SKIN:Bang('!SetVariable','CurrentFeed',iCurrentFeed)
+	tTitles,tLinks,tDates={},{},{}
+	-- INPUT FEED
+	sRaw=Substitute(Measures[iCurrentFeed]:GetStringValue(),Set.Sub)
 	-- DETERMINE FEED FORMAT AND CONTENTS
-	
-	sPatternFeedTitle = '.-<title.->(.-)</title>'
-	sPatternItemTitle = '.-<title.->(.-)</title>'
-	if string.match(sRaw, 'xmlns:gCal') then
-		sRawCounted, iNumberOfItems = string.gsub(sRaw, '<entry', "")
-		sPatternFeedLink = '.-<link.-rel=.-alternate.-href=\'(.-)\''
-		sPatternItem = '<entry.-</entry>'
-		sPatternItemLink = '.-<link.-href=\'(.-)\''
-		sPatternItemDate = '.-When: (.-)<'
-	elseif string.match(sRaw, '<subtitle>rememberthemilk.com</subtitle>') then
-		sRawCounted, iNumberOfItems = string.gsub(sRaw, '<entry', "")
-		sPatternFeedLink = '.-<link.-rel=.-alternate.-href="(.-)"'
-		sPatternItem = '<entry.-</entry>'
-		sPatternItemLink = '.-<link.-href="(.-)"'
-		sPatternItemDate = '<span class="rtm_due_value">(.-)</span>'
-	elseif string.match(sRaw, '<rss.-version=".-".->') then
-		sRawCounted, iNumberOfItems = string.gsub(sRaw, '<item', "")
-		sPatternFeedLink = '.-<link.->(.-)</link>'
-		sPatternItem = '<item.-</item>'
-		sPatternItemLink = '.-<link.->(.-)</link>'
-		sPatternItemDesc = '.-<description.->(.-)</description>'
-		sPatternItemDate = '.-<pubDate.->(.-)</pubDate>'
-	else
-		sRawCounted, iNumberOfItems = string.gsub(sRaw, '<entry', "")
-		sPatternFeedLink = '.-<link.-href="(.-)"'
-		sPatternItem = '<entry.-</entry>'
-		sPatternItemLink = '.-<link.-href="(.-)"'
-		sPatternItemDesc = '.-<summary.->(.-)</summary>'
-		sPatternItemDate = '.-<updated.->(.-)</updated>'
+	FeedType=4
+	for i=1,3 do if string.match(sRaw,Matches[i]) then FeedType=i break end end
+	-- CREATE DATABASE
+	sFeedTitle,sFeedLink=string.match(sRaw,'.-<title.->(.-)</title>'..sPatternFeedLink[FeedType])
+	for sItem in string.gmatch(sRaw,sPatternItem[FeedType]) do
+		table.insert(tTitles,string.match(sItem,'.-<title.->(.-)</title>'))
+		table.insert(tLinks,string.match(sItem,sPatternItemLink[FeedType]))
+		table.insert(tDates,string.match(sItem,sPatternItemDate[FeedType]) or '')
 	end
-	
-	-----------------------------------------------------------------------
 	-- ERRORS
-	
-	sFeedTitle, sFeedLink = string.match(sRaw, sPatternFeedTitle..sPatternFeedLink)
 	if not sFeedTitle then
-		FeedError('Error', '', 'Connection or matching error.')
+		FeedError('Matching Error','','No valid feed was found.')
 		return 'Error: matching.'
-	end
-	sFeedTitle = ParseSpecialCharacters(sFeedTitle)
-	sFeedLink = ParseSpecialCharacters(sFeedLink)
-	
-	if iNumberOfItems == 0 then
-		SKIN:Bang('!SetVariable "'..sVariablePrefix..'NumberOfItems" "0"')
-		SKIN:Bang('!SetVariable "'..sVariablePrefix..'FeedTitle" "'..sFeedTitle..'"')
-		SKIN:Bang('!SetVariable "'..sVariablePrefix..'FeedLink" "'..sFeedLink..'"')
-		FeedError(sFeedTitle, '', 'Empty.')
+	elseif #tTitles==0 then
+		FeedError(sFeedTitle,'','Empty.')
 		return 'Error: empty feed.'
 	end
-	
-	-----------------------------------------------------------------------
-	-- CREATE DATABASE
-	
-	iInit = 0
-	for i = 1, iNumberOfItems do
-		iItemStart, iItemEnd = string.find(sRaw, sPatternItem, iInit)
-		sItem = string.sub(sRaw, iItemStart, iItemEnd)
-		tTitles[i] = string.match(sItem, sPatternItemTitle)
-		tTitles[i] = ParseSpecialCharacters(tTitles[i])
-		tLinks[i] = string.match(sItem, sPatternItemLink)
-		tLinks[i] = ParseSpecialCharacters(tLinks[i])
-		if string.match(sItem, sPatternItemDate) then
-			tDates[i] = string.match(sItem, sPatternItemDate)
-			tDates[i] = ParseSpecialCharacters(tDates[i])
-		else
-			tDates[i] = ''
-		end
-		iInit = iItemEnd + 1
-	end
-	
-	-----------------------------------------------------------------------
 	-- OUTPUT
-	
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'NumberOfItems" "'..iNumberOfItems..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'FeedTitle" "'..sFeedTitle..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'FeedLink" "'..sFeedLink..'"')
-
-	for i = 1, iNumberOfItems do
-		SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemTitle'..i..'" "'..tTitles[i]..'"')
-		SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemLink'..i..'" "'..tLinks[i]..'"')
-		SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemDate'..i..'" "'..tDates[i]..'"')
+	for k,v in pairs({
+		NumberOfItems=#tTitles,
+		FeedTitle=sFeedTitle,
+		FeedLink=sFeedLink,
+	}) do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
+	for i=1,(Set.mItems>#tTitles and Set.mItems or #tTitles) do
+		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemTitle'..i, tTitles[i])
+		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemLink'..i, tLinks[i] or 'No item found.')
+		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemDate'..i, tDates[i])
 	end
-
-	if  iMinItems > iNumberOfItems then
-		iFirstMissingItem = iNumberOfItems + 1
-		for i = iFirstMissingItem, iMinItems do
-			SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemTitle'..i..'" ""')
-			SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemLink'..i..'" ""')
-			SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemDate'..i..'" ""')
-		end
-	end
-
-	-----------------------------------------------------------------------
-	-- FINISH ACTION
-	
-	if sFinishAction ~= '' then
-		SKIN:Bang(sFinishAction)
-	end
-	
+	-- FINISH ACTION   
+	if Set.Finish~='' then SKIN:Bang(Set.Finish) end
 	return 'Success!'
 end
-
----------------------------------------------------------------------
 -- SWITCHERS
-
 function SwitchToNext()
-	iCurrentFeed = iCurrentFeed % iNumberOfFeeds + 1
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'CurrentFeed" "'..iCurrentFeed..'"')
+	iCurrentFeed=iCurrentFeed%#Measures+1
 	Update()
 end
 
 function SwitchToPrevious()
-	iCurrentFeed = iCurrentFeed - 1 + (iCurrentFeed == 1 and iNumberOfFeeds or 0)
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'CurrentFeed" "'..iCurrentFeed..'"')
+	iCurrentFeed=iCurrentFeed==1 and #Measures or iCurrentFeed-1
 	Update()
 end
 
-function SwitchToFeed(a)
-	SKIN:Bang('!SetVariable CurrentFeed '..a)
-	SNum=0
+function SwitchTo(a)
+	iCurrentFeed=tonumber(a)
 	Update()
 end
 
-function FeedError(sErrorName, sErrorLink, sErrorDesc)
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'FeedTitle" "'..sErrorName..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'FeedLink" "'..sErrorLink..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemTitle1" "'..sErrorDesc..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemLink1" ""')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemDate1" ""')
-	if  iMinItems > 1 then
-		for i = 2, iMinItems do
-			SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemTitle'..i..'" ""')
-			SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemLink'..i..'" ""')
-			SKIN:Bang('!SetVariable "'..sVariablePrefix..'ItemDate'..i..'" ""')
-		end
+function FeedError(sErrorName,sErrorLink,sErrorDesc)
+	for k,v in pairs({
+		FeedTitle=sErrorName,
+		FeedLink=sErrorLink,
+		ItemTitle1=sErrorDesc,
+		ItemLink1='',
+		ItemDate1='',
+	}) do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
+	for i=2,Set.mItems do
+		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemTitle'..i,'')
+		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemLink'..i,'')
+		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemDate'..i,'')
 	end
+end
+
+function Substitute(Val,Sub)
+	Val=tostring(Val)
+	Sub='"'..string.gsub(Sub,'%[','%%%[')..'"'
+	local Strip=function(a) return string.match(a,'^[\'"](.*)[\'"]$') or '' end
+	for a in string.gmatch(Sub,'[^,]+') do
+		local l,r=string.match(a,'(.*):(.*)')
+		Val=string.gsub(Val,Strip(l),Strip(r))
+	end
+	return Val
 end
