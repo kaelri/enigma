@@ -71,7 +71,7 @@ Text="1st Notes File"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Note1Path#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Note1Path" "#Settings#" "#Note1Path#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note1Path" "#Settings#" "#Note1Path#"]
 TooltipTitle="1st Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
 
@@ -84,7 +84,7 @@ Text="2nd Notes File"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Note2Path#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Note2Path" "#Settings#" "#Note2Path#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note2Path" "#Settings#" "#Note2Path#"]
 TooltipTitle="2nd Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
 
@@ -97,7 +97,7 @@ Text="3rd Notes File"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Note3Path#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Note3Path" "#Settings#" "#Note3Path#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note3Path" "#Settings#" "#Note3Path#"]
 TooltipTitle="3rd Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
 
@@ -235,7 +235,7 @@ Text="Gallery Path"
 Meter=STRING
 MeterStyle=StyleText
 Text="#GalleryPath#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "Folder" "Variables" "GalleryPath" "#Settings#" "#GalleryPath#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "Folder" "Variables" "GalleryPath" "#Settings#" "#GalleryPath#"]
 TooltipTitle="Folder Location (C:\Users\...)"
 TooltipText=Click to type the path to the folder containing the images which you would like Enigma Gallery to display.
 

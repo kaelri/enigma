@@ -13,7 +13,7 @@
 ; RainRGB.exe VarName=xxx FileName=xxx Alpha=xxx RefreshConfig=xxx
 ; 
 ; Example as called from Rainmeter:
-; SomeAction=!Execute ["#ADDONSPATH#RainRGB\RainRGB.exe" "VarName=MyTextColor" "FileName=#CURRENTPATH#UserVariables.inc" "Alpha=200" "RefreshConfig=RainRGB"]
+; SomeAction=!Execute ["#@#Addons\RainRGB\RainRGB.exe" "VarName=MyTextColor" "FileName=#CURRENTPATH#UserVariables.inc" "Alpha=200" "RefreshConfig=RainRGB"]
 ; You MUST put quotes around the call to the executable and each parameter.
 ;
 ; VarName REQUIRED
@@ -44,6 +44,6 @@
 ;
 ; To leave a parameter off, remove the entire "ParmName=ParmValue" entry. Do not set the parameter to "" (NULL) to achieve this.
 ; For example to call the addon without changing the alpha value, and refreshing all skins instead of a specific one:
-; SomeAction=!Execute ["#ADDONSPATH#RainRGB\RainRGB.exe" "VarName=MyTextColor" "FileName=#CURRENTPATH#UserVariables.inc"]
+; SomeAction=!Execute ["#@#Addons\RainRGB\RainRGB.exe" "VarName=MyTextColor" "FileName=#CURRENTPATH#UserVariables.inc"]
 ; Remember that VarName and FileName are REQUIRED.  RainRGB will just silently exit without making any changes if they are missing.
 ;=========================================================================================================================================================

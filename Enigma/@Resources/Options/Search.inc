@@ -67,7 +67,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search1Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Search1Icon" "#Settings#" "#Search1Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search1Icon" "#Settings#" "#Search1Icon#"]
 TooltipTitle="1st Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -108,7 +108,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search2Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Search2Icon" "#Settings#" "#Search2Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search2Icon" "#Settings#" "#Search2Icon#"]
 TooltipTitle="2nd Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -149,7 +149,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search3Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Search3Icon" "#Settings#" "#Search3Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search3Icon" "#Settings#" "#Search3Icon#"]
 TooltipTitle="3rd Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -190,7 +190,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search4Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Search4Icon" "#Settings#" "#Search4Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search4Icon" "#Settings#" "#Search4Icon#"]
 TooltipTitle="4th Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -231,7 +231,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search5Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "Search5Icon" "#Settings#" "#Search5Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search5Icon" "#Settings#" "#Search5Icon#"]
 TooltipTitle="5th Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 

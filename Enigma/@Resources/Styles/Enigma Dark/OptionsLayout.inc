@@ -149,7 +149,7 @@ H=7
 W=79
 TooltipWidth=300
 ImageName=#TaskbarImage#
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "TaskbarImage" "#StyleSettings#" "#TaskbarImage#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "TaskbarImage" "#StyleSettings#" "#TaskbarImage#"]
 TooltipTitle="Taskbar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.
 
@@ -162,7 +162,7 @@ H=7
 W=79
 TooltipWidth=300
 ImageName=#SecondTaskbarImage#
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "SecondTaskbarImage" "#StyleSettings#" "#SecondTaskbarImage#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "SecondTaskbarImage" "#StyleSettings#" "#SecondTaskbarImage#"]
 TooltipTitle="Second Taskbar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.
 
@@ -175,7 +175,7 @@ H=34
 W=14
 TooltipWidth=300
 ImageName=#SidebarImage#
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "SidebarImage" "#StyleSettings#" "#SidebarImage#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "SidebarImage" "#StyleSettings#" "#SidebarImage#"]
 TooltipTitle="Sidebar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.
 
@@ -188,7 +188,7 @@ H=34
 W=14
 TooltipWidth=300
 ImageName=#SecondSidebarImage#
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "SecondSidebarImage" "#StyleSettings#" "#SecondSidebarImage#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "SecondSidebarImage" "#StyleSettings#" "#SecondSidebarImage#"]
 TooltipTitle="Second Sidebar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.
 

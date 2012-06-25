@@ -17,7 +17,7 @@ The calling command must specify the dialog type ("File" or "Folder"), section n
 
 Called from a Rainmeter skin, the command would look something like this:
 
-!Execute ["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "FileLocation" "#SKINSPATH#Config\Variables.inc" "#CURRENTPATH#Image.jpg"]
+!Execute ["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "FileLocation" "#SKINSPATH#Config\Variables.inc" "#CURRENTPATH#Image.jpg"]
 
 The addon must be placed in Rainmeter's addons directory (default: C:\Program Files\Rainmeter\Addons\RainFile\RainFile.exe).
 

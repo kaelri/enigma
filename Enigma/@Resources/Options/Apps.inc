@@ -80,7 +80,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App1Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "App1Icon" "#Settings#" "#App1Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App1Icon" "#Settings#" "#App1Icon#"]
 TooltipTitle="1st Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -134,7 +134,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App2Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "App2Icon" "#Settings#" "#App2Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App2Icon" "#Settings#" "#App2Icon#"]
 TooltipTitle="2nd Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -188,7 +188,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App3Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "App3Icon" "#Settings#" "#App3Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App3Icon" "#Settings#" "#App3Icon#"]
 TooltipTitle="3rd Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -242,7 +242,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App4Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "App4Icon" "#Settings#" "#App4Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App4Icon" "#Settings#" "#App4Icon#"]
 TooltipTitle="4th Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -296,7 +296,7 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App5Icon#"
-LeftMouseUpAction=["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "App5Icon" "#Settings#" "#App5Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App5Icon" "#Settings#" "#App5Icon#"]
 TooltipTitle="5th Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
