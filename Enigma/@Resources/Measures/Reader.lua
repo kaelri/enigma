@@ -46,7 +46,7 @@ function Update()
 	SKIN:Bang('!SetVariable','CurrentFeed',iCurrentFeed)
 	tTitles,tLinks,tDates={},{},{}
 	-- INPUT FEED
-	sRaw=Measures[iCurrentFeed]:GetStringValue()
+	sRaw=Substitute(Measures[iCurrentFeed]:GetStringValue(),Set.Sub)
 	-- DETERMINE FEED FORMAT AND CONTENTS
 	FeedType=4
 	for i=1,3 do if string.match(sRaw,Matches[i]) then FeedType=i break end end
