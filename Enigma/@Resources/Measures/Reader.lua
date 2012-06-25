@@ -46,11 +46,7 @@ function Update()
 	SKIN:Bang('!SetVariable','CurrentFeed',iCurrentFeed)
 	tTitles,tLinks,tDates={},{},{}
 	-- INPUT FEED
-	if Set.Sub=='' then
-		sRaw=Measures[iCurrentFeed]:GetStringValue()
-	else
-		sRaw=Substitute(Measures[iCurrentFeed]:GetStringValue(),Set.Sub)
-	end
+	sRaw=Measures[iCurrentFeed]:GetStringValue()
 	-- DETERMINE FEED FORMAT AND CONTENTS
 	FeedType=4
 	for i=1,3 do if string.match(sRaw,Matches[i]) then FeedType=i break end end
@@ -118,7 +114,7 @@ end
 function Substitute(Val,Sub)
 	Val=tostring(Val)
 	Sub='"'..string.gsub(Sub,'%[','%%%[')..'"'
-	local Strip=function(a) return string.match(a,'^[\'"](.*)[\'"]$') or '' end
+	local Strip=function(a) return string.match(a or '','^[\'"](.*)[\'"]$') or '' end
 	for a in string.gmatch(Sub,'[^,]+') do
 		local l,r=string.match(a,'(.*):(.*)')
 		Val=string.gsub(Val,Strip(l),Strip(r))
