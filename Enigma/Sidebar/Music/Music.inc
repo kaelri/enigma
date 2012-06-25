@@ -68,14 +68,14 @@ MeasureName=MeasureTimePosition
 [Prev]
 Meter=STRING
 MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonFirst
-LeftMouseUpAction=!PluginBang "MeasureMediaPlayer Previous"
+LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "Previous"
 ToolTipTitle=Previous
 ToolTipText=Go back to the previous track in the current playlist.
 
 [Play]
 Meter=STRING
 MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonSecond[MeasureState]
-LeftMouseUpAction=!PluginBang "MeasureMediaPlayer PlayPause"
+LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "PlayPause"
 ToolTipTitle=Play/Pause
 ToolTipText=Pause the playing track, or resume playing if paused.
 DynamicVariables=1
@@ -83,7 +83,7 @@ DynamicVariables=1
 [Next]
 Meter=STRING
 MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonThird
-LeftMouseUpAction=!PluginBang "MeasureMediaPlayer Next"
+LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "Next"
 ToolTipTitle=Next
 ToolTipText=Go to the next track in the current playlist.
 

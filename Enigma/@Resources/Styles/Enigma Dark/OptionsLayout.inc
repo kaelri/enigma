@@ -48,7 +48,7 @@ Text="Sidebar Width"
 Meter=STRING
 MeterStyle=StyleText
 Text="#SidebarWidth#"
-LeftMouseUpAction=!PluginBang "MeasureInputLayout ExecuteBatch 1"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 1"
 TooltipTitle="Sidebar Width (px)"
 TooltipText=Click to type the width of the Sidebar skins. Your other skins will automatically adjust their widths to the sidebars'.
 
@@ -61,7 +61,7 @@ Text="Transparency"
 Meter=STRING
 MeterStyle=StyleText
 Text="#SidebarAlpha#"
-LeftMouseUpAction=!PluginBang "MeasureInputLayout ExecuteBatch 2"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 2"
 TooltipTitle="Sidebar Transparency (0-255)"
 TooltipText=Click to adjust the transparency of the Sidebar's background image. (You can also change the transparency of the skin itself, but this will also reduce the visibility of the blur effect.)
 
@@ -74,7 +74,7 @@ Text="Spacing"
 Meter=STRING
 MeterStyle=StyleText
 Text="#SidebarSpacing#"
-LeftMouseUpAction=!PluginBang "MeasureInputLayout ExecuteBatch 3"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 3"
 TooltipTitle="Sidebar Spacing (px)"
 TooltipText=You can adjust the spacing left between the sidebar and the top (or bottom) of the screen. This is usually where the Taskbar skin goes, so it should be the same as the Taskbar Height. If you don't want to use the taskbar, set this to 0.
 
@@ -89,7 +89,7 @@ Text="Taskbar Height"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TaskbarHeight#"
-LeftMouseUpAction=!PluginBang "MeasureInputLayout ExecuteBatch 4"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 4"
 TooltipTitle="Taskbar Height (px)"
 TooltipText=Click to type the height of the Taskbar. Your other skins will automatically adjust their heights to the taskbar's.
 
@@ -102,7 +102,7 @@ Text="Transparency"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TaskbarAlpha#"
-LeftMouseUpAction=!PluginBang "MeasureInputLayout ExecuteBatch 5"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 5"
 TooltipTitle="Taskbar Transparency (0-255)"
 TooltipText=Click to adjust the transparency of the Taskbar's background image. (You can also change the transparency of the skin itself, but this will also reduce the visibility of the blur effect.)
 
@@ -115,7 +115,7 @@ Text="Spacing"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TaskbarSpacing#"
-LeftMouseUpAction=!PluginBang "MeasureInputLayout ExecuteBatch 6"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 6"
 TooltipTitle="Taskbar Spacing (px)"
 TooltipText=You can also adjust the spacing left between the taskbar and the left (or right) of the screen. If you want the taskbar to span the entire screen width, this should be kept at zero.
 

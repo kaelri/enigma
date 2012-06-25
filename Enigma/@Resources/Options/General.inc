@@ -110,7 +110,7 @@ Text="Height"
 Meter=STRING
 MeterStyle=StyleText
 Text="#NoteHeight#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 1"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 1"
 TooltipTitle="Notes Display Height (pixels)"
 TooltipText=You can choose the height of Enigma Notes' display area. Any content in your notes file below this point will not be displayed, although you can store as much as you want in the file.
 
@@ -125,7 +125,7 @@ Text="1st Drive"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Drive1#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 2"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 2"
 TooltipTitle="1st Drive Letter"
 TooltipText=Click to type the letters of up to three of your hard drives or SSDs. Enigma System will display the free and used space on these drives. You do not need to include the colon.
 
@@ -138,7 +138,7 @@ Text="2nd Drive"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Drive2#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 3"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 3"
 TooltipTitle="2nd Drive Letter"
 TooltipText=Click to type the letters of up to three of your hard drives or SSDs. Enigma System will display the free and used space on these drives. You do not need to include the colon.
 
@@ -151,7 +151,7 @@ Text="3rd Drive"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Drive3#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 4"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 4"
 TooltipTitle="3rd Drive Letter"
 TooltipText=Click to type the letters of up to three of your hard drives or SSDs. Enigma System will display the free and used space on these drives. You do not need to include the colon.
 
@@ -166,7 +166,7 @@ Text=Max Down Speed
 Meter=STRING
 MeterStyle=StyleText
 Text="#NetworkMaxDownload#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 5"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 5"
 TooltipTitle="Maximum Download Speed (B)"
 TooltipText=Click to type your maximum upload and download speeds (in bytes). Enigma Network will show your network activity as a percentage of these figures.
 
@@ -179,7 +179,7 @@ Text=Max Up Speed
 Meter=STRING
 MeterStyle=StyleText
 Text="#NetworkMaxUpload#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 6"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 6"
 TooltipTitle="Maximum Upload Speed (B)"
 TooltipText=Click to type your maximum upload and download speeds (in bytes). Enigma Network will show your network activity as a percentage of these figures.
 
@@ -261,7 +261,7 @@ Text="Aspect Ratio"
 Meter=STRING
 MeterStyle=StyleText
 Text="#GalleryRatio#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 7"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 7"
 TooltipTitle="Image Aspect Ratio (width/height)"
 TooltipText=You can also determine the aspect ratio of the Gallery skin's display window. (The skin itself allows you to toggle whether the displayed images are stretched to fit this ratio.)
 
@@ -276,7 +276,7 @@ Text="Volume Step"
 Meter=STRING
 MeterStyle=StyleText
 Text="#VolumeIncrement#%"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 8"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 8"
 TooltipTitle="Volume Change Increment (percent)"
 TooltipText=Click to change the amount by which Enigma Volume increases and decreases your system volume when clicked.
 
@@ -291,7 +291,7 @@ Text="Switcher Time"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TriptychInterval#"
-LeftMouseUpAction=!PluginBang "MeasureInputGeneral ExecuteBatch 9"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 9"
 TooltipTitle="Switcher Rotation Period (seconds)"
 TooltipText=Click to type the length of time (in seconds) that Enigma Reader, Gcal, Remember The Milk, Notes, and Gallery display one tab before automatically rotating to the next.
 

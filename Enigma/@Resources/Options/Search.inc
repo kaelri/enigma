@@ -41,7 +41,7 @@ Text="1st Search Engine"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search1#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 1"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 1"
 TooltipTitle="1st Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -54,7 +54,7 @@ Text="Command"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search1Command#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 2"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 2"
 TooltipTitle="1st Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -82,7 +82,7 @@ Text="2nd Search Engine"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search2#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 3"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 3"
 TooltipTitle="2nd Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -95,7 +95,7 @@ Text="Command"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search2Command#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 4"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 4"
 TooltipTitle="2nd Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -123,7 +123,7 @@ Text="3rd Search Engine"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search3#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 5"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 5"
 TooltipTitle="3rd Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -136,7 +136,7 @@ Text="Command"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search3Command#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 6"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 6"
 TooltipTitle="3rd Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -164,7 +164,7 @@ Text="4th Search Engine"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search4#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 7"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 7"
 TooltipTitle="4th Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -177,7 +177,7 @@ Text="Command"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search4Command#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 8"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 8"
 TooltipTitle="4th Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -205,7 +205,7 @@ Text="5th Search Engine"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search5#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 9"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 9"
 TooltipTitle="5th Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -218,7 +218,7 @@ Text="Command"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Search5Command#"
-LeftMouseUpAction=!PluginBang "MeasureInputSearch ExecuteBatch 10"
+LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 10"
 TooltipTitle="5th Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 

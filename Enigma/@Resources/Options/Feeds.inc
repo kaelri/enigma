@@ -41,7 +41,7 @@ Text="1st Feed"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Feed1#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 1"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 1"
 TooltipTitle="1st Feed URL"
 TooltipText=Click to type or paste the address of an Atom or RSS feed.
 
@@ -54,7 +54,7 @@ Text="2nd Feed"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Feed2#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 2"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 2"
 TooltipTitle="2nd Feed URL"
 TooltipText=Click to type or paste the address of an Atom or RSS feed.
 
@@ -67,7 +67,7 @@ Text="3rd Feed"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Feed3#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 3"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 3"
 TooltipTitle="3rd Feed URL"
 TooltipText=Click to type or paste the address of an Atom or RSS feed.
 
@@ -82,7 +82,7 @@ Text="Gmail Username"
 Meter=STRING
 MeterStyle=StyleText
 Text="#GmailUsername#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 4"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 4"
 TooltipTitle="Google Account Username"
 TooltipText=Click to type your Google username and password here. Enigma Gmail will use this information to retrieve unread messages from your inbox.#CRLF##CRLF#You do not need to include '@gmail.com'.#CRLF##CRLF#Rainmeter may be unable to connect to Gmail if your password contains special characters. If your skins are not displaying properly, try changing your password to one that includes only numbers and letters.
 
@@ -95,7 +95,7 @@ Text="Password"
 Meter=STRING
 MeterStyle=StyleText
 Text="*********"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 5"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 5"
 TooltipTitle="Google Account Password"
 TooltipText=Click to type your Google username and password here. Enigma Gmail will use this information to retrieve unread messages from your inbox.#CRLF##CRLF#You do not need to include '@gmail.com'.#CRLF##CRLF#Rainmeter may be unable to connect to Gmail if your password contains special characters. If your skins are not displaying properly, try changing your password to one that includes only numbers and letters.
 
@@ -108,7 +108,7 @@ Text="1st Calendar"
 Meter=STRING
 MeterStyle=StyleText
 Text="#GoogleCalendar1#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 6"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 6"
 TooltipTitle="1st Google Calendar Private Feed URL"
 TooltipText=Click to type or paste the addressses of up to three of your Google Calendar feeds.#CRLF##CRLF#To find the address of a feed:#CRLF#1. Go to http://google.com/calendar.#CRLF#2. Find your calendar's tab in the menu on the left.#CRLF#3. Click the triangular button to open its menu, then go to 'Calendar Settings.'#CRLF#4. Scroll down to 'Private Address' and copy the link location of the button labeled 'XML.'#CRLF##CRLF#Google Calendar's feed is notoriously inconsistent. It is very likely that you will notice errors and missing information. The Rainmeter community is doing everything we can to improve the situation, but there is no guaranteed solution at this time.
 
@@ -121,7 +121,7 @@ Text="2nd Calendar"
 Meter=STRING
 MeterStyle=StyleText
 Text="#GoogleCalendar2#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 7"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 7"
 TooltipTitle="2nd Google Calendar Private Feed URL"
 TooltipText=Click to type or paste the addressses of up to three of your Google Calendar feeds.#CRLF##CRLF#To find the address of a feed:#CRLF#1. Go to http://google.com/calendar.#CRLF#2. Find your calendar's tab in the menu on the left.#CRLF#3. Click the triangular button to open its menu, then go to 'Calendar Settings.'#CRLF#4. Scroll down to 'Private Address' and copy the link location of the button labeled 'XML.'#CRLF##CRLF#Google Calendar's feed is notoriously inconsistent. It is very likely that you will notice errors and missing information. The Rainmeter community is doing everything we can to improve the situation, but there is no guaranteed solution at this time.
 
@@ -134,7 +134,7 @@ Text="3rd Calendar"
 Meter=STRING
 MeterStyle=StyleText
 Text="#GoogleCalendar3#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 8"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 8"
 TooltipTitle="3rd Google Calendar Private Feed URL"
 TooltipText=Click to type or paste the addressses of up to three of your Google Calendar feeds.#CRLF##CRLF#To find the address of a feed:#CRLF#1. Go to http://google.com/calendar.#CRLF#2. Find your calendar's tab in the menu on the left.#CRLF#3. Click the triangular button to open its menu, then go to 'Calendar Settings.'#CRLF#4. Scroll down to 'Private Address' and copy the link location of the button labeled 'XML.'#CRLF##CRLF#Google Calendar's feed is notoriously inconsistent. It is very likely that you will notice errors and missing information. The Rainmeter community is doing everything we can to improve the situation, but there is no guaranteed solution at this time.
 
@@ -150,7 +150,7 @@ TooltipText=Click to type or paste the addressses of up to three of your Google 
 ; Meter=STRING
 ; MeterStyle=StyleText
 ; Text="#TwitterUsername#"
-; LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 9"
+; LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 9"
 ; TooltipTitle="SuperTweet Username"
 ; TooltipText="#TwitterText#"
 
@@ -163,7 +163,7 @@ TooltipText=Click to type or paste the addressses of up to three of your Google 
 ; Meter=STRING
 ; MeterStyle=StyleText
 ; Text="*********"
-; LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 10"
+; LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 10"
 ; TooltipTitle="SuperTweet Secret"
 ; TooltipText="#TwitterText#"
 
@@ -178,7 +178,7 @@ Text="Facebook Feed"
 Meter=STRING
 MeterStyle=StyleText
 Text="#FacebookFeed#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 11"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 11"
 TooltipTitle="Facebook Notifications Feed URL"
 TooltipText=Click to type or paste the address of your Facebook notifications feed.#CRLF##CRLF#To find the address:#CRLF#1. Log into Facebook.#CRLF#2. Go to http://www.facebook.com/notifications.php.#CRLF#3. Copy the link location of the button labeled 'Via RSS'.#CRLF#4. Copy the link here.
 
@@ -193,7 +193,7 @@ Text="Remember the Milk"
 Meter=STRING
 MeterStyle=StyleText
 Text="#RTMusername#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 12"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 12"
 TooltipTitle="Remember the Milk Username"
 TooltipText=Click to type your Remember the Milk username, password, and the ID numbers of up to three of your lists.
 
@@ -206,7 +206,7 @@ Text="Password"
 Meter=STRING
 MeterStyle=StyleText
 Text="*********"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 13"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 13"
 TooltipTitle="Remember the Milk Password"
 TooltipText=To find the ID number of a Remember The Milk list:#CRLF#1. Open the list's page on RememberTheMilk.com in your browser.#CRLF#2. Find the link on the far left, labeled 'Atom,' and copy the link address.#CRLF#3. At the end of the address, there will be a number between two slashes. That number is the list ID.#CRLF#Copy the list ID here.
 
@@ -219,7 +219,7 @@ Text="1st List ID"
 Meter=STRING
 MeterStyle=StyleText
 Text="#RTMlist1#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 14"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 14"
 TooltipTitle="1st List ID Number"
 TooltipText=To find the ID number of a Remember The Milk list:#CRLF#1. Open the list's page on RememberTheMilk.com in your browser.#CRLF#2. Find the link on the far left, labeled 'Atom,' and copy the link address.#CRLF#3. At the end of the address, there will be a number between two slashes. That number is the list ID.#CRLF#Copy the list ID here.
 
@@ -232,7 +232,7 @@ Text="2nd List ID"
 Meter=STRING
 MeterStyle=StyleText
 Text="#RTMlist2#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 15"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 15"
 TooltipTitle="2nd List ID Number"
 TooltipText=To find the ID number of a Remember The Milk list:#CRLF#1. Open the list's page on RememberTheMilk.com in your browser.#CRLF#2. Find the link on the far left, labeled 'Atom,' and copy the link address.#CRLF#3. At the end of the address, there will be a number between two slashes. That number is the list ID.#CRLF#Copy the list ID here.
 
@@ -245,7 +245,7 @@ Text="3rd List ID"
 Meter=STRING
 MeterStyle=StyleText
 Text="#RTMlist3#"
-LeftMouseUpAction=!PluginBang "MeasureInputFeeds ExecuteBatch 16"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 16"
 TooltipTitle="3rd List ID Number"
 TooltipText=To find the ID number of a Remember The Milk list:#CRLF#1. Open the list's page on RememberTheMilk.com in your browser.#CRLF#2. Find the link on the far left, labeled 'Atom,' and copy the link address.#CRLF#3. At the end of the address, there will be a number between two slashes. That number is the list ID.#CRLF#Copy the list ID here.
 

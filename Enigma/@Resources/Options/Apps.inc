@@ -41,7 +41,7 @@ Text="1st Launcher App"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App1#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 1"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 1"
 TooltipTitle="1st Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -54,7 +54,7 @@ Text="Location"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App1Path#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 2"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 2"
 TooltipTitle="1st File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -67,7 +67,7 @@ Text="Label"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App1Label#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 3"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 3"
 TooltipTitle="1st Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -95,7 +95,7 @@ Text="2nd Launcher App"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App2#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 4"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 4"
 TooltipTitle="2nd Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -108,7 +108,7 @@ Text="Location"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App2Path#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 5"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 5"
 TooltipTitle="2nd File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -121,7 +121,7 @@ Text="Label"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App2Label#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 6"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 6"
 TooltipTitle="2nd Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -149,7 +149,7 @@ Text="3rd Launcher App"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App3#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 7"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 7"
 TooltipTitle="3rd Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -162,7 +162,7 @@ Text="Location"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App3Path#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 8"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 8"
 TooltipTitle="3rd File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -175,7 +175,7 @@ Text="Label"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App3Label#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 9"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 9"
 TooltipTitle="3rd Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -203,7 +203,7 @@ Text="4th Launcher App"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App4#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 10"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 10"
 TooltipTitle="4th Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -216,7 +216,7 @@ Text="Location"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App4Path#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 11"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 11"
 TooltipTitle="4th File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -229,7 +229,7 @@ Text="Label"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App4Label#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 12"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 12"
 TooltipTitle="4th Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -257,7 +257,7 @@ Text="5th Launcher App"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App5#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 13"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 13"
 TooltipTitle="5th Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -270,7 +270,7 @@ Text="Location"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App5Path#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 14"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 14"
 TooltipTitle="5th File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -283,7 +283,7 @@ Text="Label"
 Meter=STRING
 MeterStyle=StyleText
 Text="#App5Label#"
-LeftMouseUpAction=!PluginBang "MeasureInputApps ExecuteBatch 15"
+LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 15"
 TooltipTitle="5th Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 

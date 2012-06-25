@@ -65,7 +65,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Stylesheet#"
 StringStyle=BOLD
-LeftMouseUpAction=!PluginBang "MeasureInputFormat ExecuteBatch 1"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 1"
 TooltipTitle="Stylesheet Name (Enigma Light/Enigma Dark/[Other])"
 TooltipText=Click to type the name of the Enigma Stylesheet that you would like to use. This will affect the images and color scheme used throughout Enigma.#CRLF##CRLF#Enigma comes with two stylesheets: 'Enigma Dark' and 'Enigma Light'. If you have downloaded additional stylesheets, place them in Skins\Enigma\Resources\Styles.
 
@@ -144,7 +144,7 @@ MeterStyle=StyleColorBackground
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorTransparent#
-LeftMouseUpAction=!PluginBang "MeasureInputFormat ExecuteBatch 2"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 2"
 TooltipTitle="Transparent Background Color"
 TooltipText=Click to type the color of #Stylesheet#'s transparent backgrounds. This color must be written numerically. The default color is "0,0,0,2" - black and almost completely transparent - and should only be changed when debugging skin sizes and positions.
 
@@ -175,7 +175,7 @@ Text="Font"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Font#"
-LeftMouseUpAction=!PluginBang "MeasureInputFormat ExecuteBatch 3"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 3"
 TooltipTitle="Font Name"
 TooltipText=Click to type the name of the font used throughout #Stylesheet#. If you aren't sure which name to use, or whether your font is compatible with Rainmeter, you should use Jeff Morley's RainFont utility.
 
@@ -189,7 +189,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Size1#"
 FontSize=#Size1#
-LeftMouseUpAction=!PluginBang "MeasureInputFormat ExecuteBatch 4"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 4"
 TooltipTitle="1st Font Size"
 TooltipText=You may change the font sizes used in #Stylesheet#. Be aware, however, that most skins are not infinitely flexible, and dramatic changes may break the layout of your skins.
 
@@ -203,7 +203,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Size2#"
 FontSize=#Size2#
-LeftMouseUpAction=!PluginBang "MeasureInputFormat ExecuteBatch 5"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 5"
 TooltipTitle="2nd Font Size"
 TooltipText=You may change the font sizes used in #Stylesheet#. Be aware, however, that most skins are not infinitely flexible, and dramatic changes may break the layout of your skins.
 
@@ -217,7 +217,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Size3#"
 FontSize=#Size3#
-LeftMouseUpAction=!PluginBang "MeasureInputFormat ExecuteBatch 6"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 6"
 TooltipTitle="3rd Font Size"
 TooltipText=You may change the font sizes used in #Stylesheet#. Be aware, however, that most skins are not infinitely flexible, and dramatic changes may break the layout of your skins.
 
@@ -231,7 +231,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Size4#"
 FontSize=#Size4#
-LeftMouseUpAction=!PluginBang "MeasureInputFormat ExecuteBatch 7"
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 7"
 TooltipTitle="4th Font Size"
 TooltipText=You may change the font sizes used in #Stylesheet#. Be aware, however, that most skins are not infinitely flexible, and dramatic changes may break the layout of your skins.
 
