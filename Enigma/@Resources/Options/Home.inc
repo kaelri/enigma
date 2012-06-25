@@ -221,7 +221,7 @@ Text=project.
 [MeasureVersion]
 Measure=Plugin
 Plugin=Plugins\WebParser.dll
-Url=http://enigma.kaelri.com/version.txt
+Url=http://kaelri.github.com/Enigma/version.txt
 RegExp=(?siU)<version>(.*)</version>
 UpdateRate=3600
 StringIndex=1
@@ -241,7 +241,7 @@ Disabled=1
 ;-----------------------
 
 [StyleUpdateConnecting]
-Text="Connecting to enigma.kaelri.com..."
+Text="Connecting to GitHub..."
 TooltipTitle="Trying to Connect"
 TooltipText="If this message is not changing, there may be a problem with your Internet connection. Rainmeter may also have been blocked by a firewall application. Refresh this config when the issue has been resolved."
 FontColor=255,255,255
@@ -254,7 +254,7 @@ FontColor=255,255,255,160
 Text="Upgrade to Enigma [MeasureVersion]"
 FontColor=128,192,255,217
 StringStyle=BOLD
-LeftMouseUpAction=["http://enigma.kaelri.com/files/Enigma.rmskin"]
+LeftMouseUpAction=["https://github.com/Kaelri/Enigma/downloads"]
 TooltipTitle="Upgrade to Enigma [MeasureVersion]"
 TooltipText="An update is available! Click here to download the latest Enigma installer in your browser."
 TooltipWidth=300
