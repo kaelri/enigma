@@ -41,9 +41,12 @@ CHANGELOG
 Date: ???
 App: Rainmeter 2.3
 - [Skins] Changed all: updated to make use of the new "@Resources" folder and related conventions for Rainmeter 2.3.
-- [Skins] Changed all Taskbar: added group "EnigmaTaskbar".
+- [Skins] Changed all: replaces all uses of "!PluginBang" with "!CommandMeasure" for Rainmeter 2.3.
 - [Skins] Changed all: moved Groups to stylesheets.
+- [Skins] Changed all Taskbar: added group "EnigmaTaskbar".
+- [Skins] Changed Options: changed version-check source to GitHub.
 - [Skins] Changed Sidebar, Taskbar: moved LoadOrder setting to stylesheets.
+- [Measures] Changed Notes, Path, Reader, Calendar: various improvements by Smurfier.
 - [Measures] Fixed Notes: skin was displaying the UTF-8 Byte Order Mark (﻿).
 - [Measures] Fixed Music: PlayerType was not specified on main measure, resulting in log error.
 - [Styles] Changed Music: progress bar now hidden (shown on mouseover) when Bottom Borders are disabled.
