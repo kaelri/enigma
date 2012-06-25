@@ -20,11 +20,6 @@ Measure=CALC
 Formula=#CalendarMondays#
 Substitute="1":"Monday","0":"Sunday"
 
-[MeasureGalleryPreserveRatioSubstitute]
-Measure=CALC
-Formula=#GalleryPreserveRatio#
-Substitute="1":"Yes","0":"No"
-
 [MeasureGallerySubfoldersSubstitute]
 Measure=CALC
 Formula=#GallerySubfolders#

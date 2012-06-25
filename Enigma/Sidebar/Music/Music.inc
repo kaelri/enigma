@@ -2,7 +2,7 @@
 ; MEASURES
 
 [Variables]
-@include4=#@#Measures\Music.inc
+@include=#@#Measures\Music.inc
 CurrentPlayer=#MusicPlayer#
 
 ;---------------------------------------------------------------------
