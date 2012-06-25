@@ -3,7 +3,7 @@ function Initialize()
 		vPrefix=SELF:GetOption('VariablePrefix',''),
 		mItems=SELF:GetNumberOption('MinItems',0),
 		Finish=SELF:GetOption('FinishAction',''),
-		Sub=SELF:GetOption('Sub',''),
+		Sub=SELF:GetOption('Sub'),
 		}
 	Matches={
 		'xmlns:gCal',
@@ -46,7 +46,11 @@ function Update()
 	SKIN:Bang('!SetVariable','CurrentFeed',iCurrentFeed)
 	tTitles,tLinks,tDates={},{},{}
 	-- INPUT FEED
-	sRaw=Substitute(Measures[iCurrentFeed]:GetStringValue(),Set.Sub)
+	if Set.Sub=='' then
+		sRaw=Measures[iCurrentFeed]:GetStringValue()
+	else
+		sRaw=Substitute(Measures[iCurrentFeed]:GetStringValue(),Set.Sub)
+	end
 	-- DETERMINE FEED FORMAT AND CONTENTS
 	FeedType=4
 	for i=1,3 do if string.match(sRaw,Matches[i]) then FeedType=i break end end
