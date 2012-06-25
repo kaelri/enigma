@@ -1,4 +1,4 @@
-﻿- Click here to edit your notes!
+- Click here to edit your notes!
 
 - Middle-click any skin to refresh it. When you make modifications to a skin, you should refresh it to apply your changes.
 
