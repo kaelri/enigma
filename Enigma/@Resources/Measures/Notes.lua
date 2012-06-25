@@ -1,100 +1,57 @@
-PROPERTIES = {
-	NotePath = '';
-	VariablePrefix = '';
-	MultipleNotes = 0;
-	ContentDivider = '';
-	FinishAction = '';
-}
-
--- When Rainmeter supports escape characters for bangs, use this function to escape quotes, brackets.
-function ParseSpecialCharacters(sString)
-	sString = string.gsub(sString, '\"', '')
-	sString = string.gsub(sString, '- ', '· ')
-	sString = string.gsub(sString, 'ï»¿', '')
-	return sString
-end
-
 function Initialize()
-	sNotePath = PROPERTIES.NotePath
-	sVariablePrefix = PROPERTIES.VariablePrefix
-	iMultipleNotes = tonumber(PROPERTIES.MultipleNotes)
-	sContentDivider = PROPERTIES.ContentDivider
-	sFinishAction = PROPERTIES.FinishAction
+	sVariablePrefix = SELF:GetOption('VariablePrefix','')
+	sContentDivider = SELF:GetOption('ContentDivider','')
+	sFinishAction = SELF:GetOption('FinishAction')
 	tNotes = {}
+	for a in string.gmatch(SELF:GetOption('NotePath',''),'[^%|]+') do
+		table.insert(tNotes,SKIN:MakePathAbsolute(a))
+	end
+	iCurrentNote=1
+	SKIN:Bang('!SetVariable','NumberOfNotes',#tNotes)
 end
 
 function Update()
-
-	-----------------------------------------------------------------------
-	-- INPUT NOTE(S)
-
-	if iMultipleNotes == 1 then
-		iNumberOfNotes = tonumber(SKIN:GetVariable(sVariablePrefix..'NumberOfNotes'))
-		for i = 1, iNumberOfNotes do
-			tNotes[i] = SKIN:GetVariable(sVariablePrefix..'NotePath'..i)
-		end
-		iCurrentNote = tonumber(SKIN:GetVariable(sVariablePrefix..'CurrentNote'))
-		sNotePath = tNotes[iCurrentNote]
-	end
+	local sNotePath=assert(tNotes[iCurrentNote],'Invalid Note number '..iCurrentNote)
+	SKIN:Bang('!SetVariable','CurrentNote',iCurrentNote)
 	
 	-----------------------------------------------------------------------
 	-- DETERMINE CONTENT
 	
-	sNoteDir, sNoteName, sNoteExt = string.match(sNotePath, "(.-)([^\\]-)%.([^%.]+)$")
+	local sNoteDir,sNoteName,sNoteExt = string.match(sNotePath, '(.-)([^\\]-)%.([^%.]+)$')
 	
-	io.input(sNotePath)
-	sRaw = io.read('*all')
-
+	local sRawFile=io.input(sNotePath)
+	local sRaw=io.read('*all')
+	io.close(sRawFile)
 	
-	if sContentDivider ~= '' and string.match(sRaw, sContentDivider) then
-		sNoteContent = string.match (sRaw, '(.-)'..sContentDivider)
-	else
-		sNoteContent = sRaw
-	end
+	local sNoteContent=string.gsub(sRaw,sContentDivider..'.-','')
 	
-	sNoteContent = ParseSpecialCharacters(sNoteContent)
+	--sNoteContent = (sContentDivider~='' and string.match(sRaw,sContentDivider)) and string.match(sRaw,'(.-)'..sContentDivider) or sRaw
+		
+	for k,v in pairs({ -- OUTPUT
+		Path=sNotePath,
+		Name=sNoteName,
+		Content=string.gsub(sNoteContent,'- ','· '),
+	}) do SKIN:Bang('!SetVariable',sVariablePrefix..k,v) end	
 	
-	-----------------------------------------------------------------------
-	-- OUTPUT
-	
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'Path" "'..sNotePath..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'Name" "'..sNoteName..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'Content" "'..sNoteContent..'"')
-	
-	-----------------------------------------------------------------------
-	-- FINISH ACTION
-	
-	if sFinishAction ~= '' then
+	if sFinishAction ~= '' then -- FINISH ACTION
 		SKIN:Bang(sFinishAction)
 	end
-	
-	-- io.close(sRawFile)
 	
 	return 'Success!'	
 end
 
 function SwitchToPrevious()
-	if (iCurrentNote - 1) < 1 then
-		iCurrentNote = iCurrentNote - 1 + iNumberOfNotes
-	else
-		iCurrentNote = iCurrentNote - 1
-	end
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'CurrentNote" "'..iCurrentNote..'"')
+	iCurrentNote = iCurrentNote==1 and #tNotes or iCurrentNote-1
 	Update()
 end
 
 function SwitchToNext()
-	if (iCurrentNote + 1) > iNumberOfNotes then
-		iCurrentNote = iCurrentNote + 1 - iNumberOfNotes
-	else
-		iCurrentNote = iCurrentNote + 1
-	end
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'CurrentNote" "'..iCurrentNote..'"')
+	iCurrentNote = iCurrentNote % #tNotes + 1
 	Update()
 end
 
 function NoteError(sErrorPath, sErrorName, sErrorContent)
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'Path" "'..sErrorPath..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'Name" "'..sErrorName..'"')
-	SKIN:Bang('!SetVariable "'..sVariablePrefix..'Content" "'..sErrorContent..'"')
+	SKIN:Bang('!SetVariable',sVariablePrefix..'Path',sErrorPath)
+	SKIN:Bang('!SetVariable',sVariablePrefix..'Name',sErrorName)
+	SKIN:Bang('!SetVariable',sVariablePrefix..'Content',sErrorContent)
 end
