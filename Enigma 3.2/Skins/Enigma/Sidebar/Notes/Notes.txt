@@ -1,0 +1,9 @@
+﻿- Click here to edit your notes!
+
+- Middle-click any skin to refresh it. When you make modifications to a skin, you should refresh it to apply your changes.
+
+- Some skins have several different "styles" available. Double-click these skins to cycle through their styles.
+
+<donotshow>
+
+- Any text that appears after the <donotshow> tag will not display in Rainmeter.

@@ -1,0 +1,47 @@
+RAINFILE
+v 0.9.4
+by Kaelri
+
+-----------------------
+ABOUT
+
+This is an addon for the Windows system monitoring application, Rainmeter (http://rainmeter.net). It sends a !WriteKeyValue command to Rainmeter, using a file or folder chosen by the user as the key's new value. 
+
+
+-----------------------
+INSTRUCTIONS
+
+The calling command must specify the dialog type ("File" or "Folder"), section name, key name, target file, and default or current value, as such:
+
+"C:\Program Files\Rainmeter\Addons\RainFile\RainFile.exe" "File" "SectionName" "KeyName" "FileName" "CurrentValue"
+
+Called from a Rainmeter skin, the command would look something like this:
+
+!Execute ["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "FileLocation" "#SKINSPATH#Config\Variables.inc" "#CURRENTPATH#Image.jpg"]
+
+The addon must be placed in Rainmeter's addons directory (default: C:\Program Files\Rainmeter\Addons\RainFile\RainFile.exe).
+
+-----------------------
+LICENSE
+
+This package, and all of its contents, are released under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License (http://creativecommons.org/licenses/by-nc-sa/3.0/). 
+
+Thanks to Jeff Morley for his service as the Rainmeter community's unofficial AutoIt mentor.
+
+-----------------------
+CONTACT
+
+Email       Kaelri@gmail.com
+Google+     http://kaelri.com/+
+Twitter     @Kaelri
+
+Website     http://enigma.kaelri.com
+
+-----------------------
+CHANGELOG
+0.9.4	24 June, 2012   Various improvements by Jeff Morley.
+0.9.3   31 August, 2011 Fixed error that occurred when Rainmeter and target file were on separate drives.
+0.9.2   1 August, 2011  Optional flag to return file or folder name only (strip directory).
+0.9.2   21 July, 2011   Script now quits before executing when dialog is canceled by user.
+0.9.1   21 July, 2011   Added option to select folders, in addition to files.
+0.9.0   20 July, 2011   Original.
