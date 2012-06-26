@@ -229,7 +229,7 @@ FinishAction=!EnableMeasure "MeasureCheck"
 
 [MeasureCheck]
 Measure=CALC
-Formula=10*(MeasureVersion-3.1)
+Formula=10*(MeasureVersion-#EnigmaVersion#)
 IfAboveValue=0
 IfAboveAction=[!SetOption "Update" "MeterStyle" "StyleUpdateYes"][!Redraw]
 IfEqualValue=0
