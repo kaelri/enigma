@@ -3,10 +3,12 @@
 
 [MeasureWeek]
 Measure=Time
+UpdateDivider=10
 Format="%a"
 
 [MeasureDate]
 Measure=Time
+UpdateDivider=10000
 Format="%#d"
 
 ;---------------------------------------------------------------------

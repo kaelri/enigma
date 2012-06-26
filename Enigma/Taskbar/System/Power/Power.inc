@@ -4,6 +4,7 @@
 [MeasurePower]
 Measure=Plugin
 Plugin=Plugins\PowerPlugin.dll
+UpdateDivider=60
 PowerState=PERCENT
 
 ;---------------------------------------------------------------------
