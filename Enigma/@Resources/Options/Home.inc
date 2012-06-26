@@ -100,20 +100,20 @@ Meter=STRING
 MeterStyle=StyleName
 Text="Website"
 
-[WebsiteText]
-Meter=STRING
-MeterStyle=StyleText
-Text="Home"
-LeftMouseUpAction=["http://enigma.kaelri.com"]
+; [WebsiteText]
+; Meter=STRING
+; MeterStyle=StyleText
+; Text="Home"
+; LeftMouseUpAction=["http://enigma.kaelri.com"]
 
-[WebsiteCaption]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
-Text="Design, history and features."
+; [WebsiteCaption]
+; Meter=STRING
+; MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
+; Text="Design, history and features."
 
 [WebsiteText2]
 Meter=STRING
-MeterStyle=StyleText | StyleTextSub
+MeterStyle=StyleText
 Text="Downloads"
 LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=downloads"]
 
@@ -154,6 +154,17 @@ LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=legal"]
 Meter=STRING
 MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
 Text="Credits and legal information."
+
+[WebsiteText6]
+Meter=STRING
+MeterStyle=StyleText | StyleTextSub
+Text="Donate"
+LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=donate"]
+
+[WebsiteCaption6]
+Meter=STRING
+MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
+Text="Show your appreciation for Enigma."
 
 ;-----------------------
 
