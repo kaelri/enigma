@@ -46,6 +46,8 @@ App: Rainmeter 2.3
 - [Skins] Changed all Taskbar: added group "EnigmaTaskbar".
 - [Skins] Changed Options: changed version-check source to GitHub.
 - [Skins] Changed Sidebar, Taskbar: moved LoadOrder setting to stylesheets.
+- [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
+- [Addons] Updated to RainRGB4.
 - [Measures] Changed Notes, Path, Reader, Calendar: various improvements by Smurfier.
 - [Measures] Fixed Notes: skin was displaying the UTF-8 Byte Order Mark (﻿).
 - [Measures] Fixed Music: PlayerType was not specified on main measure, resulting in log error.

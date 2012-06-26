@@ -28,3 +28,4 @@ LeftMouseUpAction=[[MeasureYahooWeather]]
 Meter=STRING
 MeasureName=MeasureWeatherDay3Desc
 MeterStyle=Style#Variant#Label
+Text=Tomorrow

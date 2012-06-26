@@ -28,3 +28,4 @@ LeftMouseUpAction=[[MeasureYahooWeather]]
 Meter=STRING
 MeasureName=MeasureWeatherDay2Desc
 MeterStyle=Style#Variant#Label
+Text=Today
