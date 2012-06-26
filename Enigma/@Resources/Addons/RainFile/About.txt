@@ -1,5 +1,5 @@
 RAINFILE
-v 0.9.4
+v 0.9.5
 by Kaelri
 
 -----------------------
@@ -13,11 +13,13 @@ INSTRUCTIONS
 
 The calling command must specify the dialog type ("File" or "Folder"), section name, key name, target file, and default or current value, as such:
 
-"C:\Program Files\Rainmeter\Addons\RainFile\RainFile.exe" "File" "SectionName" "KeyName" "FileName" "CurrentValue"
+"C:\Program Files\Rainmeter\Addons\RainFile\RainFile.exe" "File" "SectionName" "KeyName" "FileName" "CurrentValue" nameonly
 
 Called from a Rainmeter skin, the command would look something like this:
 
-!Execute ["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "FileLocation" "#SKINSPATH#Config\Variables.inc" "#CURRENTPATH#Image.jpg"]
+!Execute ["#ADDONSPATH#RainFile\RainFile.exe" "File" "Variables" "FileLocation" "#SKINSPATH#Config\Variables.inc" "#CURRENTPATH#Image.jpg"]
+
+"Name only" is an optional parameter. If "nameonly" is included, RainFile will only return the name of the file or folder, not the preceding path.
 
 The addon must be placed in Rainmeter's addons directory (default: C:\Program Files\Rainmeter\Addons\RainFile\RainFile.exe).
 
