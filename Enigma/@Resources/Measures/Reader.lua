@@ -112,12 +112,14 @@ function FeedError(sErrorName,sErrorLink,sErrorDesc)
 end
 
 function Substitute(Val,Sub)
-	Val=tostring(Val)
-	Sub='"'..string.gsub(Sub,'%[','%%%[')..'"'
-	local Strip=function(a) return string.match(a or '','^[\'"](.*)[\'"]$') or '' end
-	for a in string.gmatch(Sub,'[^,]+') do
-		local l,r=string.match(a,'(.*):(.*)')
-		Val=string.gsub(Val,Strip(l),Strip(r))
+	if Sub and Sub~='' then
+		Val=tostring(Val)
+		Sub='"'..string.gsub(Sub,'%[','%%%[')..'"'
+		local Strip=function(a) return string.match(a or '','^[\'"](.*)[\'"]$') or '' end
+		for a in string.gmatch(Sub,'[^,]+') do
+			local l,r=string.match(a,'(.+):(.+)')
+			Val=string.gsub(Val,Strip(l),Strip(r))
+		end
 	end
 	return Val
 end
