@@ -67,7 +67,7 @@ Text="#Stylesheet#"
 StringStyle=BOLD
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 1"
 TooltipTitle="Stylesheet Name (Enigma Light/Enigma Dark/[Other])"
-TooltipText=Click to type the name of the Enigma Stylesheet that you would like to use. This will affect the images and color scheme used throughout Enigma.#CRLF##CRLF#Enigma comes with two stylesheets: 'Enigma Dark' and 'Enigma Light'. If you have downloaded additional stylesheets, place them in Skins\Enigma\Resources\Styles.
+TooltipText=Click to type the name of the Enigma Stylesheet that you would like to use. This will affect the images and color scheme used throughout Enigma.#CRLF##CRLF#Enigma comes with two stylesheets: 'Enigma Dark' and 'Enigma Light'. If you have downloaded additional stylesheets, place them in Skins\Enigma\@Resources\Styles.
 
 ;-----------------------
 
@@ -84,7 +84,7 @@ MeterStyle=StyleColorBackground | StyleColorBackgroundFirst
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#Color1#
-LeftMouseUpAction=["#RainRGB#" "VarName=Color1" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Resources"]
+LeftMouseUpAction=["#RainRGB#" "VarName=Color1" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
 TooltipTitle="Primary Color"
 TooltipText=Click to choose the primary text color for #Stylesheet#'s skins. This is the color in which most actual content will be shown. Labels will be a more translucent version of the same color.
 
@@ -96,7 +96,7 @@ MeterStyle=StyleColorBackground
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorLink#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorLink" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Resources"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorLink" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
 TooltipTitle="Link Color"
 TooltipText=Click to choose #Stylesheet#'s link color. This is the color that will appear on some clickable text and buttons.
 
@@ -108,7 +108,7 @@ MeterStyle=StyleColorBackground | StyleColorBackground
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorBorder#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorBorder" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Resources"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorBorder" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
 TooltipTitle="Border Color"
 TooltipText=Click to choose #Stylesheet#'s border color. This is the color of borders, outlines and separators.
 
@@ -120,7 +120,7 @@ MeterStyle=StyleColorBackground | StyleColorBackgroundNewRow
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorPanel#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorPanel" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Resources"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorPanel" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
 TooltipTitle="Menu Panel Color"
 TooltipText=Click to choose #Stylesheet#'s panel color. This is the color of control panel menus, such as the one to the left.
 
@@ -132,7 +132,7 @@ MeterStyle=StyleColorBackground
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorFilter#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorFilter" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Resources"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorFilter" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
 TooltipTitle="Filter Color"
 TooltipText=Click to choose #Stylesheet#'s filter color. This color is used to soften the texture of the Taskbar skin.
 
