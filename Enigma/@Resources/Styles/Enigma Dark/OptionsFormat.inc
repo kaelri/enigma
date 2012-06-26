@@ -65,9 +65,10 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Stylesheet#"
 StringStyle=BOLD
-LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 1"
+; LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 1"
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "Folder" "Variables" "Stylesheet" "#Settings#" "#@#Styles" "nameonly"]
 TooltipTitle="Stylesheet Name (Enigma Light/Enigma Dark/[Other])"
-TooltipText=Click to type the name of the Enigma Stylesheet that you would like to use. This will affect the images and color scheme used throughout Enigma.#CRLF##CRLF#Enigma comes with two stylesheets: 'Enigma Dark' and 'Enigma Light'. If you have downloaded additional stylesheets, place them in Skins\Enigma\@Resources\Styles.
+TooltipText=Click to type the name of the Enigma Stylesheet that you would like to use. This will affect the images and color scheme used throughout Enigma.#CRLF##CRLF#Enigma comes with two stylesheets: 'Enigma Dark' and 'Enigma Light'. If you have downloaded additional stylesheets, place them in Skins\Enigma\Resources\Styles.
 
 ;-----------------------
 
