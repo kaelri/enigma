@@ -62,7 +62,7 @@ function Update()
 		FeedError('Matching Error','','No valid feed was found.')
 		return 'Error: matching.'
 	elseif #tTitles==0 then
-		FeedError(sFeedTitle,'','Empty.')
+		FeedError(sFeedTitle,sFeedLink,'Empty.')
 		return 'Error: empty feed.'
 	end
 	-- OUTPUT
@@ -98,10 +98,11 @@ end
 
 function FeedError(sErrorName,sErrorLink,sErrorDesc)
 	for k,v in pairs({
+		NumberOfItems='0';
 		FeedTitle=sErrorName,
 		FeedLink=sErrorLink,
 		ItemTitle1=sErrorDesc,
-		ItemLink1='',
+		ItemLink1=sErrorLink,
 		ItemDate1='',
 	}) do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
 	for i=2,Set.mItems do
