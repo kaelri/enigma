@@ -49,6 +49,7 @@ App: Rainmeter 2.3
 - [Measures] Changed Notes, Path, Reader, Calendar: various improvements by Smurfier.
 - [Measures] Fixed Notes: skin was displaying the UTF-8 Byte Order Mark (﻿).
 - [Measures] Fixed Music: PlayerType was not specified on main measure, resulting in log error.
+- [Measures] Fixed Reader: now provides correct feed URL and number of items even when feeds are empty.
 - [Styles] Changed Music: progress bar now hidden (shown on mouseover) when Bottom Borders are disabled.
 - [Styles] Fixed Music: album title on "Normal" variant was improperly clipped.
 - [Styles] Fixed Music: added much nicer album background image for "Full" variant.

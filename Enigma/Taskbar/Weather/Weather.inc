@@ -1,6 +1,7 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
+[Variables]
 @include=#@#Measures\YahooWeather.inc
 CurrentCode=#WeatherCode#
 

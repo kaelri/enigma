@@ -1,6 +1,7 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
+[Variables]
 @include=#@#Measures\Music.inc
 CurrentPlayer=#MusicPlayer#
 
