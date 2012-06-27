@@ -231,12 +231,18 @@ Text=project.
 
 [MeasureVersion]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=http://kaelri.github.com/Enigma/version.txt
-RegExp=(?siU)<version>(.*)</version>
+RegExp=(?siU)<version>(.*)</version>.*<link>(.*)</link>
 UpdateRate=3600
 StringIndex=1
 FinishAction=!EnableMeasure "MeasureCheck"
+
+[MeasureLink]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureVersion]
+StringIndex=2
 
 [MeasureCheck]
 Measure=CALC
@@ -265,7 +271,7 @@ FontColor=255,255,255,160
 Text="Upgrade to Enigma [MeasureVersion]"
 FontColor=128,192,255,217
 StringStyle=BOLD
-LeftMouseUpAction=["https://github.com/Kaelri/Enigma/downloads"]
+LeftMouseUpAction=["[MeasureLink]"]
 TooltipTitle="Upgrade to Enigma [MeasureVersion]"
 TooltipText="An update is available! Click here to download the latest Enigma installer in your browser."
 TooltipWidth=300
