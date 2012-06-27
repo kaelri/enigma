@@ -45,6 +45,7 @@ App: Rainmeter 2.3
 - [Skins] Changed all: moved Groups to stylesheets.
 - [Skins] Changed all Taskbar: added group "EnigmaTaskbar".
 - [Skins] Changed Options: changed version-check source to GitHub.
+- [Skins] Changed Options: Stylesheets can now be selected by folder, instead of typed manually.
 - [Skins] Changed Sidebar, Taskbar: moved LoadOrder setting to stylesheets.
 - [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
 - [Addons] Updated to RainRGB4.
