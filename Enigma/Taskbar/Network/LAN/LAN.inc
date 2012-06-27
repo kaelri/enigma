@@ -3,7 +3,7 @@
 
 [MeasureLAN]
 Measure=Plugin
-Plugin=Plugins\SysInfo.dll
+Plugin=SysInfo
 SysInfoType=IP_ADDRESS
 SysInfoData=1
 

@@ -3,7 +3,7 @@
 
 [MeasureCoreTemp]
 Measure=Plugin
-Plugin=Plugins\CoreTemp.dll
+Plugin=CoreTemp
 CoreTempType=Temperature
 CoreTempIndex=#Core#
 

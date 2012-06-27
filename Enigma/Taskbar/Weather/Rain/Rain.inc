@@ -3,7 +3,7 @@
 
 [MeasureRain]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 UpdateRate=1800
 Url=http://www.weather.com/weather/today/#WeatherCode#
 RegExp=(?siU)Chance of Rain:<br><strong>(.*)%</strong>

@@ -3,7 +3,7 @@
 
 [MeasurePower]
 Measure=Plugin
-Plugin=Plugins\PowerPlugin.dll
+Plugin=PowerPlugin
 UpdateDivider=60
 PowerState=PERCENT
 

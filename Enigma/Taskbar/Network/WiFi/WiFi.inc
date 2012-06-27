@@ -3,14 +3,14 @@
 
 [MeasureSSID]
 Measure=Plugin
-Plugin=Plugins\WifiStatus.dll
+Plugin=WifiStatus
 WifiInfoType=SSID
 WifiIntfID=0
 WifiListStyle=0
 
 [MeasureQuality]
 Measure=Plugin
-Plugin=Plugins\WifiStatus.dll
+Plugin=WifiStatus
 WifiInfoType=QUALITY
 WifiIntfID=0
 WifiListStyle=0

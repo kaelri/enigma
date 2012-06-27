@@ -7,7 +7,7 @@ CurrentCode=#World3WeatherCode#
 
 [MeasureTimeZoneAlt]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 UpdateRate=3600
 Url=http://xml.weather.com/weather/local/#World3WeatherCode#?cc=*
 RegExp="<zone>(.*?)</zone>"

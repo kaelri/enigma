@@ -1,6 +1,6 @@
 [MeasureYahooWeather]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 UpdateRate=1800
 Url=http://weather.yahooapis.com/forecastrss?p=#CurrentCode#&u=#Unit#
 RegExp=(?siU)<link.*>(.*)</link>.*city=\"(.*)\".*region=\"(.*)\".*country=\"(.*)\".*temperature=\"(.*)\".*distance=\"(.*)\".*pressure=\"(.*)\".*speed=\"(.*)\".*chill=\"(.*)\".*direction=\"(.*)\".*speed=\"(.*)\".*humidity=\"(.*)\".*visibility=\"(.*)\".*pressure=\"(.*)\".*rising=\"(.*)\".*sunrise=\"(.*)\".*sunset=\"(.*)\".*<title>.*:.*m .*(.*)</title>.*lat>(.*)<.*long>(.*)<.*yweather:condition.*text=\"(.*)\".*code=\"(.*)\".*temp=\"(.*)\".*yweather:forecast.*day=\"(.*)\".*low=\"(.*)\".*high=\"(.*)\".*text=\"(.*)\".*code=\"(.*)\".*yweather:forecast.*day=\"(.*)\".*low=\"(.*)\".*high=\"(.*)\".*text=\"(.*)\".*code=\"(.*)\".*
@@ -11,19 +11,19 @@ StringIndex=1
 
 [MeasureWeatherCity]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=2
 
 [MeasureWeatherRegion]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=3
 
 [MeasureWeatherCountry]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=4
 
@@ -32,25 +32,25 @@ StringIndex=4
 
 [MeasureWeatherUnitTemp]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=5
 
 [MeasureWeatherUnitDistance]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=6
 
 [MeasureWeatherUnitPressure]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=7
 
 [MeasureWeatherUnitSpeed]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=8
 
@@ -59,13 +59,13 @@ StringIndex=8
 
 [MeasureWeatherWindChill]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=9
 
 [MeasureWeatherWindDirection]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=10
 
@@ -76,7 +76,7 @@ Substitute="10":"EbS","11":"ESE","12":"SEbE","13":"SE","14":"SEbS","15":"SSE","1
 
 [MeasureWeatherWindSpeed]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=11
 
@@ -85,25 +85,25 @@ StringIndex=11
 
 [MeasureWeatherAtmoHumidity]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=12
 
 [MeasureWeatherAtmoVisibility]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=13
 
 [MeasureWeatherAtmoPressure]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=14
 
 [MeasureWeatherAtmoRising]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=15
 
@@ -112,13 +112,13 @@ StringIndex=15
 
 [MeasureWeatherSunrise]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=16
 
 [MeasureWeatherSunset]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=17
 
@@ -127,19 +127,19 @@ StringIndex=17
 
 [MeasureWeatherTimeZone]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=18
 
 [MeasureWeatherLatitude]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=19
 
 [MeasureWeatherLongitude]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=20
 
@@ -149,19 +149,19 @@ StringIndex=20
 
 [MeasureWeatherDesc]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=21
 
 [MeasureWeatherIcon]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=22
 
 [MeasureWeatherTemp]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=23
 
@@ -170,20 +170,20 @@ StringIndex=23
 
 [MeasureWeatherDay2Date]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=24
 Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
 
 [MeasureWeatherDay2Low]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=25
 
 [MeasureWeatherDay2High]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=26
 
@@ -193,13 +193,13 @@ Formula=ROUND((MeasureWeatherDay2Low+MeasureWeatherDay2High)/2)
 
 [MeasureWeatherDay2Desc]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=27
 
 [MeasureWeatherDay2Icon]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=28
 
@@ -208,20 +208,20 @@ StringIndex=28
 
 [MeasureWeatherDay3Date]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=29
 Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
 
 [MeasureWeatherDay3Low]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=30
 
 [MeasureWeatherDay3High]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=31
 
@@ -231,13 +231,13 @@ Formula=ROUND((MeasureWeatherDay3Low+MeasureWeatherDay3High)/2)
 
 [MeasureWeatherDay3Desc]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=32
 
 [MeasureWeatherDay3Icon]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=33
 

@@ -9,27 +9,27 @@ Measure=NetOut
 
 [MeasureSSID]
 Measure=Plugin
-Plugin=Plugins\WifiStatus.dll
+Plugin=WifiStatus
 WifiInfoType=SSID
 WifiIntfID=0
 WifiListStyle=0
 
 [MeasureWiFi]
 Measure=Plugin
-Plugin=Plugins\WifiStatus.dll
+Plugin=WifiStatus
 WifiInfoType=QUALITY
 WifiIntfID=0
 WifiListStyle=0
 
 [MeasureLAN]
 Measure=Plugin
-Plugin=Plugins\SysInfo.dll
+Plugin=SysInfo
 SysInfoType=IP_ADDRESS
 SysInfoData=1
 
 [MeasureWAN]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 UpdateRate=21600
 Url=http://checkip.dyndns.org
 RegExp="(?siU)Address: (.*)</body>"

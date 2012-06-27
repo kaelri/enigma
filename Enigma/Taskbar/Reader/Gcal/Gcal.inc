@@ -3,7 +3,7 @@
 
 [MeasureFeed]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 UpdateRate=600
 Url=#GoogleCalendar1#?max-results=4&futureevents=true&singleevents=true&orderby=starttime&sortorder=a
 RegExp=(?siU)(.*)$

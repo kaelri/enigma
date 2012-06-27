@@ -3,7 +3,7 @@
 
 [MeasureFeed]
 Measure=Plugin
-Plugin=Plugins\WebParser.dll
+Plugin=WebParser
 UpdateRate=120
 URL=https://#GmailUsername#:#GmailPassword#@gmail.google.com/gmail/feed/atom
 RegExp=(?siU)(.*)$
