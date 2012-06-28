@@ -11,9 +11,9 @@ DefaultStylesheet=Enigma Dark
 ;-----------------------
 ; GENERAL
 
-DefaultNote1Path=#SKINSPATH#Enigma\Sidebar\Notes\Notes.txt
-DefaultNote2Path=#SKINSPATH#Enigma\Sidebar\Notes\Tasks.txt
-DefaultNote3Path=#SKINSPATH#Enigma\Sidebar\Notes\About.txt
+DefaultNote1Path=#ROOTCONFIGPATH#Sidebar\Notes\Notes.txt
+DefaultNote2Path=#ROOTCONFIGPATH#Sidebar\Notes\Tasks.txt
+DefaultNote3Path=#ROOTCONFIGPATH#Sidebar\Notes\About.txt
 DefaultNoteHeight=200
 DefaultDrive1=C
 DefaultDrive2=E

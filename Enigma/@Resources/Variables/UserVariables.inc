@@ -8,9 +8,9 @@ Stylesheet=Enigma Dark
 ;-----------------------
 ; GENERAL
 
-Note1Path=#SKINSPATH#Enigma\Sidebar\Notes\Notes.txt
-Note2Path=#SKINSPATH#Enigma\Sidebar\Notes\Tasks.txt
-Note3Path=#SKINSPATH#Enigma\Sidebar\Notes\About.txt
+Note1Path=#ROOTCONFIGPATH#Sidebar\Notes\Notes.txt
+Note2Path=#ROOTCONFIGPATH#Sidebar\Notes\Tasks.txt
+Note3Path=#ROOTCONFIGPATH#Sidebar\Notes\About.txt
 NoteHeight=200
 Drive1=C
 Drive2=E

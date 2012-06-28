@@ -177,7 +177,7 @@ Text="Changelog"
 Meter=STRING
 MeterStyle=StyleText
 Text="View..."
-LeftMouseUpAction=["#SKINSPATH#Enigma\About.txt"]
+LeftMouseUpAction=["#ROOTCONFIGPATH#About.txt"]
 
 ;-----------------------
 
