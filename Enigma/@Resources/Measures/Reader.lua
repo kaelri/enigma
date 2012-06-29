@@ -29,7 +29,7 @@ function Initialize()
 		'.-<link.-href="(.-)"',
 		}
 	sPatternItemDate={
-		'.-When: (.-)<',
+		'.-startTime=\'(.-)\'',
 		'<span class="rtm_due_value">(.-)</span>',
 		'.-<pubDate.->(.-)</pubDate>',
 		'.-<updated.->(.-)</updated>',
@@ -74,6 +74,11 @@ function Update()
 	for i=1,(Set.mItems>#tTitles and Set.mItems or #tTitles) do
 		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemTitle'..i, tTitles[i])
 		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemLink'..i, tLinks[i] or 'No item found.')
+		if FeedType==1 then
+			local year, month, day, hour, min, sec, zone = string.match(tDates[i], '(%d%d%d%d)-(%d%d)-(%d%d)T(%d%d):(%d%d):(%d%d).')
+			tDates[i] = os.time({year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false})
+			tDates[i] = os.date('%I.%M %p on %d %B %Y', tDates[i])
+		end
 		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemDate'..i, tDates[i])
 	end
 	-- FINISH ACTION   
