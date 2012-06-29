@@ -3,7 +3,7 @@
 
 [MeasureSearch]
 Measure=PLUGIN
-Plugin=InputText.dll
+Plugin=InputText
 UpdateDivider=-1
 Command1=["#Search1Command#"] DefaultValue="Search #Search1#"
 FocusDismiss=1

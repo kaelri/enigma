@@ -3,13 +3,13 @@
 
 [MeasureBinCount]
 Measure=Plugin
-Plugin=RecycleManager.dll
+Plugin=RecycleManager
 RecycleType=COUNT
 UpdateDivider=10
 
 ; [MeasureBinSize]
 ; Measure=Plugin
-; Plugin=RecycleManager.dll
+; Plugin=RecycleManager
 ; RecycleType=SIZE
 ; UpdateDivider=10
 
