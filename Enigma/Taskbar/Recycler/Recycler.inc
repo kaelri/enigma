@@ -5,14 +5,12 @@
 Measure=Plugin
 Plugin=RecycleManager.dll
 RecycleType=COUNT
-Drives=ALL
 UpdateDivider=10
 
 ; [MeasureBinSize]
 ; Measure=Plugin
 ; Plugin=RecycleManager.dll
 ; RecycleType=SIZE
-; Drives=ALL
 ; UpdateDivider=10
 
 [MeasureFull]
