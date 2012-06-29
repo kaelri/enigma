@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=410
+PanelHeight=425
 ArrowY=88
 
 ;---------------------------------------------------------------------
@@ -70,88 +70,96 @@ TooltipText=Fully supported.
 [MusicPlayerText4]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="Last.fm Client"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 4 "#Settings#"][!Refresh *]
-TooltipTitle="Last.fm Client"
-TooltipText=Partially supported, using the Windows Live Messenger interface. 
+Text="JRiver Media"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer CAD "#Settings#"][!WriteKeyValue Variables MusicPlayerType 4 "#Settings#"][!Refresh *]
+TooltipTitle="JRiver Media Center & JRiver Media Jukebox"
+TooltipText=Fully supported, using the CD Art Display interface.
 
 [MusicPlayerText5]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="MediaMonkey"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer MediaMonkey "#Settings#"][!WriteKeyValue Variables MusicPlayerType 5 "#Settings#"][!Refresh *]
-TooltipTitle="MediaMonkey"
-TooltipText=Fully supported.
+Text="Last.fm Client"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 5 "#Settings#"][!Refresh *]
+TooltipTitle="Last.fm Client"
+TooltipText=Partially supported, using the Windows Live Messenger interface. 
 
 [MusicPlayerText6]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="Media Player Classic"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 6 "#Settings#"][!Refresh *]
-TooltipTitle="Media Player Classic"
-TooltipText=Partially supported, using the Windows Live Messenger interface.#CRLF##CRLF#Note that the 'Send Now Playing information to MSN Messenger' option must be enabled in the player's settings (View -> Options -> Tweaks).
+Text="MediaMonkey"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer MediaMonkey "#Settings#"][!WriteKeyValue Variables MusicPlayerType 6 "#Settings#"][!Refresh *]
+TooltipTitle="MediaMonkey"
+TooltipText=Fully supported.
 
 [MusicPlayerText7]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="MusicBee"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer CAD "#Settings#"][!WriteKeyValue Variables MusicPlayerType 7 "#Settings#"][!Refresh *]
-TooltipTitle="MusicBee"
-TooltipText=Fully supported, using the CD Art Display interface.
+Text="Media Player Classic"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 7 "#Settings#"][!Refresh *]
+TooltipTitle="Media Player Classic"
+TooltipText=Partially supported, using the Windows Live Messenger interface.#CRLF##CRLF#Note that the 'Send Now Playing information to MSN Messenger' option must be enabled in the player's settings (View -> Options -> Tweaks).
 
 [MusicPlayerText8]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="Open Pandora"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 8 "#Settings#"][!Refresh *]
-TooltipTitle="Open Pandora"
-TooltipText=Partially supported, using the Windows Live Messenger interface. 
+Text="MusicBee"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer CAD "#Settings#"][!WriteKeyValue Variables MusicPlayerType 8 "#Settings#"][!Refresh *]
+TooltipTitle="MusicBee"
+TooltipText=Fully supported, using the CD Art Display interface.
 
 [MusicPlayerText9]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="Spotify"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer Spotify "#Settings#"][!WriteKeyValue Variables MusicPlayerType 9 "#Settings#"][!Refresh *]
-TooltipTitle="Spotify"
-TooltipText=Partially supported. Only the Artist and Track information will display. Player controls are working.
+Text="Open Pandora"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 9 "#Settings#"][!Refresh *]
+TooltipTitle="Open Pandora"
+TooltipText=Partially supported, using the Windows Live Messenger interface. 
 
 [MusicPlayerText10]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="TTPlayer"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 10 "#Settings#"][!Refresh *]
-TooltipTitle="TTPlayer"
-TooltipText=Partially supported, using the Windows Live Messenger interface. 
+Text="Spotify"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer Spotify "#Settings#"][!WriteKeyValue Variables MusicPlayerType 10 "#Settings#"][!Refresh *]
+TooltipTitle="Spotify"
+TooltipText=Partially supported. Only the Artist and Track information will display. Player controls are working.
 
 [MusicPlayerText11]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="Winamp"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer Winamp "#Settings#"][!WriteKeyValue Variables MusicPlayerType 11 "#Settings#"][!Refresh *]
-TooltipTitle="Winamp"
-TooltipText=Fully supported.
+Text="TTPlayer"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 11 "#Settings#"][!Refresh *]
+TooltipTitle="TTPlayer"
+TooltipText=Partially supported, using the Windows Live Messenger interface. 
 
 [MusicPlayerText12]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="VLC Media Player"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer CAD "#Settings#"][!WriteKeyValue Variables MusicPlayerType 12 "#Settings#"][!Refresh *]
-TooltipTitle="VLC Media Player"
-TooltipText=Fully supported, using the CD Art Display interface. Requires the 'libcad' plugin for VLC.
+Text="Winamp"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer Winamp "#Settings#"][!WriteKeyValue Variables MusicPlayerType 12 "#Settings#"][!Refresh *]
+TooltipTitle="Winamp"
+TooltipText=Fully supported.
 
 [MusicPlayerText13]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
-Text="Windows Media Player"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WMP "#Settings#"][!WriteKeyValue Variables MusicPlayerType 13 "#Settings#"][!Refresh *]
-TooltipTitle="Windows Media Player"
-TooltipText=Fully supported.
+Text="VLC Media Player"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer CAD "#Settings#"][!WriteKeyValue Variables MusicPlayerType 13 "#Settings#"][!Refresh *]
+TooltipTitle="VLC Media Player"
+TooltipText=Fully supported, using the CD Art Display interface. Requires the 'libcad' plugin for VLC.
 
 [MusicPlayerText14]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
+Text="Windows Media Player"
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WMP "#Settings#"][!WriteKeyValue Variables MusicPlayerType 14 "#Settings#"][!Refresh *]
+TooltipTitle="Windows Media Player"
+TooltipText=Fully supported.
+
+[MusicPlayerText15]
+Meter=STRING
+MeterStyle=StyleText | StyleTextSub
 Text="Zune"
-LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 14 "#Settings#"][!Refresh *]
+LeftMouseUpAction=[!WriteKeyValue Variables MusicPlayer WLM "#Settings#"][!WriteKeyValue Variables MusicPlayerType 15 "#Settings#"][!Refresh *]
 TooltipTitle="Windows Media Player"
 TooltipText=Partially supported, using the Windows Live Messenger interface. 
 
