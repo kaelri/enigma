@@ -66,25 +66,27 @@ function Update()
 		return 'Error: empty feed.'
 	end
 	-- OUTPUT
-	for k,v in pairs({
+	for k,v in pairs{
 		NumberOfItems=#tTitles,
 		FeedTitle=sFeedTitle,
 		FeedLink=sFeedLink,
-	}) do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
+	} do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
 	for i=1,(Set.mItems>#tTitles and Set.mItems or #tTitles) do
-		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemTitle'..i, tTitles[i])
-		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemLink'..i, tLinks[i] or 'No item found.')
-		if FeedType==1 then
-			local year, month, day, hour, min, sec, zone = string.match(tDates[i], '(%d%d%d%d)-(%d%d)-(%d%d)T(%d%d):(%d%d):(%d%d).')
-			tDates[i] = os.time({year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false})
-			tDates[i] = os.date('%I.%M %p on %d %B %Y', tDates[i])
-		end
-		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemDate'..i, tDates[i])
+		for k,v in pairs{
+			ItemTitle=tTitles[i],
+			ItemLink=tLinks[i] or 'No item found.',
+			ItemDate=FeedType==1 and TimeStamp(string.match(tDates[i], '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.(.+)Z')) or tDates[i],
+		} do SKIN:Bang('!SetVariable',Set.vPrefix..k..i,v) end
 	end
 	-- FINISH ACTION   
 	if Set.Finish~='' then SKIN:Bang(Set.Finish) end
 	return 'Success!'
 end
+
+function TimeStamp(year, month, day, hour, min, sec, zone)
+	return os.date('%I.%M %p on %d %B %Y', os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false})
+end
+
 -- SWITCHERS
 function SwitchToNext()
 	iCurrentFeed=iCurrentFeed%#Measures+1
@@ -102,14 +104,14 @@ function SwitchTo(a)
 end
 
 function FeedError(sErrorName,sErrorLink,sErrorDesc)
-	for k,v in pairs({
+	for k,v in pairs{
 		NumberOfItems='0';
 		FeedTitle=sErrorName,
 		FeedLink=sErrorLink,
 		ItemTitle1=sErrorDesc,
 		ItemLink1=sErrorLink,
 		ItemDate1='',
-	}) do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
+	} do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
 	for i=2,Set.mItems do
 		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemTitle'..i,'')
 		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemLink'..i,'')
