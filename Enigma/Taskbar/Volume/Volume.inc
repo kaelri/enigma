@@ -3,7 +3,7 @@
 
 [MeasureVolume]
 Measure=Plugin
-Plugin=Win7AudioPlugin.dll
+Plugin=Win7AudioPlugin
 
 [MeasurePercent]
 Measure=CALC
