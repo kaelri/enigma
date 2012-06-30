@@ -77,39 +77,39 @@ DefaultWorld3DSTOffset=-1
 DefaultApp1=Chrome
 DefaultApp1Path=chrome.exe
 DefaultApp1Label=WEB
-DefaultApp1Icon=#@#Images\Launcher\Chrome.#ColorImage#.png
+DefaultApp1Icon=#*@*#Images\Launcher\Chrome.#*ColorImage*#.png
 DefaultApp2=Notepad
 DefaultApp2Path=notepad.exe
 DefaultApp2Label=TEXT
-DefaultApp2Icon=#@#Images\Launcher\Text.#ColorImage#.png
+DefaultApp2Icon=#*@*#Images\Launcher\Text.#*ColorImage*#.png
 DefaultApp3=Explorer
 DefaultApp3Path=explorer.exe
 DefaultApp3Label=FILES
-DefaultApp3Icon=#@#Images\Launcher\Start.#ColorImage#.png
+DefaultApp3Icon=#*@*#Images\Launcher\Start.#*ColorImage*#.png
 DefaultApp4=Skype
 DefaultApp4Path=C:\Program Files\Skype\Phone\skype.exe
 DefaultApp4Label=CHAT
-DefaultApp4Icon=#@#Images\Launcher\Skype.#ColorImage#.png
+DefaultApp4Icon=#*@*#Images\Launcher\Skype.#*ColorImage*#.png
 DefaultApp5=Rainmeter.net
 DefaultApp5Path=http://rainmeter.net/
 DefaultApp5Label=FORUM
-DefaultApp5Icon=#@#Images\Launcher\Rainmeter.png
+DefaultApp5Icon=#*@*#Images\Launcher\Rainmeter.png
 
 ;-----------------------
 ; SEARCH
 
 DefaultSearch1=Google
 DefaultSearch1Command="http://google.com/search?q=$UserInput$"
-DefaultSearch1Icon=#@#Images\Search\Google.#ColorImage#.png
+DefaultSearch1Icon=#*@*#Images\Search\Google.#*ColorImage*#.png
 DefaultSearch2=Wikipedia
 DefaultSearch2Command="http://en.wikipedia.org/wiki/$UserInput$"
-DefaultSearch2Icon=#@#Images\Search\Wiki.#ColorImage#.png
+DefaultSearch2Icon=#*@*#Images\Search\Wiki.#*ColorImage*#.png
 DefaultSearch3=YouTube
 DefaultSearch3Command="http://www.youtube.com/results?search_query=$UserInput$"
-DefaultSearch3Icon=#@#Images\Search\YouTube.#ColorImage#.png
+DefaultSearch3Icon=#*@*#Images\Search\YouTube.#*ColorImage*#.png
 DefaultSearch4=Twitter
 DefaultSearch4Command="https://twitter.com/#!/search/$UserInput$"
-DefaultSearch4Icon=#@#Images\Search\Twitter.#ColorImage#.png
+DefaultSearch4Icon=#*@*#Images\Search\Twitter.#*ColorImage*#.png
 DefaultSearch5=Run
 DefaultSearch5Command=$UserInput$
-DefaultSearch5Icon=#@#Images\Search\Run.#ColorImage#.png
+DefaultSearch5Icon=#*@*#Images\Search\Run.#*ColorImage*#.png
