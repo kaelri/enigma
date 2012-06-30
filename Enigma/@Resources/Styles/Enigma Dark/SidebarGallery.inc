@@ -76,13 +76,13 @@ Hidden=1
 X=(#SIDEBARWIDTH#/4)
 Text=1
 
-[StyleGalleryButtonNext]
-X=((#SIDEBARWIDTH#/4)*2)
-Text=8
-
 [StyleGalleryButtonChangeRatio]
-X=((#SIDEBARWIDTH#/4)*3)
+X=((#SIDEBARWIDTH#/4)*2)
 Text=2
+
+[StyleGalleryButtonNext]
+X=((#SIDEBARWIDTH#/4)*3)
+Text=8
 
 [StyleGalleryBorderBottom]
 SolidColor=#ColorBorder4#
