@@ -72,7 +72,7 @@ SolidColor=#ColorTransparent#
 ToolTipWidth=#SidebarWidth#
 Hidden=1
 
-[StyleGalleryButtonOpen]
+[StyleGalleryButtonWallpaper]
 X=(#SIDEBARWIDTH#/4)
 Text=1
 

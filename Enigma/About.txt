@@ -47,6 +47,7 @@ App: Rainmeter 2.3
 - [Skins] Changed Options: changed version-check source to GitHub.
 - [Skins] Changed Options: Stylesheets can now be selected by folder, instead of typed manually.
 - [Skins] Changed Sidebar, Taskbar: moved LoadOrder setting to stylesheets.
+- [Skins] Changed Gallery: added button to set current image as desktop wallpaper.
 - [Skins] Changed Music: added support for JRiver Media Center & JRiver Media Jukebox.
 - [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
 - [Skins] Fixed Gcal Reader: date and time display correctly again.
