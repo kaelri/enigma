@@ -280,7 +280,7 @@ Meter=STRING
 MeterStyle=StyleText
 MeasureName=MeasureGalleryPosition
 LeftMouseUpAction=[!WriteKeyValue Variables GalleryPosition [MeasureGalleryPositionNext] "#Settings#"][!WriteKeyValue Variables GalleryPositionType (#GalleryPositionType#%5+1) "#Settings#"][!Refresh *]
-TooltipTitle="Include Subfolders (Center, Tile, Stretch, Fit, Fill)"
+TooltipTitle="Wallpaper Position (Center, Tile, Stretch, Fit, Fill)"
 TooltipText=Choose the type of position the Wallpaper is set to when clicking "Set as Wallpaper". (Fit and Fill are compatible with Windows 7 and above.)
 
 ;-----------------------
