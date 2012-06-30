@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=460
+PanelHeight=480
 ArrowY=48
 
 ;---------------------------------------------------------------------
@@ -29,6 +29,16 @@ Substitute="1":"Yes","0":"No"
 Measure=CALC
 Formula=#TriptychDisabled#
 Substitute="1":"No","0":"Yes"
+
+[MeasureGalleryPosition]
+Measure=Calc
+Formula=#GalleryPositionType#
+Substitute="1":"Center","2":"Tile","3":"Stretch","4":"Fit","5":"Fill"
+
+[MeasureGalleryPositionNext]
+Measure=Calc
+Formula=#GalleryPositionType#%5+1
+Substitute="1":"Center","2":"Tile","3":"Stretch","4":"Fit","5":"Fill"
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -260,6 +270,19 @@ LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 7"
 TooltipTitle="Image Aspect Ratio (width/height)"
 TooltipText=You can also determine the aspect ratio of the Gallery skin's display window. (The skin itself allows you to toggle whether the displayed images are stretched to fit this ratio.)
 
+[GalleryPositionName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
+Text="Wallpaper Position"
+
+[GalleryPositionText]
+Meter=STRING
+MeterStyle=StyleText
+MeasureName=MeasureGalleryPosition
+LeftMouseUpAction=[!WriteKeyValue Variables GalleryPosition [MeasureGalleryPositionNext] "#Settings#"][!WriteKeyValue Variables GalleryPositionType (#GalleryPositionType#%5+1) "#Settings#"][!Refresh *]
+TooltipTitle="Include Subfolders (Center, Tile, Stretch, Fit, Fill)"
+TooltipText=Choose the type of position the Wallpaper is set to when clicking "Set as Wallpaper". (Fit and Fill are compatible with Windows 7 and above.)
+
 ;-----------------------
 
 [VolumeIncrementName]
@@ -308,5 +331,5 @@ TooltipText=You can choose to disable the switcher action entirely.
 [RestoreDefaultGeneral]
 Meter=STRING
 MeterStyle=StyleText | StyleTextSubDefaults
-LeftMouseDoubleClickAction=[!WriteKeyValue Variables Note1Path "#DefaultNote1Path#" "#Settings#"][!WriteKeyValue Variables Note2Path "#DefaultNote2Path#" "#Settings#"][!WriteKeyValue Variables Note3Path "#DefaultNote3Path#" "#Settings#"][!WriteKeyValue Variables NoteHeight "#DefaultNoteHeight#" "#Settings#"][!WriteKeyValue Variables NoteDisablePages "#DefaultNoteDisablePages#" "#Settings#"][!WriteKeyValue Variables Drive1 "#DefaultDrive1#" "#Settings#"][!WriteKeyValue Variables Drive2 "#DefaultDrive2#" "#Settings#"][!WriteKeyValue Variables Drive3 "#DefaultDrive3#" "#Settings#"][!WriteKeyValue Variables NetworkMaxDownload "#DefaultNetworkMaxDownload#" "#Settings#"][!WriteKeyValue Variables NetworkMaxUpload "#DefaultNetworkMaxUpload#" "#Settings#"][!WriteKeyValue Variables CalendarMondays "#DefaultCalendarMondays#" "#Settings#"][!WriteKeyValue Variables CalendarExtraDays "#DefaultCalendarExtraDays#" "#Settings#"][!WriteKeyValue Variables CalendarLeadingZeroes "#DefaultCalendarLeadingZeroes#" "#Settings#"][!WriteKeyValue Variables GalleryPath "#DefaultGalleryPath#" "#Settings#"][!WriteKeyValue Variables GallerySubfolders "#DefaultGallerySubfolders#" "#Settings#"][!WriteKeyValue Variables GalleryTime "#DefaultGalleryTime#" "#Settings#"][!WriteKeyValue Variables GalleryRatio "#DefaultGalleryRatio#" "#Settings#"][!WriteKeyValue Variables VolumeIncrement "#DefaultVolumeIncrement#" "#Settings#"][!Refresh *]
+LeftMouseDoubleClickAction=[!WriteKeyValue Variables Note1Path "#DefaultNote1Path#" "#Settings#"][!WriteKeyValue Variables Note2Path "#DefaultNote2Path#" "#Settings#"][!WriteKeyValue Variables Note3Path "#DefaultNote3Path#" "#Settings#"][!WriteKeyValue Variables NoteHeight "#DefaultNoteHeight#" "#Settings#"][!WriteKeyValue Variables NoteDisablePages "#DefaultNoteDisablePages#" "#Settings#"][!WriteKeyValue Variables Drive1 "#DefaultDrive1#" "#Settings#"][!WriteKeyValue Variables Drive2 "#DefaultDrive2#" "#Settings#"][!WriteKeyValue Variables Drive3 "#DefaultDrive3#" "#Settings#"][!WriteKeyValue Variables NetworkMaxDownload "#DefaultNetworkMaxDownload#" "#Settings#"][!WriteKeyValue Variables NetworkMaxUpload "#DefaultNetworkMaxUpload#" "#Settings#"][!WriteKeyValue Variables CalendarMondays "#DefaultCalendarMondays#" "#Settings#"][!WriteKeyValue Variables CalendarExtraDays "#DefaultCalendarExtraDays#" "#Settings#"][!WriteKeyValue Variables CalendarLeadingZeroes "#DefaultCalendarLeadingZeroes#" "#Settings#"][!WriteKeyValue Variables GalleryPath "#DefaultGalleryPath#" "#Settings#"][!WriteKeyValue Variables GallerySubfolders "#DefaultGallerySubfolders#" "#Settings#"][!WriteKeyValue Variables GalleryTime "#DefaultGalleryTime#" "#Settings#"][!WriteKeyValue Variables GalleryRatio "#DefaultGalleryRatio#" "#Settings#"][!WriteKeyValue Variables GalleryPosition "#DefaultGalleryPosition#" "#Settings#"][!WriteKeyValue Variables GalleryPositionType "#DefaultGalleryPositionType#" "#Settings#"][!WriteKeyValue Variables VolumeIncrement "#DefaultVolumeIncrement#" "#Settings#"][!Refresh *]
 TooltipText=Click here to reset all General settings to their default values. Be careful: your current settings will be permanently lost.#CRLF##CRLF#To prevent accidental data loss, this button must be double-clicked.

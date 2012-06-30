@@ -11,9 +11,9 @@ DefaultStylesheet=Enigma Dark
 ;-----------------------
 ; GENERAL
 
-DefaultNote1Path=#ROOTCONFIGPATH#Sidebar\Notes\Notes.txt
-DefaultNote2Path=#ROOTCONFIGPATH#Sidebar\Notes\Tasks.txt
-DefaultNote3Path=#ROOTCONFIGPATH#Sidebar\Notes\About.txt
+DefaultNote1Path=#*ROOTCONFIGPATH*#Sidebar\Notes\Notes.txt
+DefaultNote2Path=#*ROOTCONFIGPATH*#Sidebar\Notes\Tasks.txt
+DefaultNote3Path=#*ROOTCONFIGPATH*#Sidebar\Notes\About.txt
 DefaultNoteHeight=200
 DefaultDrive1=C
 DefaultDrive2=E
@@ -26,6 +26,8 @@ DefaultCalendarMondays=0
 DefaultGalleryPath=%USERPROFILE%\Pictures
 DefaultGallerySubfolders=1
 DefaultGalleryRatio=3/4
+DefaultGalleryPosition=Center
+DefaultGalleryPositionType=1
 DefaultVolumeIncrement=5
 DefaultTriptychInterval=30
 DefaultTriptychDisabled=0
