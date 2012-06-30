@@ -50,6 +50,8 @@ If $CmdLine[0] > 4 Then
 	$Current = $CmdLine[5]
 	If $CmdLine[0] > 5 Then
 		$NameOnly = $CmdLine[6]
+	Else
+		$NameOnly = ""
 	EndIf
 	If $CmdLine[0] > 6 Then
 		$Debug=1
