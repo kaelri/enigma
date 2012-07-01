@@ -1,6 +1,6 @@
 function Initialize()
 	sRange = string.lower(SELF:GetOption('Range','month'))
-	iStarOnMondays = SELF:GetNumberOption('StartOnMonday',0)>0
+	iStartOnMondays = SELF:GetNumberOption('StartOnMonday',0)>0
 	iLeadingZeroes = SELF:GetNumberOption('LeadingZeroes',0)>0
 	iEDaysColor = SELF:GetNumberOption('ExtraDays')>0 and ' | StyleCalendarTextExtra' or ' | StyleCalendarTextInvisible'
 	
