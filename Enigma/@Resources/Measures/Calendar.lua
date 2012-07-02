@@ -16,8 +16,11 @@ function Initialize()
 		SKIN:Bang('!SetOption','Day'..i..'Label','Text',tLabels[iStartOnMondays and i%7+1 or i])
 	end
 	hFile={month={},day={},year={},event={},title={},} -- Initialize Event Matrix.
-	for _,file in ipairs(Delim(SELF:GetOption('EventFile',''))) do -- For each event file.
-		local In=io.input(SKIN:MakePathAbsolute(file),'r') -- Open file in read only.
+	local Files=Delim(SELF:GetOption('EventFile',''))
+	local Folder=table.remove(Files,1)
+	if not string.match(Folder,'[\\/]$') then Folder=Folder..'\\' end
+	for _,file in ipairs(Files) do -- For each event file.
+		local In=io.input(Folder..file,'r') -- Open file in read only.
 		if not io.type(In)=='file' then -- File could not be opened.
 			ErrMsg(0,'File Read Error',file)
 		else -- File is open.
@@ -61,7 +64,7 @@ function Update()
 			month=function(z) return z-iStartDay end,
 		}
 		for a = 1, iRange[sRange]  do
-			styles={'StyleCalendarText'}
+			local styles,tTip={'StyleCalendarText'},''
 			if a%7==1 then table.insert(styles,'StyleCalendar'..(a==1 and 'TextFirst' or 'NewWeek')) end
 			b=case[sRange](a)
 			if b<1 then
@@ -72,10 +75,12 @@ function Update()
 				table.insert(styles,iEDaysColor)
 			elseif Hol[b] then
 				table.insert(styles,'StyleCalendarEvent')
+				tTip=table.concat(Hol[b],'\n')
 			end
 			for k,v in pairs{
 				MeterStyle=table.concat(styles,'|'),
 				Text=iLeadingZeroes and string.format('%02d',b) or b,
+				ToolTipText=tTip,
 			} do SKIN:Bang('!SetOption','Day'..a,k,v) end
 		end
 		if sRange == 'month' then
