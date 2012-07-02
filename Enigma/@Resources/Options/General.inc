@@ -252,6 +252,21 @@ RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryRatio')"
 TooltipTitle="Image Aspect Ratio (width/height)"
 TooltipText=You can also determine the aspect ratio of the Gallery skin's display window. (The skin itself allows you to toggle whether the displayed images are stretched to fit this ratio.)
 
+[GalleryPositionName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
+Text="Wallpaper Position"
+
+[GalleryPositionText]
+Meter=STRING
+MeterStyle=StyleText
+Text=#GalleryPosition#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('GalleryPosition')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryPosition')"
+TooltipTitle="Wallpaper Position (Center, Tile, Stretch, Fit, Fill)"
+TooltipText=Choose how the Gallery skin sets your desktop wallpaper. "Fit" and "Fill" are compatible with Windows 7 and above.
+DynamicVariables=1
+
 ;-----------------------
 
 [VolumeIncrementName]

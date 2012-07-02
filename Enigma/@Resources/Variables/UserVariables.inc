@@ -23,7 +23,6 @@ CalendarMondays=0
 GalleryPath=%USERPROFILE%\Pictures
 GallerySubfolders=1
 GalleryPosition=Center
-GalleryPositionType=1
 GalleryRatio=3/4
 VolumeIncrement=5
 TriptychInterval=30

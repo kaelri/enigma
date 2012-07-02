@@ -27,7 +27,6 @@ DefaultGalleryPath=%USERPROFILE%\Pictures
 DefaultGallerySubfolders=1
 DefaultGalleryRatio=3/4
 DefaultGalleryPosition=Center
-DefaultGalleryPositionType=1
 DefaultVolumeIncrement=5
 DefaultTriptychInterval=30
 DefaultTriptychDisabled=0
