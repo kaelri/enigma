@@ -65,6 +65,9 @@ FontColor=#Color3#
 [StyleCalendarTextInvisible]
 FontColor=#ColorTransparent#
 
+[StyleCalendarEvent]
+FontColor=255,0,0,255
+
 [StyleCalendarIndicatorBox]
 SolidColor=#ColorLink3#
 H=12
