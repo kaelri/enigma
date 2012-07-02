@@ -17,10 +17,15 @@ function Initialize()
 	end
 	hFile={month={},day={},year={},event={},title={},} -- Initialize Event Matrix.
 	local Files=Delim(SELF:GetOption('EventFile',''))
-	local Folder=table.remove(Files,1)
-	if not string.match(Folder,'[\\/]$') then Folder=Folder..'\\' end
+	if #Files>1 then
+		local Folder=table.remove(Files,1) -- Remove Folder name from table.
+		if not string.match(Folder,'[\\/]$') then Folder=Folder..'\\' end -- Add trailing forward slash.
+		for k,v in ipairs(Files) do -- Concatenate Folder to each file.
+			Files[k]=Folder..v
+		end
+	end
 	for _,file in ipairs(Files) do -- For each event file.
-		local In=io.input(Folder..file,'r') -- Open file in read only.
+		local In=io.input(SKIN:MakePathAbsolute(file),'r') -- Open file in read only.
 		if not io.type(In)=='file' then -- File could not be opened.
 			ErrMsg(0,'File Read Error',file)
 		else -- File is open.
@@ -30,17 +35,19 @@ function Initialize()
 				ErrMsg(0,'Invalid Event File',file)
 			else
 				local eFile,eSet={},{}
-				local sw=switch{ -- Define Event File tags
-					set=function(x) eSet=Keys(x[2]) end,
+				local sw={ -- Define Event File tags
+					set=function(x) eSet=Keys(x) end,
 					['/set']=function(x) eSet={} end,
-					eventfile=function(x) eFile=Keys(x[2]) end,
+					eventfile=function(x) eFile=Keys(x) end,
 					['/eventfile']=function(x) eFile={} end,
-					event=function(x) local match,ev=string.match(x[2],'<(.+)>(.-)</') local Tmp=Keys(match,{event=ev})
+					event=function(x) local match,ev=string.match(x,'<(.+)>(.-)</') local Tmp=Keys(match,{event=ev})
 						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or eSet[i] or eFile[i] or '') end end,
-					default=function(x) ErrMsg(0,'Invalid Event Tag-',x[1]) end, -- Error
+					default=function(x,y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
 				for line in string.gmatch(text,'[^\n]+') do -- For each file line.
-					sw:case(string.match(line,'^.-<([^%s>]+)'),line)
+					local tag=string.match(line,'^.-<([^%s>]+)')
+					local f=sw[string.lower(tag)] or sw.default
+					f(line,tag)
 				end
 			end
 		end
@@ -96,7 +103,7 @@ function Events() -- Parse Events table.
 	Hol={} -- Initialize Event Table.
 	local AddEvn=function(a,b) if Hol[a] then table.insert(Hol[a],b) else Hol[a]={b} end end -- Adds new Events.
 	local Test=function(c,d) return c=='' and '' or (d and d..c or nil) end
-	if not (SELF:GetNumberOption('DisableBuiltInEvents',0)>0) then -- Add Easter and Good Friday
+	if SELF:GetNumberOption('BuiltInEvents',1)>0 then -- Add Easter and Good Friday
 		local a,b,c,h,L,m=Date.year%19,math.floor(Date.year/100),Date.year%100,0,0,0
 		local d,e,f,i,k=math.floor(b/4),b%4,math.floor((b+8)/25),math.floor(c/4),c%4
 		h=(19*a+b-d-math.floor((b-f+1)/3)+15)%30
@@ -152,18 +159,3 @@ function Delim(a) -- Separate String by Delimiter
 	string.gsub(a,'[^%|]+', function(b) table.insert(tbl,b) end)
 	return tbl
 end -- Delim
-
-function switch(tbl) -- Used to emulate a switch statement
-	tbl.case=function(...)
-		local t=table.remove(arg,1) -- Separate case table from arguments
-		local f=t[string.lower(arg[1])] or t.default
-		if f then
-			if type(f)=='function' then
-				f(arg)
-			else
-				print('Case: '..tostring(x)..' not a function')
-			end
-		end
-	end
-	return tbl
-end -- switch
