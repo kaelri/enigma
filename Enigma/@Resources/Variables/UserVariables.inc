@@ -43,8 +43,6 @@ Feed2=http://rainmeter.net/forum/feed.php
 Feed3=http://kaelri.com/feed/
 GmailUsername=YourUsernameHere
 GmailPassword=YourPasswordHere
-TwitterUsername=YourUsernameHere
-TwitterPassword=YourPasswordHere
 FacebookFeed=YourFacebookFeedHere
 GoogleCalendar1=YourCalendarAddressHere
 GoogleCalendar2=YourCalendarAddressHere
@@ -54,12 +52,13 @@ RTMpassword=YourPasswordHere
 RTMlist1=YourListNumberHere
 RTMlist2=YourListNumberHere
 RTMlist3=YourListNumberHere
+TwitterUsername=YourUsernameHere
+TwitterPassword=YourPasswordHere
 
 ;-----------------------
 ; WORLD
 
 WeatherCode=YourWeatherCodeHere
-UnitType=1
 Unit=c
 World1WeatherCode=UKXX0085
 World1DSTOffset=-1

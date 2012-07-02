@@ -1,9 +1,7 @@
 [Variables]
 PanelHeight=520
 ArrowY=208
-
-;---------------------------------------------------------------------
-; MEASURES
+LabelsQueue=
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -42,6 +40,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 1"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1')"
 TooltipTitle="1st Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -55,6 +54,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App1Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 2"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Path')"
 TooltipTitle="1st File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -68,6 +68,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App1Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 3"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Label')"
 TooltipTitle="1st Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -80,7 +81,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App1Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App1Icon" "#Settings#" "#App1Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App1Icon" "#EnigmaSettings#" "#App1Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Icon')"
 TooltipTitle="1st Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -96,6 +98,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 4"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2')"
 TooltipTitle="2nd Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -109,6 +112,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App2Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 5"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Path')"
 TooltipTitle="2nd File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -122,6 +126,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App2Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 6"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Label')"
 TooltipTitle="2nd Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -134,7 +139,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App2Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App2Icon" "#Settings#" "#App2Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App2Icon" "#EnigmaSettings#" "#App2Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Icon')"
 TooltipTitle="2nd Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -150,6 +156,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 7"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3')"
 TooltipTitle="3rd Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -163,6 +170,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App3Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 8"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Path')"
 TooltipTitle="3rd File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -176,6 +184,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App3Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 9"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Label')"
 TooltipTitle="3rd Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -188,7 +197,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App3Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App3Icon" "#Settings#" "#App3Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App3Icon" "#EnigmaSettings#" "#App3Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Icon')"
 TooltipTitle="3rd Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -204,6 +214,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App4#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 10"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4')"
 TooltipTitle="4th Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -217,6 +228,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App4Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 11"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Path')"
 TooltipTitle="4th File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -230,6 +242,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App4Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 12"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4Label')"
 TooltipTitle="4th Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -242,7 +255,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App4Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App4Icon" "#Settings#" "#App4Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App4Icon" "#EnigmaSettings#" "#App4Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4Icon')"
 TooltipTitle="4th Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
@@ -258,6 +272,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App5#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 13"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5')"
 TooltipTitle="5th Application Name"
 TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -271,6 +286,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App5Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 14"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Path')"
 TooltipTitle="5th File Location"
 TooltipText=Type the location of a file, folder or website as if you were opening it from the Windows 'Run' box. Some apps, such as Notepad and Firefox, do not require the full filepath. You can simply type e.g. 'notepad.exe' or 'firefox.exe'.
 
@@ -284,6 +300,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#App5Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 15"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Label')"
 TooltipTitle="5th Application Label"
 TooltipText=The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
@@ -296,14 +313,13 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#App5Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App5Icon" "#Settings#" "#App5Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App5Icon" "#EnigmaSettings#" "#App5Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Icon')"
 TooltipTitle="5th Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
 
 ;-----------------------
 
-[RestoreDefaultApps]
+[RestoreDefault]
 Meter=STRING
-MeterStyle=StyleText | StyleTextSubDefaults
-LeftMouseDoubleClickAction=[!WriteKeyValue Variables App1 "#DefaultApp1#" "#Settings#"][!WriteKeyValue Variables App1Path "#DefaultApp1Path#" "#Settings#"][!WriteKeyValue Variables App1Label "#DefaultApp1Label#" "#Settings#"][!WriteKeyValue Variables App1Icon "#DefaultApp1Icon#" "#Settings#"][!WriteKeyValue Variables App2 "#DefaultApp2#" "#Settings#"][!WriteKeyValue Variables App2Path "#DefaultApp2Path#" "#Settings#"][!WriteKeyValue Variables App2Label "#DefaultApp2Label#" "#Settings#"][!WriteKeyValue Variables App2Icon "#DefaultApp2Icon#" "#Settings#"][!WriteKeyValue Variables App3 "#DefaultApp3#" "#Settings#"][!WriteKeyValue Variables App3Path "#DefaultApp3Path#" "#Settings#"][!WriteKeyValue Variables App3Label "#DefaultApp3Label#" "#Settings#"][!WriteKeyValue Variables App3Icon "#DefaultApp3Icon#" "#Settings#"][!WriteKeyValue Variables App4 "#DefaultApp4#" "#Settings#"][!WriteKeyValue Variables App4Path "#DefaultApp4Path#" "#Settings#"][!WriteKeyValue Variables App4Label "#DefaultApp4Label#" "#Settings#"][!WriteKeyValue Variables App4Icon "#DefaultApp4Icon#" "#Settings#"][!WriteKeyValue Variables App5 "#DefaultApp5#" "#Settings#"][!WriteKeyValue Variables App5Path "#DefaultApp5Path#" "#Settings#"][!WriteKeyValue Variables App5Label "#DefaultApp5Label#" "#Settings#"][!WriteKeyValue Variables App5Icon "#DefaultApp5Icon#" "#Settings#"][!Refresh *]
-TooltipText=Click here to reset all App settings to their default values. Be careful: your current settings will be permanently lost.#CRLF##CRLF#To prevent accidental data loss, this button must be double-clicked.
+MeterStyle=StyleText | StyleRestoreDefault

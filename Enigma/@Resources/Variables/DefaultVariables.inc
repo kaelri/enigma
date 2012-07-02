@@ -46,8 +46,6 @@ DefaultFeed2=http://rainmeter.net/forum/feed.php
 DefaultFeed3=http://kaelri.com/feed/
 DefaultGmailUsername=YourUsernameHere
 DefaultGmailPassword=YourPasswordHere
-DefaultTwitterUsername=YourUsernameHere
-DefaultTwitterPassword=YourPasswordHere
 DefaultFacebookFeed=YourFacebookFeedHere
 DefaultGoogleCalendar1=YourCalendarAddressHere
 DefaultGoogleCalendar2=YourCalendarAddressHere
@@ -57,12 +55,13 @@ DefaultRTMpassword=YourPasswordHere
 DefaultRTMlist1=YourListNumberHere
 DefaultRTMlist2=YourListNumberHere
 DefaultRTMlist3=YourListNumberHere
+DefaultTwitterUsername=YourUsernameHere
+DefaultTwitterPassword=YourPasswordHere
 
 ;-----------------------
 ; WORLD
 
 DefaultWeatherCode=YourWeatherCodeHere
-DefaultUnitType=1
 DefaultUnit=c
 DefaultWorld1WeatherCode=UKXX0085
 DefaultWorld1DSTOffset=-1

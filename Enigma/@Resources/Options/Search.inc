@@ -1,9 +1,7 @@
 [Variables]
 PanelHeight=445
 ArrowY=248
-
-;---------------------------------------------------------------------
-; MEASURES
+LabelsQueue=
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -42,6 +40,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 1"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search1')"
 TooltipTitle="1st Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -55,6 +54,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search1Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 2"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search1Command')"
 TooltipTitle="1st Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -67,7 +67,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search1Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search1Icon" "#Settings#" "#Search1Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search1Icon" "#EnigmaSettings#" "#Search1Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search1Icon')"
 TooltipTitle="1st Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -83,6 +84,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 3"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search2')"
 TooltipTitle="2nd Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -96,6 +98,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search2Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 4"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search2Command')"
 TooltipTitle="2nd Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -108,7 +111,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search2Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search2Icon" "#Settings#" "#Search2Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search2Icon" "#EnigmaSettings#" "#Search2Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search2Icon')"
 TooltipTitle="2nd Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -124,6 +128,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 5"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search3')"
 TooltipTitle="3rd Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -137,6 +142,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search3Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 6"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search3Command')"
 TooltipTitle="3rd Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -149,7 +155,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search3Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search3Icon" "#Settings#" "#Search3Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search3Icon" "#EnigmaSettings#" "#Search3Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search3Icon')"
 TooltipTitle="3rd Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -165,6 +172,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search4#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 7"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search4')"
 TooltipTitle="4th Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -178,6 +186,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search4Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 8"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search4Command')"
 TooltipTitle="4th Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -190,7 +199,8 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search4Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search4Icon" "#Settings#" "#Search4Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search4Icon" "#EnigmaSettings#" "#Search4Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search4Icon')"
 TooltipTitle="4th Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
@@ -206,6 +216,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search5#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 9"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search5')"
 TooltipTitle="5th Search Engine Name"
 TooltipText=Click to type the names, icons and parameters of up to five of your favorite search engines or Windows Run commands. These will be used by Enigma Search to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' of each search skin is purely cosmetic, and will not affect the function of the skins.
 
@@ -219,6 +230,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Search5Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 10"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search5Command')"
 TooltipTitle="5th Command"
 TooltipText=Type a URL that you would enter into your browser's address bar, or a command that you would enter into the Windows 'Run' box. Include the term '$UserInput$' where your search or command term would go.
 
@@ -231,14 +243,13 @@ Text="Icon"
 Meter=IMAGE
 MeterStyle=StyleImage
 ImageName="#Search5Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search5Icon" "#Settings#" "#Search5Icon#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Search5Icon" "#EnigmaSettings#" "#Search5Icon#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search5Icon')"
 TooltipTitle="5th Image Location"
 TooltipText=Any BMP, JPG, PNG or GIF image can be used as an icon. Square images are recommended.
 
 ;-----------------------
 
-[RestoreDefaultSearch]
+[RestoreDefault]
 Meter=STRING
-MeterStyle=StyleText | StyleTextSubDefaults
-LeftMouseDoubleClickAction=[!WriteKeyValue Variables Search1 "#DefaultSearch1#" "#Settings#"][!WriteKeyValue Variables Search1Command "#DefaultSearch1Command#" "#Settings#"][!WriteKeyValue Variables Search1Icon "#DefaultSearch1Icon#" "#Settings#"][!WriteKeyValue Variables Search2 "#DefaultSearch2#" "#Settings#"][!WriteKeyValue Variables Search2Command "#DefaultSearch2Command#" "#Settings#"][!WriteKeyValue Variables Search2Icon "#DefaultSearch2Icon#" "#Settings#"][!WriteKeyValue Variables Search3 "#DefaultSearch3#" "#Settings#"][!WriteKeyValue Variables Search3Command "#DefaultSearch3Command#" "#Settings#"][!WriteKeyValue Variables Search3Icon "#DefaultSearch3Icon#" "#Settings#"][!WriteKeyValue Variables Search4 "#DefaultSearch4#" "#Settings#"][!WriteKeyValue Variables Search4Command "#DefaultSearch4Command#" "#Settings#"][!WriteKeyValue Variables Search4Icon "#DefaultSearch4Icon#" "#Settings#"][!WriteKeyValue Variables Search5 "#DefaultSearch5#" "#Settings#"][!WriteKeyValue Variables Search5Command "#DefaultSearch5Command#" "#Settings#"][!WriteKeyValue Variables Search5Icon "#DefaultSearch5Icon#" "#Settings#"][!Refresh *]
-TooltipText=Click here to reset all Search settings to their default values. Be careful: your current settings will be permanently lost.#CRLF##CRLF#To prevent accidental data loss, this button must be double-clicked.
+MeterStyle=StyleText | StyleRestoreDefault

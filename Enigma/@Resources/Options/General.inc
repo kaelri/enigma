@@ -1,44 +1,7 @@
 [Variables]
-PanelHeight=480
+PanelHeight=460
 ArrowY=48
-
-;---------------------------------------------------------------------
-; MEASURES
-
-[MeasureCalendarExtraDaysSubstitute]
-Measure=CALC
-Formula=#CalendarExtraDays#
-Substitute="1":"Yes","0":"No"
-
-[MeasureCalendarLeadingZeroesSubstitute]
-Measure=CALC
-Formula=#CalendarLeadingZeroes#
-Substitute="1":"Yes","0":"No"
-
-[MeasureCalendarMondaysSubstitute]
-Measure=CALC
-Formula=#CalendarMondays#
-Substitute="1":"Monday","0":"Sunday"
-
-[MeasureGallerySubfoldersSubstitute]
-Measure=CALC
-Formula=#GallerySubfolders#
-Substitute="1":"Yes","0":"No"
-
-[MeasureTriptychDisabledSubstitute]
-Measure=CALC
-Formula=#TriptychDisabled#
-Substitute="1":"No","0":"Yes"
-
-[MeasureGalleryPosition]
-Measure=Calc
-Formula=#GalleryPositionType#
-Substitute="1":"Center","2":"Tile","3":"Stretch","4":"Fit","5":"Fill"
-
-[MeasureGalleryPositionNext]
-Measure=Calc
-Formula=#GalleryPositionType#%5+1
-Substitute="1":"Center","2":"Tile","3":"Stretch","4":"Fit","5":"Fill"
+LabelsQueue=CalendarExtraDays|CalendarLeadingZeroes|CalendarMondays|GallerySubfolders|TriptychDisabled
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -76,7 +39,8 @@ Text="1st Notes File"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Note1Path#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note1Path" "#Settings#" "#Note1Path#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note1Path" "#EnigmaSettings#" "#Note1Path#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Note1Path')"
 TooltipTitle="1st Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
 
@@ -89,7 +53,8 @@ Text="2nd Notes File"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Note2Path#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note2Path" "#Settings#" "#Note2Path#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note2Path" "#EnigmaSettings#" "#Note2Path#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Note2Path')"
 TooltipTitle="2nd Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
 
@@ -102,7 +67,8 @@ Text="3rd Notes File"
 Meter=STRING
 MeterStyle=StyleText
 Text="#Note3Path#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note3Path" "#Settings#" "#Note3Path#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note3Path" "#EnigmaSettings#" "#Note3Path#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Note3Path')"
 TooltipTitle="3rd Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
 
@@ -116,6 +82,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#NoteHeight#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 1"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NoteHeight')"
 TooltipTitle="Notes Display Height (pixels)"
 TooltipText=You can choose the height of Enigma Notes' display area. Any content in your notes file below this point will not be displayed, although you can store as much as you want in the file.
 
@@ -131,6 +98,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Drive1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 2"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive1')"
 TooltipTitle="1st Drive Letter"
 TooltipText=Click to type the letters of up to three of your hard drives or SSDs. Enigma System will display the free and used space on these drives. You do not need to include the colon.
 
@@ -144,6 +112,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Drive2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 3"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive2')"
 TooltipTitle="2nd Drive Letter"
 TooltipText=Click to type the letters of up to three of your hard drives or SSDs. Enigma System will display the free and used space on these drives. You do not need to include the colon.
 
@@ -157,6 +126,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#Drive3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 4"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive3')"
 TooltipTitle="3rd Drive Letter"
 TooltipText=Click to type the letters of up to three of your hard drives or SSDs. Enigma System will display the free and used space on these drives. You do not need to include the colon.
 
@@ -172,6 +142,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#NetworkMaxDownload#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 5"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NetworkMaxDownload')"
 TooltipTitle="Maximum Download Speed (B)"
 TooltipText=Click to type your maximum upload and download speeds (in bytes). Enigma Network will show your network activity as a percentage of these figures.
 
@@ -185,6 +156,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#NetworkMaxUpload#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 6"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NetworkMaxUpload')"
 TooltipTitle="Maximum Upload Speed (B)"
 TooltipText=Click to type your maximum upload and download speeds (in bytes). Enigma Network will show your network activity as a percentage of these figures.
 
@@ -198,10 +170,12 @@ Text="Calendar Start Day"
 [CalendarMondaysText]
 Meter=STRING
 MeterStyle=StyleText
-MeasureName=MeasureCalendarMondaysSubstitute
-LeftMouseUpAction=[!WriteKeyValue Variables CalendarMondays (1-#CalendarMondays#) "#Settings#"][!Refresh *]
+Text=#CalendarMondaysLabel#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarMondays')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarMondays')"
 TooltipTitle="First Weekday on Calendar Rows (Sun/Mon)"
 TooltipText=Click to toggle whether the Calendar skins show weeks beginning with Sunday or Monday.
+DynamicVariables=1
 
 [CalendarExtraDaysName]
 Meter=STRING
@@ -211,10 +185,12 @@ Text="Extra Dates"
 [CalendarExtraDaysText]
 Meter=STRING
 MeterStyle=StyleText
-MeasureName=MeasureCalendarExtraDaysSubstitute
-LeftMouseUpAction=[!WriteKeyValue Variables CalendarExtraDays (1-#CalendarExtraDays#) "#Settings#"][!Refresh *]
+Text=#CalendarExtraDaysLabel#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarExtraDays')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarExtraDays')"
 TooltipTitle="Show Extra Calendar Days (Y/N)"
 TooltipText=Click to toggle whether Enigma Calendar shows dates from the next and previous months.
+DynamicVariables=1
 
 [CalendarLeadingZeroesName]
 Meter=STRING
@@ -224,10 +200,12 @@ Text="Leading Zeroes"
 [CalendarLeadingZeroesText]
 Meter=STRING
 MeterStyle=StyleText
-MeasureName=MeasureCalendarLeadingZeroesSubstitute
-LeftMouseUpAction=[!WriteKeyValue Variables CalendarLeadingZeroes (1-#CalendarLeadingZeroes#) "#Settings#"][!Refresh *]
+Text=#CalendarLeadingZeroesLabel#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarLeadingZeroes')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarLeadingZeroes')"
 TooltipTitle="Show Leading Zeroes on Calendar Dates (Y/N)"
 TooltipText=You can also toggle whether the calendar shows leading zeroes for one-digit dates.
+DynamicVariables=1
 
 ;-----------------------
 
@@ -240,7 +218,8 @@ Text="Gallery Path"
 Meter=STRING
 MeterStyle=StyleText
 Text="#GalleryPath#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "Folder" "Variables" "GalleryPath" "#Settings#" "#GalleryPath#"]
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "Folder" "Variables" "GalleryPath" "#EnigmaSettings#" "#GalleryPath#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryPath')"
 TooltipTitle="Folder Location (C:\Users\...)"
 TooltipText=Click to type the path to the folder containing the images which you would like Enigma Gallery to display.
 
@@ -252,10 +231,12 @@ Text="Include Subfolders?"
 [GallerySubfoldersText]
 Meter=STRING
 MeterStyle=StyleText
-MeasureName=MeasureGallerySubfoldersSubstitute
-LeftMouseUpAction=[!WriteKeyValue Variables GallerySubfolders (1-#GallerySubfolders#) "#Settings#"][!Refresh *]
+Text=#GallerySubfoldersLabel#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('GallerySubfolders')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GallerySubfolders')"
 TooltipTitle="Include Subfolders (Y/N)"
 TooltipText=Choose whether the Gallery skin includes images in subfolders within your chosen path.
+DynamicVariables=1
 
 [GalleryRatioName]
 Meter=STRING
@@ -267,21 +248,9 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#GalleryRatio#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 7"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryRatio')"
 TooltipTitle="Image Aspect Ratio (width/height)"
 TooltipText=You can also determine the aspect ratio of the Gallery skin's display window. (The skin itself allows you to toggle whether the displayed images are stretched to fit this ratio.)
-
-[GalleryPositionName]
-Meter=STRING
-MeterStyle=StyleName | StyleNameSub
-Text="Wallpaper Position"
-
-[GalleryPositionText]
-Meter=STRING
-MeterStyle=StyleText
-MeasureName=MeasureGalleryPosition
-LeftMouseUpAction=[!WriteKeyValue Variables GalleryPosition [MeasureGalleryPositionNext] "#Settings#"][!WriteKeyValue Variables GalleryPositionType (#GalleryPositionType#%5+1) "#Settings#"][!Refresh *]
-TooltipTitle="Wallpaper Position (Center, Tile, Stretch, Fit, Fill)"
-TooltipText=Choose the type of position the Wallpaper is set to when clicking "Set as Wallpaper". (Fit and Fill are compatible with Windows 7 and above.)
 
 ;-----------------------
 
@@ -295,6 +264,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#VolumeIncrement#%"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 8"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('VolumeIncrement')"
 TooltipTitle="Volume Change Increment (percent)"
 TooltipText=Click to change the amount by which Enigma Volume increases and decreases your system volume when clicked.
 
@@ -310,6 +280,7 @@ Meter=STRING
 MeterStyle=StyleText
 Text="#TriptychInterval#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 9"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TriptychInterval')"
 TooltipTitle="Switcher Rotation Period (seconds)"
 TooltipText=Click to type the length of time (in seconds) that Enigma Reader, Gcal, Remember The Milk, Notes, and Gallery display one tab before automatically rotating to the next.
 
@@ -321,15 +292,15 @@ Text="Enable Switcher"
 [TyiptychDisabledText]
 Meter=STRING
 MeterStyle=StyleText
-MeasureName=MeasureTriptychDisabledSubstitute
-LeftMouseUpAction=[!WriteKeyValue Variables TriptychDisabled (1-#TriptychDisabled#) "#Settings#"][!Refresh *]
+Text=#TriptychDisabledLabel#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TriptychDisabled')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TriptychDisabled')"
 TooltipTitle="Enable Switcher Action (Y/N)"
 TooltipText=You can choose to disable the switcher action entirely.
+DynamicVariables=1
 
 ;-----------------------
 
-[RestoreDefaultGeneral]
+[RestoreDefault]
 Meter=STRING
-MeterStyle=StyleText | StyleTextSubDefaults
-LeftMouseDoubleClickAction=[!WriteKeyValue Variables Note1Path "#DefaultNote1Path#" "#Settings#"][!WriteKeyValue Variables Note2Path "#DefaultNote2Path#" "#Settings#"][!WriteKeyValue Variables Note3Path "#DefaultNote3Path#" "#Settings#"][!WriteKeyValue Variables NoteHeight "#DefaultNoteHeight#" "#Settings#"][!WriteKeyValue Variables Drive1 "#DefaultDrive1#" "#Settings#"][!WriteKeyValue Variables Drive2 "#DefaultDrive2#" "#Settings#"][!WriteKeyValue Variables Drive3 "#DefaultDrive3#" "#Settings#"][!WriteKeyValue Variables NetworkMaxDownload "#DefaultNetworkMaxDownload#" "#Settings#"][!WriteKeyValue Variables NetworkMaxUpload "#DefaultNetworkMaxUpload#" "#Settings#"][!WriteKeyValue Variables CalendarMondays "#DefaultCalendarMondays#" "#Settings#"][!WriteKeyValue Variables CalendarExtraDays "#DefaultCalendarExtraDays#" "#Settings#"][!WriteKeyValue Variables CalendarLeadingZeroes "#DefaultCalendarLeadingZeroes#" "#Settings#"][!WriteKeyValue Variables GalleryPath "#DefaultGalleryPath#" "#Settings#"][!WriteKeyValue Variables GallerySubfolders "#DefaultGallerySubfolders#" "#Settings#"][!WriteKeyValue Variables GalleryRatio "#DefaultGalleryRatio#" "#Settings#"][!WriteKeyValue Variables GalleryPosition "#DefaultGalleryPosition#" "#Settings#"][!WriteKeyValue Variables GalleryPositionType "#DefaultGalleryPositionType#" "#Settings#"][!WriteKeyValue Variables VolumeIncrement "#DefaultVolumeIncrement#" "#Settings#"][!Refresh *]
-TooltipText=Click here to reset all General settings to their default values. Be careful: your current settings will be permanently lost.#CRLF##CRLF#To prevent accidental data loss, this button must be double-clicked.
+MeterStyle=StyleText | StyleRestoreDefault
