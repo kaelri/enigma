@@ -1,22 +1,4 @@
 ;---------------------------------------------------------------------
-; MEASURES
-
-[MeasureSearch]
-Measure=PLUGIN
-Plugin=InputText
-UpdateDivider=-1
-Command1=["#Search3Command#"] DefaultValue="Search #Search3#"
-FocusDismiss=1
-X=10
-Y=10
-W=(#TaskbarSkinWidth#*#SkinWidthMultiplier#-20)
-H=20
-FontFace=#Font#
-FontSize=#Size1#
-FontColor=#ColorBorder#
-SolidColor=#ColorPanel#
-
-;---------------------------------------------------------------------
 ; METERS
 
 [Background]
