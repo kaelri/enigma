@@ -15,7 +15,7 @@ function Initialize()
 	for i=1,7 do
 		SKIN:Bang('!SetOption','Day'..i..'Label','Text',tLabels[iStartOnMondays and i%7+1 or i])
 	end
-	hFile={month={},day={},year={},event={},title={},} -- Initialize Event Matrix.
+	hFile={month={},day={},year={},event={},title={},color={},} -- Initialize Event Matrix.
 	local Files=Delim(SELF:GetOption('EventFile',''))
 	if #Files>1 then
 		local Folder=table.remove(Files,1) -- Remove Folder name from table.
@@ -71,7 +71,7 @@ function Update()
 			month=function(z) return z-iStartDay end,
 		}
 		for a = 1, iRange[sRange]  do
-			local styles,tTip={'StyleCalendarText'},''
+			local styles,tTip,color={'StyleCalendarText'},'',''
 			if a%7==1 then table.insert(styles,'StyleCalendar'..(a==1 and 'TextFirst' or 'NewWeek')) end
 			b=case[sRange](a)
 			if b<1 then
@@ -82,12 +82,14 @@ function Update()
 				table.insert(styles,iEDaysColor)
 			elseif Hol[b] then
 				table.insert(styles,'StyleCalendarEvent')
-				tTip=table.concat(Hol[b],'\n')
+				tTip=table.concat(Hol[b]['text'],'\n')
+				color=Hol[b]['color']
 			end
 			for k,v in pairs{
 				MeterStyle=table.concat(styles,'|'),
 				Text=iLeadingZeroes and string.format('%02d',b) or b,
 				ToolTipText=tTip,
+				FontColor=color
 			} do SKIN:Bang('!SetOption','Day'..a,k,v) end
 		end
 		if sRange == 'month' then
@@ -101,8 +103,15 @@ end
 
 function Events() -- Parse Events table.
 	Hol={} -- Initialize Event Table.
-	local AddEvn=function(a,b) if Hol[a] then table.insert(Hol[a],b) else Hol[a]={b} end end -- Adds new Events.
 	local Test=function(c,d) return c=='' and '' or (d and d..c or nil) end
+	local AddEvn=function(a,b,c)
+		if Hol[a] then -- Adds new Events.
+			table.insert(Hol[a]['text'],b)
+			Hol[a]['color']=''
+		else
+			Hol[a]={text={b},color=c=='' and '' or c,}
+		end
+	end
 	if SELF:GetNumberOption('BuiltInEvents',1)>0 then -- Add Easter and Good Friday
 		local a,b,c,h,L,m=Date.year%19,math.floor(Date.year/100),Date.year%100,0,0,0
 		local d,e,f,i,k=math.floor(b/4),b%4,math.floor((b+8)/25),math.floor(c/4),c%4
@@ -117,7 +126,8 @@ function Events() -- Parse Events table.
 		if hFile.month[i]==Date.month or hFile.month[i]=='*' then -- If Event exists in current month or *.
 			AddEvn( -- Calculate Day and add to Event Table
 				SKIN:ParseFormula(Vars(hFile.day[i],hFile.event[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.event[i]),
-				hFile.event[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -')
+				hFile.event[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -'),
+				hFile.color[i]
 			)
 		end
 	end
