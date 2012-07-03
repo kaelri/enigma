@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=460
+PanelHeight=480
 ArrowY=48
 LabelsQueue=CalendarExtraDays|CalendarLeadingZeroes|CalendarMondays|GallerySubfolders|TriptychDisabled
 
