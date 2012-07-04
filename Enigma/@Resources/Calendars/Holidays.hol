@@ -1,51 +1,51 @@
 <EventFile>
 	<Set Month="1">
-		<Event Day="1">New Years Day</Event>
-		<Event Day="{ThirdMon}">Martin Luther King, Jr. Day</Event>
+		<Event Day="1" Desc="New Years Day"/>
+		<Event Day="{ThirdMon}" Desc="Martin Luther King, Jr. Day"/>
 	</Set>
 	<Set Month="2">
-		<Event Day="2">Groundhog Day</Event>
-		<Event Day="14">Valentines Day</Event>
-		<Event Day="{ThirdMon}">Washington's Birthday</Event>
+		<Event Day="2" Desc="Groundhog Day"/>
+		<Event Day="14" Desc="Valentines Day"/>
+		<Event Day="{ThirdMon}" Desc="Washington's Birthday"/>
 	</Set>
-	<Event Month="3" Day="17">St. Patrick's Day</Event>
-	<Set Month="4">
-		<Event Day="1">April Fool's Day</Event>
-		<Event Day="15">Tax Day</Event>
-		<Event Day="22">Earth Day</Event>
-		<Event Day="{LastFri}">Arbor Day</Event>
+	<Event Month="3" Day="17" Desc="St. Patrick's Day"/>
+	<Set Month="4" Event="">
+		<Event Day="1" Desc="April Fool's Day"/>
+		<Event Day="15" Desc="Tax Day"/>
+		<Event Day="22" Desc="Earth Day"/>
+		<Event Day="{LastFri}" Desc="Arbor Day"/>
 	</Set>
 	<Set Month="5">
-		<Event Day="5">Cinco de Mayo</Event>
-		<Event Day="{SecondSun}">Mother's Day</Event>
-		<Event Day="{LastMon}">Memorial Day</Event>
+		<Event Day="5" Desc="Cinco de Mayo"/>
+		<Event Day="{SecondSun}" Desc="Mother's Day"/>
+		<Event Day="{LastMon}" Desc="Memorial Day"/>
 	</Set>
 	<Set Month="6">
-		<Event Day="14">Flag Day</Event>
-		<Event Day="{ThirdSun}">Father's Day</Event>
+		<Event Day="14" Desc="Flag Day"/>
+		<Event Day="{ThirdSun}" Desc="Father's Day"/>
 	</Set>
-	<Event Month="7" Day="4">Independence Day</Event>
-	<Event Month="8" Day="26">Women's Equality Day</Event>
+	<Event Month="7" Day="4" Desc="Independence Day"/>
+	<Event Month="8" Day="26" Desc="Women's Equality Day"/>
 	<Set Month="9">
-		<Event Day="{FirstMon}">Labor Day</Event>
-		<Event Day="11" Year="2001">Patriot Day</Event>
-		<Event Day="17">Citizen Day</Event>
+		<Event Day="{FirstMon}" Desc="Labor Day"/>
+		<Event Day="11" Year="2001" Desc="Patriot Day"/>
+		<Event Day="17" Desc="Citizen Day"/>
 	</Set>
 	<Set Month="10">
-		<Event Day="9">Leif Erikson Day</Event>
-		<Event Day="{SecondMon}">Columbus Day</Event>
-		<Event Day="31">Halloween</Event>
+		<Event Day="9" Desc="Leif Erikson Day"/>
+		<Event Day="{SecondMon}" Desc="Columbus Day"/>
+		<Event Day="31" Desc="Halloween"/>
 	</Set>
 	<Set Month="11">
-		<Event Day="({FirstMon}+1)*(({Year}%2)=0)">Election Day</Event>
-		<Event Day="11">Veterans Day</Event>
-		<Event Day="{FourthThu}">Thanksgiving Day</Event>
+		<Event Day="({FirstMon}+1)*(({Year}%2)=0)" Desc="Election Day"/>
+		<Event Day="11" Desc="Veterans Day"/>
+		<Event Day="{FourthThu}" Desc="Thanksgiving Day"/>
 	</Set>
 	<Set Month="12">
-		<Event Day="7">Pearl Harbor Remembrance Day</Event>
-		<Event Day="21">Winter Solstice</Event>
-		<Event Day="24">Christmas Eve</Event>
-		<Event Day="25">Christmas Day</Event>
-		<Event Day="31">New Years Eve</Event>
+		<Event Day="7" Desc="Pearl Harbor Remembrance Day"/>
+		<Event Day="21" Desc="Winter Solstice"/>
+		<Event Day="24" Desc="Christmas Eve"/>
+		<Event Day="25" Desc="Christmas Day"/>
+		<Event Day="31" Desc="New Years Eve"/>
 	</Set>
 </EventFile>

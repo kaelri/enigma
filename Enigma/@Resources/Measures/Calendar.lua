@@ -15,7 +15,7 @@ function Initialize()
 	for i=1,7 do
 		SKIN:Bang('!SetOption','Day'..i..'Label','Text',tLabels[iStartOnMondays and i%7+1 or i])
 	end
-	hFile={month={},day={},year={},event={},title={},color={},} -- Initialize Event Matrix.
+	hFile={month={},day={},year={},desc={},title={},color={},} -- Initialize Event Matrix.
 	local Files=Delim(SELF:GetOption('EventFile',''))
 	if #Files>1 then
 		local Folder=table.remove(Files,1) -- Remove Folder name from table.
@@ -40,7 +40,7 @@ function Initialize()
 					['/set']=function(x) eSet={} end,
 					eventfile=function(x) eFile=Keys(x) end,
 					['/eventfile']=function(x) eFile={} end,
-					event=function(x) local match,ev=string.match(x,'<(.+)>(.-)</') local Tmp=Keys(match,{event=ev})
+					event=function(x) local match,ev=string.match(x,'<(.+)/>') or string.match(x,'<(.+)>(.-)</') local Tmp=Keys(match,{desc=ev or ''})
 						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or eSet[i] or eFile[i] or '') end end,
 					default=function(x,y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
@@ -129,8 +129,8 @@ function Events() -- Parse Events table.
 	for i=1,#hFile.month do -- For each event.
 		if hFile.month[i]==Date.month or hFile.month[i]=='*' then -- If Event exists in current month or *.
 			AddEvn( -- Calculate Day and add to Event Table
-				SKIN:ParseFormula(Vars(hFile.day[i],hFile.event[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.event[i]),
-				hFile.event[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -'),
+				SKIN:ParseFormula(Vars(hFile.day[i],hFile.desc[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.desc[i]),
+				hFile.desc[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -'),
 				hFile.color[i]
 			)
 		end
