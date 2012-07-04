@@ -108,6 +108,7 @@ function Events() -- Parse Events table.
 	Hol={} -- Initialize Event Table.
 	local Test=function(c,d) return c=='' and '' or (d and d..c or nil) end
 	local AddEvn=function(a,b,c)
+		c=string.match(c,',') and ConvertToHex(c) or c
 		if Hol[a] then -- Adds new Events.
 			table.insert(Hol[a]['text'],b)
 			table.insert(Hol[a]['color'],c)
@@ -184,3 +185,12 @@ function Delim(a) -- Separate String by Delimiter
 	string.gsub(a,'[^%|]+', function(b) table.insert(tbl,b) end)
 	return tbl
 end -- Delim
+
+function ConvertToHex(a) -- Converts RGB colors to HEX
+	local c={}
+	a=string.gsub(a,'%s','') -- Remove spaces
+	for b in string.gmatch(a,'[^,]+') do -- Separate by commas
+		table.insert(c,string.format('%02X',tonumber(b))) -- Convert to double digit HEX
+	end
+	return table.concat(c) -- Concat into color code
+end
