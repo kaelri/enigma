@@ -74,16 +74,19 @@ function Update()
 			local styles,tTip,color={'StyleCalendarText'},'',''
 			if a%7==1 then table.insert(styles,'StyleCalendar'..(a==1 and 'TextFirst' or 'NewWeek')) end
 			b=case[sRange](a)
+			if b>0 and b<=tCurrMonth[Date.month] and Hol[b] then
+				table.insert(styles,'StyleCalendarEvent')
+				tTip=table.concat(Hol[b]['text'],'\n')
+				color=Hol[b]['color']
+			end
 			if b<1 then
 				b=b+tCurrMonth[Date.month==1 and 12 or Date.month-1 ]
 				table.insert(styles,iEDaysColor)
 			elseif b>tCurrMonth[Date.month] then
 				b=b-tCurrMonth[Date.month]
 				table.insert(styles,iEDaysColor)
-			elseif Hol[b] then
-				table.insert(styles,'StyleCalendarEvent')
-				tTip=table.concat(Hol[b]['text'],'\n')
-				color=Hol[b]['color']
+			elseif Date.day==a then
+				table.insert(styles,'StyleCalendarIndicatorText')
 			end
 			for k,v in pairs{
 				MeterStyle=table.concat(styles,'|'),

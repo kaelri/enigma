@@ -65,6 +65,9 @@ FontColor=#Color3#
 [StyleCalendarTextInvisible]
 FontColor=#ColorTransparent#
 
+[StyleCalendarIndicatorText]
+StringStyle=BOLD
+
 [StyleCalendarEvent]
 FontColor=255,0,0,255
 
@@ -72,15 +75,6 @@ FontColor=255,0,0,255
 SolidColor=#ColorLink3#
 H=12
 W=2
-DynamicVariables=1
-
-[StyleCalendarIndicatorText]
-FontFace=#Font#
-FontColor=#Color1#
-FontSize=#Size3#
-StringAlign=RIGHT
-StringStyle=BOLD
-AntiAlias=1
 DynamicVariables=1
 
 ;---------------------------------------------------------------------
