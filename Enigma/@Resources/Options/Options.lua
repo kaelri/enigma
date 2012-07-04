@@ -13,6 +13,7 @@ function Initialize()
 		Drive3 = { File = EnigmaSettings },
 		NetworkMaxDownload = { File = EnigmaSettings },
 		NetworkMaxUpload = { File = EnigmaSettings },
+		CalendarEventFile = { File = EnigmaSettings },
 		CalendarExtraDays = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
 			Labels = { 'No', 'Yes' },

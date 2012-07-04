@@ -165,7 +165,7 @@ TooltipText=Click to type your maximum upload and download speeds (in bytes). En
 [CalendarEventFileName]
 Meter=STRING
 MeterStyle=StyleName
-Text="Calendar Events"
+Text="Calendar File"
 
 [CalendarEventFileText]
 Meter=STRING
@@ -173,14 +173,14 @@ MeterStyle=StyleText
 Text=#CalendarEventFile#
 LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "CalendarEventFile" "#EnigmaSettings#" "#CalendarEventFile#"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarEventFile')"
-TooltipTitle="Calendar Event Filepaths(s)"
+TooltipTitle="Calendar Event Library (Filepath)"
 TooltipText=Click to select one or more calendar files to display events in Enigma Calendar.
 DynamicVariables=1
 
 [CalendarMondaysName]
 Meter=STRING
 MeterStyle=StyleName | StyleNameSub
-Text="Calendar Start Day"
+Text="Start Day"
 
 [CalendarMondaysText]
 Meter=STRING
