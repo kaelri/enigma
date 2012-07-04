@@ -1,6 +1,6 @@
 function Initialize()
 	EnigmaSettings = SKIN:GetVariable('EnigmaSettings')
-	StyleSettings = SELF:GetOption('StyleSettings')
+	StyleSettings = SKIN:GetVariable('StyleSettings')
 	
 	Variables = {
 		--GENERAL
