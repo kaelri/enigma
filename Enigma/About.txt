@@ -48,6 +48,7 @@ App: Rainmeter 2.3
 - [Skins] Changed Options: Stylesheets can now be selected by folder, instead of typed manually.
 - [Skins] Changed Options: Default options can now be restored on an individual basis. Instead of double-clicking, a confirmation dialog is presented for security.
 - [Skins] Changed Sidebar, Taskbar: moved LoadOrder setting to stylesheets.
+- [Skins] Changed Calendar: added ability to show events from a selected XML file. Users can edit the events file or add their own.
 - [Skins] Changed Gallery: added button to set current image as desktop wallpaper.
 - [Skins] Changed Music: added support for JRiver Media Center & JRiver Media Jukebox.
 - [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
