@@ -138,12 +138,15 @@ function Events() -- Parse Events table.
 end -- Events
 
 function eColor(tbl)
-	local a=''
+	local a
+	for k,v in ipairs(tbl) do if v=='' then table.remove(tbl,k) end end
 	for k,v in ipairs(tbl) do
-		if v~='' and a=='' then
+		if a then
+			if a~=v then
+				return ''
+			end
+		else
 			a=v
-		elseif v~='' and a~=v then
-			a=''
 		end
 	end
 	return a
