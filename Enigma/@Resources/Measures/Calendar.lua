@@ -77,7 +77,7 @@ function Update()
 			if b>0 and b<=tCurrMonth[Date.month] and Hol[b] then
 				table.insert(styles,'StyleCalendarEvent')
 				tTip=table.concat(Hol[b]['text'],'\n')
-				color=Hol[b]['color']
+				color=eColor(Hol[b]['color'])
 			end
 			if b<1 then
 				b=b+tCurrMonth[Date.month==1 and 12 or Date.month-1 ]
@@ -110,9 +110,9 @@ function Events() -- Parse Events table.
 	local AddEvn=function(a,b,c)
 		if Hol[a] then -- Adds new Events.
 			table.insert(Hol[a]['text'],b)
-			Hol[a]['color']=''
+			table.insert(Hol[a]['color'],c)
 		else
-			Hol[a]={text={b},color=c=='' and '' or c,}
+			Hol[a]={text={b},color={c},}
 		end
 	end
 	if SELF:GetNumberOption('BuiltInEvents',1)>0 then -- Add Easter and Good Friday
@@ -135,6 +135,18 @@ function Events() -- Parse Events table.
 		end
 	end
 end -- Events
+
+function eColor(tbl)
+	local a=''
+	for k,v in ipairs(tbl) do
+		if v~='' and a=='' then
+			a=v
+		elseif v~='' and a~=v then
+			a=''
+		end
+	end
+	return a
+end
 
 function Vars(a,source) -- Makes allowance for {Variables}
 	local D,W={sun=0, mon=1, tue=2, wed=3, thu=4, fri=5, sat=6},{first=0, second=1, third=2, fourth=3, last=4}
