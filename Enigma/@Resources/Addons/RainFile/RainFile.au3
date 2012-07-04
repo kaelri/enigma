@@ -1,3 +1,6 @@
+;----------------------------------------------
+; METADATA
+
 #NoTrayIcon
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
 #AutoIt3Wrapper_icon=RainFile.ico
@@ -15,6 +18,19 @@
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
+
+
+;----------------------------------------------
+; DECLARE VARIABLES
+
+$szDrive = ""
+$szDir = ""
+$szFName = ""
+$szExt = ""
+
+;----------------------------------------------
+; CONTACT RAINMETER
+
 $RAINMETER_QUERY_WINDOW = WinGetHandle("[CLASS:RainmeterTrayClass]")
 $WM_QUERY_RAINMETER = $WM_APP + 1000
 $RAINMETER_QUERY_ID_SKINS_PATH = 4101
@@ -22,11 +38,6 @@ $RAINMETER_QUERY_ID_SETTINGS_PATH = 4102
 $RAINMETER_QUERY_ID_PROGRAM_PATH = 4104
 $RAINMETER_QUERY_ID_CONFIG_EDITOR = 4106
 $WM_QUERY_RAINMETER_RETURN = ""
-
-$szDrive = ""
-$szDir = ""
-$szFName = ""
-$szExt = ""
 
 $hGUI = GUICreate("", 1, 1, -1, -1)
 
@@ -42,6 +53,9 @@ $RainmeterPath = $WM_QUERY_RAINMETER_RETURN & "Rainmeter.exe"
 _SendMessage($RAINMETER_QUERY_WINDOW, $WM_QUERY_RAINMETER, $RAINMETER_QUERY_ID_SKINS_PATH, $hGUI)
 $RainmeterSkins = $WM_QUERY_RAINMETER_RETURN
 
+;----------------------------------------------
+; PARSE PARAMETERS
+
 If $CmdLine[0] > 4 Then
 	$DialogType = $CmdLine[1]
 	$SectionName = $CmdLine[2]
@@ -49,9 +63,9 @@ If $CmdLine[0] > 4 Then
 	$TargetFile = $CmdLine[4]
 	$Current = $CmdLine[5]
 	If $CmdLine[0] > 5 Then
-		$NameOnly = $CmdLine[6]
+		$Pieces = StringUpper($CmdLine[6])
 	Else
-		$NameOnly = ""
+		$Pieces = "DPNE"
 	EndIf
 	If $CmdLine[0] > 6 Then
 		$Debug=1
@@ -67,56 +81,89 @@ if $Debug = 1 Then
 	_ArrayDisplay($Cmdline)
 EndIf
 
+;----------------------------------------------
+; CHECK TARGET FILE EXISTS
+
 If Not FileExists($TargetFile) Then
 	If $Debug = 1 Then MsgBox(16, "RainFile Error", "Can't find target file: " & @CRLF & @CRLF & $TargetFile)
 	Exit
 Endif
 
+;----------------------------------------------
+; CHOOSE FILE/FOLDER
+
 If StringUpper($DialogType) = "FILE" Then
 	_PathSplit($Current, $szDrive, $szDir, $szFName, $szExt)
 	$CurrentPath = $szDrive & $szDir
 	$CurrentFile = $szFName & $szExt
-	$ChosenFile = FileOpenDialog( "Choose File", $CurrentPath, "All (*.*)", 3)
-	If $ChosenFile = "" Then Exit
-	If $Debug = 1 Then MsgBox("","Chosen File",$ChosenFile)
-	_SendBang("!WriteKeyValue " & $SectionName & " " & $KeyName & " " & Chr(34) & $ChosenFile & chr(34) & " " & chr(34) &$TargetFile & chr(34))
-	Sleep(100)
-	_SendBang("!Refresh *")
+	$Chosen = FileOpenDialog( "Choose File", $CurrentPath, "All (*.*)", 7)
 Elseif StringUpper($DialogType) = "FOLDER" Then
 	If $Current = "" Then
 		$Current = StringLeft($RainmeterSkins, StringLen($RainmeterSkins)-1)
 	EndIf
 	$CurrentPath = $Current
-	$ChosenFolder = FileSelectFolder("Choose Folder", "", 4, $CurrentPath)
-	If $ChosenFolder = "" Then Exit
-	If $Debug = 1 Then MsgBox("","Chosen Folder",$ChosenFolder)
-	
-	If StringUpper($NameOnly) = "NAMEONLY" Then
-		_PathSplit($ChosenFolder, $szDrive, $szDir, $szFName, $szExt)
-		_SendBang("!WriteKeyValue " & $SectionName & " " & $KeyName & " " & Chr(34) & $szFName & chr(34) & " " & chr(34) &$TargetFile & chr(34))
-	Else
-		_SendBang("!WriteKeyValue " & $SectionName & " " & $KeyName & " " & Chr(34) & $ChosenFolder & chr(34) & " " & chr(34) &$TargetFile & chr(34))
-	EndIf
-	
-	Sleep(100)
-	_SendBang("!Refresh *")
+	$Chosen = FileSelectFolder("Choose Folder", "", 4, $CurrentPath)
 Else
 	Exit
 EndIf
 
+;----------------------------------------------
+; CHECK FILE/FOLDER WAS CHOSEN
+
+If $Chosen = "" Then Exit
+If $Debug = 1 Then MsgBox("","Chosen File/Folder",$Chosen)
+
+;----------------------------------------------
+; SPLIT INTO PIECES
+
+_PathSplit($Chosen, $szDrive, $szDir, $szFName, $szExt)
+
+If StringRegExp($Pieces, "D") = 1 then
+	$PieceD = $szDrive
+else
+	$PieceD = ""
+EndIf
+
+If StringRegExp($Pieces, "P") = 1 then 
+	$PieceP = $szDir   
+else 
+	$PieceP = ""
+EndIf
+
+If StringRegExp($Pieces, "N") = 1 then 
+	$PieceN = $szFName 
+else 
+	$PieceN = ""
+EndIf
+
+If StringRegExp($Pieces, "E") = 1 then 
+	$PieceE = $szExt   
+else 
+	$PieceE = ""
+EndIf
+
+$Chosen = $PieceD & $PieceP & $PieceN & $PieceE
+
+;----------------------------------------------
+; SEND BANGS
+
+_SendBang("!WriteKeyValue " & $SectionName & " " & $KeyName & " " & Chr(34) & $Chosen & chr(34) & " " & chr(34) &$TargetFile & chr(34))
+Sleep(100)
+_SendBang("!Refresh *")
+
 Exit
 
+
+
+;----------------------------------------------
+; FUNCTIONS
+
 Func _ReadMessage($hWnd, $uiMsg, $wParam, $lParam)
-
 	$pCds = DllStructCreate("dword;dword;ptr", $lParam)
-
 	$pData = DllStructGetData($pCds, 3)
-
 	$pMem = DllStructCreate("wchar[" & DllStructGetData($pCds, 2) & "]", DllStructGetData($pCds, 3))
-
 	$WM_QUERY_RAINMETER_RETURN = DllStructGetData($pMem, 1)
-
-EndFunc ;_ReadMessage
+EndFunc
 
 Func _SendBang($szBang)
 
@@ -137,4 +184,4 @@ Func _SendBang($szBang)
       _SendMessage($hWnd, $WM_COPYDATA, 0, DllStructGetPtr($pCds))
   EndIf
 
-EndFunc ;_SendBang
+EndFunc
