@@ -7,7 +7,7 @@
 #AutoIt3Wrapper_outfile=RainFile.exe
 #AutoIt3Wrapper_Res_Comment=RainFile
 #AutoIt3Wrapper_Res_Description=Provides an Open File dialog for Rainmeter and passes input to external program. This version has been modified to send !RainmeterWriteKeyValue bangs to Rainmeter.exe.
-#AutoIt3Wrapper_Res_Fileversion=0.9.4.0
+#AutoIt3Wrapper_Res_Fileversion=0.9.6.0
 #AutoIt3Wrapper_Res_Fileversion_AutoIncrement=p
 #AutoIt3Wrapper_Res_LegalCopyright=By Kaelri (Kaelri@gmail.com) with contributions by Jeffrey Morley - Creative Commons Attribution-Noncommercial-Share Alike 3.0.
 #AutoIt3Wrapper_Res_Language=1033
