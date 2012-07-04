@@ -40,7 +40,8 @@ function Initialize()
 					['/set']=function(x) eSet={} end,
 					eventfile=function(x) eFile=Keys(x) end,
 					['/eventfile']=function(x) eFile={} end,
-					event=function(x) local match,ev=string.match(x,'<(.+)/>') or string.match(x,'<(.+)>(.-)</') local Tmp=Keys(match,{desc=ev or ''})
+					event=function(x) local match,ev=string.match(x,string.match(x,'/>') and '<(.-)/>' or '<(.-)>(.-)</')
+						local Tmp=Keys(match,{desc=ev or ''})
 						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or eSet[i] or eFile[i] or '') end end,
 					default=function(x,y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
