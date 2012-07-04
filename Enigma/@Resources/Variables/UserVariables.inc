@@ -17,6 +17,7 @@ Drive2=E
 Drive3=F
 NetworkMaxDownload=1000000
 NetworkMaxUpload=500000
+CalendarEventFile=#@#Calendars\Holidays.hol
 CalendarExtraDays=1
 CalendarLeadingZeroes=0
 CalendarMondays=0

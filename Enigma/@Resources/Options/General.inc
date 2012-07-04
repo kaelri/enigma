@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=480
+PanelHeight=490
 ArrowY=48
 LabelsQueue=CalendarExtraDays|CalendarLeadingZeroes|CalendarMondays|GallerySubfolders|TriptychDisabled
 
@@ -162,9 +162,24 @@ TooltipText=Click to type your maximum upload and download speeds (in bytes). En
 
 ;-----------------------
 
-[CalendarMondaysName]
+[CalendarEventFileName]
 Meter=STRING
 MeterStyle=StyleName
+Text="Calendar Events"
+
+[CalendarEventFileText]
+Meter=STRING
+MeterStyle=StyleText
+Text=#CalendarEventFile#
+LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "CalendarEventFile" "#EnigmaSettings#" "#CalendarEventFile#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarEventFile')"
+TooltipTitle="Calendar Event Filepaths(s)"
+TooltipText=Click to select one or more calendar files to display events in Enigma Calendar.
+DynamicVariables=1
+
+[CalendarMondaysName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
 Text="Calendar Start Day"
 
 [CalendarMondaysText]

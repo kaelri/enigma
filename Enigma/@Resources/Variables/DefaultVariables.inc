@@ -20,6 +20,7 @@ DefaultDrive2=E
 DefaultDrive3=F
 DefaultNetworkMaxDownload=1000000
 DefaultNetworkMaxUpload=500000
+DefaultCalendarEventFile=#*@*#Calendars\Holidays.hol
 DefaultCalendarExtraDays=1
 DefaultCalendarLeadingZeroes=0
 DefaultCalendarMondays=0
