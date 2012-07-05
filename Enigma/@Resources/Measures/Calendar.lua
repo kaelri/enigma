@@ -117,7 +117,7 @@ function Events() -- Parse Events table.
 			Hol[a]={text={b},color={c},}
 		end
 	end
-	if SELF:GetNumberOption('BuiltInEvents',1)>0 or SELF:GetNumberOption('DisableEvents',0)<1 then -- Add Easter and Good Friday
+	if SELF:GetNumberOption('BuiltInEvents',1)>0 and SELF:GetNumberOption('DisableEvents',0)<1 then -- Add Easter and Good Friday
 		local a,b,c,h,L,m=Date.year%19,math.floor(Date.year/100),Date.year%100,0,0,0
 		local d,e,f,i,k=math.floor(b/4),b%4,math.floor((b+8)/25),math.floor(c/4),c%4
 		h=(19*a+b-d-math.floor((b-f+1)/3)+15)%30
