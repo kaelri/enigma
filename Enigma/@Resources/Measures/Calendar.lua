@@ -183,7 +183,7 @@ end -- Vars
 
 function ErrMsg(...) -- Used to display errors
 	Error=true
-	print('LuaCalendar: '..table.concat(arg,' ',2))
+	print(table.concat(arg,' ',2))
 	return arg[1]
 end -- ErrMsg
 
