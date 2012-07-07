@@ -3,6 +3,7 @@
 	<Event Month="{GoodFridayMonth}" Day="{GoodFridayDay}" Desc="Good Friday"/>
 	<Event Month="{EasterMonth}" Day="{EasterDay}" Desc="Easter Sunday"/>
 	<Event Month="{AshWednesdayMonth}" Day="{AshWednesdayDay}" Desc="Ash Wednesday"/>
+	<Event Month="{MardiGrasMonth}" Day="{MardiGrasDay}" Desc="MardiGras"/>
 	
 	<!-- Normal Holidays -->
 	<Set Month="1">

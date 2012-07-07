@@ -150,14 +150,18 @@ function BuiltInEvents() -- Makes allowance Easter and Good Friday
 	L=(32+2*e+2*i-h-k)%7
 	m=math.floor((a+11*h+22*L)/451)
 	local EM,ED=math.floor((h+L-7*m+114)/31),(h+L-7*m+114)%31+1
-	local atbl=os.date('*t',os.time{month=EM,day=ED,year=Date.year}-46*86400)
+	local awed=os.time{month=EM,day=ED,year=Date.year}-46*86400
+	local atbl=os.date('*t',awed)
+	local btbl=os.date('*t',awed-86400)
 	return {
 		eastermonth=EM,
 		easterday=ED,
 		goodfridaymonth=EM-(ED-2<1 and 1 or 0),
 		goodfridayday=(ED-2)+(ED-2<1 and tCurrMonth[EM-1] or 0),
 		ashwednesdaymonth=atbl.month,
-		ashwednesdayday=atbl.day,}
+		ashwednesdayday=atbl.day,
+		mardigrasmonth=btbl.month,
+		mardigrasday=btbl.day}
 end
 
 function Vars(a,source) -- Makes allowance for {Variables}
@@ -172,7 +176,7 @@ function Vars(a,source) -- Makes allowance for {Variables}
 			local L,wD=36+D[v2]-iStartDay,rotate(D[v2])
 			return W[v1]<4 and wD+1-iStartDay+(iStartDay>wD and 7 or 0)+7*W[v1] or L-math.ceil((L-tCurrMonth[Date.month])/7)*7
 		else -- Error
-			return ErrMsg(0,'Invalid Variable',b,'in',source)
+			return ErrMsg(0,'Invalid Variable',b,source and 'in '..source or '')
 		end
 	end)
 end -- Vars
