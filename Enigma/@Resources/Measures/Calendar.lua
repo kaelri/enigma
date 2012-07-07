@@ -45,7 +45,7 @@ function Initialize()
 						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or eSet[i] or eFile[i] or '') end end,
 					default=function(x,y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
-				for line in string.gmatch(text,'[^\n]+') do -- For each file line.
+				for line in string.gmatch(text,'[^\n\r\t]+') do -- For each file line, ignoring tabs.
 					local tag=string.match(line,'^.-<([^%s>]+)')
 					local f=sw[string.lower(tag)] or sw.default
 					f(line,tag)
@@ -117,18 +117,8 @@ function Events() -- Parse Events table.
 			Hol[a]={text={b},color={c},}
 		end
 	end
-	if SELF:GetNumberOption('BuiltInEvents',1)>0 and SELF:GetNumberOption('DisableEvents',0)<1 then -- Add Easter and Good Friday
-		local a,b,c,h,L,m=Date.year%19,math.floor(Date.year/100),Date.year%100,0,0,0
-		local d,e,f,i,k=math.floor(b/4),b%4,math.floor((b+8)/25),math.floor(c/4),c%4
-		h=(19*a+b-d-math.floor((b-f+1)/3)+15)%30
-		L=(32+2*e+2*i-h-k)%7
-		m=math.floor((a+11*h+22*L)/451)
-		local EM,ED=math.floor((h+L-7*m+114)/31),(h+L-7*m+114)%31+1
-		if Date.month==EM then AddEvn(ED,'Easter') end
-		if Date.month==(EM-(ED-2<1 and 1 or 0)) then AddEvn((ED-2)+(ED-2<1 and tCurrMonth[EM-1] or 0),'Good Friday') end
-	end
 	for i=1,#hFile.month do -- For each event.
-		if hFile.month[i]==Date.month or hFile.month[i]=='*' then -- If Event exists in current month or *.
+		if SKIN:ParseFormula(Vars(hFile.month[i]))==Date.month or hFile.month[i]=='*' then -- If Event exists in current month or *.
 			AddEvn( -- Calculate Day and add to Event Table
 				SKIN:ParseFormula(Vars(hFile.day[i],hFile.desc[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.desc[i]),
 				hFile.desc[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -'),
@@ -153,12 +143,32 @@ function eColor(tbl)
 	return a
 end
 
+function BuiltInEvents() -- Makes allowance Easter and Good Friday
+	local a,b,c,h,L,m=Date.year%19,math.floor(Date.year/100),Date.year%100,0,0,0
+	local d,e,f,i,k=math.floor(b/4),b%4,math.floor((b+8)/25),math.floor(c/4),c%4
+	h=(19*a+b-d-math.floor((b-f+1)/3)+15)%30
+	L=(32+2*e+2*i-h-k)%7
+	m=math.floor((a+11*h+22*L)/451)
+	local EM,ED=math.floor((h+L-7*m+114)/31),(h+L-7*m+114)%31+1
+	local atbl=os.date('*t',os.time{month=EM,day=ED,year=Date.year}-46*86400)
+	return {
+		eastermonth=EM,
+		easterday=ED,
+		goodfridaymonth=EM-(ED-2<1 and 1 or 0),
+		goodfridayday=(ED-2)+(ED-2<1 and tCurrMonth[EM-1] or 0),
+		ashwednesdaymonth=atbl.month,
+		ashwednesdayday=atbl.day,}
+end
+
 function Vars(a,source) -- Makes allowance for {Variables}
 	local D,W={sun=0, mon=1, tue=2, wed=3, thu=4, fri=5, sat=6},{first=0, second=1, third=2, fourth=3, last=4}
+	local tbl=BuiltInEvents()
 	return string.gsub(a,'%b{}',function(b)
 		local strip=string.match(string.lower(b),'{(.+)}')
 		local v1,v2=string.match(strip,'(.+)(...)')
-		if W[v1 or 'nil'] and D[v2 or 'nil'] then -- Variable day.
+		if tbl[strip] then
+			return tbl[strip]
+		elseif W[v1 or 'nil'] and D[v2 or 'nil'] then -- Variable day.
 			local L,wD=36+D[v2]-iStartDay,rotate(D[v2])
 			return W[v1]<4 and wD+1-iStartDay+(iStartDay>wD and 7 or 0)+7*W[v1] or L-math.ceil((L-tCurrMonth[Date.month])/7)*7
 		else -- Error

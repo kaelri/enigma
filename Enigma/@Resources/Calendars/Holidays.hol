@@ -1,4 +1,10 @@
 <EventFile>
+	<!-- Built in Holidays. Comment out to disable. -->
+	<Event Month="{GoodFridayMonth}" Day="{GoodFridayDay}" Desc="Good Friday"/>
+	<Event Month="{EasterMonth}" Day="{EasterDay}" Desc="Easter Sunday"/>
+	<Event Month="{AshWednesdayMonth}" Day="{AshWednesdayDay}" Desc="Ash Wednesday"/>
+	
+	<!-- Normal Holidays -->
 	<Set Month="1">
 		<Event Day="1" Desc="New Years Day"/>
 		<Event Day="{ThirdMon}" Desc="Martin Luther King, Jr. Day"/>
