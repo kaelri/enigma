@@ -35,6 +35,7 @@ function Initialize()
 		'.-<updated.->(.-)</updated>',
 		}
 	iCurrentFeed=1
+	OldValues={}
 	Measures={}
 	for a in string.gmatch(SELF:GetOption('FeedMeasureName',''),'[^%|]+') do
 		table.insert(Measures,SKIN:GetMeasure(a))
@@ -75,16 +76,22 @@ function Update()
 		for k,v in pairs{
 			ItemTitle=tTitles[i],
 			ItemLink=tLinks[i] or 'No item found.',
-			ItemDate=FeedType==1 and TimeStamp(string.match(tDates[i], '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.(.+)Z')) or tDates[i],
+			ItemDate=(FeedType==1 and tDates[i]~='') and os.date('%I.%M %p on %d %B %Y',TimeStamp(tDates[i])) or tDates[i],
 		} do SKIN:Bang('!SetVariable',Set.vPrefix..k..i,v) end
 	end
 	-- FINISH ACTION   
-	if Set.Finish~='' then SKIN:Bang(Set.Finish) end
+	if SELF:GetNumberOption('WriteFile',0)>0 and FeedType==1 and OldValues[iCurrentFeed]~=sRaw then
+		OldValues[iCurrentFeed]=sRaw
+		CreateFile()
+	elseif Set.Finish~='' then
+		SKIN:Bang(Set.Finish)
+	end
 	return 'Success!'
 end
 
-function TimeStamp(year, month, day, hour, min, sec, zone)
-	return os.date('%I.%M %p on %d %B %Y', os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false})
+function TimeStamp(input, out)
+	local year,month,day,hour,min,sec=string.match(input,  '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
+	return os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false}
 end
 
 -- SWITCHERS
@@ -131,3 +138,47 @@ function Substitute(Val,Sub)
 	end
 	return Val
 end
+
+function CreateFile()
+	local resources=SKIN:GetVariable('@')
+	local file={}
+	table.insert(file,'<EventFile Title="'..sFeedTitle..'">')
+	for i=1,#tTitles do
+		local ItemDate=os.date('*t',TimeStamp(tDates[i]))
+		table.insert(file,'<Event Month="'..ItemDate.month..'" Day="'..ItemDate.day..'" Desc="'..tTitles[i]..'"/>')
+	end
+	table.insert(file,'</EventFile>')
+	local hFile=io.output(resources..'Calendars/'..sFeedTitle..'.hol','w')
+	if io.type(hFile)=='file' then
+		io.write(table.concat(file,'\n'))
+		io.close(hFile)
+		local fTbl=Delim(SKIN:GetVariable('CalendarEventFile'))
+		if #fTbl==1 then
+			fTbl[1]=string.gsub(fTbl[1],resources..'Calendars[/\\]','')
+			fTbl[1]=string.gsub(fTbl[1],'#@#Calendars[/\\]','')
+			table.insert(fTbl,1,'#*@*#Calendars/')
+			table.insert(fTbl,sFeedTitle..'.hol')
+		elseif #fTbl>1 then
+			local match=false
+			for k,v in ipairs(fTbl) do
+				if v==sFeedTitle..'.hol' then
+					match=true
+					break
+				end
+			end
+			if not match then
+				table.insert(fTbl,sFeedTitle..'.hol')
+			end
+		end
+		SKIN:Bang('!WriteKeyValue','Variables','CalendarEventFile',table.concat(fTbl,'|'),resources..'Variables/UserVariables.inc')
+		SKIN:Bang('!Refresh Enigma\\Sidebar\\Calendar')
+	else
+		print('Cannot open file '..resources..'Calendars/'..sFeedTitle..'.hol')
+	end
+end
+
+function Delim(a) -- Separate String by Delimiter
+	local tbl={}
+	string.gsub(a,'[^%|]+', function(b) table.insert(tbl,b) end)
+	return tbl
+end -- Delim
