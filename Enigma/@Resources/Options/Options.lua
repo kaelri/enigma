@@ -53,9 +53,15 @@ function Initialize()
 		-- TwitterUsername = { File = EnigmaSettings },
 		-- TwitterPassword = { File = EnigmaSettings },
 		FacebookFeed = { File = EnigmaSettings },
-		GoogleCalendar1 = { File = EnigmaSettings },
-		GoogleCalendar2 = { File = EnigmaSettings },
-		GoogleCalendar3 = { File = EnigmaSettings },
+		GoogleCalendar1 = { File = EnigmaSettings,
+			Flags = 'gcal'
+		},
+		GoogleCalendar2 = { File = EnigmaSettings,
+			Flags = 'gcal'
+		},
+		GoogleCalendar3 = { File = EnigmaSettings,
+			Flags = 'gcal'
+		},
 		RTMusername = { File = EnigmaSettings },
 		RTMpassword = { File = EnigmaSettings },
 		RTMlist1 = { File = EnigmaSettings },
@@ -168,6 +174,8 @@ function Write(Key, Value)
 				break
 			end
 		end
+	elseif Variables[Key]['Flags'] == 'gcal' then
+		Value = string.gsub(Value, '/basic', '/full')
 	end
 	SKIN:Bang('!WriteKeyValue', 'Variables', Key, Value, Variables[Key]['File'])
 	SKIN:Bang('!Refresh *')
