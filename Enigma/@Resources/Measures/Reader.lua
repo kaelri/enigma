@@ -154,11 +154,10 @@ function CreateFile()
 		io.close(hFile)
 		local fTbl=Delim(SKIN:GetVariable('CalendarEventFile'))
 		if #fTbl==1 then
-			fTbl[1]=string.gsub(fTbl[1],resources..'Calendars[/\\]','')
-			fTbl[1]=string.gsub(fTbl[1],'#@#Calendars[/\\]','')
-			table.insert(fTbl,1,'#*@*#Calendars/')
+			fTbl[1]=string.gsub(fTbl[1],'.-Calendars[/\\]','')
 			table.insert(fTbl,sFeedTitle..'.hol')
 		elseif #fTbl>1 then
+			table.remove(fTbl,1)
 			local match=false
 			for k,v in ipairs(fTbl) do
 				if v==sFeedTitle..'.hol' then
@@ -170,8 +169,8 @@ function CreateFile()
 				table.insert(fTbl,sFeedTitle..'.hol')
 			end
 		end
-		SKIN:Bang('!WriteKeyValue','Variables','CalendarEventFile',table.concat(fTbl,'|'),resources..'Variables/UserVariables.inc')
-		SKIN:Bang('!Refresh Enigma\\Sidebar\\Calendar')
+		table.insert(fTbl,1,'#*@*#Calendars')
+		SKIN:Bang('!WriteKeyValue','Variables','CalendarEventFile',table.concat(fTbl,'|'),'#@#Variables/UserVariables.inc')
 	else
 		print('Cannot open file '..resources..'Calendars/'..sFeedTitle..'.hol')
 	end
