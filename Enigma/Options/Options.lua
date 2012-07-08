@@ -69,13 +69,21 @@ function Initialize()
 		RTMlist3 = { File = EnigmaSettings },
 		--WORLD
 		WeatherCode = { File = EnigmaSettings },
+		WeatherCodeLat = { File = EnigmaSettings },
+		WeatherCodeLon = { File = EnigmaSettings },
 		Unit = { File = EnigmaSettings, 
 			Loop = { 'c', 'f' },
 			Labels = { 'Celsius', 'Fahrenheit' },
 		},
 		World1WeatherCode = { File = EnigmaSettings },
+		World1WeatherCodeLat = { File = EnigmaSettings },
+		World1WeatherCodeLon = { File = EnigmaSettings },
 		World2WeatherCode = { File = EnigmaSettings },
+		World2WeatherCodeLat = { File = EnigmaSettings },
+		World2WeatherCodeLon = { File = EnigmaSettings },
 		World3WeatherCode = { File = EnigmaSettings },
+		World3WeatherCodeLat = { File = EnigmaSettings },
+		World3WeatherCodeLon = { File = EnigmaSettings },
 		--APPS
 		App1 = { File = EnigmaSettings },
 		App1Path = { File = EnigmaSettings },
@@ -162,7 +170,7 @@ function Initialize()
 	
 end
 
-function Write(Key, Value)
+function Write(Key, Value, Wait)
 	if not Value then
 		Loop = Variables[Key]['Loop']
 		for i,v in pairs(Loop) do
@@ -175,7 +183,9 @@ function Write(Key, Value)
 		Value = string.gsub(Value, '/basic', '/full')
 	end
 	SKIN:Bang('!WriteKeyValue', 'Variables', Key, Value, Variables[Key]['File'])
-	SKIN:Bang('!Refresh *')
+	if not Wait then
+		SKIN:Bang('!Refresh *')
+	end
 end
 
 function Default(Key, Confirm)

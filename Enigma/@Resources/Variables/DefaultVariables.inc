@@ -62,16 +62,18 @@ DefaultTwitterPassword=YourPasswordHere
 ; WORLD
 
 DefaultWeatherCode=YourWeatherCodeHere
+DefaultWeatherCodeLat=
+DefaultWeatherCodeLon=
 DefaultUnit=c
 DefaultWorld1WeatherCode=44418
-DefaultWorld1Lat=51.51
-DefaultWorld1Lon=-0.13
+DefaultWorld1WeatherCodeLat=51.51
+DefaultWorld1WeatherCodeLon=-0.13
 DefaultWorld2WeatherCode=2514815
-DefaultWorld2Lat=38.9
-DefaultWorld2Lon=-77.03
+DefaultWorld2WeatherCodeLat=38.9
+DefaultWorld2WeatherCodeLon=-77.03
 DefaultWorld3WeatherCode=455825
-DefaultWorld3Lat=-22.98
-DefaultWorld3Lon=-43.2
+DefaultWorld3WeatherCodeLat=-22.98
+DefaultWorld3WeatherCodeLon=-43.2
 
 ;-----------------------
 ; APPS

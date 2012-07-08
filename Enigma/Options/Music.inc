@@ -45,7 +45,7 @@ Text="Music Player"
 Meter=STRING
 MeterStyle=StyleText
 Text="AIMP"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '1')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'AIMP')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '1', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'AIMP')"]
 TooltipTitle="AIMP"
 TooltipText=Fully supported.
 
@@ -53,7 +53,7 @@ TooltipText=Fully supported.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="foobar2000"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '2')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'foobar2000')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '2', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'foobar2000')"]
 TooltipTitle="foobar2000"
 TooltipText=Requires the foo_rainmeter.dll plugin.
 
@@ -61,7 +61,7 @@ TooltipText=Requires the foo_rainmeter.dll plugin.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="iTunes"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '3')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'iTunes')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '3', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'iTunes')"]
 TooltipTitle="iTunes"
 TooltipText=Fully supported.
 
@@ -69,7 +69,7 @@ TooltipText=Fully supported.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="JRiver Media"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '4')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'CAD')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '4', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'CAD')"]
 TooltipTitle="JRiver Media Center & JRiver Media Jukebox"
 TooltipText=Fully supported, using the CD Art Display interface.
 
@@ -77,7 +77,7 @@ TooltipText=Fully supported, using the CD Art Display interface.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="Last.fm Client"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '5')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '5', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
 TooltipTitle="Last.fm Client"
 TooltipText=Partially supported, using the Windows Live Messenger interface. 
 
@@ -85,7 +85,7 @@ TooltipText=Partially supported, using the Windows Live Messenger interface.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="MediaMonkey"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '6')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'MediaMonkey')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '6', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'MediaMonkey')"]
 TooltipTitle="MediaMonkey"
 TooltipText=Fully supported.
 
@@ -93,7 +93,7 @@ TooltipText=Fully supported.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="Media Player Classic"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '7')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '7', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
 TooltipTitle="Media Player Classic"
 TooltipText=Partially supported, using the Windows Live Messenger interface.#CRLF##CRLF#Note that the 'Send Now Playing information to MSN Messenger' option must be enabled in the player's settings (View -> Options -> Tweaks).
 
@@ -101,7 +101,7 @@ TooltipText=Partially supported, using the Windows Live Messenger interface.#CRL
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="MusicBee"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '8')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'CAD')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '8', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'CAD')"]
 TooltipTitle="MusicBee"
 TooltipText=Fully supported, using the CD Art Display interface.
 
@@ -109,7 +109,7 @@ TooltipText=Fully supported, using the CD Art Display interface.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="Open Pandora"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '9')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '9', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
 TooltipTitle="Open Pandora"
 TooltipText=Partially supported, using the Windows Live Messenger interface. 
 
@@ -117,7 +117,7 @@ TooltipText=Partially supported, using the Windows Live Messenger interface.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="Spotify"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '10')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'Spotify')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '10', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'Spotify')"]
 TooltipTitle="Spotify"
 TooltipText=Partially supported. Only the Artist and Track information will display. Player controls are working.
 
@@ -125,7 +125,7 @@ TooltipText=Partially supported. Only the Artist and Track information will disp
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="TTPlayer"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '11')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '11', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
 TooltipTitle="TTPlayer"
 TooltipText=Partially supported, using the Windows Live Messenger interface. 
 
@@ -133,7 +133,7 @@ TooltipText=Partially supported, using the Windows Live Messenger interface.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="Winamp"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '12')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'Winamp')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '12', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'Winamp')"]
 TooltipTitle="Winamp"
 TooltipText=Fully supported.
 
@@ -141,7 +141,7 @@ TooltipText=Fully supported.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="VLC Media Player"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '13')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'CAD')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '13', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'CAD')"]
 TooltipTitle="VLC Media Player"
 TooltipText=Fully supported, using the CD Art Display interface. Requires the 'libcad' plugin for VLC.
 
@@ -149,7 +149,7 @@ TooltipText=Fully supported, using the CD Art Display interface. Requires the 'l
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="Windows Media Player"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '14')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WMP')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '14', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WMP')"]
 TooltipTitle="Windows Media Player"
 TooltipText=Fully supported.
 
@@ -157,6 +157,6 @@ TooltipText=Fully supported.
 Meter=STRING
 MeterStyle=StyleText | StyleTextSub
 Text="Zune"
-LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '15')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
+LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '15', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
 TooltipTitle="Windows Media Player"
 TooltipText=Partially supported, using the Windows Live Messenger interface.

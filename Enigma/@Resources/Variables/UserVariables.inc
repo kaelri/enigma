@@ -59,16 +59,18 @@ TwitterPassword=YourPasswordHere
 ; WORLD
 
 WeatherCode=YourWeatherCodeHere
+WeatherCodeLat=
+WeatherCodeLon=
 Unit=c
 World1WeatherCode=44418
-World1Lat=51.51
-World1Lon=-0.13
+World1WeatherCodeLat=51.51
+World1WeatherCodeLon=-0.13
 World2WeatherCode=2514815
-World2Lat=38.9
-World2Lon=-77.03
+World2WeatherCodeLat=38.9
+World2WeatherCodeLon=-77.03
 World3WeatherCode=455825
-World3Lat=-22.98
-World3Lon=-43.2
+World3WeatherCodeLat=-22.98
+World3WeatherCodeLon=-43.2
 
 ;-----------------------
 ; APPS

@@ -9,7 +9,7 @@ CurrentCode=#World2WeatherCode#
 Measure=Plugin
 Plugin=WebParser
 UpdateRate=3600
-Url=http://ws.geonames.org/timezone?lat=#World2Lat#&lng=#World2Lon#
+Url=http://ws.geonames.org/timezone?lat=#World2WeatherCodeLat#&lng=#World2WeatherCodeLon#
 RegExp=<gmtOffset>(.*)</gmtOffset>
 StringIndex=1
 

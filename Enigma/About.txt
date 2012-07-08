@@ -40,6 +40,7 @@ CHANGELOG
 ---
 Date: ???
 App: Rainmeter 2.3
+- [Skins] Added Weather Code Finder: new utility to search for your weather code directly from Enigma.
 - [Skins] Changed all: updated to make use of the new "@Resources" folder and related conventions for Rainmeter 2.3.
 - [Skins] Changed all: replaces all uses of "!PluginBang" with "!CommandMeasure" for Rainmeter 2.3.
 - [Skins] Changed all: moved Groups to stylesheets.
@@ -52,8 +53,10 @@ App: Rainmeter 2.3
 - [Skins] Changed Calendar: added ability to show events from a selected XML file. Users can edit the events file or add their own.
 - [Skins] Changed Gallery: added button to set current image as desktop wallpaper.
 - [Skins] Changed Music: added support for JRiver Media Center & JRiver Media Jukebox.
+- [Skins] Changed World: Daylight Savings Time offsets are now calculated automatically.
 - [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
 - [Skins] Fixed Gcal Reader: date and time display correctly again.
+- [Addons] Added FindWOEID by Jeff Morley.
 - [Addons] Updated to RainRGB4.
 - [Measures] Changed Notes, Path, Reader, Calendar: various improvements by Smurfier.
 - [Measures] Fixed Notes: skin was displaying the UTF-8 Byte Order Mark (﻿).
