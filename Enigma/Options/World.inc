@@ -116,7 +116,17 @@ Text="#WeatherCode#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputWorld" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('WeatherCode')"
 TooltipTitle="Local Yahoo! Weather Code"
-TooltipText=Click to type or paste the Yahoo! Weather location code for your local area.#CRLF##CRLF#If you live in the United States of America, simply type your ZIP code.#CRLF##CRLF#If you live elsewhere:#CRLF#1. Open http://weather.yahoo.com in your browser.#CRLF#2. Search for your location and click to navigate to its page.#CRLF#3. Find the 'RSS' link in the upper-right corner and copy the link location.#CRLF#4. Part of the feed's URL will include 'p=', followed by an eight-character code. That is your weather code.#CRLF#5. Paste it here.#CRLF##CRLF#Yahoo! Weather's codes are identical to those used by Weather.com.
+TooltipText=Click to type or paste the Yahoo! Weather location code for your local area.
+
+[FinderText]
+Meter=STRING
+MeterStyle=StyleText | StyleTextSub
+Text=Find Weather Code
+LeftMouseUpAction=[!ActivateConfig "Enigma\Options\WeatherCodeFinder" "WeatherCodeFinder.ini"][!Zpos 1 "Enigma\Options\WeatherCodeFinder"]
+FontSize=8
+TooltipTitle="Launch Weather Code Finder"
+TooltipText=Click to open the Weather Code Finder.
+DynamicVariables=1
 
 ;-----------------------
 
