@@ -4,6 +4,80 @@ ArrowY=168
 LabelsQueue=Unit
 
 ;---------------------------------------------------------------------
+; MEASURES
+
+[MeasureWorld1Lat]
+Measure=Plugin
+Plugin=WebParser
+UpdateRate=1800
+Url=http://weather.yahooapis.com/forecastrss?w=#World1WeatherCode#&u=#Unit#
+RegExp=(?siU).*lat>(.*)<.*long>(.*)<
+StringIndex=1
+FinishAction=!SetOption MeasureWriteWorld1 Formula 1
+
+[MeasureWorld1Lon]
+Measure=Plugin
+Plugin=WebParser
+UpdateRate=1800
+Url=[MeasureWorld1Lat]
+StringIndex=2
+
+[MeasureWriteWorld1]
+Measure=Calc
+DynamicVariables=1
+Formula=0
+IfEqualValue=1
+IfEqualAction=[!WriteKeyValue Variables World1Lat "[MeasureWorld1Lat]" "#EnigmaSettings#"][!WriteKeyValue Variables World1Lon "[MeasureWorld1Lon]" "#EnigmaSettings#"][!DisableMeasure]
+
+
+[MeasureWorld2Lat]
+Measure=Plugin
+Plugin=WebParser
+UpdateRate=1800
+Url=http://weather.yahooapis.com/forecastrss?w=#World2WeatherCode#&u=#Unit#
+RegExp=(?siU).*lat>(.*)<.*long>(.*)<
+StringIndex=1
+FinishAction=!SetOption MeasureWriteWorld2 Formula 1
+
+[MeasureWorld2Lon]
+Measure=Plugin
+Plugin=WebParser
+UpdateRate=1800
+Url=[MeasureWorld2Lat]
+StringIndex=2
+
+[MeasureWriteWorld2]
+Measure=Calc
+DynamicVariables=1
+Formula=0
+IfEqualValue=1
+IfEqualAction=[!WriteKeyValue Variables World2Lat "[MeasureWorld2Lat]" "#EnigmaSettings#"][!WriteKeyValue Variables World2Lon "[MeasureWorld2Lon]" "#EnigmaSettings#"][!DisableMeasure]
+
+
+[MeasureWorld3Lat]
+Measure=Plugin
+Plugin=WebParser
+UpdateRate=1800
+Url=http://weather.yahooapis.com/forecastrss?w=#World3WeatherCode#&u=#Unit#
+RegExp=(?siU).*lat>(.*)<.*long>(.*)<
+StringIndex=1
+FinishAction=!SetOption MeasureWriteWorld3 Formula 1
+
+[MeasureWorld3Lon]
+Measure=Plugin
+Plugin=WebParser
+UpdateRate=1800
+Url=[MeasureWorld3Lat]
+StringIndex=2
+
+[MeasureWriteWorld3]
+Measure=Calc
+DynamicVariables=1
+Formula=0
+IfEqualValue=1
+IfEqualAction=[!WriteKeyValue Variables World3Lat "[MeasureWorld3Lat]" "#EnigmaSettings#"][!WriteKeyValue Variables World3Lon "[MeasureWorld3Lon]" "#EnigmaSettings#"][!DisableMeasure]
+
+;---------------------------------------------------------------------
 ; METERS
 
 ;-----------------------
@@ -60,20 +134,6 @@ RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World1WeatherCod
 TooltipTitle="1st Remote Yahoo! Weather Code"
 TooltipText=Click to type or paste the Yahoo! Weather location code for another city or area of your choosing. You can find worldwide codes in exactly the same way as your local weather code.
 
-[World1DSTOffsetName]
-Meter=STRING
-MeterStyle=StyleName | StyleNameSub
-Text="DST Offset"
-
-[World1DSTOffsetText]
-Meter=STRING
-MeterStyle=StyleText
-Text="#World1DSTOffset#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputWorld" "ExecuteBatch 3"
-RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World1DSTOffset')"
-TooltipTitle="1st Daylight Savings Time Offset (hours)"
-TooltipText=Yahoo's time zone information is inaccurate for some locations, especially during Daylight Savings time. If this is happening with one of your World locations, set the DST Offset option to correct it. For example, if the displayed time is one hour behind, you would set the offset to '+1'. If it is two hours ahead, you would set '-2.'
-
 [World2WeatherCodeName]
 Meter=STRING
 MeterStyle=StyleName
@@ -88,20 +148,6 @@ RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World2WeatherCod
 TooltipTitle="2nd Remote Yahoo! Weather Code"
 TooltipText=Click to type or paste the Yahoo! Weather location code for another city or area of your choosing. You can find worldwide codes in exactly the same way as your local weather code.
 
-[World2DSTOffsetName]
-Meter=STRING
-MeterStyle=StyleName | StyleNameSub
-Text="DST Offset"
-
-[World2DSTOffsetText]
-Meter=STRING
-MeterStyle=StyleText
-Text="#World2DSTOffset#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputWorld" "ExecuteBatch 5"
-RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World2DSTOffset')"
-TooltipTitle="2nd Daylight Savings Time Offset (hours)"
-TooltipText=Yahoo's time zone information is inaccurate for some locations, especially during Daylight Savings time. If this is happening with one of your World locations, set the DST Offset option to correct it. For example, if the displayed time is one hour behind, you would set the offset to '+1'. If it is two hours ahead, you would set '-2.'
-
 [World3WeatherCodeName]
 Meter=STRING
 MeterStyle=StyleName
@@ -115,20 +161,6 @@ LeftMouseUpAction=!CommandMeasure "MeasureInputWorld" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World3WeatherCode')"
 TooltipTitle="3rd Remote Yahoo! Weather Code"
 TooltipText=Click to type or paste the Yahoo! Weather location code for another city or area of your choosing. You can find worldwide codes in exactly the same way as your local weather code.
-
-[World3DSTOffsetName]
-Meter=STRING
-MeterStyle=StyleName | StyleNameSub
-Text="DST Offset"
-
-[World3DSTOffsetText]
-Meter=STRING
-MeterStyle=StyleText
-Text="#World3DSTOffset#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputWorld" "ExecuteBatch 7"
-RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World3DSTOffset')"
-TooltipTitle="3rd Daylight Savings Time Offset (hours)"
-TooltipText=Yahoo's time zone information is inaccurate for some locations, especially during Daylight Savings time. If this is happening with one of your World locations, set the DST Offset option to correct it. For example, if the displayed time is one hour behind, you would set the offset to '+1'. If it is two hours ahead, you would set '-2.'
 
 ;-----------------------
 

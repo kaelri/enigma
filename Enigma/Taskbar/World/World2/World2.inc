@@ -5,27 +5,23 @@
 @include=#@#Measures\YahooWeather.inc
 CurrentCode=#World2WeatherCode#
 
-[MeasureTimeZoneAlt]
+[MeasureTimeZone]
 Measure=Plugin
 Plugin=WebParser
 UpdateRate=3600
-Url=http://xml.weather.com/weather/local/#World2WeatherCode#?cc=*
-RegExp="<zone>(.*?)</zone>"
+Url=http://ws.geonames.org/timezone?lat=#World2Lat#&lng=#World2Lon#
+RegExp=<gmtOffset>(.*)</gmtOffset>
 StringIndex=1
-
-[MeasureTimeZoneMod]
-Measure=CALC
-Formula=(#World2DSTOffset# + MeasureTimeZoneAlt)
 
 [MeasureTime]
 Measure=Time
-TimeZone=[MeasureTimeZoneMod]
+TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 
 [MeasureClock]
 Measure=Time
 Format="%#I.%M %p"
-TimeZone=[MeasureTimeZoneMod]
+TimeZone=[MeasureTimeZone]
 Substitute="PM":"pm","AM":"am"
 DynamicVariables=1
 DaylightSavingTime=1

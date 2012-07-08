@@ -74,11 +74,8 @@ function Initialize()
 			Labels = { 'Celsius', 'Fahrenheit' },
 		},
 		World1WeatherCode = { File = EnigmaSettings },
-		World1DSTOffset = { File = EnigmaSettings },
 		World2WeatherCode = { File = EnigmaSettings },
-		World2DSTOffset = { File = EnigmaSettings },
 		World3WeatherCode = { File = EnigmaSettings },
-		World3DSTOffset = { File = EnigmaSettings },
 		--APPS
 		App1 = { File = EnigmaSettings },
 		App1Path = { File = EnigmaSettings },
