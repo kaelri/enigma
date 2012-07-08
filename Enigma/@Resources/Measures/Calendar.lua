@@ -53,7 +53,7 @@ function Initialize()
 			end
 		end
 	end
-end
+end -- Initialize
 
 function Update()
 	Date = os.date('*t')
@@ -103,7 +103,7 @@ function Update()
 		SKIN:Bang('!SetOption','Indicator2','Text',Date.day)
 	end
 	return Error and 'Error!' or 'Success!'
-end
+end -- Update
 
 function Events() -- Parse Events table.
 	Hol={} -- Initialize Event Table.
@@ -128,7 +128,7 @@ function Events() -- Parse Events table.
 	end
 end -- Events
 
-function eColor(tbl)
+function eColor(tbl) -- Makes allowance for multiple custom colors.
 	local a
 	for k,v in ipairs(tbl) do if v=='' then table.remove(tbl,k) end end
 	for k,v in ipairs(tbl) do
@@ -141,28 +141,30 @@ function eColor(tbl)
 		end
 	end
 	return a
-end
+end -- eColor
 
-function BuiltInEvents() -- Makes allowance Easter and Good Friday
+function Easter() -- Returns a timestamp representing easter of the current year.
 	local a,b,c,h,L,m=Date.year%19,math.floor(Date.year/100),Date.year%100,0,0,0
 	local d,e,f,i,k=math.floor(b/4),b%4,math.floor((b+8)/25),math.floor(c/4),c%4
 	h=(19*a+b-d-math.floor((b-f+1)/3)+15)%30
 	L=(32+2*e+2*i-h-k)%7
 	m=math.floor((a+11*h+22*L)/451)
-	local EM,ED=math.floor((h+L-7*m+114)/31),(h+L-7*m+114)%31+1
-	local awed=os.time{month=EM,day=ED,year=Date.year}-46*86400
-	local atbl=os.date('*t',awed)
-	local btbl=os.date('*t',awed-86400)
-	return {
-		eastermonth=EM,
-		easterday=ED,
-		goodfridaymonth=EM-(ED-2<1 and 1 or 0),
-		goodfridayday=(ED-2)+(ED-2<1 and tCurrMonth[EM-1] or 0),
-		ashwednesdaymonth=atbl.month,
-		ashwednesdayday=atbl.day,
-		mardigrasmonth=btbl.month,
-		mardigrasday=btbl.day}
-end
+	return os.time{month=math.floor((h+L-7*m+114)/31),day=(h+L-7*m+114)%31+1,year=Date.year}
+end -- Easter
+
+function BuiltInEvents() -- Makes allowance for events that require complex calculations.
+	local sEaster=Easter()
+	return { -- Define {variables} here.
+		eastermonth=os.date('%m',sEaster),
+		easterday=os.date('%d',sEaster),
+		goodfridaymonth=os.date('%m',sEaster-2*86400),
+		goodfridayday=os.date('%d',sEaster-2*86400),
+		ashwednesdaymonth=os.date('%m',sEaster-46*86400),
+		ashwednesdayday=os.date('%d',sEaster-46*86400),
+		mardigrasmonth=os.date('%m',sEaster-47*86400),
+		mardigrasday=os.date('%d',sEaster-47*86400)
+	}
+end -- BuiltInEvents
 
 function Vars(a,source) -- Makes allowance for {Variables}
 	local D,W={sun=0, mon=1, tue=2, wed=3, thu=4, fri=5, sat=6},{first=0, second=1, third=2, fourth=3, last=4}
@@ -211,4 +213,4 @@ function ConvertToHex(a) -- Converts RGB colors to HEX
 		table.insert(c,string.format('%02X',tonumber(b))) -- Convert to double digit HEX
 	end
 	return table.concat(c) -- Concat into color code
-end
+end -- ConvertToHex
