@@ -60,12 +60,12 @@ TwitterPassword=YourPasswordHere
 
 WeatherCode=YourWeatherCodeHere
 Unit=c
-World1WeatherCode=UKXX0085
-World1DSTOffset=-1
-World2WeatherCode=IRXX0018
-World2DSTOffset=-0.5
-World3WeatherCode=ISXX0010
-World3DSTOffset=-1
+World1WeatherCode=44418
+World1DSTOffset=0
+World2WeatherCode=2514815
+World2DSTOffset=0
+World3WeatherCode=455825
+World3DSTOffset=0
 
 ;-----------------------
 ; APPS

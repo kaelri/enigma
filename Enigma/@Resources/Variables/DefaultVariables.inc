@@ -63,12 +63,12 @@ DefaultTwitterPassword=YourPasswordHere
 
 DefaultWeatherCode=YourWeatherCodeHere
 DefaultUnit=c
-DefaultWorld1WeatherCode=UKXX0085
-DefaultWorld1DSTOffset=-1
-DefaultWorld2WeatherCode=IRXX0018
-DefaultWorld2DSTOffset=-0.5
-DefaultWorld3WeatherCode=ISXX0010
-DefaultWorld3DSTOffset=-1
+DefaultWorld1WeatherCode=44418
+DefaultWorld1DSTOffset=0
+DefaultWorld2WeatherCode=2514815
+DefaultWorld2DSTOffset=0
+DefaultWorld3WeatherCode=455825
+DefaultWorld3DSTOffset=0
 
 ;-----------------------
 ; APPS

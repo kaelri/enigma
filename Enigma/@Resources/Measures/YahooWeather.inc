@@ -2,7 +2,7 @@
 Measure=Plugin
 Plugin=WebParser
 UpdateRate=1800
-Url=http://weather.yahooapis.com/forecastrss?p=#CurrentCode#&u=#Unit#
+Url=http://weather.yahooapis.com/forecastrss?w=#CurrentCode#&u=#Unit#
 RegExp=(?siU)<link.*>(.*)</link>.*city=\"(.*)\".*region=\"(.*)\".*country=\"(.*)\".*temperature=\"(.*)\".*distance=\"(.*)\".*pressure=\"(.*)\".*speed=\"(.*)\".*chill=\"(.*)\".*direction=\"(.*)\".*speed=\"(.*)\".*humidity=\"(.*)\".*visibility=\"(.*)\".*pressure=\"(.*)\".*rising=\"(.*)\".*sunrise=\"(.*)\".*sunset=\"(.*)\".*<title>.*:.*m .*(.*)</title>.*lat>(.*)<.*long>(.*)<.*yweather:condition.*text=\"(.*)\".*code=\"(.*)\".*temp=\"(.*)\".*yweather:forecast.*day=\"(.*)\".*low=\"(.*)\".*high=\"(.*)\".*text=\"(.*)\".*code=\"(.*)\".*yweather:forecast.*day=\"(.*)\".*low=\"(.*)\".*high=\"(.*)\".*text=\"(.*)\".*code=\"(.*)\".*
 StringIndex=1
 
