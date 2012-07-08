@@ -1,7 +1,7 @@
 [Variables]
-PanelHeight=395
+PanelHeight=415
 ArrowY=128
-LabelsQueue=
+LabelsQueue=GoogleCalendarWriteEvents
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -143,6 +143,21 @@ LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 8"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GoogleCalendar3')"
 TooltipTitle="3rd Google Calendar Private Feed URL"
 TooltipText=Click to type or paste the addressses of up to three of your Google Calendar feeds.#CRLF##CRLF#To find the address of a feed:#CRLF#1. Go to http://google.com/calendar.#CRLF#2. Find your calendar's tab in the menu on the left.#CRLF#3. Click the triangular button to open its menu, then go to 'Calendar Settings.'#CRLF#4. Scroll down to 'Private Address' and copy the link location of the button labeled 'XML.'#CRLF##CRLF#Google Calendar's feed is notoriously inconsistent. It is very likely that you will notice errors and missing information. The Rainmeter community is doing everything we can to improve the situation, but there is no guaranteed solution at this time.
+
+[GoogleCalendarWriteEventsName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
+Text="Show Events"
+
+[GoogleCalendarWriteEventsText]
+Meter=STRING
+MeterStyle=StyleText
+Text=#GoogleCalendarWriteEventsLabel#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('GoogleCalendarWriteEvents')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GoogleCalendarWriteEvents')"
+TooltipTitle="Write Google Calendar Events to File (Yes/No)"
+TooltipText=Click to toggle whether your Calendar skins save your events in a calendar file. If enabled, the file is saved to your Resources folder. You can also select the file to display today's appointments in Enigma Calendar.
+DynamicVariables=1
 
 ;-----------------------
 

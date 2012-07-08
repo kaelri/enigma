@@ -1,7 +1,7 @@
 [Variables]
-PanelHeight=490
+PanelHeight=510
 ArrowY=48
-LabelsQueue=CalendarExtraDays|CalendarLeadingZeroes|CalendarMondays|GallerySubfolders|TriptychDisabled
+LabelsQueue=CalendarShowEvents|CalendarExtraDays|CalendarLeadingZeroes|CalendarMondays|GallerySubfolders|TriptychDisabled
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -175,6 +175,21 @@ LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Calenda
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarEventFile')"
 TooltipTitle="Calendar Event Library (Filepath)"
 TooltipText=Click to select one or more calendar files to display events in Enigma Calendar.
+DynamicVariables=1
+
+[CalendarShowEventsName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
+Text="Show Events"
+
+[CalendarShowEventsText]
+Meter=STRING
+MeterStyle=StyleText
+Text=#CalendarShowEventsLabel#
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarShowEvents')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarShowEvents')"
+TooltipTitle="Show Event Tooltips on Calendar (Yes/No)"
+TooltipText=Click to toggle whether the Calendar skins show events from your selected calendar file(s).
 DynamicVariables=1
 
 [CalendarMondaysName]

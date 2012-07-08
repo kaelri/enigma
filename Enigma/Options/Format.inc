@@ -60,7 +60,7 @@ MeterStyle=StyleColorBackground | StyleColorBackgroundFirst
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#Color1#
-LeftMouseUpAction=["#RainRGB#" "VarName=Color1" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
+LeftMouseUpAction=["#RainRGB#" "VarName=Color1" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Options"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Color1')"
 TooltipTitle="Primary Color"
 TooltipText=Click to choose the primary text color for #Stylesheet#'s skins. This is the color in which most actual content will be shown. Labels will be a more translucent version of the same color.
@@ -73,7 +73,7 @@ MeterStyle=StyleColorBackground
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorLink#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorLink" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorLink" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Options"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorLink')"
 TooltipTitle="Link Color"
 TooltipText=Click to choose #Stylesheet#'s link color. This is the color that will appear on some clickable text and buttons.
@@ -86,10 +86,23 @@ MeterStyle=StyleColorBackground | StyleColorBackground
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorBorder#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorBorder" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorBorder" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Options"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorBorder')"
 TooltipTitle="Border Color"
 TooltipText=Click to choose #Stylesheet#'s border color. This is the color of borders, outlines and separators.
+
+[EventColorBackground]
+Meter=IMAGE
+MeterStyle=StyleColorBackground | StyleColorBackground
+
+[EventColor]
+Meter=IMAGE
+MeterStyle=StyleColor
+SolidColor=#ColorEvent#
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorEvent" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Options"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorEvent')"
+TooltipTitle="Event Color"
+TooltipText=Click to choose #Stylesheet#'s event color. This is the background color of event thumbnails in Calendar.
 
 [PanelColorBackground]
 Meter=IMAGE
@@ -99,7 +112,7 @@ MeterStyle=StyleColorBackground | StyleColorBackgroundNewRow
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorPanel#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorPanel" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorPanel" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Options"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorPanel')"
 TooltipTitle="Menu Panel Color"
 TooltipText=Click to choose #Stylesheet#'s panel color. This is the color of control panel menus, such as the one to the left.
@@ -112,7 +125,7 @@ MeterStyle=StyleColorBackground
 Meter=IMAGE
 MeterStyle=StyleColor
 SolidColor=#ColorFilter#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorFilter" "FileName=#StyleSettings#" "RefreshConfig=Enigma"]
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorFilter" "FileName=#StyleSettings#" "RefreshConfig=Enigma\Options"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorFilter')"
 TooltipTitle="Filter Color"
 TooltipText=Click to choose #Stylesheet#'s filter color. This color is used to soften the texture of the Taskbar skin.
