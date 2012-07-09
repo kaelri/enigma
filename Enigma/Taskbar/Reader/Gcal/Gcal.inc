@@ -16,8 +16,9 @@ Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 Disabled=1
 FeedMeasureName=MeasureFeed
-Sub=#WebParserSubstitute#
+SubString=#WebParserSubstitute#
 WriteEvents=#GoogleCalendarWriteEvents#
+EventFile=#@#Calendars\GoogleCalendar1.hol
 
 ;---------------------------------------------------------------------
 ; METERS

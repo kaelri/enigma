@@ -1,11 +1,12 @@
 function Initialize()
-	Set={
-		vPrefix=SELF:GetOption('VariablePrefix',''),
-		mItems=SELF:GetNumberOption('MinItems',0),
-		Finish=SELF:GetOption('FinishAction',''),
-		Sub=SELF:GetOption('Sub'),
-		}
-	Matches={
+	--GET GENERAL SETTINGS
+	VariablePrefix = SELF:GetOption('VariablePrefix', '')
+	MinItems = SELF:GetNumberOption('MinItems', 0)
+	FinishAction = SELF:GetOption('FinishAction', '')
+	SubString = SELF:GetOption('SubString', '')
+	
+	--DEFINE PATTERNS FOR IDENTIFYING AND PARSING FEED TYPES
+	sPatternFeedType={
 		'xmlns:gCal',
 		'<subtitle>rememberthemilk.com</subtitle>',
 		'<rss.-version=".-".->',
@@ -34,25 +35,31 @@ function Initialize()
 		'.-<pubDate.->(.-)</pubDate>',
 		'.-<updated.->(.-)</updated>',
 		}
+	
+	--SET CURRENT FEED NUMBER
 	iCurrentFeed=1
-	OldValues={}
+	
+	--GET FEED MEASURES
 	Measures={}
 	for a in string.gmatch(SELF:GetOption('FeedMeasureName',''),'[^%|]+') do
 		table.insert(Measures,SKIN:GetMeasure(a))
 	end
-	SKIN:Bang('!SetVariable','NumberOfFeeds',#Measures)
+	
+	--INITIALIZE GOOGLE CALENDAR MODULE
+	GoogleCalendarFile('initialize')
 end
 
 function Update()
+	-- COPY CURRENT FEED NUMBER TO SKIN
 	SKIN:Bang('!SetVariable','CurrentFeed',iCurrentFeed)
-	tTitles,tLinks,tDates={},{},{}
 	-- INPUT FEED
-	sRaw=Substitute(Measures[iCurrentFeed]:GetStringValue(),Set.Sub)
+	sRaw=Substitute(Measures[iCurrentFeed]:GetStringValue(),SubString)
 	-- DETERMINE FEED FORMAT AND CONTENTS
 	FeedType=4
-	for i=1,3 do if string.match(sRaw,Matches[i]) then FeedType=i break end end
+	for i=1,3 do if string.match(sRaw,sPatternFeedType[i]) then FeedType=i break end end
 	-- CREATE DATABASE
 	sFeedTitle,sFeedLink=string.match(sRaw,'.-<title.->(.-)</title>'..sPatternFeedLink[FeedType])
+	tTitles,tLinks,tDates={},{},{}
 	for sItem in string.gmatch(sRaw,sPatternItem[FeedType]) do
 		table.insert(tTitles,string.match(sItem,'.-<title.->(.-)</title>'))
 		table.insert(tLinks,string.match(sItem,sPatternItemLink[FeedType]))
@@ -71,27 +78,26 @@ function Update()
 		NumberOfItems=#tTitles,
 		FeedTitle=sFeedTitle,
 		FeedLink=sFeedLink,
-	} do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
-	for i=1,(Set.mItems>#tTitles and Set.mItems or #tTitles) do
+	} do SKIN:Bang('!SetVariable',VariablePrefix..k,v) end
+	for i=1,(MinItems>#tTitles and MinItems or #tTitles) do
 		for k,v in pairs{
 			ItemTitle=tTitles[i],
 			ItemLink=tLinks[i] or 'No item found.',
-			ItemDate=(FeedType==1 and tDates[i]~='') and os.date('%I.%M %p on %d %B %Y',TimeStamp(tDates[i])) or tDates[i],
-		} do SKIN:Bang('!SetVariable',Set.vPrefix..k..i,v) end
-	end
-	-- FINISH ACTION   
-	if SELF:GetNumberOption('WriteEvents',0)>0 and FeedType==1 and OldValues[iCurrentFeed]~=sRaw then
-		OldValues[iCurrentFeed]=sRaw
-		CreateFile()
+			ItemDate=(FeedType==1 and tDates[i]~='') and os.date('%I.%M %p on %d %B %Y',GoogleCalendarTimestamp(tDates[i])) or tDates[i],
+		} do SKIN:Bang('!SetVariable',VariablePrefix..k..i,v) end
 	end
 	
-	if Set.Finish~='' then
-		SKIN:Bang(Set.Finish)
+	-- RUN GOOGLE CALENDAR MODULE
+	GoogleCalendarFile('write')
+	
+	-- FINISH ACTION   
+	if FinishAction~='' then
+		SKIN:Bang(FinishAction)
 	end
 	return 'Success!'
 end
 
-function TimeStamp(input, out)
+function GoogleCalendarTimestamp(input, out)
 	local year,month,day,hour,min,sec=string.match(input,  '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
 	return os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false}
 end
@@ -112,6 +118,7 @@ function SwitchTo(a)
 	Update()
 end
 
+--ERRORS
 function FeedError(sErrorName,sErrorLink,sErrorDesc)
 	for k,v in pairs{
 		NumberOfItems='0';
@@ -120,14 +127,15 @@ function FeedError(sErrorName,sErrorLink,sErrorDesc)
 		ItemTitle1=sErrorDesc,
 		ItemLink1=sErrorLink,
 		ItemDate1='',
-	} do SKIN:Bang('!SetVariable',Set.vPrefix..k,v) end
-	for i=2,Set.mItems do
-		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemTitle'..i,'')
-		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemLink'..i,'')
-		SKIN:Bang('!SetVariable',Set.vPrefix..'ItemDate'..i,'')
+	} do SKIN:Bang('!SetVariable',VariablePrefix..k,v) end
+	for i=2,MinItems do
+		SKIN:Bang('!SetVariable',VariablePrefix..'ItemTitle'..i,'')
+		SKIN:Bang('!SetVariable',VariablePrefix..'ItemLink'..i,'')
+		SKIN:Bang('!SetVariable',VariablePrefix..'ItemDate'..i,'')
 	end
 end
 
+--SUBSTITUTES
 function Substitute(Val,Sub)
 	if Sub and Sub~='' then
 		Val=tostring(Val)
@@ -141,45 +149,36 @@ function Substitute(Val,Sub)
 	return Val
 end
 
-function CreateFile()
-	local resources=SKIN:GetVariable('@')
-	local file={}
-	table.insert(file,'<EventFile Title="'..sFeedTitle..'">')
-	for i=1,#tTitles do
-		local ItemDate=os.date('*t',TimeStamp(tDates[i]))
-		table.insert(file,'<Event Month="'..ItemDate.month..'" Day="'..ItemDate.day..'" Desc="'..tTitles[i]..'"/>')
-	end
-	table.insert(file,'</EventFile>')
-	local hFile=io.output(resources..'Calendars/'..sFeedTitle..'.hol','w')
-	if io.type(hFile)=='file' then
-		io.write(table.concat(file,'\n'))
-		io.close(hFile)
-		local fTbl=Delim(SKIN:GetVariable('CalendarEventFile'))
-		if #fTbl==1 then
-			fTbl[1]=string.gsub(fTbl[1],'.-Calendars[/\\]','')
-			table.insert(fTbl,sFeedTitle..'.hol')
-		elseif #fTbl>1 then
-			table.remove(fTbl,1)
-			local match=false
-			for k,v in ipairs(fTbl) do
-				if v==sFeedTitle..'.hol' then
-					match=true
-					break
-				end
-			end
-			if not match then
-				table.insert(fTbl,sFeedTitle..'.hol')
-			end
+--GOOGLE CALENDAR MODULE
+function GoogleCalendarFile(Command)
+	if SELF:GetNumberOption('WriteEvents',0) == 0 then
+		return
+	elseif Command == 'initialize' then
+		LastUpdate={}
+		EventFiles={}
+		for a in string.gmatch(SELF:GetOption('EventFile',''),'[^%|]+') do
+			table.insert(EventFiles,a)
 		end
-		table.insert(fTbl,1,'#*@*#Calendars')
-		SKIN:Bang('!WriteKeyValue','Variables','CalendarEventFile',table.concat(fTbl,'|'),'#@#Variables/UserVariables.inc')
-	else
-		print('Cannot open file '..resources..'Calendars/'..sFeedTitle..'.hol')
+	elseif Command == 'write' and FeedType==1 and LastUpdate[iCurrentFeed]~=sRaw then
+		--RESET LAST UPDATE IMAGE
+		LastUpdate[iCurrentFeed]=sRaw
+		
+		--CREATE XML TABLE
+		local file={}
+		table.insert(file,'<EventFile Title="'..sFeedTitle..'">')
+		for i=1,#tTitles do
+			local ItemDate=os.date('*t',GoogleCalendarTimestamp(tDates[i]))
+			table.insert(file,'<Event Month="'..ItemDate.month..'" Day="'..ItemDate.day..'" Desc="'..tTitles[i]..'"/>')
+		end
+		table.insert(file,'</EventFile>')
+		
+		--WRITE FILE
+		local hFile=io.output(EventFiles[iCurrentFeed],'w')
+		if io.type(hFile)=='file' then
+			io.write(table.concat(file,'\n'))
+			io.close(hFile)
+		else
+			print('Cannot open file: '..EventFiles[iCurrentFeed])
+		end
 	end
 end
-
-function Delim(a) -- Separate String by Delimiter
-	local tbl={}
-	string.gsub(a,'[^%|]+', function(b) table.insert(tbl,b) end)
-	return tbl
-end -- Delim
