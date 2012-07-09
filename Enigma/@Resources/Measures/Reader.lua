@@ -80,10 +80,12 @@ function Update()
 		} do SKIN:Bang('!SetVariable',Set.vPrefix..k..i,v) end
 	end
 	-- FINISH ACTION   
-	if SELF:GetNumberOption('WriteFile',0)>0 and FeedType==1 and OldValues[iCurrentFeed]~=sRaw then
+	if SELF:GetNumberOption('WriteEvents',0)>0 and FeedType==1 and OldValues[iCurrentFeed]~=sRaw then
 		OldValues[iCurrentFeed]=sRaw
 		CreateFile()
-	elseif Set.Finish~='' then
+	end
+	
+	if Set.Finish~='' then
 		SKIN:Bang(Set.Finish)
 	end
 	return 'Success!'

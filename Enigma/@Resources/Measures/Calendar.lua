@@ -16,7 +16,7 @@ function Initialize()
 		SKIN:Bang('!SetOption','Day'..i..'Label','Text',tLabels[iStartOnMondays and i%7+1 or i])
 	end
 	hFile={month={},day={},year={},desc={},title={},color={},} -- Initialize Event Matrix.
-	local Files=SELF:GetNumberOption('DisableEvents',0)>0 and {} or Delim(SELF:GetOption('EventFile',''))
+	local Files=SELF:GetNumberOption('ShowEvents',0)>0 and Delim(SELF:GetOption('EventFile','')) or {}
 	if #Files>1 then
 		local Folder=table.remove(Files,1) -- Remove Folder name from table.
 		if not string.match(Folder,'[\\/]$') then Folder=Folder..'\\' end -- Add trailing forward slash.
