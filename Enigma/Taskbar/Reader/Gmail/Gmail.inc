@@ -16,6 +16,7 @@ Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 Disabled=1
 FeedMeasureName=MeasureFeed
+SubString=#WebParserSubstitute#
 
 [MeasureNewMail]
 Measure=CALC
