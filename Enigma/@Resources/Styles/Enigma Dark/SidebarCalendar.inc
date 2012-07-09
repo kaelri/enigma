@@ -47,6 +47,8 @@ X=(#FirstX#-10)
 [StyleCalendarText]
 X=#SpacingX#r
 Y=r
+W=18
+H=13
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
@@ -69,7 +71,7 @@ FontColor=#ColorTransparent#
 StringStyle=BOLD
 
 [StyleCalendarEvent]
-FontColor=255,0,0,255
+Prefix=•
 
 [StyleCalendarIndicatorBox]
 SolidColor=#ColorLink3#

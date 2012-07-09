@@ -93,7 +93,7 @@ function Update()
 				MeterStyle=table.concat(styles,'|'),
 				Text=iLeadingZeroes and string.format('%02d',b) or b,
 				ToolTipText=tTip,
-				FontColor=color
+				SolidColor=color
 			} do SKIN:Bang('!SetOption','Day'..a,k,v) end
 		end
 		if sRange == 'month' then
