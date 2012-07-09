@@ -38,7 +38,7 @@ Text="Weather Code"
 [WeatherCodeText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#WeatherCode#"
+Text="#WeatherCodeName#"
 LeftMouseUpAction=[!WriteKeyValue Variables WriteVariable WeatherCode "#ROOTCONFIGPATH#Options\WeatherCodeFinder\WeatherCodeFinder.ini"][!ActivateConfig "Enigma\Options\WeatherCodeFinder" "WeatherCodeFinder.ini"][!Zpos 1 "Enigma\Options\WeatherCodeFinder"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('WeatherCode')"
 TooltipTitle="Local Yahoo! Weather Code"
@@ -54,7 +54,7 @@ Text="1st World"
 [World1WeatherCodeText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#World1WeatherCode#"
+Text="#World1WeatherCodeName#"
 LeftMouseUpAction=[!WriteKeyValue Variables WriteVariable World1WeatherCode "#ROOTCONFIGPATH#Options\WeatherCodeFinder\WeatherCodeFinder.ini"][!ActivateConfig "Enigma\Options\WeatherCodeFinder" "WeatherCodeFinder.ini"][!Zpos 1 "Enigma\Options\WeatherCodeFinder"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World1WeatherCode')"
 TooltipTitle="1st Remote Yahoo! Weather Code"
@@ -68,7 +68,7 @@ Text="2nd World"
 [World2WeatherCodeText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#World2WeatherCode#"
+Text="#World2WeatherCodeName#"
 LeftMouseUpAction=[!WriteKeyValue Variables WriteVariable World2WeatherCode "#ROOTCONFIGPATH#Options\WeatherCodeFinder\WeatherCodeFinder.ini"][!ActivateConfig "Enigma\Options\WeatherCodeFinder" "WeatherCodeFinder.ini"][!Zpos 1 "Enigma\Options\WeatherCodeFinder"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World2WeatherCode')"
 TooltipTitle="2nd Remote Yahoo! Weather Code"
@@ -82,7 +82,7 @@ Text="3rd World"
 [World3WeatherCodeText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#World3WeatherCode#"
+Text="#World3WeatherCodeName#"
 LeftMouseUpAction=[!WriteKeyValue Variables WriteVariable World3WeatherCode "#ROOTCONFIGPATH#Options\WeatherCodeFinder\WeatherCodeFinder.ini"][!ActivateConfig "Enigma\Options\WeatherCodeFinder" "WeatherCodeFinder.ini"][!Zpos 1 "Enigma\Options\WeatherCodeFinder"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('World3WeatherCode')"
 TooltipTitle="3rd Remote Yahoo! Weather Code"

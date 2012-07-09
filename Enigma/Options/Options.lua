@@ -16,34 +16,34 @@ function Initialize()
 		CalendarEventFile = { File = EnigmaSettings },
 		CalendarShowEvents = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'No', 'Yes' },
+			Labels = { 'No', 'Yes' }
 		},
 		CalendarExtraDays = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'No', 'Yes' },
+			Labels = { 'No', 'Yes' }
 		},
 		CalendarLeadingZeroes = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'No', 'Yes' },
+			Labels = { 'No', 'Yes' }
 		},
 		CalendarMondays = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'Sunday', 'Monday' },
+			Labels = { 'Sunday', 'Monday' }
 		},
 		GalleryPath = { File = EnigmaSettings },
 		GallerySubfolders = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'No', 'Yes' },
+			Labels = { 'No', 'Yes' }
 		},
 		GalleryRatio = { File = EnigmaSettings },
 		GalleryPosition = { File = EnigmaSettings, 
-			Loop = { 'Center', 'Tile', 'Stretch', 'Fit', 'Fill' },
+			Loop = { 'Center', 'Tile', 'Stretch', 'Fit', 'Fill' }
 		},
 		VolumeIncrement = { File = EnigmaSettings },
 		TriptychInterval = { File = EnigmaSettings },
 		TriptychDisabled = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'Yes', 'No' },
+			Labels = { 'Yes', 'No' }
 		},
 		--MUSIC
 		MusicPlayerType = { File = EnigmaSettings },
@@ -68,7 +68,7 @@ function Initialize()
 		},
 		GoogleCalendarWriteEvents = { File = EnigmaSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'No', 'Yes' },
+			Labels = { 'No', 'Yes' }
 		},
 		RTMusername = { File = EnigmaSettings },
 		RTMpassword = { File = EnigmaSettings },
@@ -76,20 +76,32 @@ function Initialize()
 		RTMlist2 = { File = EnigmaSettings },
 		RTMlist3 = { File = EnigmaSettings },
 		--WORLD
-		WeatherCode = { File = EnigmaSettings },
+		WeatherCode = { File = EnigmaSettings,
+			DefaultDependents = { 'WeatherCodeName', 'WeatherCodeLat', 'WeatherCodeLon' }
+		},
+		WeatherCodeName = { File = EnigmaSettings },
 		WeatherCodeLat = { File = EnigmaSettings },
 		WeatherCodeLon = { File = EnigmaSettings },
 		Unit = { File = EnigmaSettings, 
 			Loop = { 'c', 'f' },
-			Labels = { 'Celsius', 'Fahrenheit' },
+			Labels = { 'Celsius', 'Fahrenheit' }
 		},
-		World1WeatherCode = { File = EnigmaSettings },
+		World1WeatherCode = { File = EnigmaSettings,
+			DefaultDependents = { 'World1WeatherCodeName', 'World1WeatherCodeLat', 'World1WeatherCodeLon' }
+		},
+		World1WeatherCodeName = { File = EnigmaSettings },
 		World1WeatherCodeLat = { File = EnigmaSettings },
 		World1WeatherCodeLon = { File = EnigmaSettings },
-		World2WeatherCode = { File = EnigmaSettings },
+		World2WeatherCode = { File = EnigmaSettings,
+			DefaultDependents = { 'World2WeatherCodeName', 'World2WeatherCodeLat', 'World2WeatherCodeLon' }
+		},
+		World2WeatherCodeName = { File = EnigmaSettings },
 		World2WeatherCodeLat = { File = EnigmaSettings },
 		World2WeatherCodeLon = { File = EnigmaSettings },
-		World3WeatherCode = { File = EnigmaSettings },
+		World3WeatherCode = { File = EnigmaSettings,
+			DefaultDependents = { 'World3WeatherCodeName', 'World3WeatherCodeLat', 'World3WeatherCodeLon' }
+		},
+		World3WeatherCodeName = { File = EnigmaSettings },
 		World3WeatherCodeLat = { File = EnigmaSettings },
 		World3WeatherCodeLon = { File = EnigmaSettings },
 		--APPS
@@ -131,41 +143,41 @@ function Initialize()
 		Search5Icon = { File = EnigmaSettings },
 		--FORMAT
 		Stylesheet = { File = EnigmaSettings },
-		Color1= { File = StyleSettings },
-		ColorLink= { File = StyleSettings },
-		ColorBorder= { File = StyleSettings },
-		ColorEvent= { File = StyleSettings },
-		ColorPanel= { File = StyleSettings },
-		ColorFilter= { File = StyleSettings },
-		ColorTransparent= { File = StyleSettings },
-		ColorImage= { File = StyleSettings, 
+		Color1 = { File = StyleSettings },
+		ColorLink = { File = StyleSettings },
+		ColorBorder = { File = StyleSettings },
+		ColorEvent = { File = StyleSettings },
+		ColorPanel = { File = StyleSettings },
+		ColorFilter = { File = StyleSettings },
+		ColorTransparent = { File = StyleSettings },
+		ColorImage = { File = StyleSettings, 
 			Loop = { 'W', 'B' },
-			Labels = { 'W', 'B' },
+			Labels = { 'W', 'B' }
 		},
-		Size1= { File = StyleSettings },
-		Size4= { File = StyleSettings },
-		Size3= { File = StyleSettings },
-		Size2= { File = StyleSettings },
-		Font= { File = StyleSettings },
-		HideBordersTop= { File = StyleSettings, 
+		Size1 = { File = StyleSettings },
+		Size4 = { File = StyleSettings },
+		Size3 = { File = StyleSettings },
+		Size2 = { File = StyleSettings },
+		Font = { File = StyleSettings },
+		HideBordersTop = { File = StyleSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'Yes', 'No' },
+			Labels = { 'Yes', 'No' }
 		},
-		HideBordersBottom= { File = StyleSettings, 
+		HideBordersBottom = { File = StyleSettings, 
 			Loop = { '0', '1' },
-			Labels = { 'Yes', 'No' },
+			Labels = { 'Yes', 'No' }
 		},
 		--LAYOUT
-		SidebarWidth= { File = StyleSettings },
-		SidebarSpacing= { File = StyleSettings },
-		SidebarAlpha= { File = StyleSettings },
-		SidebarImage= { File = StyleSettings },
-		SecondSidebarImage= { File = StyleSettings },
-		TaskbarHeight= { File = StyleSettings },
-		TaskbarSpacing= { File = StyleSettings },
-		TaskbarAlpha= { File = StyleSettings },
-		TaskbarImage= { File = StyleSettings },
-		SecondTaskbarImage= { File = StyleSettings }
+		SidebarWidth = { File = StyleSettings },
+		SidebarSpacing = { File = StyleSettings },
+		SidebarAlpha = { File = StyleSettings },
+		SidebarImage = { File = StyleSettings },
+		SecondSidebarImage = { File = StyleSettings },
+		TaskbarHeight = { File = StyleSettings },
+		TaskbarSpacing = { File = StyleSettings },
+		TaskbarAlpha = { File = StyleSettings },
+		TaskbarImage = { File = StyleSettings },
+		SecondTaskbarImage = { File = StyleSettings }
 	}
 	
 	for a in string.gmatch(SELF:GetOption('LabelsQueue'),'[^%|]+') do
@@ -182,7 +194,7 @@ end
 function Write(Key, Value, Wait)
 	if not Value then
 		Loop = Variables[Key]['Loop']
-		for i,v in pairs(Loop) do
+		for i,v in ipairs(Loop) do
 			if v == SKIN:GetVariable(Key) then
 				Value = Loop[(i % #Loop) + 1]
 				break
@@ -199,6 +211,11 @@ end
 
 function Default(Key, Confirm)
 	if Confirm == 1 then
+		if Variables[Key]['DefaultDependents'] then
+			for i,v in ipairs(Variables[Key]['DefaultDependents']) do
+				Write(v, SKIN:GetVariable('Default'..v), 'wait')
+			end
+		end
 		Write(Key, SKIN:GetVariable('Default'..Key))
 	else
 		SKIN:Bang('!SetVariable', 'SelectedDefault', Key)
