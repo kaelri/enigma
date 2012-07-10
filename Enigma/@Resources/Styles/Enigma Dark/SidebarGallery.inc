@@ -1,12 +1,6 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR GALLERY
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-
-;-----------------------
-
 [StyleGalleryBackground]
 SolidColor=#ColorTransparent#
 W=#SidebarWidth#

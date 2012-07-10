@@ -1,10 +1,6 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR READER
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-
 [Variables]
 WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":" ","'s Facebook Notifications":"","Top Stories - Google ":""
 FeedTitle=Loading...

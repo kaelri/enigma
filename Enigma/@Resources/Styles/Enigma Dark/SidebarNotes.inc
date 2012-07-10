@@ -1,10 +1,6 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR NOTES
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-
 ;-----------------------
 
 [StyleNotesBackground]

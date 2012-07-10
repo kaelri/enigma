@@ -29,7 +29,7 @@ Meter=STRING
 MeterStyle=StyleWeather#Variant#Text
 MeasureName=MeasureWeatherTemp
 Postfix="°"
-LeftMouseUpAction=[[MeasureWeatherRSS]]
+LeftMouseUpAction=[[MeasureYahooWeather]]
 
 [Desc]
 Meter=STRING

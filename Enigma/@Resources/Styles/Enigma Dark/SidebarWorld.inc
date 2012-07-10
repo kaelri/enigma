@@ -1,12 +1,6 @@
 ;---------------------------------------------------------------------
 ; SIDEBAR WORLD
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-
-;-----------------------
-
 [StyleWorldBackground]
 SolidColor=#ColorTransparent#
 W=#SidebarWidth#

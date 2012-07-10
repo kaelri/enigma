@@ -1,10 +1,6 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR WEATHER
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-
 ;----------------------------------------------
 ; NORMAL
 

@@ -1,10 +1,6 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR CALENDAR
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-
 [Variables]
 FirstX=38
 FirstY=38

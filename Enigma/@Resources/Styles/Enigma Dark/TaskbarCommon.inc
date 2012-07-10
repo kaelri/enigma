@@ -4,8 +4,11 @@
 [Rainmeter]
 Group=EnigmaTaskbar
 MiddleMouseUpAction=!Refresh
+MouseOverAction=[!SetVariable SkinMouseOver 1][!UpdateMeasureGroup Mouseover]
+MouseLeaveAction=[!SetVariable SkinMouseOver 0][!UpdateMeasureGroup Mouseover]
 
 [Variables]
+SkinMouseOver=0
 SkinWidthMultiplier=1
 TaskbarSkinWidth=(80*#SkinWidthMultiplier#)
 ; Each skin should override "SkinWidthMultiplier" with a value appropriate for that skin (1, 1.5, or 2).

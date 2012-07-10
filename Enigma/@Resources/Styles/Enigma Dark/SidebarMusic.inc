@@ -1,12 +1,6 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR MUSIC
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-MouseOverAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
-MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
-
 ;----------------------------------------------
 ; NORMAL
 
@@ -14,6 +8,8 @@ MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
 SolidColor=#ColorTransparent#
 W=#SidebarWidth#
 H=76
+MouseOverAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
+MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
 
 [StyleMusicNormalBorder]
 SolidColor=#ColorBorder4#
@@ -132,7 +128,8 @@ BarOrientation=HORIZONTAL
 SolidColor=#ColorTransparent#
 W=#SidebarWidth#
 H=80
-ToolTipWidth=#SidebarWidth#
+MouseOverAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
+MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
 
 [StyleMusicArtBorder]
 SolidColor=#ColorBorder4#
@@ -257,7 +254,8 @@ BarOrientation=HORIZONTAL
 SolidColor=#ColorTransparent#
 W=#SidebarWidth#
 H=(#SidebarWidth#-2)
-ToolTipWidth=#SidebarWidth#
+MouseOverAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
+MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
 
 [StyleMusicFullBorder]
 SolidColor=#ColorBorder4#

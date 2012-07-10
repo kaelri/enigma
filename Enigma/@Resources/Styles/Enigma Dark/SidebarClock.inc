@@ -1,12 +1,6 @@
 ;---------------------------------------------------------------------
 ; SIDEBAR CLOCK
 
-[Rainmeter]
-Group=EnigmaSidebar
-MiddleMouseUpAction=!Refresh
-
-;-----------------------
-
 [StyleClockBorder]
 SolidColor=#ColorBorder4#
 X=10
