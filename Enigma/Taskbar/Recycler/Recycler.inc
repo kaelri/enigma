@@ -32,7 +32,7 @@ LeftMouseUpAction=[!CommandMeasure "MeasureBinCount" "OpenBin"][!Refresh]
 RightMouseUpAction=[!CommandMeasure "MeasureBinCount" "EmptyBin"][!Refresh]
 TooltipText=· Left-click to open the Recycle Bin in an Explorer window.#CRLF#· Right-click the icon to empty the Recycle Bin.
 
-[Recycler]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureBinCount

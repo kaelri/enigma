@@ -17,7 +17,7 @@ Substitute="PM":"pm","AM":"am"
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[Clock]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureClock

@@ -11,7 +11,7 @@ MeterStyle=Style#Variant#Icon
 LeftMouseUpAction=!CommandMeasure "MeasureSearch" "ExecuteBatch 1"
 ImageName=#Search3Icon#
 
-[App]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 Text="#Search3#"

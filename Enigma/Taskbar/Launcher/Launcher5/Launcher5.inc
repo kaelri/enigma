@@ -12,7 +12,7 @@ ImageName=#App5Icon#
 LeftMouseUpAction=["#App5Path#"][!Redraw]
 ToolTipText=#App5Path#
 
-[App]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 Text="#App5#"

@@ -16,12 +16,12 @@ MeterStyle=Style#Variant#Background
 Meter=Image
 MeterStyle=Style#Variant#Icon | StyleLocationIcon
 
-[Location]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureWeatherCity
 
-[State]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureWeatherLatitude

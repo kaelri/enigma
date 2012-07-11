@@ -12,7 +12,7 @@ MaxValue=#NetworkMaxDownload#
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[TextDownload]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureNetIn
@@ -20,7 +20,7 @@ Text="%1"
 AutoScale=1
 NumOfDecimals=0
 
-[LabelDownload]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="I"

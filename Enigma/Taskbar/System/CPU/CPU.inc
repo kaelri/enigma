@@ -11,7 +11,7 @@ Measure=CPU
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[CPU]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureCPU

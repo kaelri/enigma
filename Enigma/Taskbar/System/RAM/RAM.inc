@@ -11,14 +11,14 @@ Measure=PhysicalMemory
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[RAM]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureRAM
 Percentual=1
 AutoScale=1
 
-[Label RAM]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="RAM"

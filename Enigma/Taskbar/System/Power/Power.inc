@@ -14,12 +14,12 @@ PowerState=PERCENT
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[PWR]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasurePower
 
-[Label PWR]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="PWR"
@@ -28,7 +28,7 @@ Text="PWR"
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StylePWRIcon
 
-[Bar PWR]
+[Bar]
 Meter=BAR
 MeterStyle=Style#Variant#Bar | StylePWR#Variant#Bar
 MeasureName=MeasurePower

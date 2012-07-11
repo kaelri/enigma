@@ -12,7 +12,7 @@ MaxValue=#NetworkMaxUpload#
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[TextUpload]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureNetOut
@@ -20,7 +20,7 @@ Text="%1"
 AutoScale=1
 NumOfDecimals=0
 
-[LabelUpload]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="O"

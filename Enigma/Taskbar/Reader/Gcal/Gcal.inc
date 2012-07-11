@@ -31,14 +31,14 @@ MeterStyle=Style#Variant#Background
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleGcalIcon
 
-[What]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 Text=#ItemTitle1#
 LeftMouseUpAction=["#ItemLink1#"]
 DynamicVariables=1
 
-[When]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text=#ItemDate1#

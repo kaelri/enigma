@@ -16,12 +16,12 @@ MeterStyle=Style#Variant#Background
 Meter=Image
 MeterStyle=Style#Variant#Icon | StyleSunIcon
 
-[Sunrise]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureWeatherSunset
 
-[Sunset]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text=SET

@@ -14,13 +14,13 @@ UpdateDivider=60
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[Uptime]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureUptime
 Postfix="m"
 
-[Label Uptime]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="UP"

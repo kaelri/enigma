@@ -17,14 +17,14 @@ Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleWeather#Variant#Icon
 MeasureName=MeasureWeatherIcon
 
-[Temp]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureWeatherTemp
 Postfix="°"
 LeftMouseUpAction=[[MeasureYahooWeather]]
 
-[Desc]
+[Label]
 Meter=STRING
 MeasureName=MeasureWeatherDesc
 MeterStyle=Style#Variant#Label

@@ -18,12 +18,12 @@ Format="%#d"
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[Week]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureWeek
 
-[Date]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureDate

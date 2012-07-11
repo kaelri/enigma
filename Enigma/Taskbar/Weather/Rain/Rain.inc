@@ -20,7 +20,7 @@ MeterStyle=Style#Variant#Background
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleRainIcon
 
-[Rain]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureRain

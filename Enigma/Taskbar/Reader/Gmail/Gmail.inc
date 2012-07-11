@@ -37,7 +37,7 @@ MeasureName=MeasureNewMail
 LeftMouseUpAction=["#FeedLink#]
 DynamicVariables=1
 
-[Number]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 Text=#NumberOfItems#

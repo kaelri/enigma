@@ -20,7 +20,7 @@ Substitute="Jan":"JAN","Feb":"FEB","Mar":"MAR","Apr":"APR","May":"MAY","Jun":"JU
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[Date]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureDate

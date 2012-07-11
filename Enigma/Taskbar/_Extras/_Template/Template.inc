@@ -8,7 +8,7 @@
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[Meter]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 Text="Meter"

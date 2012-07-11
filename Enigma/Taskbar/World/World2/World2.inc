@@ -33,7 +33,7 @@ DaylightSavingTime=1
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[Clock]
+[Icon]
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleClockIcon
 

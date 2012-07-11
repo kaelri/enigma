@@ -12,7 +12,7 @@ CurrentPlayer=#MusicPlayer#
 Meter=IMAGE
 MeterStyle=Style#Variant#Background
 
-[IconBack]
+[IconBackground]
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleMusicIconBack
 
@@ -23,14 +23,14 @@ MeasureName=MeasureCover
 LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "PlayPause"
 ToolTipText=Click to pause, or resume playback if paused.
 
-[Track]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureTrack
 LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "PlayPause"
 ToolTipText=Click to pause, or resume playback if paused.
 
-[Artist]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureArtist

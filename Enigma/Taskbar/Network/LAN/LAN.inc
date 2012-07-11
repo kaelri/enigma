@@ -14,12 +14,12 @@ SysInfoData=1
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[LAN]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureLAN
 
-[Label LAN]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="LAN"

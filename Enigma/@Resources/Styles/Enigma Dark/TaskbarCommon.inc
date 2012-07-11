@@ -6,49 +6,65 @@ Group=EnigmaTaskbar
 MiddleMouseUpAction=!Refresh
 MouseOverAction=[!SetVariable SkinMouseOver 1][!UpdateMeasureGroup Mouseover]
 MouseLeaveAction=[!SetVariable SkinMouseOver 0][!UpdateMeasureGroup Mouseover]
+DynamicWindowSize=1
 
 [Variables]
 SkinMouseOver=0
-SkinWidthMultiplier=1
-TaskbarSkinWidth=(80*#SkinWidthMultiplier#)
-; Each skin should override "SkinWidthMultiplier" with a value appropriate for that skin (1, 1.5, or 2).
+TaskbarSkinWidth=40
+; SkinWidthMultiplier=1
+; TaskbarSkinWidth=(80*#SkinWidthMultiplier#)
+; ; Each skin should override "SkinWidthMultiplier" with a value appropriate for that skin (1, 1.5, or 2).
+
+[MeasureTaskbarSkinWidth]
+Measure=Script
+ScriptFile=#@#Styles\#Stylesheet#\TaskbarSkinWidth.lua
+Variant=#Variant#
+MinWidth=50
+MaxWidth=250
 
 ;-----------------------
 ; NORMAL
 
 [StyleNormalBackground]
-SolidColor=#ColorTransparent#
+ImageName=#@#Images\Background.#ColorImage#.png
+ImageAlpha=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+ScaleMargins=4,4,4,4
 X=0
 Y=0
-W=#TaskbarSkinWidth#
+W=(#TaskbarSkinWidth#+10)
 H=#TaskbarHeight#
+DynamicVariables=1
 
 [StyleNormalText]
-X=(#TaskbarSkinWidth#/2)
+X=(#TaskbarSkinWidth#/2+5)
 Y=((#TaskbarHeight#-25)/2)
 H=15
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size1#
 StringAlign=CENTER
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
 ToolTipWidth=#SidebarWidth#
+DynamicVariables=1
 
 [StyleNormalLabel]
 X=r
 Y=R
 H=15
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringAlign=CENTER
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
+DynamicVariables=1
 
 [StyleNormalIcon]
 X=0
@@ -75,39 +91,45 @@ Hidden=1
 ; MINI
 
 [StyleMiniBackground]
-SolidColor=#ColorTransparent#
+ImageName=#@#Images\Background.#ColorImage#.png
+ImageAlpha=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+ScaleMargins=4,4,4,4
 X=0
 Y=0
-W=(#TaskbarSkinWidth#*1.5)
+W=(#TaskbarSkinWidth#+10)
 H=#TaskbarHeight#
+DynamicVariables=1
 
 [StyleMiniText]
-X=(#TaskbarSkinWidth#/2)
+X=5
 Y=((#TaskbarHeight#-15)/2)
 H=15
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size1#
-StringAlign=LEFT
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
 ToolTipWidth=#SidebarWidth#
+DynamicVariables=1
 
 [StyleMiniLabel]
-X=r
+X=5
 Y=3r
 H=15
-W=(#TaskbarSkinWidth#/2)
+; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
-StringAlign=RIGHT
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
-Postfix=" |"
+; ClipString=1
+; Postfix=" |"
+Postfix=" ·"
+DynamicVariables=1
 
 [StyleMiniIcon]
 X=0
@@ -134,39 +156,44 @@ Hidden=1
 ; TINY
 
 [StyleTinyBackground]
-SolidColor=#ColorTransparent#
+ImageName=#@#Images\Background.#ColorImage#.png
+ImageAlpha=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+ScaleMargins=4,4,4,4
 X=0
 Y=0
-W=(#TaskbarSkinWidth#*1.5)
+W=(#TaskbarSkinWidth#+10)
 H=(#TaskbarHeight#/2)
+DynamicVariables=1
 
 [StyleTinyText]
-X=(#TaskbarSkinWidth#/2)
+X=5
 Y=(((#TaskbarHeight#/2)-10)/2)
 H=10
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size4#
-StringAlign=LEFT
 StringStyle=BOLD
 AntiAlias=1
-ClipString=1
+; ClipString=1
 ToolTipWidth=#SidebarWidth#
+DynamicVariables=1
 
 [StyleTinyLabel]
-X=r
+X=5
 Y=r
 H=10
-W=(#TaskbarSkinWidth#/2)
+; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
-StringAlign=RIGHT
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
 Postfix=" ·"
+DynamicVariables=1
 
 [StyleTinyIcon]
 X=0
@@ -193,11 +220,16 @@ Hidden=1
 ; ICON
 
 [StyleIconBackground]
-SolidColor=#ColorTransparent#
+ImageName=#@#Images\Background.#ColorImage#.png
+ImageAlpha=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+ScaleMargins=4,4,4,4
 X=0
 Y=0
-W=(#TaskbarSkinWidth#+35)
+W=(#TaskbarSkinWidth#+40)
 H=#TaskbarHeight#
+DynamicVariables=1
 
 [StyleIconIcon]
 X=5
@@ -210,28 +242,30 @@ ToolTipWidth=#SidebarWidth#
 X=35
 Y=((#TaskbarHeight#-22)/2)
 H=12
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
 StringAlign=LEFT
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
 ToolTipWidth=#SidebarWidth#
+DynamicVariables=1
 
 [StyleIconLabel]
 X=r
 Y=R
 H=10
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringAlign=LEFT
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
+DynamicVariables=1
 
 [StyleIconBarFirst]
 X=R
@@ -251,45 +285,53 @@ BarOrientation=VERTICAL
 ; ICON-RIGHT
 
 [StyleIconRightBackground]
-SolidColor=#ColorTransparent#
+ImageName=#@#Images\Background.#ColorImage#.png
+ImageAlpha=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+ScaleMargins=4,4,4,4
 X=0
 Y=0
-W=(#TaskbarSkinWidth#+35)
+W=(#TaskbarSkinWidth#+40)
 H=#TaskbarHeight#
+DynamicVariables=1
 
 [StyleIconRightIcon]
-X=(#TaskbarSkinWidth#+5)
+X=(#TaskbarSkinWidth#+10)
 Y=((#TaskbarHeight#-25)/2)
 W=25
 H=25
 ToolTipWidth=#SidebarWidth#
+DynamicVariables=1
 
 [StyleIconRightText]
-X=(#TaskbarSkinWidth#)
+X=(#TaskbarSkinWidth#+5)
 Y=((#TaskbarHeight#-22)/2)
 H=12
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
 StringAlign=RIGHT
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
 ToolTipWidth=#SidebarWidth#
+DynamicVariables=1
 
 [StyleIconRightLabel]
 X=r
 Y=R
 H=10
-W=#TaskbarSkinWidth#
+; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringAlign=RIGHT
 StringStyle=NORMAL
 AntiAlias=1
-ClipString=1
+; ClipString=1
+DynamicVariables=1
 
 [StyleIconRightBarFirst]
 X=R
@@ -309,7 +351,11 @@ BarOrientation=VERTICAL
 ; TEXTLESS
 
 [StyleTextlessBackground]
-SolidColor=#ColorTransparent#
+ImageName=#@#Images\Background.#ColorImage#.png
+ImageAlpha=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+ScaleMargins=4,4,4,4
 X=0
 Y=0
 W=35

@@ -53,7 +53,7 @@ Text="LUNA"
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleMoonIcon
 
-[Overlay]
+[IconOverlay]
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon
 MeasureName=MeasureMoonOverlayMod

@@ -17,14 +17,14 @@ Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleWeather#Variant#Icon
 MeasureName=MeasureWeatherDay2Icon
 
-[Temp]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureWeatherDay2Average
 Postfix="°"
 LeftMouseUpAction=[[MeasureYahooWeather]]
 
-[Desc]
+[Label]
 Meter=STRING
 MeasureName=MeasureWeatherDay2Desc
 MeterStyle=Style#Variant#Label

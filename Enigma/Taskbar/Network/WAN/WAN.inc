@@ -16,12 +16,12 @@ StringIndex=1
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[WAN]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureWAN
 
-[Label WAN]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="WAN"

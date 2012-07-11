@@ -19,16 +19,6 @@ Format="%p"
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[Clock]
-Meter=STRING
-MeterStyle=Style#Variant#Text
-MeasureName=MeasureText
-
-[Label]
-Meter=STRING
-MeterStyle=Style#Variant#Label
-MeasureName=MeasureLabel
-
 [Icon]
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleClockIcon
@@ -49,3 +39,13 @@ MeasureName=MeasureTime
 Meter=ROUNDLINE
 MeterStyle=Style#Variant#Icon | StyleClockHands | StyleClockMinutes
 MeasureName=MeasureTime
+
+[Text]
+Meter=STRING
+MeterStyle=Style#Variant#Text
+MeasureName=MeasureText
+
+[Label]
+Meter=STRING
+MeterStyle=Style#Variant#Label
+MeasureName=MeasureLabel

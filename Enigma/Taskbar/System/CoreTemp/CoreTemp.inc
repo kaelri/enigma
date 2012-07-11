@@ -14,7 +14,7 @@ CoreTempIndex=#Core#
 Meter=Image
 MeterStyle=Style#Variant#Background
 
-[CoreTemp]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureCoreTemp

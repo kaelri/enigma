@@ -26,14 +26,14 @@ MeterStyle=Style#Variant#Background
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleNetworkIcon
 
-[WiFi]
+[Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureQuality
 Percentual=1
 AutoScale=1
 
-[SSID]
+[Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureSSID
