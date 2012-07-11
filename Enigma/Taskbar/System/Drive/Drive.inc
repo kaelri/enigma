@@ -35,7 +35,7 @@ ToolTipText=Click to browse #Drive#:\.
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar | StyleHDD#Variant#Bar
+MeterStyle=StyleHDD#Variant#Bar
 MeasureName=MeasureDriveInverse
 
 [Text]

@@ -9,18 +9,17 @@ MouseLeaveAction=[!SetVariable SkinMouseOver 0][!UpdateMeasureGroup Mouseover]
 DynamicWindowSize=1
 
 [Variables]
+Variant=Normal
+TaskbarSkinWidth=60
+NumOfBars=0
 SkinMouseOver=0
-TaskbarSkinWidth=40
-; SkinWidthMultiplier=1
-; TaskbarSkinWidth=(80*#SkinWidthMultiplier#)
-; ; Each skin should override "SkinWidthMultiplier" with a value appropriate for that skin (1, 1.5, or 2).
 
 [MeasureTaskbarSkinWidth]
 Measure=Script
 ScriptFile=#@#Styles\#Stylesheet#\TaskbarSkinWidth.lua
 Variant=#Variant#
-MinWidth=50
-MaxWidth=250
+MinWidth=60
+MaxWidth=200
 
 ;-----------------------
 ; NORMAL
@@ -67,20 +66,6 @@ AntiAlias=1
 DynamicVariables=1
 
 [StyleNormalIcon]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
-
-[StyleNormalBarFirst]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
-
-[StyleNormalBar]
 X=0
 Y=0
 W=0
@@ -138,20 +123,6 @@ W=0
 H=0
 Hidden=1
 
-[StyleMiniBarFirst]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
-
-[StyleMiniBar]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
-
 ;-----------------------
 ; TINY
 
@@ -196,20 +167,6 @@ Postfix=" ·"
 DynamicVariables=1
 
 [StyleTinyIcon]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
-
-[StyleTinyBarFirst]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
-
-[StyleTinyBar]
 X=0
 Y=0
 W=0
@@ -267,20 +224,6 @@ AntiAlias=1
 ; ClipString=1
 DynamicVariables=1
 
-[StyleIconBarFirst]
-X=R
-Y=5r
-
-[StyleIconBar]
-X=3r
-Y=r
-H=15
-W=2
-BarColor=#Color3#
-;BarColor=#Color1#
-;SolidColor=#Color3#
-BarOrientation=VERTICAL
-
 ;-----------------------
 ; ICON-RIGHT
 
@@ -333,24 +276,10 @@ AntiAlias=1
 ; ClipString=1
 DynamicVariables=1
 
-[StyleIconRightBarFirst]
-X=R
-Y=5r
-
-[StyleIconRightBar]
-X=3r
-Y=r
-H=15
-W=2
-BarColor=#Color3#
-;BarColor=#Color1#
-;SolidColor=#Color3#
-BarOrientation=VERTICAL
-
 ;-----------------------
-; TEXTLESS
+; ICON-ONLY
 
-[StyleTextlessBackground]
+[StyleIconOnlyBackground]
 ImageName=#@#Images\Background.#ColorImage#.png
 ImageAlpha=1
 MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
@@ -361,36 +290,22 @@ Y=0
 W=35
 H=#TaskbarHeight#
 
-[StyleTextlessIcon]
+[StyleIconOnlyIcon]
 X=5
 Y=((#TaskbarHeight#-25)/2)
 W=25
 H=25
 ToolTipWidth=#SidebarWidth#
 
-[StyleTextlessText]
+[StyleIconOnlyText]
 W=0
 H=0
 Hidden=1
 
-[StyleTextlessLabel]
+[StyleIconOnlyLabel]
 W=0
 H=0
 Hidden=1
-
-[StyleTextlessBarFirst]
-X=R
-Y=5r
-
-[StyleTextlessBar]
-X=3r
-Y=r
-H=15
-W=2
-BarColor=#Color3#
-;BarColor=#Color1#
-;SolidColor=#Color3#
-BarOrientation=VERTICAL
 
 ;---------------------------------------------------------------------
 ; CLOCK & WORLD
@@ -473,6 +388,20 @@ H=23
 [StyleNetworkIcon]
 ImageName=#@#Images\Net.#ColorImage#.png
 
+[StyleNetworkBarFirst]
+X=R
+Y=5r
+
+[StyleNetworkBar]
+X=3r
+Y=r
+H=15
+W=2
+BarColor=#Color3#
+;BarColor=#Color1#
+;SolidColor=#Color3#
+BarOrientation=VERTICAL
+
 ;---------------------------------------------------------------------
 ; RAIN
 
@@ -508,8 +437,25 @@ W=33
 H=33
 
 [StyleHDDNormalBar]
+X=0
+Y=0
+H=0
+W=0
+Hidden=1
+
 [StyleHDDMiniBar]
+X=0
+Y=0
+H=0
+W=0
+Hidden=1
+
 [StyleHDDTinyBar]
+X=0
+Y=0
+H=0
+W=0
+Hidden=1
 
 [StyleHDDIconBar]
 X=14r
@@ -518,6 +464,7 @@ H=15
 W=4
 BarColor=#Color1#
 SolidColor=#Color3#
+BarOrientation=VERTICAL
 
 [StyleHDDIconRightBar]
 X=14r
@@ -526,14 +473,16 @@ H=15
 W=4
 BarColor=#Color1#
 SolidColor=#Color3#
+BarOrientation=VERTICAL
 
-[StyleHDDTextlessBar]
+[StyleHDDIconOnlyBar]
 X=14r
 Y=5r
 H=15
 W=4
 BarColor=#Color1#
 SolidColor=#Color3#
+BarOrientation=VERTICAL
 
 ;---------------------------------------------------------------------
 ; SYSTEM\PWR
@@ -542,8 +491,25 @@ SolidColor=#Color3#
 ImageName=#@#Images\PWR.#ColorImage#.png
 
 [StylePWRNormalBar]
+X=0
+Y=0
+H=0
+W=0
+Hidden=1
+
 [StylePWRMiniBar]
+X=0
+Y=0
+H=0
+W=0
+Hidden=1
+
 [StylePWRTinyBar]
+X=0
+Y=0
+H=0
+W=0
+Hidden=1
 
 [StylePWRIconBar]
 X=10r
@@ -552,6 +518,7 @@ H=14
 W=5
 BarColor=#Color1#
 SolidColor=#Color3#
+BarOrientation=VERTICAL
 
 [StylePWRIconRightBar]
 X=10r
@@ -560,14 +527,16 @@ H=14
 W=5
 BarColor=#Color1#
 SolidColor=#Color3#
+BarOrientation=VERTICAL
 
-[StylePWRTextlessBar]
+[StylePWRIconOnlyBar]
 X=10r
 Y=6r
 H=14
 W=5
 BarColor=#Color1#
 SolidColor=#Color3#
+BarOrientation=VERTICAL
 
 ;---------------------------------------------------------------------
 ; TOGGLE
@@ -602,7 +571,7 @@ W=33
 H=33
 ImageName=#@#Images\MoxaWeather\%1.#ColorImage#.png
 
-[StyleWeatherTextlessIcon]
+[StyleWeatherIconOnlyIcon]
 X=7
 Y=((#TaskbarHeight#-33)/2)
 W=33
@@ -627,7 +596,7 @@ Text=%2
 [StyleWorldIconRightText]
 Text=%2
 
-[StyleWorldTextlessText]
+[StyleWorldIconOnlyText]
 Text=%2
 
 ;-----------------------
@@ -647,7 +616,7 @@ Text=%2
 [StyleWorldIconRightLabel]
 Text=%2
 
-[StyleWorldTextlessLabel]
+[StyleWorldIconOnlyLabel]
 Text=%2
 
 ;---------------------------------------------------------------------

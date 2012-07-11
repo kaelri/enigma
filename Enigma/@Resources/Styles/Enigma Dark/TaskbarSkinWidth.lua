@@ -8,10 +8,12 @@ function Initialize()
 end
 
 function Update()
-	if Variant ~= 'Textless' then
+	if Variant ~= 'IconOnly' then
 		TextW = MeterText:GetW()
 		LabelW = MeterLabel:GetW()
-		if Variant == 'Mini' or Variant == 'Tiny' then
+		if Variant == 'IconRight' then
+			W = MaxW
+		elseif Variant == 'Mini' or Variant == 'Tiny' then
 			W = TextW + LabelW
 		else
 			W = math.max(TextW, LabelW)
