@@ -31,7 +31,7 @@ function Update()
 				SKIN:Bang('!SetOption', 'Text', 'ClipString', 1)
 				SKIN:Bang('!SetOption', 'Text', 'W', MaxW - LabelW)
 			end
-		else
+		elseif Variant == 'Normal' or Variant == 'Icon' or Variant == 'IconRight' then
 			if TextW > MaxW then
 				SKIN:Bang('!SetOption', 'Text', 'ClipString', 1)
 				SKIN:Bang('!SetOption', 'Text', 'W', MaxW)

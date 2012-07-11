@@ -385,6 +385,9 @@ H=23
 ;---------------------------------------------------------------------
 ; NETWORK
 
+[StyleNetworkBackground]
+W=(34+#NumOfBars#*3)
+
 [StyleNetworkIcon]
 ImageName=#@#Images\Net.#ColorImage#.png
 
