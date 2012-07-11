@@ -36,16 +36,17 @@ function Initialize()
 			else
 				local eFile,eSet={},{}
 				local sw={ -- Define Event File tags
-					set=function(x) eSet=Keys(x) end,
-					['/set']=function(x) eSet={} end,
+					set=function(x) table.insert(eSet,Keys(x)) end,
+					['/set']=function(x) table.remove(eSet,#eSet) end,
 					eventfile=function(x) eFile=Keys(x) end,
 					['/eventfile']=function(x) eFile={} end,
 					event=function(x) local match,ev=string.match(x,string.match(x,'/>') and '<(.-)/>' or '<(.-)>(.-)</')
 						local Tmp=Keys(match,{desc=ev or ''})
-						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or eSet[i] or eFile[i] or '') end end,
+						local dSet=ParseTbl(eSet)
+						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or dSet[i] or eFile[i] or '') end end,
 					default=function(x,y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
-				for line in string.gmatch(text,'[^\n\r\t]+') do -- For each file line, ignoring tabs.
+				for line in string.gmatch(text,'%b<>') do -- For each file line, ignoring tabs.
 					local tag=string.match(line,'^.-<([^%s>]+)')
 					local f=sw[string.lower(tag)] or sw.default
 					f(line,tag)
@@ -214,3 +215,13 @@ function ConvertToHex(a) -- Converts RGB colors to HEX
 	end
 	return table.concat(c) -- Concat into color code
 end -- ConvertToHex
+
+function ParseTbl(a) -- Compresses matrix into a single table.
+	local tbl={}
+	for k,v in ipairs(a) do
+		for b,c in pairs(v) do
+			tbl[b]=c
+		end
+	end
+	return tbl
+end -- ParseTbl
