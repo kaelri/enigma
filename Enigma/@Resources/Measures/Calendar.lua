@@ -40,8 +40,7 @@ function Initialize()
 					['/set']=function(x) table.remove(eSet,#eSet) end,
 					eventfile=function(x) eFile=Keys(x) end,
 					['/eventfile']=function(x) eFile={} end,
-					event=function(x) local match=string.match(x,'<(.-)/>')
-						local Tmp=Keys(match)
+					event=function(x) local Tmp=Keys(x)
 						local dSet=ParseTbl(eSet)
 						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or dSet[i] or eFile[i] or '') end end,
 					default=function(x,y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
