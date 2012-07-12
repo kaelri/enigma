@@ -2,8 +2,6 @@
 ; SIDEBAR GALLERY
 
 [StyleGalleryBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=(((#SidebarWidth#-24)*(#GalleryRatio#))+20)
 
 [StyleGalleryBorder]

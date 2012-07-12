@@ -5,8 +5,6 @@
 ; NORMAL
 
 [StyleSystemNormalBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=52
 
 [StyleSystemNormalBorder]
@@ -179,8 +177,6 @@ Hidden=1
 ; GRAPH
 
 [StyleSystemGraphBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=152
 
 [StyleSystemGraphBorder]

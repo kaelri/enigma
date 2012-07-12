@@ -21,7 +21,7 @@ Format="%#d %B, %Y"
 
 [Background]
 Meter=IMAGE
-MeterStyle=StyleClock#Variant#Background
+MeterStyle=StyleSidebarBackground | StyleClock#Variant#Background
 
 ;-----------------------
 ; CLOCK

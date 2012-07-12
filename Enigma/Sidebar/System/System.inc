@@ -33,7 +33,7 @@ Processor=2
 
 [Background]
 Meter=IMAGE
-MeterStyle=StyleSystem#Variant#Background
+MeterStyle=StyleSidebarBackground | StyleSystem#Variant#Background
 
 [Border1]
 Meter=IMAGE

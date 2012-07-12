@@ -10,7 +10,7 @@ CurrentPlayer=#MusicPlayer#
 
 [Background]
 Meter=IMAGE
-MeterStyle=StyleMusic#Variant#Background
+MeterStyle=StyleSidebarBackground | StyleMusic#Variant#Background
 
 [Border]
 Meter=IMAGE

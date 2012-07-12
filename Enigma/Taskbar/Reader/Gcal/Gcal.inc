@@ -1,3 +1,6 @@
+[Variables]
+WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":" ","'s Facebook Notifications":"","Top Stories - Google ":""
+
 ;---------------------------------------------------------------------
 ; MEASURES
 

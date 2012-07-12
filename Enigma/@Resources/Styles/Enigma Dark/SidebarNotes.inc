@@ -4,8 +4,6 @@
 ;-----------------------
 
 [StyleNotesBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=(#NoteHeight#+57)
 
 [StyleNotesBorder]

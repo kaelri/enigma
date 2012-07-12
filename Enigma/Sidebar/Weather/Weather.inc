@@ -10,7 +10,7 @@ CurrentCode=#WeatherCode#
 
 [Background]
 Meter=IMAGE
-MeterStyle=StyleWeather#Variant#Background
+MeterStyle=StyleSidebarBackground | StyleWeather#Variant#Background
 
 [Border]
 Meter=IMAGE

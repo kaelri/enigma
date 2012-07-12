@@ -2,8 +2,6 @@
 ; SIDEBAR WORLD
 
 [StyleWorldBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=102
 
 [StyleWorldBorder]

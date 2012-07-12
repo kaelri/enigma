@@ -25,11 +25,11 @@ MaxWidth=200
 ; NORMAL
 
 [StyleNormalBackground]
-ImageName=#@#Images\Background.#ColorImage#.png
+ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
-ScaleMargins=4,4,4,4
+ScaleMargins=12,12,12,12
 X=0
 Y=0
 W=(#TaskbarSkinWidth#+10)
@@ -76,11 +76,11 @@ Hidden=1
 ; MINI
 
 [StyleMiniBackground]
-ImageName=#@#Images\Background.#ColorImage#.png
+ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
-ScaleMargins=4,4,4,4
+ScaleMargins=12,12,12,12
 X=0
 Y=0
 W=(#TaskbarSkinWidth#+10)
@@ -127,11 +127,11 @@ Hidden=1
 ; TINY
 
 [StyleTinyBackground]
-ImageName=#@#Images\Background.#ColorImage#.png
+ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
-ScaleMargins=4,4,4,4
+ScaleMargins=11,11,11,11
 X=0
 Y=0
 W=(#TaskbarSkinWidth#+10)
@@ -177,11 +177,11 @@ Hidden=1
 ; ICON
 
 [StyleIconBackground]
-ImageName=#@#Images\Background.#ColorImage#.png
+ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
-ScaleMargins=4,4,4,4
+ScaleMargins=12,12,12,12
 X=0
 Y=0
 W=(#TaskbarSkinWidth#+40)
@@ -228,11 +228,11 @@ DynamicVariables=1
 ; ICON-RIGHT
 
 [StyleIconRightBackground]
-ImageName=#@#Images\Background.#ColorImage#.png
+ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
-ScaleMargins=4,4,4,4
+ScaleMargins=12,12,12,12
 X=0
 Y=0
 W=(#TaskbarSkinWidth#+40)
@@ -280,11 +280,11 @@ DynamicVariables=1
 ; ICON-ONLY
 
 [StyleIconOnlyBackground]
-ImageName=#@#Images\Background.#ColorImage#.png
+ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 200][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
-ScaleMargins=4,4,4,4
+ScaleMargins=12,12,12,12
 X=0
 Y=0
 W=35
@@ -557,8 +557,13 @@ ImageName=#@#Images\Volume.%1.#ColorImage#.png
 ; WEATHER
 
 [StyleWeatherNormalIcon]
+ImageName=#@#Images\MoxaWeather\%1.#ColorImage#.png
+
 [StyleWeatherMiniIcon]
+ImageName=#@#Images\MoxaWeather\%1.#ColorImage#.png
+
 [StyleWeatherTinyIcon]
+ImageName=#@#Images\MoxaWeather\%1.#ColorImage#.png
 
 [StyleWeatherIconIcon]
 X=2

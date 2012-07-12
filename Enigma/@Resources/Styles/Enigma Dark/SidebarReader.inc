@@ -2,7 +2,6 @@
 ; SIDEBAR READER
 
 [Variables]
-WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":" ","'s Facebook Notifications":"","Top Stories - Google ":""
 FeedTitle=Loading...
 ItemTitle1=
 ItemTitle2=
@@ -33,8 +32,6 @@ H=1
 Hidden=#HideBordersTop#
 
 [StyleReaderBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=175
 
 [StyleReaderIcon]

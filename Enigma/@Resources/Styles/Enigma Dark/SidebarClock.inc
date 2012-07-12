@@ -78,7 +78,6 @@ AntiAlias=1
 ; BIG RIGHT
 
 [StyleClockBRBackground]
-SolidColor=#ColorTransparent#
 W=(#SidebarWidth#+52.5)
 H=105
 
@@ -121,7 +120,6 @@ StringAlign=LEFT
 ; BIG LEFT
 
 [StyleClockBLBackground]
-SolidColor=#ColorTransparent#
 W=(#SidebarWidth#+52.5)
 H=105
 
@@ -164,8 +162,6 @@ StringAlign=RIGHT
 ; LITTLE RIGHT
 
 [StyleClockLRBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=70
 
 [StyleClockLRFace]
@@ -207,8 +203,6 @@ StringAlign=LEFT
 ; LITTLE LEFT
 
 [StyleClockLLBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=70
 
 [StyleClockLLFace]

@@ -1,15 +1,21 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR MUSIC
 
+[MeasureMusicControlsMouseover]
+Measure=Calc
+Group=Mouseover
+DynamicVariables=1
+Formula=#SkinMouseOver#
+IfAboveValue=0
+IfAboveAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
+IfEqualValue=0
+IfEqualAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
+
 ;----------------------------------------------
 ; NORMAL
 
 [StyleMusicNormalBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=76
-MouseOverAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
-MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
 
 [StyleMusicNormalBorder]
 SolidColor=#ColorBorder4#
@@ -125,11 +131,7 @@ BarOrientation=HORIZONTAL
 ; ART
 
 [StyleMusicArtBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=80
-MouseOverAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
-MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
 
 [StyleMusicArtBorder]
 SolidColor=#ColorBorder4#
@@ -251,11 +253,7 @@ BarOrientation=HORIZONTAL
 ; FULL
 
 [StyleMusicFullBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=(#SidebarWidth#-2)
-MouseOverAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
-MouseLeaveAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
 
 [StyleMusicFullBorder]
 SolidColor=#ColorBorder4#

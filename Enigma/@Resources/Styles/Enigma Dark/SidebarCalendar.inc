@@ -79,8 +79,6 @@ DynamicVariables=1
 ; MONTH
 
 [StyleCalendarMonthBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=170
 
 [StyleCalendarNewWeek]
@@ -99,8 +97,6 @@ Hidden=#HideBordersBottom#
 ; WEEK
 
 [StyleCalendarWeekBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=63
 
 [StyleCalendarWeekBorderBottom]

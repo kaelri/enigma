@@ -40,33 +40,43 @@ CHANGELOG
 ---
 Date: ???
 App: Rainmeter 2.3
-- [Skins] Added Weather Code Finder: new utility to search for your weather code directly from Enigma.
-- [Skins] Changed all: updated to make use of the new "@Resources" folder and related conventions for Rainmeter 2.3.
-- [Skins] Changed all: replaces all uses of "!PluginBang" with "!CommandMeasure" for Rainmeter 2.3.
-- [Skins] Changed all: moved Groups to stylesheets.
-- [Skins] Changed all Taskbar: added group "EnigmaTaskbar".
-- [Skins] Changed Options: changed version-check source to GitHub.
-- [Skins] Changed Options: Stylesheets can now be selected by folder, instead of typed manually.
-- [Skins] Changed Options: Default options can now be restored on an individual basis. Instead of double-clicking, a confirmation dialog is presented for security.
-- [Skins] Changed Options: now automatically replaces "/basic" with "/full" in Google Calendar feeds.
-- [Skins] Changed Sidebar, Taskbar: moved LoadOrder setting to stylesheets.
-- [Skins] Changed Calendar: added ability to show events from a selected XML file. Users can edit the events file or add their own.
+
+- [Skins] Changed all: restored traditional "variants" behavior. Variants can once again be selected from the context menu by right-clicking.
+- [Skins] Changed all Taskbar: renamed "Textless" variants to "Icon Only."
+- [Skins] Changed all Taskbar: added group "EnigmaTaskbar". Also moved group definitions to stylesheet files.
+- [Skins] Changed Calendar: added feature to show events from XML files. Can be disabled in Options. [by Smurfier]
 - [Skins] Changed Gallery: added button to set current image as desktop wallpaper.
 - [Skins] Changed Music: added support for JRiver Media Center & JRiver Media Jukebox.
-- [Skins] Changed World: Daylight Savings Time offsets are now calculated automatically.
+- [Skins] Changed Gcal Reader: switched to "full" calendar feed for more reliability.
+- [Skins] Changed Gcal Reader: added feature to automatically save events to XML file, which can be displayed in Calendar (see above). [by Smurfier]
+- [Skins] Changed Gcal Reader (Options): now automatically replaces "/basic" with "/full" when saving Google Calendar feeds.
 - [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
-- [Skins] Fixed Gcal Reader: date and time display correctly again.
-- [Addons] Added FindWOEID by Jeff Morley.
-- [Addons] Updated to RainRGB4.
-- [Measures] Changed Notes, Path, Reader, Calendar: various improvements by Smurfier.
-- [Measures] Fixed Notes: skin was displaying the UTF-8 Byte Order Mark (﻿).
-- [Measures] Fixed Music: PlayerType was not specified on main measure, resulting in log error.
+- [Skins] Changed Weather (Options): added Weather Code Finder utility to search for your weather code from within Enigma.
+- [Skins] Changed World (Options): Daylight Savings Time offsets are now calculated automatically.
+- [Skins] Changed Options: changed version-check source to GitHub.
+- [Skins] Changed Options: stylesheets can now be selected by folder, instead of typed manually.
+- [Skins] Changed Options: default option values can now be restored individually, by right-clicking the option.
+- [Skins] Fixed all: updated various code conventions for Rainmeter 2.3.
+   - Renamed "Resources" folder to "@Resources". [by Smurfier]
+   - Full path to Plugins no longer necessary. [by Smurfier]
+   - Replaced all !PluginBangs with !CommandMeasures. [by Smurfier]
+   - Removed LoadOrder settings. [by Smurfier]
+- [Skins] Fixed Music: PlayerType was not specified on main measure, resulting in log error.
+- [Skins] Fixed Notes: skin was displaying the UTF-8 Byte Order Mark (﻿).
+- [Measures] Changed Notes, Path, Reader, Calendar, Weather: numerous fixed and improvements. [by Smurfier]
+- [Measures] Changed Weather: switched from Weather.com location codes to WOEID.
 - [Measures] Fixed Reader: now provides correct feed URL and number of items even when feeds are empty.
 - [Styles] Changed all: skins now set a new variable, "SkinMouseOver," when the mouse hovers over the skin. This is required by some measures, e.g. Switcher.
+- [Styles] Changed all: moved Format and Layout panels back to Enigma core folders.
 - [Styles] Changed all Sidebar: added "SidebarCommon" file, included by all Sidebar-class skins (not including the Sidebar itself).
-- [Styles] Changed Music: progress bar now hidden (shown on mouseover) when Bottom Borders are disabled.
-- [Styles] Fixed Music: album title on "Normal" variant was improperly clipped.
-- [Styles] Fixed Music: added much nicer album background image for "Full" variant.
+- [Styles] Changed Enigma (all): added visible background image that appears on mouseover.
+- [Styles] Changed Enigma (all Taskbar): skins now expand and contract in order to fit their contents. (Icon-Right variants remain fixed-width in order to keep from moving around.)
+- [Styles] Changed Enigma (all Taskbar): added 5px margins to all variants.
+- [Styles] Changed Enigma (Music): progress bar now hidden (shown on mouseover) when Bottom Borders are disabled.
+- [Styles] Fixed Enigma (Music): album title on "Normal" variant was improperly clipped.
+- [Styles] Fixed Enigma (Music): added much nicer album background image for "Full" variant.
+- [Addons] Added FindWOEID. [by Jeff Morley]
+- [Addons] Updated to RainRGB4. [by Jeff Morley]
 
 3.1
 ---

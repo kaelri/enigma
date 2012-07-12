@@ -265,4 +265,4 @@ H=25
 W=25
 Hidden=1
 LeftMouseUpAction=["http://weather.yahoo.com/"][!Redraw]
-ToolTipText=Provided by Yahoo! Weather.
+ToolTipText=Powered by Yahoo! Weather.

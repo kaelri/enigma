@@ -1,5 +1,6 @@
 function Initialize()
-	LastW = nil
+	LastTextW = nil
+	LastLabelW = nil
 	MeterText = SKIN:GetMeter('Text')
 	MeterLabel = SKIN:GetMeter('Label')
 	MinW = SELF:GetNumberOption('MinWidth', 0)
@@ -8,22 +9,20 @@ function Initialize()
 end
 
 function Update()
-	if Variant ~= 'IconOnly' then
-		TextW = MeterText:GetW()
-		LabelW = MeterLabel:GetW()
-		if Variant == 'IconRight' then
-			W = MaxW
-		elseif Variant == 'Mini' or Variant == 'Tiny' then
-			W = TextW + LabelW
-		else
-			W = math.max(TextW, LabelW)
-		end
-		W = math.min(math.max(W, MinW), MaxW)
-	else
-		W = MinW
-	end
+	if Variant == 'IconOnly' then return end
 
-	if W ~= LastW then
+	TextW = MeterText:GetW()
+	LabelW = MeterLabel:GetW()
+	if Variant == 'IconRight' then
+		W = MaxW
+	elseif Variant == 'Mini' or Variant == 'Tiny' then
+		W = TextW + LabelW
+	else
+		W = math.max(TextW, LabelW)
+	end
+	W = math.min(math.max(W, MinW), MaxW)
+
+	if TextW ~= LastTextW or LabelW ~= LastLabelW then
 		SKIN:Bang('!SetVariable', 'TaskbarSkinWidth', W)
 		if Variant == 'Mini' or Variant == 'Tiny' then
 			SKIN:Bang('!MoveMeter', 5 + LabelW, MeterLabel:GetY(), 'Text')
@@ -31,7 +30,7 @@ function Update()
 				SKIN:Bang('!SetOption', 'Text', 'ClipString', 1)
 				SKIN:Bang('!SetOption', 'Text', 'W', MaxW - LabelW)
 			end
-		elseif Variant == 'Normal' or Variant == 'Icon' or Variant == 'IconRight' then
+		else
 			if TextW > MaxW then
 				SKIN:Bang('!SetOption', 'Text', 'ClipString', 1)
 				SKIN:Bang('!SetOption', 'Text', 'W', MaxW)
@@ -41,6 +40,7 @@ function Update()
 				SKIN:Bang('!SetOption', 'Label', 'W', MaxW)
 			end
 		end
-		LastW = W
+		LastTextW = TextW
+		LastLabelW = LabelW
 	end
 end

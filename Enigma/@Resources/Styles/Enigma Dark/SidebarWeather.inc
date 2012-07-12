@@ -5,8 +5,6 @@
 ; NORMAL
 
 [StyleWeatherNormalBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=136
 
 [StyleWeatherNormalBorder]
@@ -94,8 +92,6 @@ Hidden=1
 ; EXTENDED
 
 [StyleWeatherExtendedBackground]
-SolidColor=#ColorTransparent#
-W=#SidebarWidth#
 H=242
 
 [StyleWeatherExtendedBorder]
