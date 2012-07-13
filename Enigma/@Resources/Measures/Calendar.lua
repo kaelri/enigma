@@ -107,14 +107,14 @@ end -- Update
 
 function Events() -- Parse Events table.
 	Hol={} -- Initialize Event Table.
-	local Test=function(c,d) return c=='' and '' or (d and d..c or nil) end
-	local AddEvn=function(a,b,c)
-		c=string.match(c,',') and ConvertToHex(c) or c
-		if Hol[a] then -- Adds new Events.
-			table.insert(Hol[a]['text'],b)
-			table.insert(Hol[a]['color'],c)
+	local Test=function(value,prefix) return value=='' and '' or (prefix and prefix..value or nil) end
+	local AddEvn=function(day,event,color)
+		color=string.match(color,',') and ConvertToHex(color) or color
+		if Hol[day] then -- Adds new Events.
+			table.insert(Hol[day]['text'],event)
+			table.insert(Hol[day]['color'],color)
 		else
-			Hol[a]={text={b},color={c},}
+			Hol[day]={text={event},color={color},}
 		end
 	end
 	for i=1,#hFile.month do -- For each event.
@@ -166,11 +166,12 @@ function BuiltInEvents() -- Makes allowance for events that require complex calc
 	}
 end -- BuiltInEvents
 
-function Vars(a,source) -- Makes allowance for {Variables}
+function Vars(line,source) -- Makes allowance for {Variables}
 	local D,W={sun=0, mon=1, tue=2, wed=3, thu=4, fri=5, sat=6},{first=0, second=1, third=2, fourth=3, last=4}
 	local tbl=BuiltInEvents()
-	return string.gsub(a,'%b{}',function(b)
-		local strip=string.match(string.lower(b),'{(.+)}')
+	
+	return string.gsub(line,'%b{}',function(variable)
+		local strip=string.match(string.lower(variable),'{(.+)}')
 		local v1,v2=string.match(strip,'(.+)(...)')
 		if tbl[strip] then
 			return tbl[strip]
@@ -191,15 +192,19 @@ end -- ErrMsg
 
 function Rotate(a) return iStartOnMondays and (a-1+7)%7 or a end
 
-function Keys(a,b) -- Converts Key="Value" sets to a table
-	local tbl=b or {}
-	local par=function(e) string.gsub(a,'(%a+)=(%b'..e..e..')',function(c,d)
-			local strip=string.match(d,e..'(.+)'..e)
-			tbl[string.lower(c)]=tonumber(strip) or strip
-		end)
+function Keys(line,default) -- Converts Key="Value" sets to a table
+	local tbl = default or {}
+	-- Parse through for double quotes.
+	for key, value in string.gmatch(line, '(%a+)=(%b"")') do
+		local strip = string.match(value, '"(.+)"')
+		tbl[string.lower(key)] = tonumber(strip) or strip
 	end
-	par('"')
-	par("'")
+	-- Parse through for single quotes.
+	for key, value in string.gmatch(line, "(%a+)=(%b'')") do
+		local strip = string.match(value, "'(.+)'")
+		tbl[string.lower(key)] = tonumber(strip) or strip
+	end
+	
 	return tbl
 end -- Keys
 
@@ -211,19 +216,23 @@ end -- Delim
 
 function ConvertToHex(a) -- Converts RGB colors to HEX
 	local c={}
-	a=string.gsub(a,'%s','') -- Remove spaces
-	for b in string.gmatch(a,'[^,]+') do -- Separate by commas
-		table.insert(c,string.format('%02X',tonumber(b))) -- Convert to double digit HEX
+	
+	a=string.gsub(a,'%s','')
+	for b in string.gmatch(a,'[^,]+') do
+		table.insert(c,string.format('%02X',tonumber(b)))
 	end
-	return table.concat(c) -- Concat into color code
+	
+	return table.concat(c)
 end -- ConvertToHex
 
 function ParseTbl(a) -- Compresses matrix into a single table.
 	local tbl={}
+	
 	for k,v in ipairs(a) do
 		for b,c in pairs(v) do
 			tbl[b]=c
 		end
 	end
+	
 	return tbl
 end -- ParseTbl
