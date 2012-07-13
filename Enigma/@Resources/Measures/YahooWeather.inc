@@ -245,20 +245,11 @@ StringIndex=33
 ; LOGO
 ; Yahoo! Weather requires that any application which uses their API include the Y!W logo and a link to their website. This section will automatically insert those elements into any skin which uses this measure module. Please do not remove these elements if you are redistributing this file with your own skin.
 
-[MeasureYahooWeatherLogoMouseover]
-Measure=Calc
-Group=Mouseover
-DynamicVariables=1
-Formula=#SkinMouseOver#
-IfAboveValue=0
-IfAboveAction=[!ShowMeter YahooWeatherLogo][!Redraw]
-IfEqualValue=0
-IfEqualAction=[!HideMeter YahooWeatherLogo][!Redraw]
-
 [YahooWeatherLogo]
-ImageName=#@#Images\MoxaWeather\Logo.png
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon
+MeterGroup=EnigmaMouseover
+ImageName=#@#Images\MoxaWeather\Logo.png
 X=7
 Y=7
 H=25

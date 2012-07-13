@@ -24,11 +24,9 @@ X=1r
 Y=1r
 W=(#SidebarWidth#-26)
 H=((#SidebarWidth#-26)*(#GalleryRatio#))
-MouseOverAction=[!ShowMeterGroup Mouseover][!Update]
-MouseLeaveAction=[!HideMeterGroup Mouseover][!Update]
 
 [StyleGalleryCurtain]
-Group=Mouseover
+Group=EnigmaMouseover
 SolidColor=#ColorFilter3#
 X=r
 Y=r
@@ -37,7 +35,7 @@ H=((#SidebarWidth#-26)*(#GalleryRatio#))
 Hidden=1
 
 [StyleGalleryCaption]
-Group=Mouseover
+Group=EnigmaMouseover
 X=(#SIDEBARWIDTH#/2)
 Y=2r
 W=(#SidebarWidth#-30)
@@ -53,7 +51,7 @@ ToolTipWidth=#SidebarWidth#
 Hidden=1
 
 [StyleGalleryButton]
-Group=Mouseover
+Group=EnigmaMouseover
 Y=((#SidebarWidth#-24)*(#GalleryRatio#)-25)
 FontFace=Webdings
 FontColor=#Color1#

@@ -1,16 +1,6 @@
 ;--------------------------------------------------------------------------------------------
 ; SIDEBAR MUSIC
 
-[MeasureMusicControlsMouseover]
-Measure=Calc
-Group=Mouseover
-DynamicVariables=1
-Formula=#SkinMouseOver#
-IfAboveValue=0
-IfAboveAction=[!HideMeterGroup Mouseout][!ShowMeterGroup Mouseover][!Redraw]
-IfEqualValue=0
-IfEqualAction=[!ShowMeterGroup Mouseout][!HideMeterGroup Mouseover][!Redraw]
-
 ;----------------------------------------------
 ; NORMAL
 
@@ -77,7 +67,7 @@ FontColor=#Color2#
 [StyleMusicNormalTextThird]
 FontColor=#Color3#
 W=(#SidebarWidth#-53)
-Group=Mouseout
+Group=EnigmaMouseout
 
 [StyleMusicNormalTime]
 X=(#SidebarWidth#-14)
@@ -99,7 +89,7 @@ StringAlign=LEFT
 FontFace=Webdings
 AntiAlias=1
 Hidden=1
-Group=Mouseover
+Group=EnigmaMouseover
 ToolTipWidth=#SidebarWidth#
 
 [StyleMusicNormalButtonFirst]
@@ -197,7 +187,7 @@ FontColor=#Color2#
 
 [StyleMusicArtTextThird]
 FontColor=#Color3#
-Group=Mouseout
+Group=EnigmaMouseout
 
 [StyleMusicArtTime]
 X=(#SidebarWidth#-14)
@@ -209,7 +199,7 @@ FontFace=#Font#
 FontSize=#Size4#
 AntiAlias=1
 Hidden=1
-Group=Mouseover
+Group=EnigmaMouseover
 
 [StyleMusicArtButton]
 X=16r
@@ -221,7 +211,7 @@ StringAlign=LEFT
 FontFace=Webdings
 AntiAlias=1
 Hidden=1
-Group=Mouseover
+Group=EnigmaMouseover
 ToolTipWidth=#SidebarWidth#
 
 [StyleMusicArtButtonFirst]
@@ -293,7 +283,7 @@ Y=r
 W=(#SidebarWidth#-26)
 H=(#SidebarWidth#-26)
 Hidden=1
-Group=Mouseover
+Group=EnigmaMouseover
 
 [StyleMusicFullText]
 X=14
@@ -307,7 +297,7 @@ StringAlign=LEFT
 StringStyle=NORMAL
 AntiAlias=1
 Hidden=1
-Group=Mouseover
+Group=EnigmaMouseover
 
 [StyleMusicFullTextFirst]
 FontColor=#Color1#
@@ -329,7 +319,7 @@ FontFace=#Font#
 FontSize=#Size1#
 AntiAlias=1
 Hidden=1
-Group=Mouseover
+Group=EnigmaMouseover
 
 [StyleMusicFullButton]
 X=R
@@ -341,7 +331,7 @@ StringAlign=LEFT
 FontFace=Webdings
 AntiAlias=1
 Hidden=1
-Group=Mouseover
+Group=EnigmaMouseover
 ToolTipWidth=#SidebarWidth#
 
 [StyleMusicFullButtonFirst]
@@ -369,4 +359,4 @@ BarColor=#ColorBorder2#
 SolidColor=#ColorBorder4#
 BarOrientation=HORIZONTAL
 Hidden=#HideBordersBottom#
-Group=Mouseover
+Group=EnigmaMouseover

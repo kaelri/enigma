@@ -4,8 +4,8 @@
 [Rainmeter]
 Group=EnigmaTaskbar
 MiddleMouseUpAction=!Refresh
-MouseOverAction=[!SetVariable SkinMouseOver 1][!UpdateMeasureGroup Mouseover]
-MouseLeaveAction=[!SetVariable SkinMouseOver 0][!UpdateMeasureGroup Mouseover]
+MouseOverAction=[!SetVariable SkinMouseOver 1][!HideMeterGroup EnigmaMouseout][!ShowMeterGroup EnigmaMouseover][!Redraw]
+MouseLeaveAction=[!SetVariable SkinMouseOver 0][!HideMeterGroup EnigmaMouseover][!ShowMeterGroup EnigmaMouseout][!Redraw]
 DynamicWindowSize=1
 
 [Variables]
