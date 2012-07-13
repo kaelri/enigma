@@ -193,10 +193,13 @@ function Rotate(a) return iStartOnMondays and (a-1+7)%7 or a end
 
 function Keys(a,b) -- Converts Key="Value" sets to a table
 	local tbl=b or {}
-	string.gsub(a,'(%a+)=(%b"")',function(c,d)
-		local strip=string.match(d,'"(.+)"')
-		tbl[string.lower(c)]=tonumber(strip) or strip
-	end)
+	local par=function(e) string.gsub(a,'(%a+)=(%b'..e..e..')',function(c,d)
+			local strip=string.match(d,e..'(.+)'..e)
+			tbl[string.lower(c)]=tonumber(strip) or strip
+		end)
+	end
+	par('"')
+	par("'")
 	return tbl
 end -- Keys
 
