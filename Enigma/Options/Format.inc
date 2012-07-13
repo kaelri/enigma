@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=395
+PanelHeight=420
 ArrowY=288
 LabelsQueue=ColorImage|HideBordersTop|HideBordersBottom
 
@@ -267,6 +267,22 @@ RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('HideBordersBotto
 TooltipTitle="Show Bottom Borders (Y/N)"
 TooltipText=Click to toggle whether Enigma Sidebar skins display a separator at the top and/or bottom of each skin.
 DynamicVariables=1
+
+;-----------------------
+
+[SkinBackgroundAlphaName]
+Meter=STRING
+MeterStyle=StyleName
+Text="Background Transparency"
+
+[SkinBackgroundAlphaText]
+Meter=STRING
+MeterStyle=StyleText
+Text=#SkinBackgroundAlpha#
+LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 7"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SkinBackgroundAlpha')"
+TooltipTitle="Skin Background Transparency (0-255)"
+TooltipText=Click to set the transparency of the background image that appears when you hover your mouse over Enigma skins.
 
 ;-----------------------
 

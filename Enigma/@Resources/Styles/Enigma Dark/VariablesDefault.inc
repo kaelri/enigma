@@ -31,6 +31,7 @@ DefaultSize4=7
 DefaultSize3=8
 DefaultSize2=9
 DefaultFont=Trebuchet MS
+DefaultSkinBackgroundAlpha=100
 DefaultHideBordersTop=0
 DefaultHideBordersBottom=1
 
@@ -45,6 +46,8 @@ DefaultTaskbarSpacing=0
 DefaultTaskbarAlpha=204
 DefaultTaskbarImage=#*@*#Images\Taskbar\TaskbarTop.#*ColorImage*#.jpg
 DefaultSecondTaskbarImage=#*@*#Images\Taskbar\TaskbarBottom.#*ColorImage*#.jpg
+DefaultTaskbarMaxSkinWidth=200
+DefaultTaskbarMinSkinWidth=60
 
 DefaultSidebarClockFace=#*@*#Images\Clock\EnigmaClock.#*ColorImage*#.png
 DefaultSidebarWorldClockFace=#*@*#Images\Clock\ChevronClock.#*ColorImage*#.png

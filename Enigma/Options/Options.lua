@@ -159,6 +159,7 @@ function Initialize()
 		Size3 = { File = StyleSettings },
 		Size2 = { File = StyleSettings },
 		Font = { File = StyleSettings },
+		SkinBackgroundAlpha  = { File = StyleSettings },
 		HideBordersTop = { File = StyleSettings, 
 			Loop = { '0', '1' },
 			Labels = { 'Yes', 'No' }
@@ -177,7 +178,9 @@ function Initialize()
 		TaskbarSpacing = { File = StyleSettings },
 		TaskbarAlpha = { File = StyleSettings },
 		TaskbarImage = { File = StyleSettings },
-		SecondTaskbarImage = { File = StyleSettings }
+		SecondTaskbarImage = { File = StyleSettings },
+		TaskbarMaxSkinWidth  = { File = StyleSettings },
+		TaskbarMinSkinWidth  = { File = StyleSettings }
 	}
 	
 	for a in string.gmatch(SELF:GetOption('LabelsQueue'),'[^%|]+') do

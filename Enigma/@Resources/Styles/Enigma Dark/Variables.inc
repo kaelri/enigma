@@ -29,6 +29,7 @@ Size4=7
 Size3=8
 Size2=9
 Font=Trebuchet MS
+SkinBackgroundAlpha=100
 HideBordersTop=0
 HideBordersBottom=1
 
@@ -43,6 +44,8 @@ TaskbarSpacing=0
 TaskbarAlpha=204
 TaskbarImage=#@#Images\Taskbar\TaskbarTop.#ColorImage#.jpg
 SecondTaskbarImage=#@#Images\Taskbar\TaskbarBottom.#ColorImage#.jpg
+TaskbarMaxSkinWidth=200
+TaskbarMinSkinWidth=60
 
 SidebarClockFace=#@#Images\Clock\EnigmaClock.#ColorImage#.png
 SidebarWorldClockFace=#@#Images\Clock\ChevronClock.#ColorImage#.png

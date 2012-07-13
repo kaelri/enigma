@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=395
+PanelHeight=425
 ArrowY=328
 LabelsQueue=
 
@@ -126,12 +126,40 @@ RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarSpacing')
 TooltipTitle="Taskbar Spacing (px)"
 TooltipText=You can also adjust the spacing left between the taskbar and the left (or right) of the screen. If you want the taskbar to span the entire screen width, this should be kept at zero.
 
+[TaskbarMaxSkinWidthName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
+Text="Maximum Text Width"
+
+[TaskbarMaxSkinWidthText]
+Meter=STRING
+MeterStyle=StyleText
+Text="#TaskbarMaxSkinWidth#"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 7"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMaxSkinWidth')"
+TooltipTitle="Maximum Text Width for Taskbar Skins (px)"
+TooltipText=Taskbar skins automatically resize to fit the displayed text. Text longer than the maximum will be clipped.
+
+[TaskbarMinSkinWidthName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
+Text="Minimum Text Width"
+
+[TaskbarMinSkinWidthText]
+Meter=STRING
+MeterStyle=StyleText
+Text="#TaskbarMinSkinWidth#"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 8"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMinSkinWidth')"
+TooltipTitle="Minimum Text Width for Taskbar Skins (px)"
+TooltipText=Taskbar skins automatically resize to fit the displayed text. If the text is shorter than the minimum, the skin background will expand to fill the remaining space.
+
 ;-----------------------
 
 [BarImageName]
 Meter=STRING
 MeterStyle=StyleName
-Text="Backgrounds"
+Text="Textures"
 
 [BarImageBase]
 Meter=IMAGE

@@ -11,6 +11,6 @@ SkinMouseOver=0
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ScaleMargins=12,12,12,12
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
 W=#SidebarWidth#

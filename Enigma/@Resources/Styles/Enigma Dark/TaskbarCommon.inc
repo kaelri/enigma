@@ -18,8 +18,8 @@ SkinMouseOver=0
 Measure=Script
 ScriptFile=#@#Styles\#Stylesheet#\TaskbarSkinWidth.lua
 Variant=#Variant#
-MinWidth=60
-MaxWidth=200
+MinWidth=#TaskbarMinSkinWidth#
+MaxWidth=#TaskbarMaxSkinWidth#
 
 ;-----------------------
 ; NORMAL
@@ -27,7 +27,7 @@ MaxWidth=200
 [StyleNormalBackground]
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!Update]
 MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
 ScaleMargins=12,12,12,12
 X=0
