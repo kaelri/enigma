@@ -248,10 +248,8 @@ StringIndex=33
 [YahooWeatherLogo]
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon
-MeterGroup=EnigmaMouseover
+Group=EnigmaMouseover
 ImageName=#@#Images\MoxaWeather\Logo.png
-X=7
-Y=7
 H=25
 W=25
 Hidden=1
