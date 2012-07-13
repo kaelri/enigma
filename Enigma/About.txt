@@ -65,12 +65,13 @@ App: Rainmeter 2.3
 - [Skins] Fixed Notes: skin was displaying the UTF-8 Byte Order Mark (﻿).
 - [Measures] Changed Notes, Path, Reader, Calendar, Weather: numerous fixed and improvements. [by Smurfier]
 - [Measures] Changed Weather: switched from Weather.com location codes to WOEID.
+- [Measures] Changed Weather: moved logo to prevent stretching small skin variants.
 - [Measures] Fixed Reader: now provides correct feed URL and number of items even when feeds are empty.
 - [Styles] Changed all: skins now set a new variable, "SkinMouseOver," when the mouse hovers over the skin. This is required by some measures, e.g. Switcher.
 - [Styles] Changed all: moved Format and Layout panels back to Enigma core folders.
 - [Styles] Changed all Sidebar: added "SidebarCommon" file, included by all Sidebar-class skins (not including the Sidebar itself).
-- [Styles] Changed Enigma (all): added visible background image that appears on mouseover.
-- [Styles] Changed Enigma (all Taskbar): skins now expand and contract in order to fit their contents. (Icon-Right variants remain fixed-width in order to keep from moving around.)
+- [Styles] Changed Enigma (all): added visible background image that appears on mouseover. Transparency can be adjusted in Options.
+- [Styles] Changed Enigma (all Taskbar): skins now expand and contract in order to fit their contents. Maximum and minimum widths can be set in Options. (Icon-Right variants remain fixed-width in order to keep from moving around.)
 - [Styles] Changed Enigma (all Taskbar): added 5px margins to all variants.
 - [Styles] Changed Enigma (Music): progress bar now hidden (shown on mouseover) when Bottom Borders are disabled.
 - [Styles] Fixed Enigma (Music): album title on "Normal" variant was improperly clipped.
