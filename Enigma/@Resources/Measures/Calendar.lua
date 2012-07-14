@@ -48,7 +48,7 @@ function Initialize()
 					default = function(x, y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
 				for line in string.gmatch(text, '%b<>') do -- For each file line, ignoring tabs.
-					local tag = string.match(line, '^.-<([^%s>]+)')
+					local tag = string.match(line, '^<([^%s>]+)')
 					local f = sw[string.lower(tag)] or sw.default
 					f(line, tag)
 				end
@@ -113,7 +113,7 @@ function Events() -- Parse Events table.
 	local Test = function(value, prefix) return value == '' and '' or (prefix and prefix..value or nil) end
 
 	for i = 1, #hFile.month do -- For each event.
-		if SKIN:ParseFormula(Vars(hFile.month[i])) == Date.month or hFile.month[i] == '*' then
+		if SKIN:ParseFormula(Vars(hFile.month[i], hFile.desc[i])) == Date.month or hFile.month[i] == '*' then
 			
 			local day = SKIN:ParseFormula(Vars(hFile.day[i], hFile.desc[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.desc[i])
 			local event = hFile.desc[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -')
@@ -201,14 +201,18 @@ function Rotate(value) return iStartOnMondays and (value-1+7)%7 or value end
 
 function Keys(line,default) -- Converts Key="Value" sets to a table
 	local tbl = default or {}
-	-- Parse through for double quotes.
+	local escape = {
+		['&quot;']='"',
+		['&lt;']='<',
+		['&gt;']='>',
+		['&amp;']='&'
+	}
+	
 	for key, value in string.gmatch(line, '(%a+)=(%b"")') do
 		local strip = string.match(value, '"(.+)"')
-		tbl[string.lower(key)] = tonumber(strip) or strip
-	end
-	-- Parse through for single quotes.
-	for key, value in string.gmatch(line, "(%a+)=(%b'')") do
-		local strip = string.match(value, "'(.+)'")
+		for code,char in pairs(escape) do
+			strip=string.gsub(strip,code,char)
+		end
 		tbl[string.lower(key)] = tonumber(strip) or strip
 	end
 	
