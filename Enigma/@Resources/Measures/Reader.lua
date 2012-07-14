@@ -78,9 +78,9 @@ function Update()
 	} do SKIN:Bang('!SetVariable',VariablePrefix..k,v) end
 	for i=1,(MinItems>#tTitles and MinItems or #tTitles) do
 		for k,v in pairs{
-			ItemTitle=tTitles[i],
+			ItemTitle=tTitles[i] or '',
 			ItemLink=tLinks[i] or 'No item found.',
-			ItemDate=(FeedType==1 and tDates[i]~='') and os.date('%I.%M %p on %d %B %Y',GoogleCalendarTimestamp(tDates[i])) or tDates[i],
+			ItemDate=tDates[i] and ((FeedType==1 and tDates[i]) and os.date('%I.%M %p on %d %B %Y',GoogleCalendarTimestamp(tDates[i])) or tDates[i]) or '',
 		} do SKIN:Bang('!SetVariable',VariablePrefix..k..i,v) end
 	end
 	
@@ -103,7 +103,7 @@ function GetMeasures()
 end
 
 function GoogleCalendarTimestamp(input, out)
-	local year,month,day,hour,min,sec=string.match(input,  '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
+	local year,month,day,hour,min,sec=string.match(input, '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
 	return os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false}
 end
 
