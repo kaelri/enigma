@@ -21,7 +21,7 @@ Disabled=1
 FeedMeasureName=MeasureFeed
 SubString=#WebParserSubstitute#
 WriteEvents=#GoogleCalendarWriteEvents#
-EventFile=#@#Calendars\GoogleCalendar1.hol
+EventFile=EventFile=#@#User\Calendars\GoogleCalendar1.xml
 
 ;---------------------------------------------------------------------
 ; METERS
