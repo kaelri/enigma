@@ -180,7 +180,7 @@ function GoogleCalendarFile(Command)
 		--WRITE FILE
 		local hFile=io.output(EventFiles[iCurrentFeed],'w')
 		if io.type(hFile)=='file' then
-			io.write(table.concat(file,'\n'))
+			io.write(table.concat(file,'\r\n'))
 			io.close(hFile)
 		else
 			print('Cannot open file: '..EventFiles[iCurrentFeed])
