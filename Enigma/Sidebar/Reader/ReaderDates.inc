@@ -104,6 +104,8 @@ Disabled=1
 FeedMeasureName=MeasureFeed1
 MinItems=8
 SubString=#WebParserSubstitute#
+WriteEvents=#ReaderWriteEvents#
+EventFile=#ReaderEventFile#
 
 [MeasureActive1]
 Measure=Calc

@@ -1,5 +1,5 @@
 ; These are the default user setting values for the Enigma suite. They are used by the Options skin to restore default values.
-; You should not make changes to this file unless you know what you're doing. Instead, use UserVariables.inc to change your active personal settings.
+; You should not make changes to this file unless you know what you're doing. Instead, use Options.inc to change your active personal settings.
 
 [Variables]
 
@@ -11,16 +11,16 @@ DefaultStylesheet=Enigma Dark
 ;-----------------------
 ; GENERAL
 
-DefaultNote1Path=#*ROOTCONFIGPATH*#Sidebar\Notes\Notes.txt
-DefaultNote2Path=#*ROOTCONFIGPATH*#Sidebar\Notes\Tasks.txt
-DefaultNote3Path=#*ROOTCONFIGPATH*#Sidebar\Notes\About.txt
+DefaultNote1Path=#*@*#User\Notes\Notes.txt
+DefaultNote2Path=#*@*#User\Notes\Tasks.txt
+DefaultNote3Path=#*@*#User\Notes\About.txt
 DefaultNoteHeight=200
 DefaultDrive1=C
 DefaultDrive2=E
 DefaultDrive3=F
 DefaultNetworkMaxDownload=1000000
 DefaultNetworkMaxUpload=500000
-DefaultCalendarEventFile=#*@*#Calendars\Holidays.hol
+DefaultCalendarEventFile=#*@*#User\Calendars\Holidays.hol
 DefaultCalendarShowEvents=1
 DefaultCalendarExtraDays=1
 DefaultCalendarLeadingZeroes=0

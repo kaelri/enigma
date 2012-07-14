@@ -8,16 +8,16 @@ Stylesheet=Enigma Dark
 ;-----------------------
 ; GENERAL
 
-Note1Path=#ROOTCONFIGPATH#Sidebar\Notes\Notes.txt
-Note2Path=#ROOTCONFIGPATH#Sidebar\Notes\Tasks.txt
-Note3Path=#ROOTCONFIGPATH#Sidebar\Notes\About.txt
+Note1Path=#@#User\Notes\Notes.txt
+Note2Path=#@#User\Notes\Tasks.txt
+Note3Path=#@#User\Notes\About.txt
 NoteHeight=200
 Drive1=C
 Drive2=E
 Drive3=F
 NetworkMaxDownload=1000000
 NetworkMaxUpload=500000
-CalendarEventFile=#@#Calendars\Holidays.hol
+CalendarEventFile=#@#User\Calendars\Holidays.hol
 CalendarShowEvents=1
 CalendarExtraDays=1
 CalendarLeadingZeroes=0
