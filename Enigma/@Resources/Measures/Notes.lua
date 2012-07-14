@@ -2,12 +2,10 @@ function Initialize()
 	sVariablePrefix = SELF:GetOption('VariablePrefix','')
 	sContentDivider = SELF:GetOption('ContentDivider','')
 	sFinishAction = SELF:GetOption('FinishAction')
-	tNotes = {}
-	for a in string.gmatch(SELF:GetOption('NotePath',''),'[^%|]+') do
-		table.insert(tNotes,SKIN:MakePathAbsolute(a))
-	end
+
+	GetFiles()
+
 	iCurrentNote=1
-	SKIN:Bang('!SetVariable','NumberOfNotes',#tNotes)
 end
 
 function Update()
@@ -38,6 +36,13 @@ function Update()
 	end
 	
 	return 'Success!'	
+end
+
+function GetFiles()
+	tNotes = {}
+	for a in string.gmatch(SELF:GetOption('NotePath',''),'[^%|]+') do
+		table.insert(tNotes,SKIN:MakePathAbsolute(a))
+	end
 end
 
 function SwitchToPrevious()

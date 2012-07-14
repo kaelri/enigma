@@ -73,7 +73,7 @@ W=15
 DynamicVariables=1
 
 [StyleNotesGrabberFirst]
-X=(#SidebarWidth#-(#NumberOfNotes#*15)-10)
+X=(#SidebarWidth#-(#NumberOfTabs#*15)-10)
 Y=-7r
 
 [StyleNotesGrabber0]

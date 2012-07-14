@@ -50,6 +50,7 @@ App: Rainmeter 2.3
 - [Skins] Changed Gallery: added button to set current image as desktop wallpaper.
 - [Skins] Changed Launcher: now lights up to indicate when a program is already running.
 - [Skins] Changed Music: added support for JRiver Media Center & JRiver Media Jukebox.
+- [Skins] Changed Notes & Reader: greatly simplified the process of adding more tabs. The Reader and Notes templates supports up to 8 tabs out of the box; more can be added very easily.
 - [Skins] Changed Gcal Reader: switched to "full" calendar feed for more reliability.
 - [Skins] Changed Gcal Reader: added feature to automatically save events to XML file, which can be displayed in Calendar (see above). [by Smurfier]
 - [Skins] Changed Gcal Reader (Options): now automatically replaces "/basic" with "/full" when saving Google Calendar feeds.

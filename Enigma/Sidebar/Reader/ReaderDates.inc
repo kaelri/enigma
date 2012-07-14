@@ -7,8 +7,9 @@ WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":
 
 [MeasureActivateTabs]
 Measure=Script
-ScriptFile=#@#Measures\ReaderActivateTabs.lua
+ScriptFile=#@#Measures\Tabs.lua
 UpdateDivider=-1
+Type=Reader
 
 [MeasureFeed1]
 Measure=Plugin

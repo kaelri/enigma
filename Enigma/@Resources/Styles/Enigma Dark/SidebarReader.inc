@@ -115,7 +115,7 @@ W=15
 DynamicVariables=1
 
 [StyleReaderGrabberFirst]
-X=(#SidebarWidth#-(#NumberOfFeeds#*15)-10)
+X=(#SidebarWidth#-(#NumberOfTabs#*15)-10)
 Y=-7r
 
 [StyleReaderGrabber0]

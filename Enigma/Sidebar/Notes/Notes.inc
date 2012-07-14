@@ -1,0 +1,168 @@
+[Variables]
+CurrentNote=1
+
+;---------------------------------------------------------------------
+; MEASURES
+
+[MeasureActivateTabs]
+Measure=Script
+ScriptFile=#@#Measures\Tabs.lua
+UpdateDivider=-1
+Type=Notes
+
+[MeasureNote]
+Measure=Script
+ScriptFile="#@#Measures\Notes.lua"
+UpdateDivider=10
+NotePath=#NotesFile1#
+ContentDivider=<donotshow>
+
+[MeasureActive1]
+Measure=Calc
+Formula=#CurrentNote#=1
+DynamicVariables=1
+Group=Tab2
+Disabled=1
+
+[MeasureActive2]
+Measure=Calc
+Formula=#CurrentNote#=2
+DynamicVariables=1
+Group=Tab2
+Disabled=1
+
+[MeasureActive3]
+Measure=Calc
+Formula=#CurrentNote#=3
+DynamicVariables=1
+Group=Tab3
+Disabled=1
+
+[MeasureActive4]
+Measure=Calc
+Formula=#CurrentNote#=4
+DynamicVariables=1
+Group=Tab4
+Disabled=1
+
+[MeasureActive5]
+Measure=Calc
+Formula=#CurrentNote#=5
+DynamicVariables=1
+Group=Tab5
+Disabled=1
+
+[MeasureActive6]
+Measure=Calc
+Formula=#CurrentNote#=6
+DynamicVariables=1
+Group=Tab6
+Disabled=1
+
+[MeasureActive7]
+Measure=Calc
+Formula=#CurrentNote#=7
+DynamicVariables=1
+Group=Tab7
+Disabled=1
+
+[MeasureActive8]
+Measure=Calc
+Formula=#CurrentNote#=8
+DynamicVariables=1
+Group=Tab8
+Disabled=1
+
+;---------------------------------------------------------------------
+; METERS
+
+[Border]
+Meter=IMAGE
+MeterStyle=StyleNotesBorder
+
+[Background]
+Meter=IMAGE
+MeterStyle=StyleSidebarBackground | StyleNotesBackground
+
+[Icon]
+Meter=IMAGE
+MeterStyle=StyleNotesIcon
+
+[Title]
+Meter=STRING
+MeterStyle=StyleNotesTitle
+Text=#Name#
+LeftMouseUpAction=["#Path#"]
+ToolTipTitle=Edit Notes File
+ToolTipText=#Path#
+
+[Notes]
+Meter=STRING
+MeterStyle=StyleNotesText
+Text=#Content#
+LeftMouseUpAction=["#Path#"]
+ToolTipTitle=Edit Notes File
+ToolTipText=#Path#
+
+;-----------------------
+; BUTTONS
+
+[BorderBottom]
+Meter=IMAGE
+MeterStyle=StyleNotesBorderBottom
+
+[Grabber1]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive1] | StyleNotesGrabberFirst
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=1 Update()"][!Update]
+Group=Tab2
+Hidden=1
+
+[Grabber2]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive2]
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=2 Update()"][!Update]
+Group=Tab2
+Hidden=1
+
+[Grabber3]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive3]
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=3 Update()"][!Update]
+Group=Tab2
+Hidden=1
+
+[Grabber4]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive4]
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=4 Update()"][!Update]
+Group=Tab4
+Hidden=1
+
+[Grabber5]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive5]
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=5 Update()"][!Update]
+Group=Tab5
+Hidden=1
+
+[Grabber6]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive6]
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=6 Update()"][!Update]
+Group=Tab6
+Hidden=1
+
+[Grabber7]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive7]
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=7 Update()"][!Update]
+Group=Tab7
+Hidden=1
+
+[Grabber8]
+Meter=IMAGE
+MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive8]
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "iCurrentNote=8 Update()"][!Update]
+Group=Tab8
+Hidden=1
