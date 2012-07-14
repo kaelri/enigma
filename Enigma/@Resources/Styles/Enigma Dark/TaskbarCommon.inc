@@ -357,6 +357,41 @@ ImageName=#@#Images\Gcal.#ColorImage#.png
 ImageName=#@#Images\Gmail.%1.#ColorImage#.png
 
 ;---------------------------------------------------------------------
+; LAUNCHER
+
+[StyleLauncherNormalTextClosed]
+[StyleLauncherNormalTextRunning]
+Prefix=•
+[StyleLauncherMiniTextClosed]
+[StyleLauncherMiniTextRunning]
+Prefix=•
+[StyleLauncherTinyTextClosed]
+[StyleLauncherTinyTextRunning]
+Prefix=•
+[StyleLauncherIconTextClosed]
+[StyleLauncherIconTextRunning]
+[StyleLauncherIconRightTextClosed]
+[StyleLauncherIconRightTextRunning]
+[StyleLauncherIconOnlyTextClosed]
+[StyleLauncherIconOnlyTextRunning]
+
+[StyleLauncherNormalIconClosed]
+[StyleLauncherNormalIconRunning]
+[StyleLauncherMiniIconClosed]
+[StyleLauncherMiniIconRunning]
+[StyleLauncherTinyIconClosed]
+[StyleLauncherTinyIconRunning]
+[StyleLauncherIconIconClosed]
+ImageAlpha=128
+[StyleLauncherIconIconRunning]
+[StyleLauncherIconRightIconClosed]
+ImageAlpha=128
+[StyleLauncherIconRightIconRunning]
+[StyleLauncherIconOnlyIconClosed]
+ImageAlpha=128
+[StyleLauncherIconOnlyIconRunning]
+
+;---------------------------------------------------------------------
 ; LOCATION
 
 [StyleLocationIcon]
