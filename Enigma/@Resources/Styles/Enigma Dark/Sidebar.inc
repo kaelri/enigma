@@ -12,7 +12,7 @@ MiddleMouseUpAction=!Refresh
 [StyleSidebar]
 ImageName=#SidebarImage#
 W=#SidebarWidth#
-H=(#WORKAREAHEIGHT# - #SidebarSpacing#)
+H=(#WORKAREAHEIGHT# - #SidebarSpacingFixed# * #TaskbarHeight#)
 ImageAlpha=#SidebarAlpha#
 
 ;---------------------------------------------------------------------
@@ -20,6 +20,3 @@ ImageAlpha=#SidebarAlpha#
 
 [StyleSidebar2]
 ImageName=#SecondSidebarImage#
-W=#SidebarWidth#
-H=(#WORKAREAHEIGHT# - #SidebarSpacing#)
-ImageAlpha=#SidebarAlpha#

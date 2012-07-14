@@ -14,7 +14,7 @@ MiddleMouseUpAction=!Refresh
 
 [StyleTaskbarNormalBase]
 ImageName=#TaskbarImage#
-W=(#WORKAREAWIDTH#-#TaskbarSpacing#)
+W=(#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#)
 H=#TaskbarHeight#
 ImageAlpha=#TaskbarAlpha#
 
@@ -37,7 +37,7 @@ Hidden=1
 
 [StyleTaskbarTriptychBase]
 ImageName=#TaskbarImage#
-W=(#WORKAREAWIDTH#-#TaskbarSpacing#)
+W=(#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#)
 H=#TaskbarHeight#
 ImageAlpha=#TaskbarAlpha#
 
@@ -45,13 +45,13 @@ ImageAlpha=#TaskbarAlpha#
 SolidColor=#ColorFilter2#
 X=r
 Y=r
-W=(#WORKAREAWIDTH#-#TaskbarSpacing#)
+W=(#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#)
 H=#TaskbarHeight#
 
 [StyleTaskbarTriptychPanel]
 ImageName=#TaskbarImage#
-X=((#WORKAREAWIDTH#-#TaskbarSpacing#) / 3)
-W=((#WORKAREAWIDTH#-#TaskbarSpacing#) / 3)
+X=((#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#) / 3)
+W=((#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#) / 3)
 H=#TaskbarHeight#
 ImageAlpha=#TaskbarAlpha#
 
@@ -63,43 +63,18 @@ ImageAlpha=#TaskbarAlpha#
 
 [StyleTaskbar2NormalBase]
 ImageName=#SecondTaskbarImage#
-W=(#WORKAREAWIDTH#-#TaskbarSpacing#)
-H=#TaskbarHeight#
-ImageAlpha=#TaskbarAlpha#
 
 [StyleTaskbar2NormalFilter]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
 
 [StyleTaskbar2NormalPanel]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
 
 ;----------------------------------------------
 ; TRIPTYCH
 
 [StyleTaskbar2TriptychBase]
 ImageName=#SecondTaskbarImage#
-W=(#WORKAREAWIDTH#-#TaskbarSpacing#)
-H=#TaskbarHeight#
-ImageAlpha=#TaskbarAlpha#
 
 [StyleTaskbar2TriptychFilter]
-SolidColor=#ColorFilter2#
-X=r
-Y=r
-W=(#WORKAREAWIDTH#-#TaskbarSpacing#)
-H=#TaskbarHeight#
 
 [StyleTaskbar2TriptychPanel]
 ImageName=#SecondTaskbarImage#
-X=((#WORKAREAWIDTH#-#TaskbarSpacing#) / 3)
-W=((#WORKAREAWIDTH#-#TaskbarSpacing#) / 3)
-H=#TaskbarHeight#
-ImageAlpha=#TaskbarAlpha#

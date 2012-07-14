@@ -34,13 +34,13 @@ HideBordersTop=0
 HideBordersBottom=1
 
 SidebarWidth=200
-SidebarSpacing=44
+SidebarSpacingFixed=1
 SidebarAlpha=128
 SidebarImage=#@#Images\Sidebar\SidebarLeft.#ColorImage#.jpg
 SecondSidebarImage=#@#Images\Sidebar\SidebarRight.#ColorImage#.jpg
 
 TaskbarHeight=44
-TaskbarSpacing=0
+TaskbarSpacingFixed=0
 TaskbarAlpha=204
 TaskbarImage=#@#Images\Taskbar\TaskbarTop.#ColorImage#.jpg
 SecondTaskbarImage=#@#Images\Taskbar\TaskbarBottom.#ColorImage#.jpg

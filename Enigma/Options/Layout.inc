@@ -1,7 +1,7 @@
 [Variables]
 PanelHeight=425
 ArrowY=328
-LabelsQueue=
+LabelsQueue=SidebarSpacingFixed|TaskbarSpacingFixed
 
 ;---------------------------------------------------------------------
 ; MEASURES
@@ -68,19 +68,20 @@ RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarAlpha')"
 TooltipTitle="Sidebar Transparency (0-255)"
 TooltipText=Click to adjust the transparency of the Sidebar's background image. (You can also change the transparency of the skin itself, but this will also reduce the visibility of the blur effect.)
 
-[SidebarSpacingName]
+[SidebarSpacingFixedName]
 Meter=STRING
 MeterStyle=StyleName | StyleNameSub
 Text="Spacing"
 
-[SidebarSpacingText]
+[SidebarSpacingFixedText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#SidebarSpacing#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 3"
-RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarSpacing')"
-TooltipTitle="Sidebar Spacing (px)"
-TooltipText=You can adjust the spacing left between the sidebar and the top (or bottom) of the screen. This is usually where the Taskbar skin goes, so it should be the same as the Taskbar Height. If you don't want to use the taskbar, set this to 0.
+Text="#SidebarSpacingFixedLabel#"
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('SidebarSpacingFixed')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarSpacingFixed')"
+TooltipTitle="Sidebar Spacing (Y/N)"
+TooltipText=Click to toggle whether the Sidebar reserves space on the desktop for the Taskbar.
+DynamicVariables=1
 
 ;-----------------------
 
@@ -93,7 +94,7 @@ Text="Taskbar Height"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TaskbarHeight#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 4"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarHeight')"
 TooltipTitle="Taskbar Height (px)"
 TooltipText=Click to type the height of the Taskbar. Your other skins will automatically adjust their heights to the taskbar's.
@@ -107,24 +108,25 @@ Text="Transparency"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TaskbarAlpha#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 5"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarAlpha')"
 TooltipTitle="Taskbar Transparency (0-255)"
 TooltipText=Click to adjust the transparency of the Taskbar's background image. (You can also change the transparency of the skin itself, but this will also reduce the visibility of the blur effect.)
 
-[TaskbarSpacingName]
+[TaskbarSpacingFixedName]
 Meter=STRING
 MeterStyle=StyleName | StyleNameSub
 Text="Spacing"
 
-[TaskbarSpacingText]
+[TaskbarSpacingFixedText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#TaskbarSpacing#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 6"
-RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarSpacing')"
-TooltipTitle="Taskbar Spacing (px)"
-TooltipText=You can also adjust the spacing left between the taskbar and the left (or right) of the screen. If you want the taskbar to span the entire screen width, this should be kept at zero.
+Text="#TaskbarSpacingFixedLabel#"
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TaskbarSpacingFixed')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarSpacingFixed')"
+TooltipTitle="Taskbar Spacing (Y/N)"
+TooltipText=Click to toggle whether the Taskbar reserves space on the desktop for the Sidebar.
+DynamicVariables=1
 
 [TaskbarMaxSkinWidthName]
 Meter=STRING
@@ -135,7 +137,7 @@ Text="Maximum Text Width"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TaskbarMaxSkinWidth#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 7"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMaxSkinWidth')"
 TooltipTitle="Maximum Text Width for Taskbar Skins (px)"
 TooltipText=Taskbar skins automatically resize to fit the displayed text. Text longer than the maximum will be clipped.
@@ -149,7 +151,7 @@ Text="Minimum Text Width"
 Meter=STRING
 MeterStyle=StyleText
 Text="#TaskbarMinSkinWidth#"
-LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 8"
+LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMinSkinWidth')"
 TooltipTitle="Minimum Text Width for Taskbar Skins (px)"
 TooltipText=Taskbar skins automatically resize to fit the displayed text. If the text is shorter than the minimum, the skin background will expand to fill the remaining space.

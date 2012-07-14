@@ -36,13 +36,13 @@ DefaultHideBordersTop=0
 DefaultHideBordersBottom=1
 
 DefaultSidebarWidth=200
-DefaultSidebarSpacing=44
+DefaultSidebarSpacingFixed=1
 DefaultSidebarAlpha=128
 DefaultSidebarImage=#*@*#Images\Sidebar\SidebarLeft.#*ColorImage*#.jpg
 DefaultSecondSidebarImage=#*@*#Images\Sidebar\SidebarRight.#*ColorImage*#.jpg
 
 DefaultTaskbarHeight=44
-DefaultTaskbarSpacing=0
+DefaultTaskbarSpacingFixed=0
 DefaultTaskbarAlpha=204
 DefaultTaskbarImage=#*@*#Images\Taskbar\TaskbarTop.#*ColorImage*#.jpg
 DefaultSecondTaskbarImage=#*@*#Images\Taskbar\TaskbarBottom.#*ColorImage*#.jpg

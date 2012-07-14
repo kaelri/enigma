@@ -170,12 +170,18 @@ function Initialize()
 		},
 		--LAYOUT
 		SidebarWidth = { File = StyleSettings },
-		SidebarSpacing = { File = StyleSettings },
+		SidebarSpacingFixed = { File = StyleSettings, 
+			Loop = { '0', '1' },
+			Labels = { 'No', 'Yes' }
+		},
 		SidebarAlpha = { File = StyleSettings },
 		SidebarImage = { File = StyleSettings },
 		SecondSidebarImage = { File = StyleSettings },
 		TaskbarHeight = { File = StyleSettings },
-		TaskbarSpacing = { File = StyleSettings },
+		TaskbarSpacingFixed = { File = StyleSettings, 
+			Loop = { '0', '1' },
+			Labels = { 'No', 'Yes' }
+		},
 		TaskbarAlpha = { File = StyleSettings },
 		TaskbarImage = { File = StyleSettings },
 		SecondTaskbarImage = { File = StyleSettings },
