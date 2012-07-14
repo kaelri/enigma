@@ -86,22 +86,27 @@ DefaultWorld3WeatherCodeLon=-43.2
 
 DefaultApp1=Chrome
 DefaultApp1Path=chrome.exe
+DefaultApp1PathHandle=chrome.exe
 DefaultApp1Label=WEB
 DefaultApp1Icon=#*@*#Images\Launcher\Chrome.#*ColorImage*#.png
 DefaultApp2=Notepad
 DefaultApp2Path=notepad.exe
+DefaultApp2PathHandle=notepad.exe
 DefaultApp2Label=TEXT
 DefaultApp2Icon=#*@*#Images\Launcher\Text.#*ColorImage*#.png
 DefaultApp3=Explorer
 DefaultApp3Path=explorer.exe
+DefaultApp3PathHandle=explorer.exe
 DefaultApp3Label=FILES
 DefaultApp3Icon=#*@*#Images\Launcher\Start.#*ColorImage*#.png
 DefaultApp4=Skype
 DefaultApp4Path=C:\Program Files\Skype\Phone\skype.exe
+DefaultApp4PathHandle=skype.exe
 DefaultApp4Label=CHAT
 DefaultApp4Icon=#*@*#Images\Launcher\Skype.#*ColorImage*#.png
 DefaultApp5=Rainmeter.net
 DefaultApp5Path=http://rainmeter.net/
+DefaultApp5Handle=rainmeter.exe
 DefaultApp5Label=FORUM
 DefaultApp5Icon=#*@*#Images\Launcher\Rainmeter.png
 

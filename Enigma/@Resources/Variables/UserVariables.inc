@@ -83,22 +83,27 @@ World3WeatherCodeLon=-43.2
 
 App1=Chrome
 App1Path=chrome.exe
+App1PathHandle=chrome.exe
 App1Label=WEB
 App1Icon=#@#Images\Launcher\Chrome.#ColorImage#.png
 App2=Notepad
 App2Path=notepad.exe
+App2PathHandle=notepad.exe
 App2Label=TEXT
 App2Icon=#@#Images\Launcher\Text.#ColorImage#.png
 App3=Explorer
 App3Path=explorer.exe
+App3PathHandle=explorer.exe
 App3Label=FILES
 App3Icon=#@#Images\Launcher\Start.#ColorImage#.png
 App4=Skype
 App4Path=C:\Program Files\Skype\Phone\skype.exe
+App4PathHandle=skype.exe
 App4Label=CHAT
 App4Icon=#@#Images\Launcher\Skype.#ColorImage#.png
 App5=Rainmeter.net
 App5Path=http://rainmeter.net/
+App5Handle=rainmeter.exe
 App5Label=FORUM
 App5Icon=#@#Images\Launcher\Rainmeter.png
 

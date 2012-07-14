@@ -77,7 +77,7 @@ function Initialize()
 		RTMlist3 = { File = EnigmaSettings },
 		--WORLD
 		WeatherCode = { File = EnigmaSettings,
-			DefaultDependents = { 'WeatherCodeName', 'WeatherCodeLat', 'WeatherCodeLon' }
+			Dependents = { 'WeatherCodeName', 'WeatherCodeLat', 'WeatherCodeLon' }
 		},
 		WeatherCodeName = { File = EnigmaSettings },
 		WeatherCodeLat = { File = EnigmaSettings },
@@ -87,42 +87,62 @@ function Initialize()
 			Labels = { 'Celsius', 'Fahrenheit' }
 		},
 		World1WeatherCode = { File = EnigmaSettings,
-			DefaultDependents = { 'World1WeatherCodeName', 'World1WeatherCodeLat', 'World1WeatherCodeLon' }
+			Dependents = { 'World1WeatherCodeName', 'World1WeatherCodeLat', 'World1WeatherCodeLon' }
 		},
 		World1WeatherCodeName = { File = EnigmaSettings },
 		World1WeatherCodeLat = { File = EnigmaSettings },
 		World1WeatherCodeLon = { File = EnigmaSettings },
 		World2WeatherCode = { File = EnigmaSettings,
-			DefaultDependents = { 'World2WeatherCodeName', 'World2WeatherCodeLat', 'World2WeatherCodeLon' }
+			Dependents = { 'World2WeatherCodeName', 'World2WeatherCodeLat', 'World2WeatherCodeLon' }
 		},
 		World2WeatherCodeName = { File = EnigmaSettings },
 		World2WeatherCodeLat = { File = EnigmaSettings },
 		World2WeatherCodeLon = { File = EnigmaSettings },
 		World3WeatherCode = { File = EnigmaSettings,
-			DefaultDependents = { 'World3WeatherCodeName', 'World3WeatherCodeLat', 'World3WeatherCodeLon' }
+			Dependents = { 'World3WeatherCodeName', 'World3WeatherCodeLat', 'World3WeatherCodeLon' }
 		},
 		World3WeatherCodeName = { File = EnigmaSettings },
 		World3WeatherCodeLat = { File = EnigmaSettings },
 		World3WeatherCodeLon = { File = EnigmaSettings },
 		--APPS
 		App1 = { File = EnigmaSettings },
-		App1Path = { File = EnigmaSettings },
+		App1Path = { File = EnigmaSettings,
+			Flags = 'apppath',
+			Dependents = { 'App1PathHandle' }
+		},
+		App1PathHandle = { File = EnigmaSettings },
 		App1Label = { File = EnigmaSettings },
 		App1Icon = { File = EnigmaSettings },
 		App2 = { File = EnigmaSettings },
-		App2Path = { File = EnigmaSettings },
+		App2Path = { File = EnigmaSettings,
+			Flags = 'apppath',
+			Dependents = { 'App2PathHandle' }
+		},
+		App2PathHandle = { File = EnigmaSettings },
 		App2Label = { File = EnigmaSettings },
 		App2Icon = { File = EnigmaSettings },
 		App3 = { File = EnigmaSettings },
-		App3Path = { File = EnigmaSettings },
+		App3Path = { File = EnigmaSettings,
+			Flags = 'apppath',
+			Dependents = { 'App3PathHandle' }
+		},
+		App3PathHandle = { File = EnigmaSettings },
 		App3Label = { File = EnigmaSettings },
 		App3Icon = { File = EnigmaSettings },
 		App4 = { File = EnigmaSettings },
-		App4Path = { File = EnigmaSettings },
+		App4Path = { File = EnigmaSettings,
+			Flags = 'apppath',
+			Dependents = { 'App4PathHandle' }
+		},
+		App1PathHandle = { File = EnigmaSettings },
 		App4Label = { File = EnigmaSettings },
 		App4Icon = { File = EnigmaSettings },
 		App5 = { File = EnigmaSettings },
-		App5Path = { File = EnigmaSettings },
+		App5Path = { File = EnigmaSettings,
+			Flags = 'apppath',
+			Dependents = { 'App5PathHandle' }
+		},
+		App1PathHandle = { File = EnigmaSettings },
 		App5Label = { File = EnigmaSettings },
 		App5Icon = { File = EnigmaSettings },
 		--SEARCH
@@ -211,6 +231,15 @@ function Write(Key, Value, Wait)
 		end
 	elseif Variables[Key]['Flags'] == 'gcal' then
 		Value = string.gsub(Value, '/basic', '/full')
+	elseif Variables[Key]['Flags'] == 'apppath' then
+		local DependentKey = Variables[Key]['Dependents'][1]
+		if string.match(Value, '%.exe$') then
+			local sDir, sName, sExt = string.match(Value, '(.-)([^\\]-)%.([^%.]+)$')
+			DependentValue = sName..'.'..sExt
+		else
+			DependentValue = 'Rainmeter.exe'
+		end
+		SKIN:Bang('!WriteKeyValue', 'Variables', DependentKey, DependentValue, Variables[DependentKey]['File'])
 	end
 	SKIN:Bang('!WriteKeyValue', 'Variables', Key, Value, Variables[Key]['File'])
 	if not Wait then
@@ -220,8 +249,8 @@ end
 
 function Default(Key, Confirm)
 	if Confirm == 1 then
-		if Variables[Key]['DefaultDependents'] then
-			for i,v in ipairs(Variables[Key]['DefaultDependents']) do
+		if Variables[Key]['Dependents'] then
+			for i,v in ipairs(Variables[Key]['Dependents']) do
 				Write(v, SKIN:GetVariable('Default'..v), 'wait')
 			end
 		end
