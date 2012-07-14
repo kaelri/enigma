@@ -125,6 +125,6 @@ DefaultSearch3Icon=#*@*#Images\Search\YouTube.#*ColorImage*#.png
 DefaultSearch4=Twitter
 DefaultSearch4Command="https://twitter.com/#!/search/$UserInput$"
 DefaultSearch4Icon=#*@*#Images\Search\Twitter.#*ColorImage*#.png
-DefaultSearch5=Run
-DefaultSearch5Command=$UserInput$
+DefaultSearch5=Rainmeter.net
+DefaultSearch5Command="https://www.google.com/search?q=site%3Ahttp%3A%2F%2Frainmeter.net%2Fcms%2F%20$UserInput$"
 DefaultSearch5Icon=#*@*#Images\Search\Run.#*ColorImage*#.png

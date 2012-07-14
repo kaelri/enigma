@@ -122,6 +122,6 @@ Search3Icon=#@#Images\Search\YouTube.#ColorImage#.png
 Search4=Twitter
 Search4Command="https://twitter.com/#!/search/$UserInput$"
 Search4Icon=#@#Images\Search\Twitter.#ColorImage#.png
-Search5=Run
-Search5Command=$UserInput$
+Search5=Rainmeter.net
+Search5Command="https://www.google.com/search?q=site%3Ahttp%3A%2F%2Frainmeter.net%2Fcms%2F%20$UserInput$"
 Search5Icon=#@#Images\Search\Run.#ColorImage#.png
