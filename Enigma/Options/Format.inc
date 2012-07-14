@@ -273,7 +273,7 @@ DynamicVariables=1
 [SkinBackgroundAlphaName]
 Meter=STRING
 MeterStyle=StyleName
-Text="Background Transparency"
+Text="Shadow Opacity"
 
 [SkinBackgroundAlphaText]
 Meter=STRING
@@ -282,7 +282,7 @@ Text=#SkinBackgroundAlpha#
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SkinBackgroundAlpha')"
 TooltipTitle="Skin Background Transparency (0-255)"
-TooltipText=Click to set the transparency of the background image that appears when you hover your mouse over Enigma skins.
+TooltipText=Click to set the transparency of the "shadow" background image that appears when you hover your mouse over Enigma skins.
 
 ;-----------------------
 
