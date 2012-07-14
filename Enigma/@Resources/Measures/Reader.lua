@@ -40,10 +40,7 @@ function Initialize()
 	iCurrentFeed=1
 	
 	--GET FEED MEASURES
-	Measures={}
-	for a in string.gmatch(SELF:GetOption('FeedMeasureName',''),'[^%|]+') do
-		table.insert(Measures,SKIN:GetMeasure(a))
-	end
+	GetMeasures()
 	
 	--INITIALIZE GOOGLE CALENDAR MODULE
 	GoogleCalendarFile('initialize')
@@ -95,6 +92,14 @@ function Update()
 		SKIN:Bang(FinishAction)
 	end
 	return 'Success!'
+end
+
+--HELPER FUNCTIONS
+function GetMeasures()
+	Measures={}
+	for a in string.gmatch(SELF:GetOption('FeedMeasureName',''),'[^%|]+') do
+		table.insert(Measures,SKIN:GetMeasure(a))
+	end
 end
 
 function GoogleCalendarTimestamp(input, out)
