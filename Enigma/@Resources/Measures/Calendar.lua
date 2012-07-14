@@ -1,54 +1,56 @@
 function Initialize()
-	sRange = string.lower(SELF:GetOption('Range','month'))
-	iStartOnMondays = SELF:GetNumberOption('StartOnMonday',0)>0
-	iLeadingZeroes = SELF:GetNumberOption('LeadingZeroes',0)>0
-	iEDaysColor ='StyleCalendarText'..(SELF:GetNumberOption('ExtraDays')>0 and 'Extra' or 'Invisible')
+	sRange = string.lower(SELF:GetOption('Range', 'month'))
+	iStartOnMondays = SELF:GetNumberOption('StartOnMonday', 0) > 0
+	iLeadingZeroes = SELF:GetNumberOption('LeadingZeroes', 0) > 0
+	iEDaysColor ='StyleCalendarText'..(SELF:GetNumberOption('ExtraDays') > 0 and 'Extra' or 'Invisible')
 	
 	Error=false
 	
-	iRange = {month=42,week=7}
-	if not iRange[sRange] then sRange='month' end
-	tCurrMonth = {31,28,31,30,31,30,31,31,30,31,30,31}
-	iDayOnLastUpdate=0
+	iRange = {month = 42, week = 7}
+	if not iRange[sRange] then sRange = 'month' end
+	tCurrMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+	iDayOnLastUpdate = 0
 
-	local tLabels = {'S','M','T','W','R','F','S'}
-	for i=1,7 do
-		SKIN:Bang('!SetOption','Day'..i..'Label','Text',tLabels[iStartOnMondays and i%7+1 or i])
+	local tLabels = {'S', 'M', 'T', 'W', 'R', 'F', 'S'}
+	for i = 1, 7 do
+		SKIN:Bang('!SetOption', 'Day'..i..'Label', 'Text', tLabels[iStartOnMondays and i%7+1 or i])
 	end
-	hFile={month={},day={},year={},desc={},title={},color={},} -- Initialize Event Matrix.
-	local Files=SELF:GetNumberOption('ShowEvents',0)>0 and Delim(SELF:GetOption('EventFile','')) or {}
-	if #Files>1 then
-		local Folder=table.remove(Files,1) -- Remove Folder name from table.
-		if not string.match(Folder,'[\\/]$') then Folder=Folder..'\\' end -- Add trailing forward slash.
-		for k,v in ipairs(Files) do -- Concatenate Folder to each file.
-			Files[k]=Folder..v
+	
+	hFile = {month={}, day={}, year={}, desc={}, title={}, color={},}
+	local Files = SELF:GetNumberOption('ShowEvents', 0) > 0 and Delim(SELF:GetOption('EventFile')) or {}
+	if #Files > 1 then
+		local Folder = table.remove(Files, 1) -- Remove Folder name from table.
+		if not string.match(Folder, '[\\/]$') then Folder = Folder..'\\' end -- Add trailing forward slash.
+		for k, v in ipairs(Files) do -- Concatenate Folder to each file.
+			Files[k] = Folder..v
 		end
 	end
-	for _,file in ipairs(Files) do -- For each event file.
-		local In=io.input(SKIN:MakePathAbsolute(file),'r') -- Open file in read only.
-		if not io.type(In)=='file' then -- File could not be opened.
-			ErrMsg(0,'File Read Error',file)
+	for _,FileName in ipairs(Files) do -- For each event file.
+		local file=io.input(SKIN:MakePathAbsolute(FileName), 'r') -- Open file in read only.
+		if not io.type(file) == 'file' then -- File could not be opened.
+			ErrMsg(0,'File Read Error',FileName)
 		else -- File is open.
-			local text=string.gsub(io.read('*all'),'<!%-%-.-%-%->','') -- Read in file contents and remove comments.
-			io.close(In) -- Close the current file.
-			if not string.match(string.lower(text),'<eventfile.->.-</eventfile>') then
-				ErrMsg(0,'Invalid Event File',file)
+			local text = string.gsub(io.read('*all'), '<!%-%-.-%-%->', '') -- Read in file contents and remove comments.
+			io.close(file)
+			if not string.match(string.lower(text), '<eventfile.->.-</eventfile>') then
+				ErrMsg(0,'Invalid Event File',FileName)
 			else
 				local eFile,eSet={},{}
 				local sw={ -- Define Event File tags
-					set=function(x) table.insert(eSet,Keys(x)) end,
-					['/set']=function(x) table.remove(eSet,#eSet) end,
-					eventfile=function(x) eFile=Keys(x) end,
-					['/eventfile']=function(x) eFile={} end,
-					event=function(x) local Tmp=Keys(x)
-						local dSet=ParseTbl(eSet)
-						for i,v in pairs(hFile) do table.insert(hFile[i],Tmp[i] or dSet[i] or eFile[i] or '') end end,
-					default=function(x,y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
+					set = function(x) table.insert(eSet, Keys(x)) end,
+					['/set'] = function(x) table.remove(eSet, #eSet) end,
+					eventfile = function(x) eFile = Keys(x) end,
+					['/eventfile'] = function(x) eFile = {} end,
+					event = function(x)
+						local Tmp = Keys(x)
+						local dSet = ParseTbl(eSet)
+						for key,_ in pairs(hFile) do table.insert(hFile[key], Tmp[key] or dSet[key] or eFile[key] or '') end end,
+					default = function(x, y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
-				for line in string.gmatch(text,'%b<>') do -- For each file line, ignoring tabs.
-					local tag=string.match(line,'^.-<([^%s>]+)')
-					local f=sw[string.lower(tag)] or sw.default
-					f(line,tag)
+				for line in string.gmatch(text, '%b<>') do -- For each file line, ignoring tabs.
+					local tag = string.match(line, '^.-<([^%s>]+)')
+					local f = sw[string.lower(tag)] or sw.default
+					f(line, tag)
 				end
 			end
 		end
@@ -60,87 +62,89 @@ function Update()
 	if Date.day ~= iDayOnLastUpdate then
 		Events()
 		
-		iDayOnLastUpdate=Date.day
-		tCurrMonth[2] = 28+(((Date.year%4==0 and Date.year%100~=0) or Date.year%400==0) and 1 or 0)
-		local iStartDay = Rotate(tonumber(os.date('%w', os.time{year=Date.year, month=Date.month, day=1})))
+		iDayOnLastUpdate = Date.day
+		tCurrMonth[2] = 28+(((Date.year%4 == 0 and Date.year%100 ~= 0) or Date.year%400 == 0) and 1 or 0)
+		local iStartDay = Rotate(tonumber(os.date('%w', os.time{year = Date.year, month = Date.month, day = 1})))
 		
 		----------------------------------------------
 		-- !SETOPTIONS
 		
-		local case={
-			week=function(z) return Date.day+((z-1)-Rotate(Date.wday-1)) end,
-			month=function(z) return z-iStartDay end,
+		local case = {
+			week = function(z) return Date.day+((z-1)-Rotate(Date.wday-1)) end,
+			month = function(z) return z-iStartDay end,
 		}
-		for a = 1, iRange[sRange]  do
-			local styles,tTip,color={'StyleCalendarText'},'',''
-			if a%7==1 then table.insert(styles,'StyleCalendar'..(a==1 and 'TextFirst' or 'NewWeek')) end
-			b=case[sRange](a)
-			if b>0 and b<=tCurrMonth[Date.month] and Hol[b] then
-				table.insert(styles,'StyleCalendarEvent')
-				tTip=table.concat(Hol[b]['text'],'\n')
-				color=eColor(Hol[b]['color'])
+		for meter = 1, iRange[sRange]  do
+			local styles,event,color,day = {'StyleCalendarText'},'','',case[sRange](meter)
+			if meter%7 == 1 then table.insert(styles, 'StyleCalendar'..(meter == 1 and 'TextFirst' or 'NewWeek')) end
+			
+			if day > 0 and day <= tCurrMonth[Date.month] and Hol[day] then
+				table.insert(styles, 'StyleCalendarEvent')
+				event = table.concat(Hol[day]['text'], '\n')
+				color = eColor(Hol[day]['color'])
 			end
-			if b<1 then
-				b=b+tCurrMonth[Date.month==1 and 12 or Date.month-1 ]
-				table.insert(styles,iEDaysColor)
-			elseif b>tCurrMonth[Date.month] then
-				b=b-tCurrMonth[Date.month]
-				table.insert(styles,iEDaysColor)
-			elseif Date.day==a then
-				table.insert(styles,'StyleCalendarIndicatorText')
+			
+			if day < 1 then -- Previous Month
+				day = day+tCurrMonth[Date.month == 1 and 12 or Date.month-1 ]
+				table.insert(styles, iEDaysColor)
+			elseif day > tCurrMonth[Date.month] then -- Next Month
+				day = day-tCurrMonth[Date.month]
+				table.insert(styles, iEDaysColor)
+			elseif Date.day == a then -- Today
+				table.insert(styles, 'StyleCalendarIndicatorText')
 			end
+			
 			for k,v in pairs{
-				MeterStyle=table.concat(styles,'|'),
-				Text=iLeadingZeroes and string.format('%02d',b) or b,
-				ToolTipText=tTip,
-				SolidColor=color
-			} do SKIN:Bang('!SetOption','Day'..a,k,v) end
+				MeterStyle = table.concat(styles, '|'),
+				Text = iLeadingZeroes and string.format('%02d', day) or day,
+				ToolTipText = event,
+				SolidColor = color
+			} do SKIN:Bang('!SetOption', 'Day'..meter, k, v) end
 		end
 		if sRange == 'month' then
-			SKIN:Bang('!SetVariable','ThisWeek',math.ceil((Date.day+iStartDay)/7))
+			SKIN:Bang('!SetVariable', 'ThisWeek', math.ceil((Date.day+iStartDay)/7))
 		end
-		SKIN:Bang('!SetVariable','Week',Rotate(Date.wday-1))
-		SKIN:Bang('!SetOption','Indicator2','Text',Date.day)
+		SKIN:Bang('!SetVariable', 'Week', Rotate(Date.wday-1))
 	end
 	return Error and 'Error!' or 'Success!'
 end -- Update
 
 function Events() -- Parse Events table.
-	Hol={} -- Initialize Event Table.
-	local Test=function(value,prefix) return value=='' and '' or (prefix and prefix..value or nil) end
-	local AddEvn=function(day,event,color)
-		color=string.match(color,',') and ConvertToHex(color) or color
-		if Hol[day] then -- Adds new Events.
-			table.insert(Hol[day]['text'],event)
-			table.insert(Hol[day]['color'],color)
-		else
-			Hol[day]={text={event},color={color},}
-		end
-	end
-	for i=1,#hFile.month do -- For each event.
-		if SKIN:ParseFormula(Vars(hFile.month[i]))==Date.month or hFile.month[i]=='*' then -- If Event exists in current month or *.
-			AddEvn( -- Calculate Day and add to Event Table
-				SKIN:ParseFormula(Vars(hFile.day[i],hFile.desc[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.desc[i]),
-				hFile.desc[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -'),
-				hFile.color[i]
-			)
+	Hol={}
+	local Test = function(value, prefix) return value == '' and '' or (prefix and prefix..value or nil) end
+
+	for i = 1, #hFile.month do -- For each event.
+		if SKIN:ParseFormula(Vars(hFile.month[i])) == Date.month or hFile.month[i] == '*' then
+			
+			local day = SKIN:ParseFormula(Vars(hFile.day[i], hFile.desc[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.desc[i])
+			local event = hFile.desc[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -')
+			local color = string.match(hFile.color[i], ',') and ConvertToHex(hFile.color[i]) or hFile.color[i]
+			
+			if Hol[day] then
+				table.insert(Hol[day]['text'], event)
+				table.insert(Hol[day]['color'], color)
+			else
+				Hol[day] = {text={event}, color={color},}
+			end
 		end
 	end
 end -- Events
 
 function eColor(tbl) -- Makes allowance for multiple custom colors.
-	local a
-	for k,v in ipairs(tbl) do if v=='' then table.remove(tbl,k) end end
-	for k,v in ipairs(tbl) do
-		if a then
-			if a~=v then
+	local color
+	-- Remove Empty Colors
+	for k,v in ipairs(tbl) do if v == '' then table.remove(tbl, k) end end
+	
+	for _,value in ipairs(tbl) do
+		if color then
+			if color ~= value then
 				return ''
 			end
 		else
-			a=v
+			color = value
 		end
 	end
-	return a
+	
+	return color
 end -- eColor
 
 function Easter() -- Returns a timestamp representing easter of the current year.
@@ -149,35 +153,38 @@ function Easter() -- Returns a timestamp representing easter of the current year
 	h=(19*a+b-d-math.floor((b-f+1)/3)+15)%30
 	L=(32+2*e+2*i-h-k)%7
 	m=math.floor((a+11*h+22*L)/451)
+	
 	return os.time{month=math.floor((h+L-7*m+114)/31),day=(h+L-7*m+114)%31+1,year=Date.year}
 end -- Easter
 
-function BuiltInEvents() -- Makes allowance for events that require complex calculations.
-	local sEaster=Easter()
-	return { -- Define {variables} here.
-		eastermonth=os.date('%m',sEaster),
-		easterday=os.date('%d',sEaster),
-		goodfridaymonth=os.date('%m',sEaster-2*86400),
-		goodfridayday=os.date('%d',sEaster-2*86400),
-		ashwednesdaymonth=os.date('%m',sEaster-46*86400),
-		ashwednesdayday=os.date('%d',sEaster-46*86400),
-		mardigrasmonth=os.date('%m',sEaster-47*86400),
-		mardigrasday=os.date('%d',sEaster-47*86400)
-	}
+function BuiltInEvents(default) -- Makes allowance for events that require complex calculations.
+	local tbl = default or {}
+	local AddVar = function(name, timestamp)
+		tbl[name..'month'] = os.date('%m', timestamp)
+		tbl[name..'day'] = os.date('%d', timestamp)
+	end
+	-- Define {variables} here.
+	local sEaster = Easter()
+	AddVar('easter', sEaster)
+	AddVar('goodfriday', sEaster-2*86400)
+	AddVar('ashwednesday', sEaster-46*86400)
+	AddVar('mardigras', sEaster-47*86400)
+	
+	return tbl
 end -- BuiltInEvents
 
 function Vars(line,source) -- Makes allowance for {Variables}
-	local D,W={sun=0, mon=1, tue=2, wed=3, thu=4, fri=5, sat=6},{first=0, second=1, third=2, fourth=3, last=4}
-	local tbl=BuiltInEvents()
+	local D,W = {sun=0, mon=1, tue=2, wed=3, thu=4, fri=5, sat=6},{first=0, second=1, third=2, fourth=3, last=4}
+	local tbl = BuiltInEvents()
 	
-	return string.gsub(line,'%b{}',function(variable)
-		local strip=string.match(string.lower(variable),'{(.+)}')
-		local v1,v2=string.match(strip,'(.+)(...)')
+	return string.gsub(line, '%b{}', function(variable)
+		local strip = string.match(string.lower(variable), '{(.+)}')
+		local v1,v2 = string.match(strip, '(.+)(...)')
 		if tbl[strip] then
 			return tbl[strip]
 		elseif W[v1 or 'nil'] and D[v2 or 'nil'] then -- Variable day.
-			local L,wD=36+D[v2]-iStartDay,rotate(D[v2])
-			return W[v1]<4 and wD+1-iStartDay+(iStartDay>wD and 7 or 0)+7*W[v1] or L-math.ceil((L-tCurrMonth[Date.month])/7)*7
+			local L,wD = 36+D[v2]-iStartDay, rotate(D[v2])
+			return W[v1] < 4 and wD+1-iStartDay+(iStartDay > wD and 7 or 0)+7*W[v1] or L-math.ceil((L-tCurrMonth[Date.month])/7)*7
 		else -- Error
 			return ErrMsg(0,'Invalid Variable',b,source and 'in '..source or '')
 		end
@@ -186,11 +193,11 @@ end -- Vars
 
 function ErrMsg(...) -- Used to display errors
 	Error=true
-	print(table.concat(arg,' ',2))
+	print(table.concat(arg, ' ', 2))
 	return arg[1]
 end -- ErrMsg
 
-function Rotate(a) return iStartOnMondays and (a-1+7)%7 or a end
+function Rotate(value) return iStartOnMondays and (value-1+7)%7 or value end
 
 function Keys(line,default) -- Converts Key="Value" sets to a table
 	local tbl = default or {}
@@ -208,29 +215,29 @@ function Keys(line,default) -- Converts Key="Value" sets to a table
 	return tbl
 end -- Keys
 
-function Delim(a) -- Separate String by Delimiter
-	local tbl={}
-	string.gsub(a,'[^%|]+', function(b) table.insert(tbl,b) end)
+function Delim(line) -- Separate String by Delimiter
+	local tbl = {}
+	for word in string.gmatch(line, '[^%|]+') do table.insert(tbl, word) end
 	return tbl
 end -- Delim
 
-function ConvertToHex(a) -- Converts RGB colors to HEX
-	local c={}
+function ConvertToHex(color) -- Converts RGB colors to HEX
+	local hex = {}
 	
-	a=string.gsub(a,'%s','')
-	for b in string.gmatch(a,'[^,]+') do
-		table.insert(c,string.format('%02X',tonumber(b)))
+	color = string.gsub(color, '%s', '')
+	for rgb in string.gmatch(color, '[^,]+') do
+		table.insert(hex, string.format('%02X',tonumber(rgb)))
 	end
 	
-	return table.concat(c)
+	return table.concat(hex)
 end -- ConvertToHex
 
-function ParseTbl(a) -- Compresses matrix into a single table.
-	local tbl={}
+function ParseTbl(input) -- Compresses matrix into a single table.
+	local tbl = {}
 	
-	for k,v in ipairs(a) do
-		for b,c in pairs(v) do
-			tbl[b]=c
+	for _,column in ipairs(input) do
+		for key,value in pairs(column) do
+			tbl[key] = value
 		end
 	end
 	
