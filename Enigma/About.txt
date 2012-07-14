@@ -41,6 +41,7 @@ CHANGELOG
 Date: ???
 App: Rainmeter 2.3
 
+- [Skins] Added Run: a new variant of Search that lets you run Windows commands (as if from the Run dialog).
 - [Skins] Changed all: restored traditional "variants" behavior. Variants can once again be selected from the context menu by right-clicking.
 - [Skins] Changed all Taskbar: renamed "Textless" variants to "Icon Only."
 - [Skins] Changed all Taskbar: added group "EnigmaTaskbar". Also moved group definitions to stylesheet files.
