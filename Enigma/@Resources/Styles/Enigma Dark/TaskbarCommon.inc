@@ -345,18 +345,6 @@ LineColor=#Color1#
 ValueReminder=3600
 
 ;---------------------------------------------------------------------
-; GCAL
-
-[StyleGcalIcon]
-ImageName=#@#Images\Gcal.#ColorImage#.png
-
-;---------------------------------------------------------------------
-; GMAIL
-
-[StyleGmailIcon]
-ImageName=#@#Images\Gmail.%1.#ColorImage#.png
-
-;---------------------------------------------------------------------
 ; LAUNCHER
 
 [StyleLauncherNormalTextClosed]
@@ -445,6 +433,24 @@ BarOrientation=VERTICAL
 
 [StyleRainIcon]
 ImageName=#@#Images\Rain.#ColorImage#.png
+
+;---------------------------------------------------------------------
+; READER
+
+[StyleReaderIcon]
+ImageName=#@#Images\Reader.#ColorImage#.png
+
+[StyleGcalIcon]
+ImageName=#@#Images\Gcal.#ColorImage#.png
+
+[StyleGmailIcon]
+ImageName=#@#Images\Gmail.%1.#ColorImage#.png
+
+[StyleFacebookIcon]
+ImageName=#@#Images\Facebook.%1.#ColorImage#.png
+
+[StyleRTMIcon]
+ImageName=#@#Images\RememberTheMilk.#ColorImage#.png
 
 ;---------------------------------------------------------------------
 ; RECYCLER

@@ -41,6 +41,7 @@ CHANGELOG
 Date: ???
 App: Rainmeter 2.3
 
+- [Skins] Added Reader, Facebook and Remember the Milk for Taskbar.
 - [Skins] Added Run: a new variant of Search that lets you run Windows commands (as if from the Run dialog).
 - [Skins] Added Volume for Sidebar.
 - [Skins] Changed all: restored traditional "variants" behavior. Variants can once again be selected from the context menu by right-clicking.
@@ -52,9 +53,9 @@ App: Rainmeter 2.3
 - [Skins] Changed Launcher: now lights up to indicate when a program is already running.
 - [Skins] Changed Music: added support for JRiver Media Center & JRiver Media Jukebox.
 - [Skins] Changed Notes & Reader: greatly simplified the process of adding more tabs. The Reader and Notes templates supports up to 8 tabs out of the box; more can be added very easily.
-- [Skins] Changed Gcal Reader: switched to "full" calendar feed for more reliability.
-- [Skins] Changed Gcal Reader: added feature to automatically save events to XML file, which can be displayed in Calendar (see above). [by Smurfier]
-- [Skins] Changed Gcal Reader (Options): now automatically replaces "/basic" with "/full" when saving Google Calendar feeds.
+- [Skins] Changed Remember the Milk Reader: switched to "full" calendar feed for more reliability.
+- [Skins] Changed Remember the Milk Reader: added feature to automatically save events to XML file, which can be displayed in Calendar (see above). [by Smurfier]
+- [Skins] Changed Remember the Milk Reader (Options): now automatically replaces "/basic" with "/full" when saving Google Calendar feeds.
 - [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
 - [Skins] Changed Weather (Options): added Weather Code Finder utility to search for your weather code from within Enigma.
 - [Skins] Changed World (Options): Daylight Savings Time offsets are now calculated automatically.
@@ -134,7 +135,7 @@ App: Rainmeter 2.1 Beta (r885)
 - Changed Weather: cropped MoxaWeather icons for better integration with Enigma templates.
 - Fixed Stylesheets: added initial SkinWidthMultiplier value to TaskbarCommon.inc.
 - Fixed Options: some images did not obey #ColorImage# value.
-- Fixed Gcal Reader: now decodes HTML properly and substitutes out ASCII artifacts.
+- Fixed Remember the Milk Reader: now decodes HTML properly and substitutes out ASCII artifacts.
 - Fixed Search: no longer ignores multi-word search terms.
 - Fixed Weather: borders cut off icon images with precipitation.
 - Removed Lightning Sunset, Wing Firefox themes: lack of demand.
@@ -197,7 +198,7 @@ App: Rainmeter 2.1 Beta (r822)
 - Added online documentation: (http://enigma.kaelri.com/)
 - Added "Enigma Light" stylesheet.
 - Added Gallery: rotating image slideshow.
-- Added Gcal Reader for Taskbar: shows next single event on primary calendar.
+- Added Remember the Milk Reader for Taskbar: shows next single event on primary calendar.
 - Added Search: text boxes search Google, Wikipedia or run commands (as per the "Run" dialog).
 - Changed all skins: resized images to improve appearance in Windows 7.
 - Changed Taskbar, Sidebar: added Aero blur effect (Windows 7 only).
@@ -219,11 +220,11 @@ App: Rainmeter 1.4 Beta (r642)
 - Changed Enigma: now checks website for updates, provides one-click upgrade link.
 - Changed Configuration: renamed to Options, restored skin-based settings manager, using InputText plugin.
 - Changed Music, Network, System, System-HDD, System-PWR: removed bar background meter, replaced with SolidColor key in bar proper.
-- Changed Reader-Gcal: added support for multiple calendars.
+- Changed Reader-Remember the Milk: added support for multiple calendars.
 - Changed Weather, World, Gmail: eliminated unnecessary calculations for determining image path.
 - Fixed Calendar: bug caused indicator meter to become misaligned.
 - Fixed Reader: bug stripped quotes from Atom feed regular expression.
-- Fixed Reader-Gcal: feed now works consistently, at the expense of some extra event data.
+- Fixed Reader-Remember the Milk: feed now works consistently, at the expense of some extra event data.
 - Updated Themes: changed Enigma default, removed Preview (too much work for people who don't understand what Rainmeter is even for).
 
 2.8 Beta 1
@@ -309,7 +310,7 @@ App: Rainmeter 1.1 r261
 - Added common module inclusion: StyleTaskbar.INC.
 - Added common module inclusion: StyleTaskbar-Mini.INC.
 - Added common module inclusion: StyleTaskbar-Mini2.INC. Can be added to "Mini" skins individually, or replace StyleTaskbar-Mini.INC.
-- Added Gcal-Reader.
+- Added Remember the Milk-Reader.
 - Changed all skins: revised metadata format.
 - Changed all skins: changed over from AccuWeather to Yahoo! Weather.
 - Changed all skins: middle-click to switch variants. (Skins without variants will just refresh.)

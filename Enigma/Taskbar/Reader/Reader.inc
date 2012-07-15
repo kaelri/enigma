@@ -8,7 +8,7 @@ WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":
 Measure=Plugin
 Plugin=WebParser
 UpdateRate=600
-Url=#GoogleCalendar1#?max-results=4&futureevents=true&singleevents=true&orderby=starttime&sortorder=a
+Url=#ReaderURL#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
@@ -20,8 +20,6 @@ ScriptFile="#@#Measures\Reader.lua"
 Disabled=1
 FeedMeasureName=MeasureFeed
 SubString=#WebParserSubstitute#
-WriteEvents=#GoogleCalendarWriteEvents#
-EventFile=EventFile=#@#User\Calendars\GoogleCalendar1.xml
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -32,7 +30,7 @@ MeterStyle=Style#Variant#Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleGcalIcon
+MeterStyle=Style#Variant#Icon | #ReaderIconStyle#
 
 [Text]
 Meter=STRING
@@ -44,5 +42,5 @@ DynamicVariables=1
 [Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
-Text=#ItemDate1#
+Text=#FeedTitle#
 DynamicVariables=1

@@ -1,6 +1,7 @@
 [Variables]
 CurrentFeed=1
 WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":" ","'s Facebook Notifications":"","Top Stories - Google ":""
+ReaderWriteEvents=0
 
 ;---------------------------------------------------------------------
 ; MEASURES
