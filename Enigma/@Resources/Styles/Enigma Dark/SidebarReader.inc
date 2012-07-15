@@ -116,6 +116,7 @@ DynamicVariables=1
 
 [StyleReaderGrabberFirst]
 X=(#SidebarWidth#-(#NumberOfTabs#*15)-10)
+Y=-7r
 
 [StyleReaderGrabber0]
 ImageName=#@#Images\Grabber.#ColorImage#.png
