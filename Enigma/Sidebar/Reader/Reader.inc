@@ -10,6 +10,7 @@ Measure=Script
 ScriptFile=#@#Measures\Tabs.lua
 UpdateDivider=-1
 Type=Reader
+TotalTabs=8
 
 [MeasureFeed1]
 Measure=Plugin

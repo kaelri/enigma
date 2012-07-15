@@ -108,7 +108,7 @@ Hidden=#HideBordersBottom#
 ; GRABBERS
 
 [StyleReaderGrabber]
-X=15r
+X=R
 Y=r
 H=15
 W=15
@@ -116,7 +116,6 @@ DynamicVariables=1
 
 [StyleReaderGrabberFirst]
 X=(#SidebarWidth#-(#NumberOfTabs#*15)-10)
-Y=-7r
 
 [StyleReaderGrabber0]
 ImageName=#@#Images\Grabber.#ColorImage#.png

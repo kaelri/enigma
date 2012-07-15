@@ -9,6 +9,7 @@ Measure=Script
 ScriptFile=#@#Measures\Tabs.lua
 UpdateDivider=-1
 Type=Notes
+TotalTabs=8
 
 [MeasureNote]
 Measure=Script

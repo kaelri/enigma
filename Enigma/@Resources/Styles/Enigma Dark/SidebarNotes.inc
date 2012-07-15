@@ -66,7 +66,7 @@ Hidden=#HideBordersBottom#
 ; GRABBERS
 
 [StyleNotesGrabber]
-X=15r
+X=R
 Y=r
 H=15
 W=15

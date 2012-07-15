@@ -1,6 +1,7 @@
 function Initialize()
 	NumberOfTabs = tonumber(SKIN:GetVariable('NumberOfTabs'))
-	Type = SELF:GetOption('Type')
+	Type = SELF:GetOption('Type', 'Reader')
+	TotalTabs = SELF:GetNumberOption('TotalTabs', 8)
 end
 
 function Update()
@@ -17,6 +18,13 @@ function Update()
 		end
 
 		SKIN:Bang('!Update')
+	end
+
+	if TotalTabs > NumberOfTabs then
+		for i = NumberOfTabs + 1, TotalTabs do
+			SKIN:Bang('!SetOptionGroup', 'Tab'..i, 'W', 0)
+			SKIN:Bang('!SetOptionGroup', 'Tab'..i, 'H', 0)
+		end
 	end
 end
 
