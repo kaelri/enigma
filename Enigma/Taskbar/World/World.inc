@@ -3,13 +3,12 @@
 
 [Variables]
 @include=#@#Measures\YahooWeather.inc
-CurrentCode=#World1WeatherCode#
 
 [MeasureTimeZone]
 Measure=Plugin
 Plugin=WebParser
 UpdateRate=3600
-Url=http://ws.geonames.org/timezone?lat=#World1WeatherCodeLat#&lng=#World1WeatherCodeLon#
+Url=http://ws.geonames.org/timezone?lat=#CurrentCodeLat#&lng=#CurrentCodeLon#
 RegExp=<gmtOffset>(.*)</gmtOffset>
 StringIndex=1
 
