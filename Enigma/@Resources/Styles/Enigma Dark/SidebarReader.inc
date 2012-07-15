@@ -126,6 +126,13 @@ ToolTipText=Click to switch to this page.
 [StyleReaderGrabber1]
 ImageName=#@#Images\GrabberActive.#ColorImage#.png
 
+[StyleReaderHidden]
+X=0
+Y=0
+W=0
+H=0
+Hidden=1
+
 ;---------------------------------------------------------------------
 ; FACEBOOK
 

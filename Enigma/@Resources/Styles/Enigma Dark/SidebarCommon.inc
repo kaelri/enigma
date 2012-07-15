@@ -3,6 +3,7 @@ Group=EnigmaSidebar
 MiddleMouseUpAction=!Refresh
 MouseOverAction=[!SetVariable SkinMouseOver 1][!HideMeterGroup EnigmaMouseout][!ShowMeterGroup EnigmaMouseover][!Redraw]
 MouseLeaveAction=[!SetVariable SkinMouseOver 0][!HideMeterGroup EnigmaMouseover][!ShowMeterGroup EnigmaMouseout][!Redraw]
+DynamicWindowSize=1
 
 [Variables]
 SkinMouseOver=0

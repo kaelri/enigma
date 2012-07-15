@@ -22,8 +22,7 @@ function Update()
 
 	if TotalTabs > NumberOfTabs then
 		for i = NumberOfTabs + 1, TotalTabs do
-			SKIN:Bang('!SetOptionGroup', 'Tab'..i, 'W', 0)
-			SKIN:Bang('!SetOptionGroup', 'Tab'..i, 'H', 0)
+			SKIN:Bang('!SetOptionGroup', 'Tab'..i, 'MeterStyle', 'Style'..Type..'Hidden')
 		end
 	end
 end
