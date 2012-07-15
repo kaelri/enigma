@@ -31,9 +31,9 @@ MeterStyle=StyleMusic#Variant#IconBack
 Meter=IMAGE
 MeterStyle=StyleMusic#Variant#Icon
 MeasureName=MeasureCover
-LeftMouseUpAction=["[MeasureCover]"]
-ToolTipTitle=View Full Size
-ToolTipText=Click to view this track's cover art at full-size.
+LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "OpenPlayer"
+ToolTipTitle=Open Player
+ToolTipText=Click to open your media player's main window.
 
 [Curtain]
 Meter=IMAGE
