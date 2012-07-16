@@ -72,6 +72,13 @@ W=0
 H=0
 Hidden=1
 
+[StyleNormalBar]
+X=0
+Y=0
+W=0
+H=0
+Hidden=1
+
 ;-----------------------
 ; MINI
 
@@ -123,6 +130,13 @@ W=0
 H=0
 Hidden=1
 
+[StyleMiniBar]
+X=0
+Y=0
+W=0
+H=0
+Hidden=1
+
 ;-----------------------
 ; TINY
 
@@ -167,6 +181,13 @@ Postfix=" ·"
 DynamicVariables=1
 
 [StyleTinyIcon]
+X=0
+Y=0
+W=0
+H=0
+Hidden=1
+
+[StyleTinyBar]
 X=0
 Y=0
 W=0
@@ -224,6 +245,13 @@ AntiAlias=1
 ; ClipString=1
 DynamicVariables=1
 
+[StyleIconBar]
+X=0
+Y=0
+W=0
+H=0
+Hidden=1
+
 ;-----------------------
 ; ICON-RIGHT
 
@@ -276,6 +304,13 @@ AntiAlias=1
 ; ClipString=1
 DynamicVariables=1
 
+[StyleIconRightBar]
+X=0
+Y=0
+W=0
+H=0
+Hidden=1
+
 ;-----------------------
 ; ICON-ONLY
 
@@ -303,6 +338,11 @@ H=0
 Hidden=1
 
 [StyleIconOnlyLabel]
+W=0
+H=0
+Hidden=1
+
+[StyleIconOnlyBar]
 W=0
 H=0
 Hidden=1
@@ -481,7 +521,6 @@ W=33
 H=33
 
 [StyleHDDNormalBar]
-X=0
 Y=0
 H=0
 W=0

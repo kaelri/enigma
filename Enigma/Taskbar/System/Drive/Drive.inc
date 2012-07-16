@@ -50,4 +50,5 @@ ToolTipText=Click to browse #Drive#:\.
 [Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
-MeasureName=MeasureDriveName
+; MeasureName=MeasureDriveName
+Text=#Drive#

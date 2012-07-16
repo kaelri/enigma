@@ -80,7 +80,7 @@ TooltipText=Click to choose #Stylesheet#'s link color. This is the color that wi
 
 [BorderColorBackground]
 Meter=IMAGE
-MeterStyle=StyleColorBackground | StyleColorBackground
+MeterStyle=StyleColorBackground
 
 [BorderColor]
 Meter=IMAGE
@@ -90,19 +90,6 @@ LeftMouseUpAction=["#RainRGB#" "VarName=ColorBorder" "FileName=#StyleSettings#" 
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorBorder')"
 TooltipTitle="Border Color"
 TooltipText=Click to choose #Stylesheet#'s border color. This is the color of borders, outlines and separators.
-
-[EventColorBackground]
-Meter=IMAGE
-MeterStyle=StyleColorBackground | StyleColorBackground
-
-[EventColor]
-Meter=IMAGE
-MeterStyle=StyleColor
-SolidColor=#ColorEvent#
-LeftMouseUpAction=["#RainRGB#" "VarName=ColorEvent" "FileName=#StyleSettings#" "RefreshConfig=#CURRENTCONFIG#"]
-RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorEvent')"
-TooltipTitle="Event Color"
-TooltipText=Click to choose #Stylesheet#'s event color. This is the background color of event thumbnails in Calendar.
 
 [PanelColorBackground]
 Meter=IMAGE
@@ -129,6 +116,19 @@ LeftMouseUpAction=["#RainRGB#" "VarName=ColorFilter" "FileName=#StyleSettings#" 
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorFilter')"
 TooltipTitle="Filter Color"
 TooltipText=Click to choose #Stylesheet#'s filter color. This color is used to soften the texture of the Taskbar skin.
+
+[EventColorBackground]
+Meter=IMAGE
+MeterStyle=StyleColorBackground
+
+[EventColor]
+Meter=IMAGE
+MeterStyle=StyleColor
+SolidColor=#ColorEvent#
+LeftMouseUpAction=["#RainRGB#" "VarName=ColorEvent" "FileName=#StyleSettings#" "RefreshConfig=#CURRENTCONFIG#"]
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorEvent')"
+TooltipTitle="Event Color"
+TooltipText=Click to choose #Stylesheet#'s event color. This is the background color of event thumbnails in Calendar.
 
 [TransparentColorBackground]
 Meter=IMAGE

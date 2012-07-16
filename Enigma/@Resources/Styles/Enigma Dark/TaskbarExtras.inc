@@ -8,7 +8,11 @@ MiddleMouseUpAction=!Refresh
 ;-----------------------
 
 [StyleTrayClockBackground]
-SolidColor=#ColorTransparent#
+ImageName=#@#Images\SkinBackground.#ColorImage#.png
+ImageAlpha=1
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!Update]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+ScaleMargins=12,12,12,12
 X=0
 Y=0
 W=260
@@ -56,54 +60,6 @@ ClipString=1
 ;Postfix=" |"
 
 ;---------------------------------------------------------------------
-; EXTRAS: TRAY SYSTEMS
-
-[StyleTraySystemsBackground]
-SolidColor=#ColorTransparent#
-X=0
-Y=0
-W=260
-H=#TaskbarHeight#
-
-[StyleTraySystemsText]
-Y=((#TaskbarHeight#-15)/2)
-H=15
-W=80
-FontColor=#Color1#
-FontFace=#Font#
-FontSize=#Size1#
-StringAlign=LEFT
-StringStyle=NORMAL
-AntiAlias=1
-ClipString=1
-
-[StyleTraySystemsLabel]
-X=r
-Y=3r
-H=15
-W=40
-FontColor=#Color2#
-FontFace=#Font#
-FontSize=#Size4#
-StringAlign=RIGHT
-StringStyle=NORMAL
-AntiAlias=1
-ClipString=1
-Postfix=" |"
-
-[StyleTraySystemsCPU]
-X=40
-
-[StyleTraySystemsRAM]
-X=100
-
-[StyleTraySystemsHDD]
-X=160
-
-[StyleTraySystemsPWR]
-X=230
-
-;---------------------------------------------------------------------
 ; EXTRAS: DOCK
 
 [StyleDockButton1]
@@ -129,6 +85,11 @@ X=15r
 Y=((#TaskbarHeight#-25)/2)
 H=25
 W=25
+
+[StyleDockIconRunning]
+
+[StyleDockIconClosed]
+ImageAlpha=128
 
 [StyleDockText]
 X=30r
