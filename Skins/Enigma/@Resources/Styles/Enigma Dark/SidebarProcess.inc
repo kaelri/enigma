@@ -80,7 +80,8 @@ Y=2r
 W=(#SidebarWidth#-24-#Col2Width#-((#SidebarWidth#-24-#Col2Width#)*#Col1WidthMod#)-5)
 H=4
 BarColor=#Color1#
-SolidColor=#Color4#
+SolidColor=#Color3#
+SolidColor2=#Color4#
 BarOrientation=HORIZONTAL
 
 ;-----------------------
