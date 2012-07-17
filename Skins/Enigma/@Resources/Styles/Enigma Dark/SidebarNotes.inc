@@ -84,10 +84,3 @@ ToolTipText=Click to switch to this page.
 
 [StyleNotesGrabber1]
 ImageName=#@#Images\GrabberActive.#ColorImage#.png
-
-[StyleNotesHidden]
-X=0
-Y=0
-W=0
-H=0
-Hidden=1
