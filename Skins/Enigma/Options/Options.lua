@@ -52,7 +52,9 @@ function Initialize()
 		Feed1 = { File = EnigmaSettings },
 		Feed2 = { File = EnigmaSettings },
 		Feed3 = { File = EnigmaSettings },
-		GmailUsername = { File = EnigmaSettings },
+		GmailUsername = { File = EnigmaSettings,
+			Flags = 'gmail'
+		},
 		GmailPassword = { File = EnigmaSettings },
 		-- TwitterUsername = { File = EnigmaSettings },
 		-- TwitterPassword = { File = EnigmaSettings },
@@ -229,6 +231,8 @@ function Write(Key, Value, Wait)
 				break
 			end
 		end
+	elseif Variables[Key]['Flags'] == 'gmail' then
+		Value = string.gsub(Value, '@gmail.com', '')
 	elseif Variables[Key]['Flags'] == 'gcal' then
 		Value = string.gsub(Value, '/basic', '/full')
 	elseif Variables[Key]['Flags'] == 'apppath' then
