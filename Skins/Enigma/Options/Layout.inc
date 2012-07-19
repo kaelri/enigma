@@ -47,7 +47,7 @@ Text="Sidebar Width"
 
 [SidebarWidthText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#SidebarWidth#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarWidth')"
@@ -61,7 +61,7 @@ Text="Transparency"
 
 [SidebarAlphaText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#SidebarAlpha#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarAlpha')"
@@ -92,7 +92,7 @@ Text="Taskbar Height"
 
 [TaskbarHeightText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#TaskbarHeight#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarHeight')"
@@ -106,7 +106,7 @@ Text="Transparency"
 
 [TaskbarAlphaText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#TaskbarAlpha#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarAlpha')"
@@ -135,7 +135,7 @@ Text="Maximum Text Width"
 
 [TaskbarMaxSkinWidthText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#TaskbarMaxSkinWidth#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMaxSkinWidth')"
@@ -149,7 +149,7 @@ Text="Minimum Text Width"
 
 [TaskbarMinSkinWidthText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#TaskbarMinSkinWidth#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMinSkinWidth')"

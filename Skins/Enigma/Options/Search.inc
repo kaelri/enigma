@@ -37,7 +37,7 @@ Text="1st Search Engine"
 
 [Search1Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search1')"
@@ -51,7 +51,7 @@ Text="Command"
 
 [Search1PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search1Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search1Command')"
@@ -81,7 +81,7 @@ Text="2nd Search Engine"
 
 [Search2Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search2')"
@@ -95,7 +95,7 @@ Text="Command"
 
 [Search2PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search2Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search2Command')"
@@ -125,7 +125,7 @@ Text="3rd Search Engine"
 
 [Search3Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search3')"
@@ -139,7 +139,7 @@ Text="Command"
 
 [Search3PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search3Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search3Command')"
@@ -169,7 +169,7 @@ Text="4th Search Engine"
 
 [Search4Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search4#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search4')"
@@ -183,7 +183,7 @@ Text="Command"
 
 [Search4PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search4Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 8"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search4Command')"
@@ -213,7 +213,7 @@ Text="5th Search Engine"
 
 [Search5Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search5#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 9"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search5')"
@@ -227,7 +227,7 @@ Text="Command"
 
 [Search5PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Search5Command#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputSearch" "ExecuteBatch 10"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Search5Command')"

@@ -37,7 +37,7 @@ Text="1st Feed"
 
 [Feed1Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Feed1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Feed1')"
@@ -51,7 +51,7 @@ Text="2nd Feed"
 
 [Feed2Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Feed2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Feed2')"
@@ -65,7 +65,7 @@ Text="3rd Feed"
 
 [Feed3Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Feed3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Feed3')"
@@ -81,7 +81,7 @@ Text="Gmail Username"
 
 [GmailUsernameText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#GmailUsername#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GmailUsername')"
@@ -95,7 +95,7 @@ Text="Password"
 
 [GmailPasswordText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="*********"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GmailPassword')"
@@ -109,7 +109,7 @@ Text="1st Calendar"
 
 [GoogleCalendar1Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#GoogleCalendar1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GoogleCalendar1')"
@@ -123,7 +123,7 @@ Text="2nd Calendar"
 
 [GoogleCalendar2Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#GoogleCalendar2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GoogleCalendar2')"
@@ -137,7 +137,7 @@ Text="3rd Calendar"
 
 [GoogleCalendar3Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#GoogleCalendar3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 8"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GoogleCalendar3')"
@@ -168,7 +168,7 @@ Text="Facebook Feed"
 
 [FacebookFeedText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#FacebookFeed#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 9"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('FacebookFeed')"
@@ -184,7 +184,7 @@ Text="Remember the Milk"
 
 [RTMusernameText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#RTMusername#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 10"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('RTMusername')"
@@ -198,7 +198,7 @@ Text="Password"
 
 [RTMpasswordText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="*********"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 11"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('RTMpassword')"
@@ -212,7 +212,7 @@ Text="1st List ID"
 
 [RTMlist1Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#RTMlist1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 12"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('RTMlist1')"
@@ -226,7 +226,7 @@ Text="2nd List ID"
 
 [RTMlist2Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#RTMlist2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 13"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('RTMlist2')"
@@ -240,7 +240,7 @@ Text="3rd List ID"
 
 [RTMlist3Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#RTMlist3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 14"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('RTMlist3')"

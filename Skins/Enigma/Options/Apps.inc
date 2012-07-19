@@ -37,7 +37,7 @@ Text="1st Launcher App"
 
 [App1Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1')"
@@ -51,7 +51,7 @@ Text="Location"
 
 [App1PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App1Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Path')"
@@ -65,7 +65,7 @@ Text="Label"
 
 [App1LabelText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App1Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Label')"
@@ -95,7 +95,7 @@ Text="2nd Launcher App"
 
 [App2Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2')"
@@ -109,7 +109,7 @@ Text="Location"
 
 [App2PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App2Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Path')"
@@ -123,7 +123,7 @@ Text="Label"
 
 [App2LabelText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App2Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Label')"
@@ -153,7 +153,7 @@ Text="3rd Launcher App"
 
 [App3Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3')"
@@ -167,7 +167,7 @@ Text="Location"
 
 [App3PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App3Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 8"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Path')"
@@ -181,7 +181,7 @@ Text="Label"
 
 [App3LabelText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App3Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 9"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Label')"
@@ -211,7 +211,7 @@ Text="4th Launcher App"
 
 [App4Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App4#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 10"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4')"
@@ -225,7 +225,7 @@ Text="Location"
 
 [App4PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App4Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 11"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Path')"
@@ -239,7 +239,7 @@ Text="Label"
 
 [App4LabelText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App4Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 12"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4Label')"
@@ -269,7 +269,7 @@ Text="5th Launcher App"
 
 [App5Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App5#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 13"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5')"
@@ -283,7 +283,7 @@ Text="Location"
 
 [App5PathText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App5Path#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 14"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Path')"
@@ -297,7 +297,7 @@ Text="Label"
 
 [App5LabelText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#App5Label#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 15"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Label')"

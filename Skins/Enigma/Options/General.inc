@@ -79,7 +79,7 @@ Text="Height"
 
 [NotesHeightText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#NoteHeight#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NoteHeight')"
@@ -95,7 +95,7 @@ Text="1st Drive"
 
 [Drive1Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Drive1#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive1')"
@@ -109,7 +109,7 @@ Text="2nd Drive"
 
 [Drive2Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Drive2#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive2')"
@@ -123,7 +123,7 @@ Text="3rd Drive"
 
 [Drive3Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Drive3#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive3')"
@@ -139,7 +139,7 @@ Text=Max Down Speed
 
 [NetworkMaxDownloadText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#NetworkMaxDownload#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NetworkMaxDownload')"
@@ -153,7 +153,7 @@ Text=Max Up Speed
 
 [NetworkMaxUploadText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#NetworkMaxUpload#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NetworkMaxUpload')"
@@ -275,7 +275,7 @@ Text="Aspect Ratio"
 
 [GalleryRatioText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#GalleryRatio#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryRatio')"
@@ -306,7 +306,7 @@ Text="Volume Step"
 
 [VolumeIncrementText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#VolumeIncrement#%"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 8"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('VolumeIncrement')"
@@ -322,7 +322,7 @@ Text="Switcher Time"
 
 [TriptychIntervalText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#TriptychInterval#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 9"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TriptychInterval')"

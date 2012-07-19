@@ -136,7 +136,7 @@ MeterStyle=StyleColorBackground
 
 [TransparentColor]
 Meter=IMAGE
-MeterStyle=StyleColor
+MeterStyle=StyleColor | StyleInput
 SolidColor=#ColorTransparent#
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorTransparent')"
@@ -169,7 +169,7 @@ Text="Font"
 
 [FontText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Font#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Font')"
@@ -183,7 +183,7 @@ Text="1st Size"
 
 [Size1Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Size1#"
 FontSize=#Size1#
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 3"
@@ -198,7 +198,7 @@ Text="2nd Size"
 
 [Size2Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Size2#"
 FontSize=#Size2#
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 4"
@@ -213,7 +213,7 @@ Text="3rd Size"
 
 [Size3Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Size3#"
 FontSize=#Size3#
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 5"
@@ -228,7 +228,7 @@ Text="4th Size"
 
 [Size4Text]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text="#Size4#"
 FontSize=#Size4#
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 6"
@@ -277,7 +277,7 @@ Text="Shadow Opacity"
 
 [SkinBackgroundAlphaText]
 Meter=STRING
-MeterStyle=StyleText
+MeterStyle=StyleText | StyleInput
 Text=#SkinBackgroundAlpha#
 LeftMouseUpAction=!CommandMeasure "MeasureInputFormat" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SkinBackgroundAlpha')"
