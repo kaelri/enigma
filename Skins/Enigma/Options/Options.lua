@@ -237,12 +237,7 @@ function Write(Key, Value, Wait)
 		Value = string.gsub(Value, '/basic', '/full')
 	elseif Variables[Key]['Flags'] == 'apppath' then
 		local DependentKey = Variables[Key]['Dependents'][1]
-		if string.match(Value, '%.exe$') then
-			local sDir, sName, sExt = string.match(Value, '(.-)([^\\]-)%.([^%.]+)$')
-			DependentValue = sName..'.'..sExt
-		else
-			DependentValue = 'Rainmeter.exe'
-		end
+		local DependentValue = string.match(Value, '%.exe$') and string.match(Value, '([^/\\]+)$') or 'Rainmeter.exe'
 		SKIN:Bang('!WriteKeyValue', 'Variables', DependentKey, DependentValue, Variables[DependentKey]['File'])
 	end
 	SKIN:Bang('!WriteKeyValue', 'Variables', Key, Value, Variables[Key]['File'])
