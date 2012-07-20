@@ -248,10 +248,8 @@ end
 
 function Default(Key, Confirm)
 	if Confirm == 1 then
-		if Variables[Key]['Dependents'] then
-			for i,v in ipairs(Variables[Key]['Dependents']) do
-				Write(v, SKIN:GetVariable('Default'..v), 'wait')
-			end
+		for _,v in ipairs(Variables[Key]['Dependents'] or {}) do
+			Write(v, SKIN:GetVariable('Default'..v), 'wait')
 		end
 		Write(Key, SKIN:GetVariable('Default'..Key))
 	else
