@@ -20,11 +20,9 @@ function Update()
 		SKIN:Bang('!Update')
 	end
 
-	if TotalTabs > NumberOfTabs then
-		for i = NumberOfTabs + 1, TotalTabs do
-			for j,v in ipairs( { 'X', 'Y', 'W', 'H' } ) do
-				SKIN:Bang('!SetOptionGroup', 'Tab'..i, v, 0)
-			end
+	for i = NumberOfTabs + 1, TotalTabs do
+		for j,v in ipairs{ 'X', 'Y', 'W', 'H' } do
+			SKIN:Bang('!SetOptionGroup', 'Tab'..i, v, 0)
 		end
 	end
 end
