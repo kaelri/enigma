@@ -211,7 +211,7 @@ function Keys(line,default) -- Converts Key="Value" sets to a table
 	for key, value in string.gmatch(line, '(%a+)=(%b"")') do
 		local strip = string.match(value, '"(.+)"')
 		for code,char in pairs(escape) do
-			strip=string.gsub(strip,code,char)
+			strip=string.gsub(strip or '',code,char)
 		end
 		tbl[string.lower(key)] = tonumber(strip) or strip
 	end
