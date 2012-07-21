@@ -25,7 +25,7 @@ function Update()
 	if TextW ~= LastTextW or LabelW ~= LastLabelW then
 		SKIN:Bang('!SetVariable', 'TaskbarSkinWidth', W)
 		if Variant == 'Mini' or Variant == 'Tiny' then
-			SKIN:Bang('!MoveMeter', 5 + LabelW, MeterLabel:GetY(), 'Text')
+			SKIN:Bang('!MoveMeter', 5 + LabelW, MeterText:GetY(), 'Text')
 			if TextW > MaxW - LabelW then
 				SKIN:Bang('!SetOption', 'Text', 'ClipString', 1)
 				SKIN:Bang('!SetOption', 'Text', 'W', MaxW - LabelW)
