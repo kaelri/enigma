@@ -5,6 +5,7 @@
 Group=EnigmaTaskbar
 Blur=1
 MiddleMouseUpAction=!Refresh
+LeftMouseDoubleClickAction=!ActivateConfig #CURRENTCONFIG#
 
 ;---------------------------------------------------------------------
 ; TASKBAR (1)
