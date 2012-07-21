@@ -20,7 +20,7 @@ MeterStyle=Style#Variant#Icon | StylePWRIcon
 
 [Bar]
 Meter=BAR
-MeterStyle=StylePWR#Variant#Bar
+MeterStyle=Style#Variant#Bar | StylePWR#Variant#Bar
 MeasureName=MeasurePower
 
 [Text]

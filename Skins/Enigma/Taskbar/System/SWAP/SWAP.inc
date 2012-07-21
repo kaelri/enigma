@@ -4,6 +4,14 @@
 [MeasureSWAP]
 Measure=SWAPMemory
 
+[MeasureSWAPTotal]
+Measure=SWAPMemory
+Total=1
+
+[MeasureBar]
+Measure=Calc
+Formula= MeasureSWAP / MeasureSWAPTotal
+
 ;---------------------------------------------------------------------
 ; METERS
 
@@ -22,3 +30,8 @@ AutoScale=1
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="SWAP"
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureBar

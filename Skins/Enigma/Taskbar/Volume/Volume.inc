@@ -46,3 +46,8 @@ Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureVolume
 ;Text=VOL
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureVolume

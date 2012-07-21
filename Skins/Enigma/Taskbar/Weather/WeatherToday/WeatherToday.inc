@@ -6,6 +6,13 @@
 CurrentCode=#WeatherCode#
 
 ;---------------------------------------------------------------------
+; MEASURES
+
+[MeasureBar]
+Measure=Calc
+Formula=(MeasureWeatherDay2Average - MeasureWeatherDay2Low) / (MeasureWeatherDay2High - MeasureWeatherDay2Low)
+
+;---------------------------------------------------------------------
 ; METERS
 
 [Background]
@@ -29,3 +36,8 @@ Meter=STRING
 MeasureName=MeasureWeatherDay2Desc
 MeterStyle=Style#Variant#Label
 Text=Today
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureBar

@@ -35,3 +35,8 @@ Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureArtist
 Text="%1"
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureTimeProgress

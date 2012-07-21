@@ -32,6 +32,10 @@ Measure=Calc
 Formula=880000+(MeasureMoonOverlay*100)+97
 Substitute="88":"#@#Images\Moon\","97":".png"
 
+[MeasureBar]
+Measure=Calc
+Formula=(MeasureMoonOverlay + 1) / 16
+
 ;---------------------------------------------------------------------
 ; METERS
 
@@ -57,3 +61,8 @@ MeterStyle=Style#Variant#Icon | StyleMoonIcon
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon
 MeasureName=MeasureMoonOverlayMod
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureBar

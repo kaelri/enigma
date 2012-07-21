@@ -1,24 +1,34 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
-[MeasureDrive]
+[MeasureDriveFree]
 Measure=FreeDiskSpace
 Drive=#Drive#:
-IfAboveValue=0
-IfAboveAction=!SetOption "Text" "Text" "%1"
-IfEqualValue=0
-IfEqualAction=!SetOption "Text" "Text" "Removed"
 
-[MeasureDriveInverse]
+[MeasureDriveUsed]
 Measure=FreeDiskSpace
 Drive=#Drive#:
 InvertMeasure=1
 
-[MeasureDriveName]
+[MeasureDriveTotal]
+Measure=FreeDiskSpace
+Drive=#Drive#
+Total=1
+
+[MeasureDriveType]
 Measure=FreeDiskSpace
 Drive=#Drive#:
-Label=1
-UpdateDivider=-1
+Type=1
+IfAboveValue=2
+IfAboveAction=!SetOption "Text" "Text" "%1"
+IfBelowValue=2
+IfBelowAction=!SetOption "Text" "Text" "Removed"
+
+; [MeasureDriveName]
+; Measure=FreeDiskSpace
+; Drive=#Drive#:
+; Label=1
+; UpdateDivider=-1
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -35,13 +45,13 @@ ToolTipText=Click to browse #Drive#:\.
 
 [Bar]
 Meter=BAR
-MeterStyle=StyleHDD#Variant#Bar
-MeasureName=MeasureDriveInverse
+MeterStyle=Style#Variant#Bar | StyleHDD#Variant#Bar
+MeasureName=MeasureDriveUsed
 
 [Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
-MeasureName=MeasureDrive
+MeasureName=MeasureDriveFree
 AutoScale=1
 NumOfDecimals=0
 LeftMouseUpAction=["#Drive#:\"]

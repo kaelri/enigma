@@ -37,3 +37,8 @@ AutoScale=1
 Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureSSID
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureQuality

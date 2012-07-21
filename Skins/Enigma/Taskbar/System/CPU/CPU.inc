@@ -20,3 +20,8 @@ MeasureName=MeasureCPU
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="CPU"
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureCPU

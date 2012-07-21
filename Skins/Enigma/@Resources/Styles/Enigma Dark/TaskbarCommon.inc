@@ -522,24 +522,8 @@ W=33
 H=33
 
 [StyleHDDNormalBar]
-Y=0
-H=0
-W=0
-Hidden=1
-
 [StyleHDDMiniBar]
-X=0
-Y=0
-H=0
-W=0
-Hidden=1
-
 [StyleHDDTinyBar]
-X=0
-Y=0
-H=0
-W=0
-Hidden=1
 
 [StyleHDDIconBar]
 X=14r
@@ -575,25 +559,8 @@ BarOrientation=VERTICAL
 ImageName=#@#Images\PWR.#ColorImage#.png
 
 [StylePWRNormalBar]
-X=0
-Y=0
-H=0
-W=0
-Hidden=1
-
 [StylePWRMiniBar]
-X=0
-Y=0
-H=0
-W=0
-Hidden=1
-
 [StylePWRTinyBar]
-X=0
-Y=0
-H=0
-W=0
-Hidden=1
 
 [StylePWRIconBar]
 X=10r

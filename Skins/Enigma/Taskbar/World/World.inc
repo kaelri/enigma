@@ -17,6 +17,12 @@ Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 
+[MeasureTimeSeconds]
+Measure=Time
+TimeZone=[MeasureTimeZone]
+Format="%#S"
+DynamicVariables=1
+
 [MeasureClock]
 Measure=Time
 Format="%#I.%M %p"
@@ -24,6 +30,10 @@ TimeZone=[MeasureTimeZone]
 Substitute="PM":"pm","AM":"am"
 DynamicVariables=1
 DaylightSavingTime=1
+
+[MeasureBar]
+Measure=Calc
+Measure=MeasureTimeSeconds / 60
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -62,3 +72,8 @@ Meter=STRING
 MeterStyle=Style#Variant#Label | StyleWorld#Variant#Label
 MeasureName=MeasureWeatherCity
 MeasureName2=MeasureClock
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureBar

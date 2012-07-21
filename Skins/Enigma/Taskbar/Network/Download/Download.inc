@@ -24,3 +24,8 @@ NumOfDecimals=0
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="I"
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureNetIn

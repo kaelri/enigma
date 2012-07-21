@@ -12,6 +12,14 @@ Format="%#I.%M"
 Measure=Time
 Format="%p"
 
+[MeasureSeconds]
+Measure=Time
+Format="%#S"
+
+[MeasureBar]
+Measure=Calc
+Measure=MeasureSeconds / 60
+
 ;---------------------------------------------------------------------
 ; METERS
 
@@ -49,3 +57,8 @@ MeasureName=MeasureText
 Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureLabel
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureBar

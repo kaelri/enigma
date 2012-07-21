@@ -6,6 +6,13 @@
 CurrentCode=#WeatherCode#
 
 ;---------------------------------------------------------------------
+; MEASURES
+
+[MeasureBar]
+Measure=Calc
+Formula=(MeasureWeatherTemp - MeasureWeatherDay2Low) / (MeasureWeatherDay2High - MeasureWeatherDay2Low)
+
+;---------------------------------------------------------------------
 ; METERS
 
 [Background]
@@ -28,3 +35,8 @@ LeftMouseUpAction=[[MeasureYahooWeather]]
 Meter=STRING
 MeasureName=MeasureWeatherDesc
 MeterStyle=Style#Variant#Label
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureBar

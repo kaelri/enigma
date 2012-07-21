@@ -3,13 +3,22 @@
 
 [MeasureWeek]
 Measure=Time
-UpdateDivider=10
+UpdateDivider=60
 Format="%a"
 
 [MeasureDate]
 Measure=Time
-UpdateDivider=10000
+UpdateDivider=60
 Format="%#d"
+
+[MeasureWeekInt]
+Measure=Time
+UpdateDivider=60
+Format="%w"
+
+[MeasureBar]
+Measure=Calc
+Formula=(MeasureWeekInt + 1) / 7
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -27,3 +36,8 @@ MeasureName=MeasureWeek
 Meter=STRING
 MeterStyle=Style#Variant#Label
 MeasureName=MeasureDate
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureBar

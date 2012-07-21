@@ -22,3 +22,8 @@ AutoScale=1
 Meter=STRING
 MeterStyle=Style#Variant#Label
 Text="RAM"
+
+[Bar]
+Meter=BAR
+MeterStyle=Style#Variant#Bar
+MeasureName=MeasureRAM
