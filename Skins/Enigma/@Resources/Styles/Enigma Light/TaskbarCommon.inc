@@ -434,6 +434,9 @@ ImageName=#@#Images\Moon\Moon.png
 H=24
 W=24
 
+[StyleMoonIconOverlay]
+ImageName=#@#Images\Moon\%1.png
+
 ;---------------------------------------------------------------------
 ; MUSIC
 

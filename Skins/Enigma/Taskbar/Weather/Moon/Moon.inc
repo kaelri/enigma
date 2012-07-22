@@ -27,11 +27,6 @@ Measure=Calc
 Formula=ROUND(16*FRAC(((-29.5305888531)+SQRT((29.5305888531)**2-4*(102.19*(10**(-12)))*(20.362954-MeasureDaysSinceY2K)))/(2*(102.19*(10**(-12))))))%16
 Substitute=".00000":""
 
-[MeasureMoonOverlayMod]
-Measure=Calc
-Formula=880000+(MeasureMoonOverlay*100)+97
-Substitute="88":"#@#Images\Moon\","97":".png"
-
 [MeasureBar]
 Measure=Calc
 Formula=(MeasureMoonOverlay + 1) / 16
@@ -59,8 +54,8 @@ MeterStyle=Style#Variant#Icon | StyleMoonIcon
 
 [IconOverlay]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon
-MeasureName=MeasureMoonOverlayMod
+MeterStyle=Style#Variant#Icon | StyleMoonIconOverlay
+MeasureName=MeasureMoonOverlay
 
 [Bar]
 Meter=BAR
