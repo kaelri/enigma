@@ -73,6 +73,7 @@ FontColor=#Color1#
 FontSize=#Size3#
 FontFace=#Font#
 AntiAlias=1
+DynamicVariables=1
 
 [StyleProcessBar]
 X=5r
