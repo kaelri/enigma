@@ -209,7 +209,11 @@ function Initialize()
 		TaskbarImage = { File = StyleSettings },
 		SecondTaskbarImage = { File = StyleSettings },
 		TaskbarMaxSkinWidth  = { File = StyleSettings },
-		TaskbarMinSkinWidth  = { File = StyleSettings }
+		TaskbarMinSkinWidth  = { File = StyleSettings },
+		TaskbarHideTriptych = { File = StyleSettings, 
+			Loop = { '0', '1' },
+			Labels = { 'Yes', 'No' }
+		}
 	}
 	
 	for a in string.gmatch(SELF:GetOption('LabelsQueue'),'[^%|]+') do

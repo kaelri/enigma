@@ -45,6 +45,7 @@ TaskbarImage=#@#Images\Taskbar\TaskbarTop.#ColorImage#.jpg
 SecondTaskbarImage=#@#Images\Taskbar\TaskbarBottom.#ColorImage#.jpg
 TaskbarMaxSkinWidth=200
 TaskbarMinSkinWidth=60
+TaskbarHideTriptych=1
 
 SidebarClockFace=#@#Images\Clock\EnigmaClock.#ColorImage#.png
 SidebarWorldClockFace=#@#Images\Clock\ChevronClock.#ColorImage#.png

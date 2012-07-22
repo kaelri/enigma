@@ -1,7 +1,7 @@
 [Variables]
-PanelHeight=425
+PanelHeight=440
 ArrowY=328
-LabelsQueue=SidebarSpacingFixed|TaskbarSpacingFixed
+LabelsQueue=SidebarSpacingFixed|TaskbarSpacingFixed|TaskbarHideTriptych
 
 ;---------------------------------------------------------------------
 ; MEASURES
@@ -155,6 +155,20 @@ LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMinSkinWidth')"
 TooltipTitle="Minimum Text Width for Taskbar Skins (px)"
 TooltipText=Taskbar skins automatically resize to fit the displayed text. If the text is shorter than the minimum, the skin background will expand to fill the remaining space.
+
+[TaskbarHideTriptychName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
+Text="Triptych"
+
+[TaskbarHideTriptychText]
+Meter=STRING
+MeterStyle=StyleText | StyleInput
+Text="#TaskbarHideTriptychLabel#"
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TaskbarHideTriptych')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarHideTriptych')"
+TooltipTitle="Show Taskbar Triptych? (Y/N)"
+TooltipText=Divides the Taskbar and Second Taskbar skins into thirds. This may or may not look very good depending on the taskbar image you've selected.
 
 ;-----------------------
 

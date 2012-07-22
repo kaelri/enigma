@@ -47,6 +47,7 @@ DefaultTaskbarImage=#*@*#Images\Taskbar\TaskbarTop.#*ColorImage*#.jpg
 DefaultSecondTaskbarImage=#*@*#Images\Taskbar\TaskbarBottom.#*ColorImage*#.jpg
 DefaultTaskbarMaxSkinWidth=200
 DefaultTaskbarMinSkinWidth=60
+DefaultTaskbarHideTriptych=1
 
 DefaultSidebarClockFace=#*@*#Images\Clock\ChevronClock.#*ColorImage*#.png
 DefaultSidebarWorldClockFace=#*@*#Images\Clock\ChevronClock.#*ColorImage*#.png
