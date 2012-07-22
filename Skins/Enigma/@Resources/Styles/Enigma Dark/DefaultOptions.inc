@@ -23,7 +23,6 @@ DefaultColorFilter3=#*ColorFilter*#,128
 DefaultColorEvent=255,0,0
 DefaultColorEvent2=#*ColorEvent*#,92
 DefaultColorTransparent=0,0,0,2
-DefaultColorImageType=1
 DefaultColorImage=W
 
 DefaultSize1=10

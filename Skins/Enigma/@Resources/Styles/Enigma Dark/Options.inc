@@ -21,7 +21,6 @@ ColorFilter3=#ColorFilter#,128
 ColorEvent=255,0,0
 ColorEvent2=#ColorEvent#,92
 ColorTransparent=0,0,0,2
-ColorImageType=1
 ColorImage=W
 
 Size1=10
