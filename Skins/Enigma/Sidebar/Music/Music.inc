@@ -32,8 +32,6 @@ Meter=IMAGE
 MeterStyle=StyleMusic#Variant#Icon
 MeasureName=MeasureCover
 LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "OpenPlayer"
-ToolTipTitle=Open Player
-ToolTipText=Click to open your media player's main window.
 
 [Curtain]
 Meter=IMAGE
@@ -66,26 +64,32 @@ MeasureName=MeasureTimePosition
 ; BUTTONS
 
 [Prev]
-Meter=STRING
-MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonFirst
-LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "Previous"
-ToolTipTitle=Previous
-ToolTipText=Go back to the previous track in the current playlist.
+Meter=Image
+MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonPrevious
+LeftMouseUpAction=[!CommandMeasure "MeasureMediaPlayer" "Previous"][!Update]
 
 [Play]
-Meter=STRING
-MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonSecond[MeasureState]
-LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "PlayPause"
-ToolTipTitle=Play/Pause
-ToolTipText=Pause the playing track, or resume playing if paused.
+Meter=Image
+MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonPlayPause[MeasureState]
+LeftMouseUpAction=[!CommandMeasure "MeasureMediaPlayer" "PlayPause"][!Update]
 DynamicVariables=1
 
 [Next]
-Meter=STRING
-MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonThird
-LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "Next"
-ToolTipTitle=Next
-ToolTipText=Go to the next track in the current playlist.
+Meter=Image
+MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonNext
+LeftMouseUpAction=[!CommandMeasure "MeasureMediaPlayer" "Next"][!Update]
+
+[Repeat]
+Meter=Image
+MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonRepeat[MeasureRepeat]
+LeftMouseUpAction=[!CommandMeasure "MeasureMediaPlayer" "SetRepeat -1"][!Update]
+DynamicVariables=1
+
+[Shuffle]
+Meter=Image
+MeterStyle=StyleMusic#Variant#Button | StyleMusic#Variant#ButtonShuffle[MeasureShuffle]
+LeftMouseUpAction=[!CommandMeasure "MeasureMediaPlayer" "SetShuffle -1"][!Update]
+DynamicVariables=1
 
 [Progress]
 Meter=BAR

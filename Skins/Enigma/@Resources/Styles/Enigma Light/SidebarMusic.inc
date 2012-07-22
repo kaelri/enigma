@@ -66,7 +66,7 @@ FontColor=#Color2#
 
 [StyleMusicNormalTextThird]
 FontColor=#Color3#
-W=(#SidebarWidth#-53)
+W=(#SidebarWidth#-60)
 Group=EnigmaMouseout
 
 [StyleMusicNormalTime]
@@ -81,32 +81,43 @@ AntiAlias=1
 
 [StyleMusicNormalButton]
 X=16r
-Y=47
-FontColor=#Color1#
-StringStyle=BOLD
-FontSize=10
-StringAlign=LEFT
-FontFace=Webdings
+Y=49
+W=10
+H=10
 AntiAlias=1
 Hidden=1
 Group=EnigmaMouseover
 ToolTipWidth=#SidebarWidth#
 
-[StyleMusicNormalButtonFirst]
+[StyleMusicNormalButtonPrevious]
+ImageName=#@#Images\Music\MusicPrevious.#ColorImage#.png
 X=14
-Text="7"
 
-[StyleMusicNormalButtonSecond0]
-Text="4"
+[StyleMusicNormalButtonPlayPause0]
+ImageName=#@#Images\Music\MusicPlay.#ColorImage#.png
 
-[StyleMusicNormalButtonSecond1]
-Text=";"
+[StyleMusicNormalButtonPlayPause1]
+ImageName=#@#Images\Music\MusicPause.#ColorImage#.png
 
-[StyleMusicNormalButtonSecond2]
-Text="4"
+[StyleMusicNormalButtonPlayPause2]
+ImageName=#@#Images\Music\MusicPlay.#ColorImage#.png
 
-[StyleMusicNormalButtonThird]
-Text="8"
+[StyleMusicNormalButtonNext]
+ImageName=#@#Images\Music\MusicNext.#ColorImage#.png
+
+[StyleMusicNormalButtonRepeat0]
+ImageName=#@#Images\Music\MusicRepeat.#ColorImage#.png
+ImageAlpha=128
+
+[StyleMusicNormalButtonRepeat1]
+ImageName=#@#Images\Music\MusicRepeat.#ColorImage#.png
+
+[StyleMusicNormalButtonShuffle0]
+ImageName=#@#Images\Music\MusicShuffle.#ColorImage#.png
+ImageAlpha=128
+
+[StyleMusicNormalButtonShuffle1]
+ImageName=#@#Images\Music\MusicShuffle.#ColorImage#.png
 
 [StyleMusicNormalProgress]
 X=(10+(4*#HideBordersBottom#))
@@ -203,32 +214,43 @@ Group=EnigmaMouseover
 
 [StyleMusicArtButton]
 X=16r
-Y=47
-FontColor=#Color1#
-StringStyle=BOLD
-FontSize=10
-StringAlign=LEFT
-FontFace=Webdings
+Y=49
+W=10
+H=10
 AntiAlias=1
 Hidden=1
 Group=EnigmaMouseover
 ToolTipWidth=#SidebarWidth#
 
-[StyleMusicArtButtonFirst]
+[StyleMusicArtButtonPrevious]
+ImageName=#@#Images\Music\MusicPrevious.#ColorImage#.png
 X=64
-Text="7"
 
-[StyleMusicArtButtonSecond0]
-Text="4"
+[StyleMusicArtButtonPlayPause0]
+ImageName=#@#Images\Music\MusicPlay.#ColorImage#.png
 
-[StyleMusicArtButtonSecond1]
-Text=";"
+[StyleMusicArtButtonPlayPause1]
+ImageName=#@#Images\Music\MusicPause.#ColorImage#.png
 
-[StyleMusicArtButtonSecond2]
-Text="4"
+[StyleMusicArtButtonPlayPause2]
+ImageName=#@#Images\Music\MusicPlay.#ColorImage#.png
 
-[StyleMusicArtButtonThird]
-Text="8"
+[StyleMusicArtButtonNext]
+ImageName=#@#Images\Music\MusicNext.#ColorImage#.png
+
+[StyleMusicArtButtonRepeat0]
+ImageName=#@#Images\Music\MusicRepeat.#ColorImage#.png
+ImageAlpha=128
+
+[StyleMusicArtButtonRepeat1]
+ImageName=#@#Images\Music\MusicRepeat.#ColorImage#.png
+
+[StyleMusicArtButtonShuffle0]
+ImageName=#@#Images\Music\MusicShuffle.#ColorImage#.png
+ImageAlpha=128
+
+[StyleMusicArtButtonShuffle1]
+ImageName=#@#Images\Music\MusicShuffle.#ColorImage#.png
 
 [StyleMusicArtProgress]
 X=(10+(4*#HideBordersBottom#))
@@ -322,33 +344,44 @@ Hidden=1
 Group=EnigmaMouseover
 
 [StyleMusicFullButton]
-X=R
-Y=(#SidebarWidth#-40-(#HideBordersBottom#*15))
-FontColor=#Color1#
-StringStyle=BOLD
-FontSize=17
-StringAlign=LEFT
-FontFace=Webdings
+X=6R
+Y=(#SidebarWidth#-35-(#HideBordersBottom#*15))
+W=15
+H=15
 AntiAlias=1
 Hidden=1
 Group=EnigmaMouseover
 ToolTipWidth=#SidebarWidth#
 
-[StyleMusicFullButtonFirst]
-X=14
-Text="7"
+[StyleMusicFullButtonPrevious]
+ImageName=#@#Images\Music\MusicPrevious.#ColorImage#.png
+X=19
 
-[StyleMusicFullButtonSecond0]
-Text="4"
+[StyleMusicFullButtonPlayPause0]
+ImageName=#@#Images\Music\MusicPlay.#ColorImage#.png
 
-[StyleMusicFullButtonSecond1]
-Text=";"
+[StyleMusicFullButtonPlayPause1]
+ImageName=#@#Images\Music\MusicPause.#ColorImage#.png
 
-[StyleMusicFullButtonSecond2]
-Text="4"
+[StyleMusicFullButtonPlayPause2]
+ImageName=#@#Images\Music\MusicPlay.#ColorImage#.png
 
-[StyleMusicFullButtonThird]
-Text="8"
+[StyleMusicFullButtonNext]
+ImageName=#@#Images\Music\MusicNext.#ColorImage#.png
+
+[StyleMusicFullButtonRepeat0]
+ImageName=#@#Images\Music\MusicRepeat.#ColorImage#.png
+ImageAlpha=128
+
+[StyleMusicFullButtonRepeat1]
+ImageName=#@#Images\Music\MusicRepeat.#ColorImage#.png
+
+[StyleMusicFullButtonShuffle0]
+ImageName=#@#Images\Music\MusicShuffle.#ColorImage#.png
+ImageAlpha=128
+
+[StyleMusicFullButtonShuffle1]
+ImageName=#@#Images\Music\MusicShuffle.#ColorImage#.png
 
 [StyleMusicFullProgress]
 X=(12+(4*#HideBordersBottom#))

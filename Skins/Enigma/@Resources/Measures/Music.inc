@@ -51,3 +51,15 @@ Measure=Plugin
 Plugin=NowPlaying
 PlayerName=[MeasureMediaPlayer]
 PlayerType=STATE
+
+[MeasureRepeat]
+Measure=Plugin
+Plugin=NowPlaying
+PlayerName=[MeasureMediaPlayer]
+PlayerType=REPEAT
+
+[MeasureShuffle]
+Measure=Plugin
+Plugin=NowPlaying
+PlayerName=[MeasureMediaPlayer]
+PlayerType=SHUFFLE
