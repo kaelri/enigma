@@ -1,7 +1,7 @@
 [MeasureMediaPlayer]
 Measure=Plugin
 Plugin=NowPlaying
-PlayerName=#CurrentPlayer#
+PlayerName=#MusicPlayer#
 PlayerType=FILE
 
 [MeasureTrack]

@@ -49,11 +49,13 @@ App: Rainmeter 2.? (r????)
 - [Skins] Changed all Taskbar: renamed "Textless" variants to "Icon Only."
 - [Skins] Changed all Taskbar: added group "EnigmaTaskbar". Also moved group definitions to stylesheet files.
 - [Skins] Changed Sidebar and Taskbar (Options): "spacing" option is now just "yes" or "no." If yes, the Taskbar makes space for the Sidebar (or vice versa).
+- [Skins] Changed Taskbar: "Triptych" variant is now chosen a Layout option.
 - [Skins] Changed Calendar: added feature to show events from XML files. Can be disabled in Options. [by Smurfier]
 - [Skins] Changed Gallery: added button to set current image as desktop wallpaper.
 - [Skins] Changed Gmail (Options): now automatically removed "@gmail.com" from input.
 - [Skins] Changed Launcher: now lights up to indicate when a program is already running.
 - [Skins] Changed Music: added support for JRiver Media Center & JRiver Media Jukebox.
+- [Skins] Changed Music: added Repeat and Shuffle buttons.
 - [Skins] Changed Notes & Reader: greatly simplified the process of adding more tabs. The Reader and Notes templates supports up to 8 tabs out of the box; more can be added very easily.
 - [Skins] Changed Google Calendar Reader: switched to "full" calendar feed for more reliability.
 - [Skins] Changed Google Calendar Reader: added feature to automatically save events to XML file, which can be displayed in Calendar (see above). [by Smurfier]
