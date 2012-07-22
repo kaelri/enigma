@@ -29,6 +29,7 @@ GalleryRatio=3/4
 VolumeIncrement=5
 TriptychInterval=30
 TriptychDisabled=0
+ProcessInterval=5
 
 ;-----------------------
 ; MUSIC

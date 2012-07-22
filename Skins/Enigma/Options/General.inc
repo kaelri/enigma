@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=510
+PanelHeight=535
 ArrowY=48
 LabelsQueue=CalendarShowEvents|CalendarExtraDays|CalendarLeadingZeroes|CalendarMondays|GallerySubfolders|TriptychDisabled
 
@@ -343,6 +343,22 @@ RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TriptychDisabled
 TooltipTitle="Enable Switcher Action (Y/N)"
 TooltipText=You can choose to disable the switcher action entirely.
 DynamicVariables=1
+
+;-----------------------
+
+[ProcessIntervalName]
+Meter=STRING
+MeterStyle=StyleName
+Text="Process Time"
+
+[ProcessIntervalText]
+Meter=STRING
+MeterStyle=StyleText | StyleInput
+Text="#ProcessInterval#"
+LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 10"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ProcessInterval')"
+TooltipTitle="Process Update Period (seconds)"
+TooltipText=Click to type the period between updates (in seconds) for Enigma Process.
 
 ;-----------------------
 

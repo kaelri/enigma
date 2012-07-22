@@ -32,6 +32,7 @@ DefaultGalleryPosition=Center
 DefaultVolumeIncrement=5
 DefaultTriptychInterval=30
 DefaultTriptychDisabled=0
+DefaultProcessInterval=5
 
 ;-----------------------
 ; MUSIC

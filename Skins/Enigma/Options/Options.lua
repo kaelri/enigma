@@ -45,6 +45,7 @@ function Initialize()
 			Loop = { '0', '1' },
 			Labels = { 'Yes', 'No' }
 		},
+		ProcessInterval = { File = EnigmaSettings },
 		--MUSIC
 		MusicPlayerType = { File = EnigmaSettings },
 		MusicPlayer = { File = EnigmaSettings },
