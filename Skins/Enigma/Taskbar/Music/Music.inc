@@ -20,14 +20,12 @@ Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleMusicIcon
 MeasureName=MeasureCover
 LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "PlayPause"
-ToolTipText=Click to pause, or resume playback if paused.
 
 [Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureTrack
 LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "PlayPause"
-ToolTipText=Click to pause, or resume playback if paused.
 
 [Label]
 Meter=STRING

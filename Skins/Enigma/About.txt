@@ -1,45 +1,28 @@
 ﻿ENIGMA
-v 3.2
+v 4 Beta 1
 by Kaelri
 
 -----------------------
 ABOUT
 
-Enigma is one of the first fully-featured "suites" for the Windows system monitoring application, Rainmeter (http://rainmeter.net). Created in 2008, the suite has been through many evolutions, and remains popular to this day. It includes numerous contributions from members of the Rainmeter and broader Windows customizing communities.
+Enigma is a featured "suite" for the Windows system monitoring tool, Rainmeter. 
 
-Enigma is for the minimalist, putting flexibility and customization at the core of its design:
-- Modular stylesheets allow you to customize fonts, colors, and even the size and shape of your skins. New stylesheets can be created and applied instantly - no need to edit dozens of files.
-- Skins are optimized for a "taskbar" or "sidebar" layout. Bar sizes can be adjusted, and skins will automatically adapt to fit. There is even an optional button to hide and reveal the sidebar and all docked skins.
-- Most skins and cycle through up to six variations on double-click.
-- Dedicated Options config lets you set personal preferences from within Rainmeter. The current skin installer will keep all of your preferences when upgrading or reinstalling.
-- Main control panel checks for updates and notifies you when they are available.
-- Includes the full range of standard Rainmeter skins, including clocks, notepads, calendars, RSS/Atom feed readers, weather, media player controls, Facebook, Twitter and Google Calendar displays, recycle bin, network activity, and system resource monitors.
-- Also includes three premade themes, which resize themselves to fit your screen resolution.
+For more information, visit the official website at (http://enigma.kaelri.com).
 
-Enigma has been downloaded over 340,000 times alone, and over 1.9 million times bundled with Rainmeter, which chose Enigma as its default theme in 2009. It has also been featured by Lifehacker, Windows Magazine and Computer Bild, and is the #2 most popular work in deviantArt's Skins and Themes category.
+Contact the author at (Kaelri@gmail.com).
 
 -----------------------
-LICENSE
+LEGAL
 
-This package, and all of its contents, are released under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License (http://creativecommons.org/licenses/by-nc-sa/3.0/). The package also contains resources from other authors, under similar terms of use. See (http://enigma.kaelri.com) for a complete list.
-
------------------------
-CONTACT
-
-Email       Kaelri@gmail.com
-Blog		http://kaelri.com
-Google+     http://kaelri.com/+
-Twitter     @Kaelri
-
-Website     http://enigma.kaelri.com
+Enigma has been released to you under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License (http://creativecommons.org/licenses/by-nc-sa/3.0/).
 
 -----------------------
 CHANGELOG
 
-3.2
+4
 ---
-Date: ???
-App: Rainmeter 2.? (r????)
+Date: 1 August, 2012
+App: Rainmeter 2.4 Beta (r????)
 
 - [Skins] Added Process: sorts Windows processes by CPU usage.
 - [Skins] Added Reader, Facebook and Remember the Milk for Taskbar.
