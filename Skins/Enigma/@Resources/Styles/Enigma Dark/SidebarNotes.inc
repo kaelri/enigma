@@ -79,8 +79,6 @@ Y=-7r
 [StyleNotesGrabber0]
 ImageName=#@#Images\Grabber.#ColorImage#.png
 ImageAlpha=128
-ToolTipWidth=#SidebarWidth#
-ToolTipText=Click to switch to this page.
 
 [StyleNotesGrabber1]
 ImageName=#@#Images\GrabberActive.#ColorImage#.png

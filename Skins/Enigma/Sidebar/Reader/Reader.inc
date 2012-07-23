@@ -179,7 +179,6 @@ MeterStyle=StyleReaderBorder
 Meter=IMAGE
 MeterStyle=#ReaderIconStyle#
 LeftMouseUpAction=["#FeedLink#"]
-ToolTipText=#FeedLink#
 
 [Title]
 Meter=STRING

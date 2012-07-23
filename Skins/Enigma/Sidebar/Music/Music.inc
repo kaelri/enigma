@@ -31,6 +31,7 @@ Meter=IMAGE
 MeterStyle=StyleMusic#Variant#Icon
 MeasureName=MeasureCover
 LeftMouseUpAction=!CommandMeasure "MeasureMediaPlayer" "OpenPlayer"
+ToolTipTitle=Open Player
 
 [Curtain]
 Meter=IMAGE

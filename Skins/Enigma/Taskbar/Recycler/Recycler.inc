@@ -30,7 +30,8 @@ MeterStyle=Style#Variant#Icon | StyleRecyclerIcon
 MeasureName=MeasureFull
 LeftMouseUpAction=[!CommandMeasure "MeasureBinCount" "OpenBin"][!Refresh]
 RightMouseUpAction=[!CommandMeasure "MeasureBinCount" "EmptyBin"][!Refresh]
-TooltipText=· Left-click to open the Recycle Bin in an Explorer window.#CRLF#· Right-click the icon to empty the Recycle Bin.
+ToolTipTitle=Open Recycle Bin
+TooltipText=Right-click to empty the bin.
 
 [Text]
 Meter=STRING
@@ -39,7 +40,8 @@ MeasureName=MeasureBinCount
 Text="%1 ITEMS"
 LeftMouseUpAction=[!CommandMeasure "MeasureBinCount" "OpenBin"][!Refresh]
 RightMouseUpAction=[!CommandMeasure "MeasureBinCount" "EmptyBin"][!Refresh]
-TooltipText=· Left-click to open the Recycle Bin in an Explorer window.#CRLF#· Right-click the icon to empty the Recycle Bin.
+ToolTipTitle=Open Recycle Bin
+TooltipText=Right-click to empty the bin.
 
 [Label]
 Meter=STRING

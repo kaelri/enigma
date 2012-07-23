@@ -94,7 +94,7 @@ Meter=STRING
 MeterStyle=StyleNotesTitle
 Text=#Name#
 LeftMouseUpAction=["#Path#"]
-ToolTipTitle=Edit Notes File
+ToolTipTitle=Edit Notes
 ToolTipText=#Path#
 
 [Notes]
@@ -102,7 +102,7 @@ Meter=STRING
 MeterStyle=StyleNotesText
 Text=#Content#
 LeftMouseUpAction=["#Path#"]
-ToolTipTitle=Edit Notes File
+ToolTipTitle=Edit Notes
 ToolTipText=#Path#
 
 ;-----------------------

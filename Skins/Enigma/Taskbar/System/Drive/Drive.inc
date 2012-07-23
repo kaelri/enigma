@@ -41,7 +41,7 @@ MeterStyle=Style#Variant#Background
 Meter=IMAGE
 MeterStyle=Style#Variant#Icon | StyleHDDIcon
 LeftMouseUpAction=["#Drive#:\"]
-ToolTipText=Click to browse #Drive#:\.
+ToolTipTitle=Explore #Drive#:\
 
 [Bar]
 Meter=BAR
@@ -55,7 +55,7 @@ MeasureName=MeasureDriveFree
 AutoScale=1
 NumOfDecimals=0
 LeftMouseUpAction=["#Drive#:\"]
-ToolTipText=Click to browse #Drive#:\.
+ToolTipTitle=Explore #Drive#:\
 
 [Label]
 Meter=STRING

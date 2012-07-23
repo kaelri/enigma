@@ -87,7 +87,6 @@ H=10
 AntiAlias=1
 Hidden=1
 Group=EnigmaMouseover
-ToolTipWidth=#SidebarWidth#
 
 [StyleMusicNormalButtonPrevious]
 ImageName=#@#Images\Music\MusicPrevious.#ColorImage#.png
@@ -220,7 +219,6 @@ H=10
 AntiAlias=1
 Hidden=1
 Group=EnigmaMouseover
-ToolTipWidth=#SidebarWidth#
 
 [StyleMusicArtButtonPrevious]
 ImageName=#@#Images\Music\MusicPrevious.#ColorImage#.png
@@ -296,7 +294,6 @@ Y=1r
 W=(#SidebarWidth#-26)
 H=(#SidebarWidth#-26)
 AntiAlias=1
-ToolTipWidth=#SidebarWidth#
 
 [StyleMusicFullCurtain]
 SolidColor=#ColorFilter3#
