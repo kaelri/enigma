@@ -247,7 +247,7 @@ StringIndex=2
 
 [MeasureCheck]
 Measure=CALC
-Formula=10*(MeasureVersion-3.1)
+Formula=10*(MeasureVersion-#EnigmaVersionNum#)
 IfAboveValue=0
 IfAboveAction=[!SetOption "Update" "MeterStyle" "StyleUpdateYes"][!Redraw]
 IfEqualValue=0
