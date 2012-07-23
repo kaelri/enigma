@@ -15,7 +15,7 @@ Format=%Y
 
 [MeasureDaysSinceY2K]
 Measure=Calc
-Formula=FLOOR((MeasureYear-2000)*365.25)+(MeasureMonth>1)*31+(MeasureMonth>2)*(28+((MeasureYear%4)=0))+(MeasureMonth>3)*31+(MeasureMonth>4)*30+(MeasureMonth>5)*31+(MeasureMonth>6)*30+(MeasureMonth>7)*31+(MeasureMonth>8)*31+(MeasureMonth>9)*30+(MeasureMonth>10)*31+(MeasureMonth>11)*30+(MeasureMonth>12)*31+MeasureDay
+Formula=FLOOR((MeasureYear-2000)*365.2425)+(MeasureMonth>1)*31+(MeasureMonth>2)*(28+((MeasureYear%4)=0))+(MeasureMonth>3)*31+(MeasureMonth>4)*30+(MeasureMonth>5)*31+(MeasureMonth>6)*30+(MeasureMonth>7)*31+(MeasureMonth>8)*31+(MeasureMonth>9)*30+(MeasureMonth>10)*31+(MeasureMonth>11)*30+(MeasureMonth>12)*31+MeasureDay
 
 [MeasureMoonText]
 Measure=Calc
