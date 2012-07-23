@@ -179,7 +179,7 @@ Text="Textures"
 
 [BarImageBase]
 Meter=IMAGE
-ImageName=#@#Images\Home\ConfigLayout.W.png
+ImageName=#@#Images\Home\ConfigLayout.png
 X=215
 Y=-9r
 
