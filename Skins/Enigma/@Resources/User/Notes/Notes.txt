@@ -1,9 +1,11 @@
 - Click here to edit your notes!
 
-- Middle-click any skin to refresh it. When you make modifications to a skin, you should refresh it to apply your changes.
+- Middle-click any skin to refresh.
 
-- Some skins have several different "styles" available. Double-click these skins to cycle through their styles.
+- Double-click any skin to switch to the next variant.
+
+- Load the "Enigma\Options" skin to change your settings.
 
 <donotshow>
 
-- Any text that appears after the <donotshow> tag will not display in Rainmeter.
+- Any text that appears after the <donotshow> tag will not display in Enigma Notes.

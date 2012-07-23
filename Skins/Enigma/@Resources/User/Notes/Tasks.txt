@@ -1,9 +1,9 @@
-- Read about how to use and customize Rainmeter at http://rainmeter.net/
+- Learn about Rainmeter at http://rainmeter.net/
 
-- Register an account at http://rainmeter.net/forum
+- Join the community at http://rainmeter.net/forum
 
-- Download more Rainmeter skins at http://browse.deviantart.com/customization/skins/sysmonitor/rainmeter/
+- Download more skins at http://browse.deviantart.com/customization/skins/sysmonitor/rainmeter/
 
-- Discover more Enigma resources at http://enigma.kaelri.com/
+- Find more Enigma tips at http://enigma.kaelri.com/
 
 <donotshow>
