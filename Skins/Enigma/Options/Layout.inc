@@ -163,12 +163,13 @@ Text="Triptych"
 
 [TaskbarHideTriptychText]
 Meter=STRING
-MeterStyle=StyleText | StyleInput
+MeterStyle=StyleText
 Text="#TaskbarHideTriptychLabel#"
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TaskbarHideTriptych')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarHideTriptych')"
 TooltipTitle="Show Taskbar Triptych? (Y/N)"
 TooltipText=Divides the Taskbar and Second Taskbar skins into thirds. This may or may not look very good depending on the taskbar image you've selected.
+DynamicVariables=1
 
 ;-----------------------
 
