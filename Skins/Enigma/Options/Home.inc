@@ -112,45 +112,6 @@ FontColor=#ColorLink#
 LeftMouseUpAction=["http://kaelri.com"]
 ToolTipText="View author's website."
 
-;-----------------------
-
-[ReadmeName]
-Meter=STRING
-MeterStyle=StyleName
-Text="Readme"
-
-[ReadmeText]
-Meter=STRING
-MeterStyle=StyleText
-Text="View"
-LeftMouseUpAction=["#ROOTCONFIGPATH#About.txt"]
-ToolTipText="#ROOTCONFIGPATH#About.txt"
-
-[ReadmeCaption]
-Meter=STRING
-MeterStyle=StyleNotes
-H=15
-Text="Contact, credits and changelog."
-
-;-----------------------
-
-[WebsiteName]
-Meter=STRING
-MeterStyle=StyleName
-Text="Website"
-
-[WebsiteText]
-Meter=STRING
-MeterStyle=StyleText
-Text="enigma.kaelri.com"
-LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=downloads"]
-
-[WebsiteCaption]
-Meter=STRING
-MeterStyle=StyleNotes
-H=15
-Text="Downloads, FAQ and support links."
-
 ;----------------------------------------------
 ; UPDATE
 
@@ -168,7 +129,7 @@ MeterStyle=StyleText | StyleUpdateTextConnecting
 [UpdateCaption]
 Meter=STRING
 MeterStyle=StyleNotes | StyleUpdateNotesConnecting
-H=115
+H=100
 
 ;-----------------------
 
@@ -207,3 +168,42 @@ Text=Your version of Enigma is up to date.
 
 [StyleUpdateNotesAlpha]
 Text=Your version of Enigma is ahead of the latest release. Thanks for being an alpha tester!
+
+;----------------------------------------------
+
+[ReadmeName]
+Meter=STRING
+MeterStyle=StyleName
+Text="Readme"
+
+[ReadmeText]
+Meter=STRING
+MeterStyle=StyleText
+Text="View"
+LeftMouseUpAction=["#ROOTCONFIGPATH#About.txt"]
+ToolTipText="#ROOTCONFIGPATH#About.txt"
+
+[ReadmeCaption]
+Meter=STRING
+MeterStyle=StyleNotes
+H=15
+Text="Contact, credits and changelog."
+
+;-----------------------
+
+[WebsiteName]
+Meter=STRING
+MeterStyle=StyleName
+Text="Website"
+
+[WebsiteText]
+Meter=STRING
+MeterStyle=StyleText
+Text="enigma.kaelri.com"
+LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=downloads"]
+
+[WebsiteCaption]
+Meter=STRING
+MeterStyle=StyleNotes
+H=15
+Text="Downloads, FAQ and support links."

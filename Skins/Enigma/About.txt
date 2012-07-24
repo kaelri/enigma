@@ -1,5 +1,5 @@
 ﻿ENIGMA
-v 4 Beta 1
+Version 4 Beta 1
 by Kaelri
 
 
