@@ -194,16 +194,16 @@ function Initialize()
 		--LAYOUT
 		SidebarWidth = { File = StyleSettings },
 		SidebarSpacingFixed = { File = StyleSettings, 
-			Loop = { '0', '1' },
-			Labels = { 'No', 'Yes' }
+			Loop = { '0', '1', '2' },
+			Labels = { 'No', 'Yes', 'Double' }
 		},
 		SidebarAlpha = { File = StyleSettings },
 		SidebarImage = { File = StyleSettings },
 		SecondSidebarImage = { File = StyleSettings },
 		TaskbarHeight = { File = StyleSettings },
 		TaskbarSpacingFixed = { File = StyleSettings, 
-			Loop = { '0', '1' },
-			Labels = { 'No', 'Yes' }
+			Loop = { '0', '1', '2' },
+			Labels = { 'No', 'Yes', 'Double' }
 		},
 		TaskbarAlpha = { File = StyleSettings },
 		TaskbarImage = { File = StyleSettings },
