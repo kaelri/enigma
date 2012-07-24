@@ -2,6 +2,7 @@
 v 4 Beta 1
 by Kaelri
 
+
 -----------------------
 ABOUT
 
@@ -9,12 +10,60 @@ Enigma is a featured "suite" for the Windows system monitoring tool, Rainmeter.
 
 For more information, visit the official website at (http://enigma.kaelri.com).
 
-Contact the author at (Kaelri@gmail.com).
 
 -----------------------
-LEGAL
+CONTACT
 
-Enigma has been released to you under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License (http://creativecommons.org/licenses/by-nc-sa/3.0/).
+Blog                   http://kaelri.com
+Email                  Kaelri@gmail.com
+Twitter                @Kaelri
+Google+                Michael Engard
+
+
+-----------------------
+LICENSE & CREDITS
+
+This software has been released to you under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License (http://creativecommons.org/licenses/by-nc-sa/3.0/). Enigma contains work by the following people:
+
+Author                 Kaelri
+
+Contributing Authors   Smurfier
+                       dragonmage
+
+Concepts and Feedback  Alex2539
+                       Alex Becherer
+                       FlyingHyrax
+                       Jeffrey Morley
+                       Jiri Mahel
+                       miniority
+                       Zinsho
+
+SKINS
+
+LuaCalendar            Smurfier       
+MoonShine              benjam
+                       jER 
+MoxaWeather            moxamax         
+Rainmeter Calendar     limpet    
+Recycle Bin            Greg Schoppe
+Sunrise & Sunset       kenz0
+                       Greg Schoppe
+
+IMAGES
+
+Blackface Clock        Unknown
+CleanGlass             lassekongo     
+ecqlipse 2             chrfb      
+H.E.A.V.E.N            burnsplayguitar    
+NOOTO VS               lassekongo     
+Rainmeter Logo Packs   kenz0       
+Syzygy                 Linkz57   
+
+ADDONS
+
+FindWOEID              Jeffrey Morley
+RainRGB                Jeffrey Morley       
+
 
 -----------------------
 CHANGELOG

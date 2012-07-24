@@ -1,9 +1,47 @@
 [Variables]
-PanelHeight=500
+PanelHeight=395
 LabelsQueue=
 
 ;---------------------------------------------------------------------
 ; MEASURES
+
+[MeasureFeedTitle]
+Measure=Plugin
+Plugin=WebParser
+Url=http://kaelri.github.com/Enigma/version.xml
+RegExp=(?siU)<item>.*<title.*>(.*)</title>.*<description.*>(.*)</description>.*<version.*>(.*)</version>.*<link.*>(.*)</link>
+UpdateRate=3600
+StringIndex=1
+FinishAction=[!EnableMeasure MeasureVersionCheck]
+
+[MeasureFeedDesc]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureFeedTitle]
+StringIndex=2
+
+[MeasureFeedVersion]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureFeedTitle]
+StringIndex=3
+
+[MeasureFeedLink]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureFeedTitle]
+StringIndex=4
+
+[MeasureVersionCheck]
+Measure=Calc
+Formula=MeasureFeedVersion - #EnigmaVersionAbsolute#
+IfAboveValue=0
+IfAboveAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextYes"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesYes"][!Redraw]
+IfEqualValue=0
+IfEqualAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextNo"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesNo"][!Redraw]
+IfBelowValue=0
+IfBelowAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextNo"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesAlpha"][!Redraw]
+Disabled=1
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -20,8 +58,9 @@ Text="Version"
 
 [VersionText]
 Meter=STRING
-MeterStyle=StyleHome
+MeterStyle=StyleText
 Text="#EnigmaVersion#"
+FontColor=255,255,255,217
 
 [DateName]
 Meter=STRING
@@ -30,8 +69,9 @@ Text="Date"
 
 [DateText]
 Meter=STRING
-MeterStyle=StyleHome
+MeterStyle=StyleText
 Text="#EnigmaDate#"
+FontColor=255,255,255,217
 
 [RevName]
 Meter=STRING
@@ -40,8 +80,11 @@ Text="Platform"
 
 [RevText]
 Meter=STRING
-MeterStyle=StyleHome
+MeterStyle=StyleText
 Text="Rainmeter #EnigmaRev#"
+FontColor=#ColorLink#
+LeftMouseUpAction=["http://rainmeter.net"]
+ToolTipText="Visit Rainmeter.net."
 
 [LicenseName]
 Meter=STRING
@@ -50,8 +93,11 @@ Text="License"
 
 [LicenseText]
 Meter=STRING
-MeterStyle=StyleHome
+MeterStyle=StyleText
 Text="Creative Commons BY-NC-SA 3.0"
+FontColor=#ColorLink#
+LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=legal"]
+ToolTipText="View license and credits."
 
 [AuthorName]
 Meter=STRING
@@ -60,39 +106,31 @@ Text="Author"
 
 [AuthorText]
 Meter=STRING
-MeterStyle=StyleHome
+MeterStyle=StyleText
 Text="Kaelri"
+FontColor=#ColorLink#
+LeftMouseUpAction=["http://kaelri.com"]
+ToolTipText="View author's website."
 
 ;-----------------------
 
-[ContactName]
+[ReadmeName]
 Meter=STRING
 MeterStyle=StyleName
-Text="Contact"
+Text="Readme"
 
-[ContactText]
+[ReadmeText]
 Meter=STRING
-MeterStyle=StyleHome | StyleHomeLink
-Text="Email"
-LeftMouseUpAction=["mailto:Kaelri@gmail.com"]
-ToolTipTitle=Kaelri@gmail.com
-ToolTipText=Email address.
+MeterStyle=StyleText
+Text="View"
+LeftMouseUpAction=["#ROOTCONFIGPATH#About.txt"]
+ToolTipText="#ROOTCONFIGPATH#About.txt"
 
-[ContactText2]
+[ReadmeCaption]
 Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeLink
-Text="Google+"
-LeftMouseUpAction=["https://plus.google.com/105475850290146211472/"]
-ToolTipTitle=Michael Engard
-ToolTipText=Google+ profile.
-
-[ContactText3]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeLink
-Text="Twitter"
-LeftMouseUpAction=["http://twitter.com/Kaelri"]
-ToolTipTitle=@Kaelri
-ToolTipText=Twitter account.
+MeterStyle=StyleNotes
+H=15
+Text="Contact, credits and changelog."
 
 ;-----------------------
 
@@ -101,204 +139,71 @@ Meter=STRING
 MeterStyle=StyleName
 Text="Website"
 
-; [WebsiteText]
-; Meter=STRING
-; MeterStyle=StyleText
-; Text="Home"
-; LeftMouseUpAction=["http://enigma.kaelri.com"]
-
-; [WebsiteCaption]
-; Meter=STRING
-; MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
-; Text="Design, history and features."
-
-[WebsiteText2]
+[WebsiteText]
 Meter=STRING
 MeterStyle=StyleText
-Text="Downloads"
+Text="enigma.kaelri.com"
 LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=downloads"]
 
-[WebsiteCaption2]
+[WebsiteCaption]
 Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
-Text="Complementary skins and addons."
-
-[WebsiteText3]
-Meter=STRING
-MeterStyle=StyleText | StyleTextSub
-Text="F.A.Q."
-LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=faq"]
-
-[WebsiteCaption3]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
-Text="Common questions and issues."
-
-[WebsiteText4]
-Meter=STRING
-MeterStyle=StyleText | StyleTextSub
-Text="Support"
-LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=support"]
-
-[WebsiteCaption4]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
-Text="Tech support and development threads."
-
-[WebsiteText5]
-Meter=STRING
-MeterStyle=StyleText | StyleTextSub
-Text="Legal"
-LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=legal"]
-
-[WebsiteCaption5]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
-Text="Credits and legal information."
-
-[WebsiteText6]
-Meter=STRING
-MeterStyle=StyleText | StyleTextSub
-Text="Donate"
-LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=donate"]
-
-[WebsiteCaption6]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub | StyleHomeCaption
-Text="Show your appreciation for Enigma."
-
-;-----------------------
-
-[ChangelogName]
-Meter=STRING
-MeterStyle=StyleName
-Text="Changelog"
-
-[ChangelogText]
-Meter=STRING
-MeterStyle=StyleText
-Text="View..."
-LeftMouseUpAction=["#ROOTCONFIGPATH#About.txt"]
-
-;-----------------------
-
-[NotesName]
-Meter=STRING
-MeterStyle=StyleName
-Text="Notes"
-
-[NotesText1]
-Meter=STRING
-MeterStyle=StyleHome
-Text=This suite would not exist without the
-
-[NotesText2]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub
-Text=support and contributions of members
-
-[NotesText3]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub
-Text=of the community and the Rainmeter
-
-[NotesText4]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub
-Text=development team.
-
-[NotesText5]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub
-Text=
-
-[NotesText6]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub
-Text=Thank you for your hard work and your
-
-[NotesText7]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub
-Text=continuing belief in the Rainmeter
-
-[NotesText8]
-Meter=STRING
-MeterStyle=StyleHome | StyleHomeSub
-Text=project.
+MeterStyle=StyleNotes
+H=15
+Text="Downloads, FAQ and support links."
 
 ;----------------------------------------------
-; STATUS
+; UPDATE
 
-[MeasureVersion]
-Measure=Plugin
-Plugin=WebParser
-Url=http://kaelri.github.com/Enigma/version.txt
-RegExp=(?siU)<version>(.*)</version>.*<link>(.*)</link>
-UpdateRate=3600
-StringIndex=1
-FinishAction=!EnableMeasure "MeasureCheck"
-
-[MeasureLink]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureVersion]
-StringIndex=2
-
-[MeasureCheck]
-Measure=CALC
-Formula=10*(MeasureVersion-#EnigmaVersionNum#)
-IfAboveValue=0
-IfAboveAction=[!SetOption "Update" "MeterStyle" "StyleUpdateYes"][!Redraw]
-IfEqualValue=0
-IfEqualAction=[!SetOption "Update" "MeterStyle" "StyleUpdateNo"][!Redraw]
-IfBelowValue=0
-IfBelowAction=[!SetOption "Update" "MeterStyle" "StyleUpdateBeta"][!Redraw]
-Disabled=1
+[UpdateName]
+Meter=STRING
+MeterStyle=StyleName
+Text="Update"
 
 ;-----------------------
 
-[StyleUpdateConnecting]
+[UpdateText]
+Meter=STRING
+MeterStyle=StyleText | StyleUpdateTextConnecting
+
+[UpdateCaption]
+Meter=STRING
+MeterStyle=StyleNotes | StyleUpdateNotesConnecting
+H=115
+
+;-----------------------
+
+[StyleUpdateTextConnecting]
 Text="Connecting to GitHub..."
-TooltipTitle="Trying to Connect"
-TooltipText="If this message is not changing, there may be a problem with your Internet connection. Rainmeter may also have been blocked by a firewall application. Refresh this config when the issue has been resolved."
-FontColor=255,255,255
+LeftMouseUpAction=["https://github.com/Kaelri/Enigma"]
 
-[StyleUpdateNo]
-Text="Your version of Enigma is up to date."
-FontColor=255,255,255,160
-
-[StyleUpdateYes]
-Text="Upgrade to Enigma [MeasureVersion]"
-FontColor=128,192,255,217
-StringStyle=BOLD
-LeftMouseUpAction=["[MeasureLink]"]
-TooltipTitle="Upgrade to Enigma [MeasureVersion]"
-TooltipText="An update is available! Click here to download the latest Enigma installer in your browser."
-TooltipWidth=300
-
-[StyleUpdateBeta]
-Text="Thanks for helping us test Enigma #EnigmaVersion#!"
-FontColor=255,255,255,160
+[StyleUpdateNotesConnecting]
+Text=If this message does not disappear, Enigma may be unable to check for updates. Check your network and firewall settings, or click above to go to GitHub.
 
 ;-----------------------
 
+[StyleUpdateTextYes]
+DynamicVariables=1
+Text=[MeasureFeedTitle]
+LeftMouseUpAction=["[MeasureFeedLink]"]
+ToolTipText=[MeasureFeedLink]
 
+[StyleUpdateNotesYes]
+DynamicVariables=1
+Text=An update is available!#CRLF##CRLF#[MeasureFeedDesc]
 
-[UpdateConnecting]
-Meter=STRING
-X=10
-Y=(#PanelHeight#-23)
-FontFace=Trebuchet MS
-FontSize=7
-AntiAlias=1
+;-----------------------
 
-[Update]
-Meter=STRING
-MeterStyle=StyleUpdateConnecting
-X=10
-Y=(#PanelHeight#-23)
-FontFace=Trebuchet MS
-FontSize=7
-AntiAlias=1
-TooltipWidth=300
+[StyleUpdateTextNo]
+FontColor=255,255,255,128
+DynamicVariables=1
+Text=None.
+LeftMouseUpAction=["[MeasureFeedLink]"]
+ToolTipText=[MeasureFeedLink]
+
+[StyleUpdateNotesNo]
+Text=Your version of Enigma is up to date.
+
+;-----------------------
+
+[StyleUpdateNotesAlpha]
+Text=Your version of Enigma is ahead of the latest release. Thanks for being an alpha tester!
