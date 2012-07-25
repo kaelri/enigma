@@ -28,8 +28,8 @@ MaxWidth=#TaskbarMaxSkinWidth#
 [StyleNormalBackground]
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!Update]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!UpdateMeter #CURRENTSECTION#][!Redraw]
 ScaleMargins=12,12,12,12
 X=0
 Y=0
@@ -86,8 +86,8 @@ Hidden=1
 [StyleMiniBackground]
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!UpdateMeter #CURRENTSECTION#][!Redraw]
 ScaleMargins=12,12,12,12
 X=0
 Y=0
@@ -144,8 +144,8 @@ Hidden=1
 [StyleTinyBackground]
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!UpdateMeter #CURRENTSECTION#][!Redraw]
 ScaleMargins=11,11,11,11
 X=0
 Y=0
@@ -201,8 +201,8 @@ Hidden=1
 [StyleIconBackground]
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!UpdateMeter #CURRENTSECTION#][!Redraw]
 ScaleMargins=12,12,12,12
 X=0
 Y=0
@@ -259,8 +259,8 @@ Hidden=1
 [StyleIconRightBackground]
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!UpdateMeter #CURRENTSECTION#][!Redraw]
 ScaleMargins=12,12,12,12
 X=0
 Y=0
@@ -318,8 +318,8 @@ Hidden=1
 [StyleIconOnlyBackground]
 ImageName=#@#Images\SkinBackground.#ColorImage#.png
 ImageAlpha=1
-MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha 100][!Update]
-MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!Update]
+MouseOverAction=[!SetOption #CURRENTSECTION# ImageAlpha #SkinBackgroundAlpha#][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# ImageAlpha 1][!UpdateMeter #CURRENTSECTION#][!Redraw]
 ScaleMargins=12,12,12,12
 X=0
 Y=0

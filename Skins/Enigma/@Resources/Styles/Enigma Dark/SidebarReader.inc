@@ -69,8 +69,8 @@ FontFace=#Font#
 AntiAlias=1
 ToolTipWidth=#SidebarWidth#
 DynamicVariables=1
-MouseOverAction=[!SetOption "#CURRENTSECTION#" "FontColor" "#ColorLink#"][!Update]
-MouseLeaveAction=[!SetOption "#CURRENTSECTION#" "FontColor" "#Color1#"][!Update]
+MouseOverAction=[!SetOption "#CURRENTSECTION#" "FontColor" "#ColorLink#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption "#CURRENTSECTION#" "FontColor" "#Color1#"][!UpdateMeter #CURRENTSECTION#][!Redraw]
 
 [StyleReaderTextSubheading]
 Y=16r

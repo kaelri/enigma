@@ -59,8 +59,6 @@ FontFace=#Font#
 AntiAlias=1
 ToolTipWidth=#SidebarWidth#
 DynamicVariables=1
-MouseOverAction=[!SetOption "#CURRENTSECTION#" "FontColor" "#ColorLink#"][!Update]
-MouseLeaveAction=[!SetOption "#CURRENTSECTION#" "FontColor" "#Color1#"][!Update]
 
 [StyleProcessNumber]
 X=#Col2Width#R

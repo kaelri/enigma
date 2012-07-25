@@ -260,6 +260,6 @@ function Default(Key, Confirm)
 	else
 		SKIN:Bang('!SetVariable', 'SelectedDefault', Key)
 		SKIN:Bang('!ShowMeterGroup', 'Default')
-		SKIN:Bang('!Update')
+		SKIN:Bang('!Redraw')
 	end
 end
