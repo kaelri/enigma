@@ -70,8 +70,8 @@ CHANGELOG
 
 4 Beta 1
 --------
-Date: 1 August, 2012
-App: Rainmeter 2.4 Beta (r1568)
+Date: 25 July, 2012
+App: Rainmeter 2.4 Beta (r1570)
 
 - [Skins] Added Process: sorts Windows processes by CPU usage.
 - [Skins] Added Reader, Facebook and Remember the Milk for Taskbar.
