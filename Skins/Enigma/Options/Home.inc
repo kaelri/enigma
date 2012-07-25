@@ -8,39 +8,40 @@ LabelsQueue=
 [MeasureFeedTitle]
 Measure=Plugin
 Plugin=WebParser
-Url=http://kaelri.github.com/Enigma/version.xml
-RegExp=(?siU)<item>.*<title.*>(.*)</title>.*<description.*>(.*)</description>.*<version.*>(.*)</version>.*<link.*>(.*)</link>
+Url=http://kaelri.github.com/Enigma/update/version.xml
+RegExp=(?siU)<item>.*<title.*>(.*)</title>.*<version.*>(.*)</version>.*<link.*>(.*)</link>
 UpdateRate=3600
 StringIndex=1
 FinishAction=[!EnableMeasure MeasureVersionCheck]
-
-[MeasureFeedDesc]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureFeedTitle]
-StringIndex=2
 
 [MeasureFeedVersion]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureFeedTitle]
-StringIndex=3
+StringIndex=2
 
 [MeasureFeedLink]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureFeedTitle]
-StringIndex=4
+StringIndex=3
+
+[MeasurePreviewThumbnail]
+Measure=Plugin
+Plugin=WebParser
+Url=http://kaelri.github.com/Enigma/update/preview-150px.png
+Download=1
+UpdateRate=3600
 
 [MeasureVersionCheck]
 Measure=Calc
 Formula=MeasureFeedVersion - #EnigmaVersionAbsolute#
 IfAboveValue=0
-IfAboveAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextYes"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesYes"][!Redraw]
+IfAboveAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextYes"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesYes"][!ShowMeter UpdatePreview][!Redraw]
 IfEqualValue=0
-IfEqualAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextNo"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesNo"][!Redraw]
+IfEqualAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextNo"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesNo"][!HideMeter UpdatePreview][!Redraw]
 IfBelowValue=0
-IfBelowAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextNo"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesAlpha"][!Redraw]
+IfBelowAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextNo"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesAlpha"][!HideMeter UpdatePreview][!Redraw]
 Disabled=1
 
 ;---------------------------------------------------------------------
@@ -131,6 +132,16 @@ Meter=STRING
 MeterStyle=StyleNotes | StyleUpdateNotesConnecting
 H=100
 
+[UpdatePreview]
+Meter=Image
+MeasureName=MeasurePreviewThumbnail
+X=r
+Y=15r
+LeftMouseUpAction=["[MeasureFeedLink]"]
+ToolTipText=[MeasureFeedLink]
+DynamicVariables=1
+Hidden=1
+
 ;-----------------------
 
 [StyleUpdateTextConnecting]
@@ -150,7 +161,7 @@ ToolTipText=[MeasureFeedLink]
 
 [StyleUpdateNotesYes]
 DynamicVariables=1
-Text=An update is available!#CRLF##CRLF#[MeasureFeedDesc]
+Text=An update is available!
 
 ;-----------------------
 
@@ -175,6 +186,7 @@ Text=Your version of Enigma is ahead of the latest release. Thanks for being an 
 Meter=STRING
 MeterStyle=StyleName
 Text="Readme"
+Y=90r
 
 [ReadmeText]
 Meter=STRING
