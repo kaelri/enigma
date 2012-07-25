@@ -16,7 +16,7 @@ function Initialize()
 		SKIN:Bang('!SetOption', 'Day'..i..'Label', 'Text', tLabels[iStartOnMondays and i%7+1 or i])
 	end
 	
-	hFile = {month={}, day={}, year={}, desc={}, title={}, color={},}
+	hFile = {}
 	local Files = SELF:GetNumberOption('ShowEvents', 0) > 0 and Delim(SELF:GetOption('EventFile')) or {}
 	if #Files > 1 then
 		local Folder = table.remove(Files, 1) -- Remove Folder name from table.
@@ -36,6 +36,7 @@ function Initialize()
 				ErrMsg(0,'Invalid Event File',FileName)
 			else
 				local eFile,eSet={},{}
+				local default = {month='', day='', year=nil, desc='', title=nil, color='',}
 				local sw={ -- Define Event File tags
 					set = function(x) table.insert(eSet, Keys(x)) end,
 					['/set'] = function(x) table.remove(eSet, #eSet) end,
@@ -44,7 +45,10 @@ function Initialize()
 					event = function(x)
 						local Tmp = Keys(x)
 						local dSet = ParseTbl(eSet)
-						for key,_ in pairs(hFile) do table.insert(hFile[key], Tmp[key] or dSet[key] or eFile[key] or '') end end,
+						local tbl = {}
+						for key,value in pairs(default) do tbl[key] = Tmp[key] or dSet[key] or eFile[key] or value end
+						table.insert(hFile,tbl)
+					end,
 					default = function(x, y) ErrMsg(0,'Invalid Event Tag:',y) end, -- Error
 				}
 				for line in string.gmatch(text, '%b<>') do -- For each file line, ignoring tabs.
@@ -110,20 +114,23 @@ end -- Update
 
 function Events() -- Parse Events table.
 	Hol={}
-	local Test = function(value, prefix) return value == '' and '' or (prefix and prefix..value or nil) end
-
-	for i = 1, #hFile.month do -- For each event.
-		if SKIN:ParseFormula(Vars(hFile.month[i], hFile.desc[i])) == Date.month or hFile.month[i] == '*' then
+	
+	for _,event in ipairs(hFile) do
+		if SKIN:ParseFormula(Vars(event.month, event.desc)) == Date.month or event.month == '*' then
 			
-			local day = SKIN:ParseFormula(Vars(hFile.day[i], hFile.desc[i])) or ErrMsg(0,'Invalid Event Day',hFile.day[i],'in',hFile.desc[i])
-			local event = hFile.desc[i]..(Test(hFile.year[i]) or ' ('..math.abs(Year-hFile.year[i])..')')..Test(hFile.title[i],' -')
-			local color = string.match(hFile.color[i], ',') and ConvertToHex(hFile.color[i]) or hFile.color[i]
+			local day = SKIN:ParseFormula(Vars(event.day, event.desc)) or ErrMsg(0,'Invalid Event Day',event.day,'in',event.desc)
+			local color = string.match(event.color, ',') and ConvertToHex(event.color) or event.color
+			local desc = table.concat{
+				event.desc,
+				event.year and ' ('..math.abs(Year-event.year)..')' or '',
+				event.title and ' -'..event.title or '',
+			}
 			
 			if Hol[day] then
-				table.insert(Hol[day]['text'], event)
+				table.insert(Hol[day]['text'], desc)
 				table.insert(Hol[day]['color'], color)
 			else
-				Hol[day] = {text={event}, color={color},}
+				Hol[day] = {text={desc}, color={color},}
 			end
 		end
 	end
