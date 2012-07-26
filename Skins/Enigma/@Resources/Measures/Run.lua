@@ -3,8 +3,12 @@ function Initialize()
 	Execute = {}
 	if io.type(file) == 'file' then
 		for line in io.lines() do
-			local key,command = string.match(line, '^%s-([^=]+)=(.+)')
-			Execute[string.lower(string.match(key, '(.+)%s-$'))] = command
+			if not string.match(line,'^;')then
+				local key,command = string.match(line, '^%s-([^=]+)=(.+)')
+				if key and command then
+					Execute[string.lower(string.match(key, '(.+)%s-$'))] = command
+				end
+			end
 		end
 		io.close(file)
 	end
@@ -19,6 +23,13 @@ function Run()
 	elseif string.match(string.lower(command), '^web ') then
 		local term = string.match(command, '^... (.+)')
 		SKIN:Bang('http://'..(string.match(term, '%.') and term or term..'.com'))
+	elseif string.match(string.lower(command), '^options') then
+		local term = string.match(command, '^.+ (.+)')
+		local options = {home='',general='',music='',feeds='',world='',apps='',search='',format='',layout='',}
+		if options[term or ''] then
+			SKIN:Bang('!WriteKeyValue','Variables','Panel',term,'#ROOTCONFIGPATH#Options\\Options.ini')
+		end
+		SKIN:Bang('!ActivateConfig','Enigma\\Options')
 	else
 		SKIN:Bang(Execute[string.lower(command)] or command)
 	end
