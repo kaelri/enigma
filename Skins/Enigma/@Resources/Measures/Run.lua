@@ -12,5 +12,14 @@ end
 
 function Run()
 	local command = SKIN:GetVariable('Run')
-	SKIN:Bang(Execute[string.lower(command)] or command)
+	if string.match(string.lower(command), '^search ') then
+		local term = string.gsub(string.match(command, '^...... (.+)'), '%s', '%%%%20')
+		local search = string.gsub(SKIN:GetVariable('Search1Command'), '%$UserInput%$', term)
+		SKIN:Bang(search)
+	elseif string.match(string.lower(command), '^web ') then
+		local term = string.match(command, '^... (.+)')
+		SKIN:Bang('http://'..(string.match(term, '%.') and term or term..'.com'))
+	else
+		SKIN:Bang(Execute[string.lower(command)] or command)
+	end
 end
