@@ -22,7 +22,7 @@ function Run()
 		SKIN:Bang(search)
 	elseif string.match(string.lower(command), '^web ') then
 		local term = string.match(command, '^... (.+)')
-		SKIN:Bang('http://'..(string.match(term, '%.') and term or term..'.com'))
+		SKIN:Bang('http://www.'..(string.match(term, '%.') and term or term..'.com'))
 	elseif string.match(string.lower(command), '^options') then
 		local term = string.match(command, '^.+ (.+)')
 		local options = {home='',general='',music='',feeds='',world='',apps='',search='',format='',layout='',}
