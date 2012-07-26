@@ -10,6 +10,7 @@ function Initialize()
 	end
 end
 
-function Run(command)
+function Run()
+	local command = SKIN:GetVariable('Run')
 	SKIN:Bang(Execute[command] or command)
 end
