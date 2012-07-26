@@ -61,10 +61,10 @@ TwitterPassword=YourPasswordHere
 ;-----------------------
 ; WORLD
 
-WeatherCode=
-WeatherCodeName=YourWeatherCodeHere
-WeatherCodeLat=
-WeatherCodeLon=
+WeatherCode=44418
+WeatherCodeName=London
+WeatherCodeLat=51.51
+WeatherCodeLon=-0.13
 Unit=c
 World1WeatherCode=44418
 World1WeatherCodeName=London
