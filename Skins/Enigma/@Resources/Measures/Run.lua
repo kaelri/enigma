@@ -22,7 +22,9 @@ function Run()
 		SKIN:Bang(search)
 	elseif string.match(string.lower(command), '^web ') then
 		local term = string.match(command, '^... (.+)')
-		SKIN:Bang('http://www.'..(string.match(term, '%.') and term or term..'.com'))
+		local tbl = {}
+		for word in string.gmatch(term, '[^%.]+') do table.insert(tbl, word) end
+		SKIN:Bang('http://'..(#tbl>=3 and '' or 'www.')..table.concat(tbl,'.')..(#tbl>=2 and '' or '.com'))
 	elseif string.match(string.lower(command), '^options') then
 		local term = string.match(command, '^.+ (.+)')
 		local options = {home='',general='',music='',feeds='',world='',apps='',search='',format='',layout='',}
