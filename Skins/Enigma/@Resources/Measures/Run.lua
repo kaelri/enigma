@@ -16,9 +16,11 @@ end
 
 function Run()
 	local command = SKIN:GetVariable('Run')
-	if string.match(string.lower(command), '^search ') then
-		local term = string.gsub(string.match(command, '^...... (.+)'), '%s', '%%%%20')
-		local search = string.gsub(SKIN:GetVariable('Search1Command'), '%$UserInput%$', term)
+	if string.match(string.lower(command), '^search%d? ') then
+		local num = tonumber(string.match(string.lower(command), '^search(%d)') or 1)
+		local searchnum = (num>=1 and num<=5) and num or 1
+		local term = string.gsub(string.match(command, '^......%d? (.+)'), '%s', '%%%%20')
+		local search = string.gsub(SKIN:GetVariable('Search'..searchnum..'Command'), '%$UserInput%$', term)
 		SKIN:Bang(search)
 	elseif string.match(string.lower(command), '^web ') then
 		local term = string.match(command, '^... (.+)')
