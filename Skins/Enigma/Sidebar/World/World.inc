@@ -22,7 +22,7 @@ DaylightSavingTime=1
 Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
-Format="%#H.%M.%S  Â·  %a"
+Format="%#H.%M.%S  ·  %a"
 Substitute="Sun":"SUN","Mon":"MON","Tue":"TUE","Wed":"WED","Thu":"THU","Fri":"FRI","Sat":"SAT"
 DaylightSavingTime=1
 
@@ -30,7 +30,7 @@ DaylightSavingTime=1
 Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
-Format="%#d %b  Â·  %Y"
+Format="%#d %b  ·  %Y"
 Substitute="Jan":"JAN","Feb":"FEB","Mar":"MAR","Apr":"APR","May":"MAY","Jun":"JUN","Jul":"JUL","Aug":"AUG","Sep":"SEP","Oct":"OCT","Nov":"NOV","Dec":"DEC"
 DaylightSavingTime=1
 
@@ -108,7 +108,7 @@ Meter=STRING
 MeterStyle=StyleWorldText
 MeasureName=MeasureWeatherTemp
 MeasureName2=MeasureWeatherDesc
-Text="%1Â° Â· %2"
+Text="%1° · %2"
 LeftMouseUpAction=[[MeasureYahooWeather]][!Redraw]
 
 [Digital]
