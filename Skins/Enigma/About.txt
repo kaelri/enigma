@@ -68,6 +68,15 @@ RainRGB                Jeffrey Morley
 -----------------------
 CHANGELOG
 
+4 Beta 2
+--------
+Date: 26 July, 2012
+App: Rainmeter 2.4 Beta (r1570)
+
+- [Skins] Changed Run: added user-editable pre-defined shortcuts, as well as built-in "search" and "web" shortcuts.
+- [Skins] Fixed Options: missing variables caused user settings to be wrongfully discarded when reinstalling Enigma.
+- [Skins] Fixed World: character encoding issue caused extra characters to appear.
+
 4 Beta 1
 --------
 Date: 25 July, 2012
