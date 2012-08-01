@@ -36,7 +36,7 @@ function Initialize()
 				ErrMsg(0,'Invalid Event File',FileName)
 			else
 				local eFile,eSet={},{}
-				local default = {month='', day='', year='', desc='', title='', color='',}
+				local default = {month='', day='', year=false, desc='', title=false, color='',}
 				local sw={ -- Define Event File tags
 					set = function(x) table.insert(eSet, Keys(x)) end,
 					['/set'] = function(x) table.remove(eSet, #eSet) end,
@@ -122,8 +122,8 @@ function Events() -- Parse Events table.
 			local color = string.match(event.color, ',') and ConvertToHex(event.color) or event.color
 			local desc = table.concat{
 				event.desc,
-				event.year~='' and ' ('..math.abs(Year-event.year)..')' or '',
-				event.title~='' and ' -'..event.title or '',
+				event.year and ' ('..math.abs(Year-event.year)..')' or '',
+				event.title and ' -'..event.title or '',
 			}
 			
 			if Hol[day] then
