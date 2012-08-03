@@ -88,7 +88,6 @@ AntiAlias=1
 X=9r
 W=(#SidebarWidth#-163)
 StringAlign=LEFT
-SolidColor=255,0,0,128
 
 [StyleSystemNormalText2]
 X=9r
@@ -99,7 +98,6 @@ StringAlign=LEFT
 X=-9r
 W=75
 StringAlign=RIGHT
-SolidColor=0,0,255,128
 
 [StyleSystemNormalText4]
 X=-9r
@@ -266,7 +264,6 @@ AntiAlias=1
 X=9r
 W=(#SidebarWidth#-163)
 StringAlign=LEFT
-SolidColor=255,0,0,128
 
 [StyleSystemGraphText2]
 X=9r
@@ -277,7 +274,6 @@ StringAlign=LEFT
 X=-9r
 W=75
 StringAlign=RIGHT
-SolidColor=0,0,255,128
 
 [StyleSystemGraphText4]
 X=-9r
