@@ -1,5 +1,5 @@
 [Variables]
-PanelHeight=535
+PanelHeight=550
 ArrowY=48
 LabelsQueue=CalendarShowEvents|CalendarExtraDays|CalendarLeadingZeroes|CalendarMondays|GallerySubfolders|TriptychDisabled
 
@@ -132,9 +132,23 @@ TooltipText=Click to type the letters of up to three of your hard drives or SSDs
 
 ;-----------------------
 
-[NetworkMaxDownloadName]
+[SystemGraphTypeName]
 Meter=STRING
 MeterStyle=StyleName
+Text=Graph Type
+
+[SystemGraphTypeText]
+Meter=STRING
+MeterStyle=StyleText
+Text="#SystemGraphType#"
+LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('SystemGraphType')"
+RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SystemGraphType')"
+TooltipTitle="System Graph Type (Floating/Percent)"
+TooltipText=Click to toggle how the Enigma System and Network skins show graphs. "Floating" means that the maximum will be the highest value on the graph. "Percent" means that the maximum will be 100% (for CPU) or your max upload/download speeds (for Network).
+
+[NetworkMaxDownloadName]
+Meter=STRING
+MeterStyle=StyleName | StyleNameSub
 Text=Max Down Speed
 
 [NetworkMaxDownloadText]

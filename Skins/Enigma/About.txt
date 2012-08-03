@@ -101,6 +101,7 @@ App: Rainmeter 2.4 Beta (r1570)
 - [Skins] Changed Google Calendar Reader: switched to "full" calendar feed for more reliability.
 - [Skins] Changed Google Calendar Reader: added feature to automatically save events to XML file, which can be displayed in Calendar (see above). [by Smurfier]
 - [Skins] Changed Google Calendar Reader (Options): now automatically replaces "/basic" with "/full" when saving Google Calendar feeds.
+- [Skins] Changed System: added option to toggle between Floating or Percent graph scales.
 - [Skins] Changed WeatherToday, WeatherTomorrow: replaced descriptions with date labels.
 - [Skins] Changed Weather (Options): added Weather Code Finder utility to search for your weather code from within Enigma.
 - [Skins] Changed World (Options): Daylight Savings Time offsets are now calculated automatically.

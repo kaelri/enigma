@@ -20,6 +20,7 @@ DefaultDrive2=E
 DefaultDrive3=F
 DefaultNetworkMaxDownload=1000000
 DefaultNetworkMaxUpload=500000
+DefaultSystemGraphType=Floating
 DefaultCalendarEventFile=#*@*#User\Calendars\Holidays.xml
 DefaultCalendarShowEvents=1
 DefaultCalendarExtraDays=1

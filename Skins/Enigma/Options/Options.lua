@@ -13,6 +13,9 @@ function Initialize()
 		Drive3 = { File = EnigmaSettings },
 		NetworkMaxDownload = { File = EnigmaSettings },
 		NetworkMaxUpload = { File = EnigmaSettings },
+		SystemGraphType = { File = EnigmaSettings,
+			Loop = { 'Floating', 'Percent' }
+		},
 		CalendarEventFile = { File = EnigmaSettings },
 		CalendarShowEvents = { File = EnigmaSettings, 
 			Loop = { '0', '1' },

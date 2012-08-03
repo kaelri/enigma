@@ -1,11 +1,23 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
-[MeasureNetIn]
+[MeasureNetInFloating]
 Measure=NetIn
+MaxValue=1000000
+MinValue=0
 
-[MeasureNetOut]
+[MeasureNetInPercent]
+Measure=Calc
+Formula=MeasureNetInFloating / #NetworkMaxDownload#
+
+[MeasureNetOutFloating]
 Measure=NetOut
+MaxValue=1000000
+MinValue=0
+
+[MeasureNetOutPercent]
+Measure=Calc
+Formula=MeasureNetOutFloating / #NetworkMaxUpload#
 
 [MeasureSSID]
 Measure=Plugin
@@ -131,12 +143,12 @@ MeterStyle=StyleSystem#Variant#Border | StyleSystem#Variant#Border5
 [NetOut]
 Meter=Histogram
 MeterStyle=StyleSystem#Variant#Graph | StyleSystem#Variant#Graph1
-MeasureName=MeasureNetOut
+MeasureName=MeasureNetOut#SystemGraphType#
 
 [NetIn]
 Meter=Histogram
 MeterStyle=StyleSystem#Variant#Graph | StyleSystem#Variant#Graph2
-MeasureName=MeasureNetIn
+MeasureName=MeasureNetIn#SystemGraphType#
 
 ;-----------------------
 ; LOWER TEXT
@@ -150,7 +162,7 @@ Text="UP"
 [NetOutNumber]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#GraphText | StyleSystem#Variant#GraphText1
-MeasureName=MeasureNetOut
+MeasureName=MeasureNetOutFloating
 AutoScale=1
 NumOfDecimals=0
 
@@ -163,6 +175,6 @@ Text="DOWN"
 [NetInNumber]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#GraphText | StyleSystem#Variant#GraphText2
-MeasureName=MeasureNetIn
+MeasureName=MeasureNetInFloating
 AutoScale=1
 NumOfDecimals=0

@@ -17,6 +17,7 @@ Drive2=E
 Drive3=F
 NetworkMaxDownload=1000000
 NetworkMaxUpload=500000
+SystemGraphType=Floating
 CalendarEventFile=#@#User\Calendars\Holidays.xml
 CalendarShowEvents=1
 CalendarExtraDays=1
