@@ -77,7 +77,7 @@ Y=15r
 [StyleSystemNormalText]
 Y=r
 H=15
-W=(#SidebarWidth#-80)
+ClipString=1
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
@@ -86,18 +86,24 @@ AntiAlias=1
 
 [StyleSystemNormalText1]
 X=9r
+W=(#SidebarWidth#-163)
 StringAlign=LEFT
+SolidColor=255,0,0,128
 
 [StyleSystemNormalText2]
 X=9r
+W=(#SidebarWidth#-163)
 StringAlign=LEFT
 
 [StyleSystemNormalText3]
 X=-9r
+W=75
 StringAlign=RIGHT
+SolidColor=0,0,255,128
 
 [StyleSystemNormalText4]
 X=-9r
+W=75
 StringAlign=RIGHT
 
 [StyleSystemNormalTextDark]
@@ -249,9 +255,8 @@ Y=15r
 [StyleSystemGraphText]
 Y=r
 H=15
-W=(#SidebarWidth#-80)
+ClipString=1
 FontColor=#Color1#
-;FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size3#
 StringStyle=NORMAL
@@ -259,19 +264,28 @@ AntiAlias=1
 
 [StyleSystemGraphText1]
 X=9r
+W=(#SidebarWidth#-163)
 StringAlign=LEFT
+SolidColor=255,0,0,128
 
 [StyleSystemGraphText2]
 X=9r
+W=(#SidebarWidth#-163)
 StringAlign=LEFT
 
 [StyleSystemGraphText3]
 X=-9r
+W=75
 StringAlign=RIGHT
+SolidColor=0,0,255,128
 
 [StyleSystemGraphText4]
 X=-9r
+W=75
 StringAlign=RIGHT
+
+[StyleSystemGraphTextDark]
+FontColor=#Color2#
 
 ;----------------------------------------------
 ; GRAPH FRAME
