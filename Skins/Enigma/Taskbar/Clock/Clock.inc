@@ -18,7 +18,7 @@ Format="%#S"
 
 [MeasureBar]
 Measure=Calc
-Measure=MeasureSeconds / 60
+Formula=MeasureSeconds / 60
 
 ;---------------------------------------------------------------------
 ; METERS

@@ -33,7 +33,7 @@ DaylightSavingTime=1
 
 [MeasureBar]
 Measure=Calc
-Measure=MeasureTimeSeconds / 60
+Formula=MeasureTimeSeconds / 60
 
 ;---------------------------------------------------------------------
 ; METERS
