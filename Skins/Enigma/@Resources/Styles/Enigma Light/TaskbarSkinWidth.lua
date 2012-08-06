@@ -13,19 +13,27 @@ function Update()
 
 	TextW = MeterText:GetW()
 	LabelW = MeterLabel:GetW()
-	if Variant == 'IconRight' then
-		W = MaxW
-	elseif Variant == 'Mini' or Variant == 'Tiny' then
-		W = TextW + LabelW
-	else
-		W = math.max(TextW, LabelW)
-	end
-	W = math.min(math.max(W, MinW), MaxW)
 
-	if TextW ~= LastTextW or LabelW ~= LastLabelW then
+	--DETECT CHANGE
+	if (TextW ~= LastTextW) or (LabelW ~= LastLabelW) then
+		LastTextW = TextW
+		LastLabelW = LabelW
+
+		--CALCULATE WIDTH
+		if Variant == 'IconRight' then
+			W = MaxW
+		elseif Variant == 'Mini' or Variant == 'Tiny' then
+			W = TextW + LabelW
+		else
+			W = math.max(TextW, LabelW)
+		end
+		W = math.min(math.max(W, MinW), MaxW)
+
+		--UPDATE VARIABLE
 		SKIN:Bang('!SetVariable', 'TaskbarSkinWidth', W)
+
+		--CLIP STRINGS
 		if Variant == 'Mini' or Variant == 'Tiny' then
-			SKIN:Bang('!MoveMeter', 5 + LabelW, MeterText:GetY(), 'Text')
 			if TextW > MaxW - LabelW then
 				SKIN:Bang('!SetOption', 'Text', 'ClipString', 1)
 				SKIN:Bang('!SetOption', 'Text', 'W', MaxW - LabelW)
@@ -40,7 +48,5 @@ function Update()
 				SKIN:Bang('!SetOption', 'Label', 'W', MaxW)
 			end
 		end
-		LastTextW = TextW
-		LastLabelW = LabelW
 	end
 end

@@ -41,14 +41,12 @@ DynamicVariables=1
 X=(#TaskbarSkinWidth#/2+5)
 Y=((#TaskbarHeight#-25)/2)
 H=15
-; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size1#
 StringAlign=CENTER
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 ToolTipWidth=#SidebarWidth#
 DynamicVariables=1
 
@@ -56,14 +54,12 @@ DynamicVariables=1
 X=r
 Y=R
 H=15
-; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringAlign=CENTER
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 DynamicVariables=1
 
 [StyleNormalIcon]
@@ -96,16 +92,14 @@ H=#TaskbarHeight#
 DynamicVariables=1
 
 [StyleMiniText]
-X=5
+X=(5+[Label:W])
 Y=((#TaskbarHeight#-15)/2)
 H=15
-; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size1#
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 ToolTipWidth=#SidebarWidth#
 DynamicVariables=1
 
@@ -113,14 +107,11 @@ DynamicVariables=1
 X=5
 Y=3r
 H=15
-; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
-; Postfix=" |"
 Postfix=" ·"
 DynamicVariables=1
 
@@ -154,16 +145,14 @@ H=(#TaskbarHeight#/2)
 DynamicVariables=1
 
 [StyleTinyText]
-X=5
+X=(5+[Label:W])
 Y=(((#TaskbarHeight#/2)-10)/2)
 H=10
-; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size4#
 StringStyle=BOLD
 AntiAlias=1
-; ClipString=1
 ToolTipWidth=#SidebarWidth#
 DynamicVariables=1
 
@@ -171,13 +160,11 @@ DynamicVariables=1
 X=5
 Y=r
 H=10
-; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 Postfix=" ·"
 DynamicVariables=1
 
@@ -221,14 +208,12 @@ ToolTipWidth=#SidebarWidth#
 X=35
 Y=((#TaskbarHeight#-22)/2)
 H=12
-; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
 StringAlign=LEFT
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 ToolTipWidth=#SidebarWidth#
 DynamicVariables=1
 
@@ -236,14 +221,12 @@ DynamicVariables=1
 X=r
 Y=R
 H=10
-; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringAlign=LEFT
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 DynamicVariables=1
 
 [StyleIconBar]
@@ -280,14 +263,12 @@ DynamicVariables=1
 X=(#TaskbarSkinWidth#+5)
 Y=((#TaskbarHeight#-22)/2)
 H=12
-; W=#TaskbarSkinWidth#
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
 StringAlign=RIGHT
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 ToolTipWidth=#SidebarWidth#
 DynamicVariables=1
 
@@ -295,14 +276,12 @@ DynamicVariables=1
 X=r
 Y=R
 H=10
-; W=#TaskbarSkinWidth#
 FontColor=#Color2#
 FontFace=#Font#
 FontSize=#Size4#
 StringAlign=RIGHT
 StringStyle=NORMAL
 AntiAlias=1
-; ClipString=1
 DynamicVariables=1
 
 [StyleIconRightBar]

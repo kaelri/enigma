@@ -73,9 +73,11 @@ CHANGELOG
 Date: 3 August, 2012
 App: Rainmeter 2.4 Beta (r1578)
 
-- [Skins] System: added option to toggle between Floating or Percent graph scales.
-- [Skins] Run: allowed any search engine (as Search1, Search2, et al).
-- [Skins] Run: improved reliability for quotes in commands.
+- Sidebar and Taskbar: now update automatically to changes in work area.
+- Run: allowed any search engine (as Search1, Search2, et al).
+- Run: improved reliability for quotes in commands.
+- System: added option to toggle between Floating or Percent graph scales.
+- System: fixed problem with overlapping text.
 
 4 Beta 2
 --------
