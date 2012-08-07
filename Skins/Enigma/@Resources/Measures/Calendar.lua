@@ -11,8 +11,7 @@ function Initialize()
 	tCurrMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
 	iDayOnLastUpdate = 0
 
-	local tLabels = Delim(SELF:GetOption('DayLabels'))
-	if #tLabels < 7 then tLabels = {'S', 'M', 'T', 'W', 'R', 'F', 'S'} end
+	local tLabels = {'S', 'M', 'T', 'W', 'R', 'F', 'S'}
 	for i = 1, 7 do
 		SKIN:Bang('!SetOption', 'Day'..i..'Label', 'Text', tLabels[iStartOnMondays and i%7+1 or i])
 	end

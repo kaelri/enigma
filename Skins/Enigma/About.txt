@@ -1,5 +1,5 @@
 ﻿ENIGMA
-Version 4 Beta 2
+Version 4
 by Kaelri
 
 
@@ -33,8 +33,10 @@ Contributing Authors   Smurfier
 Concepts and Feedback  Alex2539
                        Alex Becherer
                        FlyingHyrax
+                       Greg Schoppe
                        Jeffrey Morley
                        Jiri Mahel
+                       kenz0
                        miniority
                        Zinsho
 
@@ -44,10 +46,7 @@ LuaCalendar            Smurfier
 MoonShine              benjam
                        jER 
 MoxaWeather            moxamax         
-Rainmeter Calendar     limpet    
-Recycle Bin            Greg Schoppe
-Sunrise & Sunset       kenz0
-                       Greg Schoppe
+Rainmeter Calendar     limpet
 
 IMAGES
 
@@ -68,14 +67,15 @@ RainRGB                Jeffrey Morley
 -----------------------
 CHANGELOG
 
-4 Release
----------
-Date: 3 August, 2012
-App: Rainmeter 2.4 Beta (r1578)
+Enigma 4
+--------
+Date: 7 August, 2012
+App: Rainmeter 2.4 Beta (r1593)
 
 - Sidebar and Taskbar: now update automatically to changes in work area.
-- Run: allowed any search engine (as Search1, Search2, et al).
-- Run: improved reliability for quotes in commands.
+- Calendar: added an option to change weekday labels.
+- Run: allowed any search engine (as Search1, Search2, et al). [by Smurfier]
+- Run: improved reliability for quotes in commands. [by Smurfier]
 - System: added option to toggle between Floating or Percent graph scales.
 - System: fixed problem with overlapping text.
 
@@ -84,9 +84,9 @@ App: Rainmeter 2.4 Beta (r1578)
 Date: 26 July, 2012
 App: Rainmeter 2.4 Beta (r1570)
 
-- [Skins] Changed Run: added user-editable pre-defined shortcuts, as well as built-in "search" and "web" shortcuts.
-- [Skins] Fixed Options: missing variables caused user settings to be wrongfully discarded when reinstalling Enigma.
-- [Skins] Fixed World: character encoding issue caused extra characters to appear.
+- Run: added user-editable pre-defined shortcuts, as well as built-in "search" and "web" shortcuts. [by Smurfier]
+- Options: missing variables caused user settings to be wrongfully discarded when reinstalling Enigma.
+- World: character encoding issue caused extra characters to appear.
 
 4 Beta 1
 --------
