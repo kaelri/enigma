@@ -9,13 +9,13 @@ function Initialize()
 	sPatternFeedType={
 		'xmlns:gCal',
 		'<subtitle>rememberthemilk.com</subtitle>',
-		'<rss.-version=".-".->',
+		'<rss.-version=[%"%\'].-[%"%\'].->',
 		}
 	sPatternFeedLink={
-		'.-<link.-rel=.-alternate.-href=\'(.-)\'',
-		'.-<link.-rel=.-alternate.-href="(.-)"',
+		'.-<link.-rel=.-alternate.-href=[%"%\'](.-)[%"%\']',
+		'.-<link.-rel=.-alternate.-href=[%"%\'](.-)[%"%\']',
 		'.-<link.->(.-)</link>',
-		'.-<link.-href="(.-)"',
+		'.-<link.-href=[%"%\'](.-)[%"%\']',
 		}
 	sPatternItem={
 		'<entry.-</entry>',
@@ -24,14 +24,14 @@ function Initialize()
 		'<entry.-</entry>',
 		}
 	sPatternItemLink={
-		'.-<link.-href=\'(.-)\'',
-		'.-<link.-href="(.-)"',
+		'.-<link.-href=[%"%\'](.-)[%"%\']',
+		'.-<link.-href=[%"%\'](.-)[%"%\']',
 		'.-<link.->(.-)</link>',
-		'.-<link.-href="(.-)"',
+		'.-<link.-href=[%"%\'](.-)[%"%\']',
 		}
 	sPatternItemDate={
-		'.-startTime=\'(.-)\'',
-		'<span class="rtm_due_value">(.-)</span>',
+		'.-startTime=[%"%\'](.-)[%"%\']',
+		'<span class=[%"%\']rtm_due_value[%"%\']>(.-)</span>',
 		'.-<pubDate.->(.-)</pubDate>',
 		'.-<updated.->(.-)</updated>',
 		}
