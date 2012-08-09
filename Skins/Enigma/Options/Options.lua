@@ -108,14 +108,14 @@ function Initialize()
 		App4Path = { Flags = 'apppath',
 			Dependents = { 'App4PathHandle' }
 		},
-		App1PathHandle = {},
+		App4PathHandle = {},
 		App4Label = {},
 		App4Icon = {},
 		App5 = {},
 		App5Path = { Flags = 'apppath',
 			Dependents = { 'App5PathHandle' }
 		},
-		App1PathHandle = {},
+		App5PathHandle = {},
 		App5Label = {},
 		App5Icon = {},
 		--SEARCH
