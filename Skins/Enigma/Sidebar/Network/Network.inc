@@ -76,42 +76,42 @@ MeterStyle=StyleSystem#Variant#Border | StyleSystem#Variant#Border2
 ;-----------------------
 ; LABELS & TEXT
 
-[LabelSSID]
+[Label1]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label1
 Text="SSID"
 
-[SSID]
+[Text1]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text1
 MeasureName=MeasureSSID
 
-[LabelWiFi]
+[Label2]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label2
 Text="WiFi"
 
-[WiFi]
+[Text2]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text2
 MeasureName=MeasureWiFi
 
-[LabelLAN]
+[Label3]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label3
 Text="LAN"
 
-[LAN]
+[Text3]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text3 | StyleSystem#Variant#TextDark
 MeasureName=MeasureLAN
 
-[LabelWAN]
+[Label4]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label4
 Text="WAN"
 
-[WAN]
+[Text4]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text4 | StyleSystem#Variant#TextDark
 MeasureName=MeasureWAN

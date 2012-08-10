@@ -62,23 +62,23 @@ MeterStyle=StyleSystem#Variant#Border | StyleSystem#Variant#Border2
 ;-----------------------
 ; LABELS & TEXT
 
-[LabelCPU]
+[Label1]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label1
 Text="CPU"
 
-[CPU]
+[Text1]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text1
 MeasureName=MeasureCPU
 Text="%1%"
 
-[LabelRAM]
+[Label2]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label2
 Text="RAM"
 
-[RAM]
+[Text2]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text2
 MeasureName=MeasureRAM
@@ -86,12 +86,12 @@ Text="%1%"
 Percentual=1
 AutoScale=1
 
-[LabelHD]
+[Label3]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label3
 Text="HDD"
 
-[HD]
+[Text3]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text3
 MeasureName=MeasureHD
@@ -99,12 +99,12 @@ Text="%1B"
 AutoScale=1
 NumOfDecimals=0
 
-[LabelPower]
+[Label4]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Label | StyleSystem#Variant#Label4
 Text="PWR"
 
-[Power]
+[Text4]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#Text | StyleSystem#Variant#Text4
 MeasureName=MeasurePower

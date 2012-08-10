@@ -77,7 +77,6 @@ Y=15r
 [StyleSystemNormalText]
 Y=r
 H=15
-ClipString=1
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
@@ -86,22 +85,24 @@ AntiAlias=1
 
 [StyleSystemNormalText1]
 X=9r
-W=(#SidebarWidth#-163)
+W=(#SidebarWidth#-[Text3:W]-88)
+ClipString=1
 StringAlign=LEFT
+DynamicVariables=1
 
 [StyleSystemNormalText2]
 X=9r
-W=(#SidebarWidth#-163)
+W=(#SidebarWidth#-[Text4:W]-88)
+ClipString=1
 StringAlign=LEFT
+DynamicVariables=1
 
 [StyleSystemNormalText3]
 X=-9r
-W=75
 StringAlign=RIGHT
 
 [StyleSystemNormalText4]
 X=-9r
-W=75
 StringAlign=RIGHT
 
 [StyleSystemNormalTextDark]
@@ -253,7 +254,6 @@ Y=15r
 [StyleSystemGraphText]
 Y=r
 H=15
-ClipString=1
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
@@ -262,22 +262,24 @@ AntiAlias=1
 
 [StyleSystemGraphText1]
 X=9r
-W=(#SidebarWidth#-163)
+W=(#SidebarWidth#-[Text3:W]-88)
+ClipString=1
 StringAlign=LEFT
+DynamicVariables=1
 
 [StyleSystemGraphText2]
 X=9r
-W=(#SidebarWidth#-163)
+W=(#SidebarWidth#-[Text4:W]-88)
+ClipString=1
 StringAlign=LEFT
+DynamicVariables=1
 
 [StyleSystemGraphText3]
 X=-9r
-W=75
 StringAlign=RIGHT
 
 [StyleSystemGraphText4]
 X=-9r
-W=75
 StringAlign=RIGHT
 
 [StyleSystemGraphTextDark]
