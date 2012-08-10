@@ -67,6 +67,15 @@ RainRGB                Jeffrey Morley
 -----------------------
 CHANGELOG
 
+5 Beta 1
+--------
+Date: ???
+App: Rainmeter ???
+
+- Options: fixed being unable to set App4Path and App5Path.
+- Reader: fixed issue with mixed quote types in feeds.
+- World: fixed issue with DaylightSavingTime setting being wrongly used.
+
 Enigma 4
 --------
 Date: 7 August, 2012

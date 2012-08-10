@@ -16,7 +16,6 @@ StringIndex=1
 Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
-DaylightSavingTime=1
 
 [MeasureReal1]
 Measure=Time
@@ -24,7 +23,6 @@ TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 Format="%#H.%M.%S  ·  %a"
 Substitute="Sun":"SUN","Mon":"MON","Tue":"TUE","Wed":"WED","Thu":"THU","Fri":"FRI","Sat":"SAT"
-DaylightSavingTime=1
 
 [MeasureReal2]
 Measure=Time
@@ -32,7 +30,6 @@ TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 Format="%#d %b  ·  %Y"
 Substitute="Jan":"JAN","Feb":"FEB","Mar":"MAR","Apr":"APR","May":"MAY","Jun":"JUN","Jul":"JUL","Aug":"AUG","Sep":"SEP","Oct":"OCT","Nov":"NOV","Dec":"DEC"
-DaylightSavingTime=1
 
 ;---------------------------------------------------------------------
 ; METERS

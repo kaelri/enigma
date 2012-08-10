@@ -24,7 +24,6 @@ Format="%#I.%M %p"
 TimeZone=[MeasureTimeZone]
 Substitute="PM":"pm","AM":"am"
 DynamicVariables=1
-DaylightSavingTime=1
 
 ;---------------------------------------------------------------------
 ; METERS
