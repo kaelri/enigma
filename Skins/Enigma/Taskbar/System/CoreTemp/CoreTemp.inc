@@ -13,6 +13,11 @@ Plugin=CoreTemp
 CoreTempType=TjMax
 CoreTempIndex=#Core#
 
+[MeasureLabel]
+Measure=Calc
+Formula=#Core#+1
+UpdateDivider=-1
+
 [MeasureBar]
 Measure=Calc
 Formula=MeasureCoreTemp / MeasureCoreTempMax
@@ -34,7 +39,7 @@ Postfix="°"
 [Label]
 Meter=STRING
 MeterStyle=Style#Variant#Label
-Text="1"
+MeasureName=MeasureLabel
 
 [Bar]
 Meter=BAR
