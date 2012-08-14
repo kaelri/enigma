@@ -104,7 +104,7 @@ end
 
 function GoogleCalendarTimestamp(input, out)
 	local year,month,day,hour,min,sec=string.match(input, '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
-	return os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec, isdst=false}
+	return os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec}
 end
 
 -- SWITCHERS
