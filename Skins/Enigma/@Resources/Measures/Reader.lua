@@ -103,7 +103,15 @@ function GetMeasures()
 end
 
 function GoogleCalendarTimestamp(input, out)
-	local year,month,day,hour,min,sec=string.match(input, '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
+	local year,month,day,hour,min,sec
+	if string.match(input, 'T') then
+		year,month,day,hour,min,sec=string.match(input, '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
+	else
+		year,month,day=string.match(input, '(.+)%-(.+)%-(.+)')
+		hour = 0
+		min = 0
+		sec = 0
+	end
 	return os.time{year=year, month=month, day=day, hour=hour, min=min, sec=sec}
 end
 
