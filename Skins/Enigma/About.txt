@@ -72,7 +72,11 @@ CHANGELOG
 Date: ???
 App: Rainmeter ???
 
+- Google Calendar: fixed displaying all-day events.
+- Google Calendar: fixed issue with daylight savings time shifting event times by 1 hour.
+- CoreTemp: fixed all skins being labeled "1" instead of the actual core number.
 - Options: fixed being unable to set App4Path and App5Path.
+- Network: fixed IP address clipping.
 - Reader: fixed issue with mixed quote types in feeds.
 - World: fixed issue with DaylightSavingTime setting being wrongly used.
 
