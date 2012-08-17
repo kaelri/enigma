@@ -20,7 +20,8 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL1#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 
 [MeasureFeed2]
 Measure=Plugin
@@ -29,7 +30,8 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL2#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 Group=Tab2
 Disabled=1
 
@@ -40,7 +42,8 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL3#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 Group=Tab3
 Disabled=1
 
@@ -51,7 +54,8 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL4#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 Group=Tab4
 Disabled=1
 
@@ -62,7 +66,8 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL5#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 Group=Tab5
 Disabled=1
 
@@ -73,7 +78,8 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL6#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 Group=Tab6
 Disabled=1
 
@@ -84,7 +90,8 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL7#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 Group=Tab7
 Disabled=1
 
@@ -95,17 +102,17 @@ UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL8#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-FinishAction=!CommandMeasure "MeasureScriptReader" "Update()"
+Substitute=#WebParserSubstitute#
+FinishAction=!UpdateMeasure MeasureScriptReader
 Group=Tab8
 Disabled=1
 
 [MeasureScriptReader]
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
-Disabled=1
+UpdateDivider=-1
 FeedMeasureName=MeasureFeed1
 MinItems=4
-SubString=#WebParserSubstitute#
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
 
