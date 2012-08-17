@@ -183,7 +183,6 @@ function IdentifyType(RawString)
 			-- Alternatively, if the feed contains these tags outside of <item> or <entry>, Atom is confirmed.
 			for _, v in ipairs{ '<feed', '<subtitle' } do
 				if string.match(a, v) then
-					print('Found '..v)
 					return 'Atom'
 				end
 			end
