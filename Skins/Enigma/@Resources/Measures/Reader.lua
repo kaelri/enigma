@@ -69,7 +69,7 @@ end
 
 function Update()
 	-- COPY CURRENT FEED NUMBER TO SKIN
-	SKIN:Bang('!SetVariable', 'CurrentFeed', f)
+	SKIN:Bang('!SetVariable', VariablePrefix..'CurrentFeed', f)
 
 	-- GET DATA
 	local Raw = Feeds[f]['Measure']:GetStringValue()
