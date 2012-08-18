@@ -470,7 +470,7 @@ ImageName=#@#Images\Gcal.#ColorImage#.png
 ImageName=#@#Images\Gmail.%1.#ColorImage#.png
 
 [StyleFacebookIcon]
-ImageName=#@#Images\Facebook.%1.#ColorImage#.png
+ImageName=#@#Images\Facebook.#ColorImage#.png
 
 [StyleRTMIcon]
 ImageName=#@#Images\RememberTheMilk.#ColorImage#.png
