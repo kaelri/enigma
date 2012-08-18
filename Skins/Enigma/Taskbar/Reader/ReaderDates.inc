@@ -13,13 +13,13 @@ Url=#ReaderURL#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh()
 
 [MeasureScriptReader]
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 UpdateDivider=-1
-FeedMeasureName=MeasureFeed
+MeasureName=MeasureFeed
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
 

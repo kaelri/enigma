@@ -12,13 +12,13 @@ URL=https://#GmailUsername#:#GmailPassword#@gmail.google.com/gmail/feed/atom
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh()
 
 [MeasureScriptReader]
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 UpdateDivider=-1
-FeedMeasureName=MeasureFeed
+MeasureName=MeasureFeed
 
 [MeasureNewMail]
 Measure=CALC

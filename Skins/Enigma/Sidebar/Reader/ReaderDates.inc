@@ -21,7 +21,7 @@ URL=#ReaderURL1#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(1)
 
 [MeasureFeed2]
 Measure=Plugin
@@ -31,7 +31,7 @@ URL=#ReaderURL2#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(2)
 Group=Tab2
 Disabled=1
 
@@ -43,7 +43,7 @@ URL=#ReaderURL3#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(3)
 Group=Tab3
 Disabled=1
 
@@ -55,7 +55,7 @@ URL=#ReaderURL4#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(4)
 Group=Tab4
 Disabled=1
 
@@ -67,7 +67,7 @@ URL=#ReaderURL5#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(5)
 Group=Tab5
 Disabled=1
 
@@ -79,7 +79,7 @@ URL=#ReaderURL6#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(6)
 Group=Tab6
 Disabled=1
 
@@ -91,7 +91,7 @@ URL=#ReaderURL7#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(7)
 Group=Tab7
 Disabled=1
 
@@ -103,7 +103,7 @@ URL=#ReaderURL8#
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
 Substitute=#WebParserSubstitute#
-FinishAction=!UpdateMeasure MeasureScriptReader
+FinishAction=!CommandMeasure MeasureScriptReader Refresh(8)
 Group=Tab8
 Disabled=1
 
@@ -111,7 +111,7 @@ Disabled=1
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 UpdateDivider=-1
-FeedMeasureName=MeasureFeed1
+MeasureName=MeasureFeed1
 MinItems=4
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
@@ -252,55 +252,55 @@ MeterStyle=StyleReaderBorderBottom
 [Grabber1]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive1] | StyleReaderGrabberFirst
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(1)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(1)"][!SetVariable Reset 0][!Update]
 Group=Tab2
 Hidden=1
 
 [Grabber2]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive2]
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(2)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(2)"][!SetVariable Reset 0][!Update]
 Group=Tab2
 Hidden=1
 
 [Grabber3]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive3]
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(3)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(3)"][!SetVariable Reset 0][!Update]
 Group=Tab3
 Hidden=1
 
 [Grabber4]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive4]
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(4)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(4)"][!SetVariable Reset 0][!Update]
 Group=Tab4
 Hidden=1
 
 [Grabber5]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive5]
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(5)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(5)"][!SetVariable Reset 0][!Update]
 Group=Tab5
 Hidden=1
 
 [Grabber6]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive6]
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(6)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(6)"][!SetVariable Reset 0][!Update]
 Group=Tab6
 Hidden=1
 
 [Grabber7]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive7]
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(7)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(7)"][!SetVariable Reset 0][!Update]
 Group=Tab7
 Hidden=1
 
 [Grabber8]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive8]
-LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "SwitchTo(8)"][!SetVariable Reset 0][!Update]
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(8)"][!SetVariable Reset 0][!Update]
 Group=Tab8
 Hidden=1

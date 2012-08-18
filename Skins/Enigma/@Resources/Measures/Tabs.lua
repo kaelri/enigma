@@ -32,8 +32,8 @@ function UpdateReader()
 	for i = 2, NumberOfTabs do
 		table.insert(Measures, 'MeasureFeed'..i)
 	end
-	SKIN:Bang('!SetOption', 'MeasureScriptReader', 'FeedMeasureName', table.concat(Measures, '|'))
-	SKIN:Bang('!CommandMeasure', 'MeasureScriptReader', 'GetMeasures()')
+	SKIN:Bang('!SetOption', 'MeasureScriptReader', 'MeasureName', table.concat(Measures, '|'))
+	SKIN:Bang('!CommandMeasure', 'MeasureScriptReader', 'Initialize()')
 end
 
 function UpdateNotes()

@@ -45,12 +45,12 @@ function GetFiles()
 	end
 end
 
-function SwitchToPrevious()
+function ShowPrevious()
 	iCurrentNote = iCurrentNote==1 and #tNotes or iCurrentNote-1
 	Update()
 end
 
-function SwitchToNext()
+function ShowNext()
 	iCurrentNote = iCurrentNote % #tNotes + 1
 	Update()
 end
