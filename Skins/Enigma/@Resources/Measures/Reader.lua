@@ -17,7 +17,6 @@ function Initialize(Feed)
 			Type        = nil,
 			Title       = nil,
 			Link        = nil,
-			Items       = nil,
 			Error       = nil
 			})
 	end
@@ -43,14 +42,14 @@ function Update()
 
 	-- OUTPUT
 	SKIN:Bang('!SetVariable', VariablePrefix..'CurrentFeed',   f)
-	SKIN:Bang('!SetVariable', VariablePrefix..'NumberOfItems', #Feeds[f]['Items'])
+	SKIN:Bang('!SetVariable', VariablePrefix..'NumberOfItems', #Feeds[f])
 	SKIN:Bang('!SetVariable', VariablePrefix..'FeedTitle',     Feeds[f]['Title'])
 	SKIN:Bang('!SetVariable', VariablePrefix..'FeedLink',      Feeds[f]['Link'])
 
 	local t = Feeds[f]['Type']
 
-	for i = 1, (MinItems > #Feeds[f]['Items'] and MinItems or #Feeds[f]['Items']) do
-		local Item = Feeds[f]['Items'][i]
+	for i = 1, (MinItems > #Feeds[f] and MinItems or #Feeds[f]) do
+		local Item = Feeds[f][i]
 		for k, v in pairs{
 			ItemTitle = Item['Title'] or '',
 			ItemLink  = Item['Link']  or 'No item found.',
@@ -66,7 +65,7 @@ function Update()
 		SKIN:Bang(FinishAction)
 	end
 
-	return 'Finished #'..f..' ('..Feeds[f]['MeasureName']..'). Type: '..Feeds[f]['Type']..'. Items: '..#Feeds[f]['Items']..'.'
+	return 'Finished #'..f..' ('..Feeds[f]['MeasureName']..'). Type: '..Feeds[f]['Type']..'. Items: '..#Feeds[f]..'.'
 end
 
 function Input(Feed)
@@ -104,20 +103,23 @@ function Input(Feed)
 
 		-- Future versions will check for existing items in the database and add only
 		-- newer items. For now, we simply recreate the table each time.
-		Feeds[f]['Items'] = {}
+		for i, v in ipairs(Feeds[f]) do
+			table.remove(Feeds[f], i)
+		end
+
 		for Item in string.gmatch(Raw, Types[t]['Item']) do
 			local ItemTitle = string.match(Item, '<title.->(.-)</title>' )  or ''
 			local ItemLink  = string.match(Item, Types[t]['ItemLink'])      or ''
 			local ItemDate  = string.match(Item, Types[t]['ItemDate'])      or ''
 			local ItemDate  = Types[t]['DateToNumber'](ItemDate)
-			table.insert(Feeds[f]['Items'], {
+			table.insert(Feeds[f], {
 				Title = ItemTitle,
 				Link  = ItemLink,
 				Date  = ItemDate
 				})
 		end
 
-		if #Feeds[f]['Items'] == 0 then
+		if #Feeds[f] == 0 then
 			Feeds[f]['Error'] = {
 				Description = 'No items found.',
 				Title       = Feeds[f]['Title'],
@@ -298,7 +300,7 @@ function Update_EventFile()
 		--CREATE XML TABLE
 		local File = {}
 		table.insert(File, '<EventFile Title="'..Feeds[f]['Title']..'">')
-		for i, v in ipairs(Feeds[f]['Items']) do
+		for i, v in ipairs(Feeds[f]) do
 			local ItemDate = os.date('*t', v['Date'])
 			table.insert(File, '<Event Month="'..ItemDate['month']..'" Day="'..ItemDate['day']..'" Desc="'..v['Title']..'"/>')
 		end
