@@ -115,6 +115,7 @@ MeasureName=MeasureFeed1
 MinItems=4
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
+FinishAction=!Update
 
 [MeasureActive1]
 Measure=Calc
