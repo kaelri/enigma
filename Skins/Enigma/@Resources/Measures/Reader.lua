@@ -1,11 +1,17 @@
-function Initialize(Feed)
-	-- GET GENERAL OPTIONS
-	VariablePrefix  = SELF:GetOption('VariablePrefix', '')
-	MinItems        = SELF:GetNumberOption('MinItems', 0)
-	TimestampFormat = SELF:GetOption('TimestampFormat', '%I.%M %p on %d %B %Y')
-	Debug           = SELF:GetNumberOption('Debug', 0)
+function Initialize()
+	-- SET UPDATE DIVIDER
+	SKIN:Bang('!SetOption', SELF:GetName(), 'UpdateDivider', -1)
+	-- This script should never update on a schedule. It should only update
+	-- when it gets a "Refresh" command from WebParser.
 
+	-- GET GENERAL OPTIONS
+	TimestampFormat = SELF:GetOption('TimestampFormat', '%I.%M %p on %d %B %Y')
+
+	-- CREATE MAIN DATABASE
 	Feeds = {}
+
+	-- CREATE TYPE MATCHING PATTERNS AND FORMATTING FUNCTIONS
+	DefineTypes()
 
 	-- GET MEASURE NAMES
 	local AllMeasureNames = SELF:GetOption('MeasureName', '')
@@ -25,93 +31,64 @@ function Initialize(Feed)
 	Initialize_EventFile()
 
 	-- SET STARTING FEED
-	f = Feed or f or 1
+	f = f or 1
 end
 
 function Update()
-	-- INPUT WEBPARSER DATA
-	-- Kept in a separate function so that measures can update "silently."
 	Input()
-
-	-- CHECK FOR INPUT ERRORS
-	local e = Feeds[f]['Error']
-	if e then
-		OutputError(e)
-		return e['Description']
-	end
-
-	-- OUTPUT
-	SKIN:Bang('!SetVariable', VariablePrefix..'CurrentFeed',   f)
-	SKIN:Bang('!SetVariable', VariablePrefix..'NumberOfItems', #Feeds[f])
-	SKIN:Bang('!SetVariable', VariablePrefix..'FeedTitle',     Feeds[f]['Title'])
-	SKIN:Bang('!SetVariable', VariablePrefix..'FeedLink',      Feeds[f]['Link'])
-
-	local t = Feeds[f]['Type']
-
-	for i = 1, (MinItems > #Feeds[f] and MinItems or #Feeds[f]) do
-		local Item = Feeds[f][i]
-		for k, v in pairs{
-			ItemTitle = Item['Title'] or '',
-			ItemLink  = Item['Link']  or 'No item found.',
-			ItemDate  = Item['Date']  and Types[t]['DateToString'](Item['Date']) or '',
-		} do
-			SKIN:Bang('!SetVariable', VariablePrefix..k..i, v)
-		end
-	end
-	
-	-- FINISH ACTION   
-	local FinishAction = SELF:GetOption('FinishAction', '')
-	if FinishAction ~= '' then
-		SKIN:Bang(FinishAction)
-	end
-
-	return 'Finished #'..f..' ('..Feeds[f]['MeasureName']..'). Type: '..Feeds[f]['Type']..'. Items: '..#Feeds[f]..'.'
+	return Output()
 end
 
-function Input(Feed)
-	local f = Feed or f
+-----------------------------------------------------------------------
+-- INPUT
 
-	local Raw = Feeds[f]['Measure']:GetStringValue()
+function Input(a)
+	local f = a or f
+
+	local Raw = Feeds[f].Measure:GetStringValue()
 
 	if Raw == '' then
-		Feeds[f]['Error'] = {
+		Feeds[f].Error = {
 			Description = 'Waiting for data from WebParser.',
 			Title       = 'Loading...',
 			Link        = 'http://enigma.kaelri.com/support'
 			}
 		return false
-	elseif Raw ~= Feeds[f]['Raw'] then
-		Feeds[f]['Raw'] = Raw
+	elseif Raw ~= Feeds[f].Raw then
+		Feeds[f].Raw = Raw
 
 		-- DETERMINE FEED FORMAT AND CONTENTS
 		local t = IdentifyType(Raw)
 
 		if not t then
-			Feeds[f]['Error'] = {
+			Feeds[f].Error = {
 				Description = 'Could not identify a valid feed format.',
 				Title       = 'Invalid Feed Format',
 				Link        = 'http://enigma.kaelri.com/support'
 				}
 			return false
+		else
+			Feeds[f].Type = t
 		end
 
-		Feeds[f]['Type'] = t
+		-- MAKE SYNTAX PRETTIER
+		local Type = Types[t]
 
 		-- CREATE DATABASE
-		Feeds[f]['Title'] = string.match(Raw, '<title.->(.-)</title>')      or ''
-		Feeds[f]['Link']  = string.match(Raw, Types[t]['Link'])             or ''
+		Feeds[f].Title = string.match(Raw, '<title.->(.-)</title>') or 'Untitled'
+		Feeds[f].Link  = string.match(Raw, Type.MatchLink)          or nil
 
-		-- Future versions will check for existing items in the database and add only
-		-- newer items. For now, we simply recreate the table each time.
-		for i, v in ipairs(Feeds[f]) do
+		for i in ipairs(Feeds[f]) do
 			table.remove(Feeds[f], i)
 		end
+		-- Future versions will check for existing items in the database and add only
+		-- newer items. For now, we simply recreate the table from scratch each time.
 
-		for Item in string.gmatch(Raw, Types[t]['Item']) do
-			local ItemTitle = string.match(Item, '<title.->(.-)</title>' )  or ''
-			local ItemLink  = string.match(Item, Types[t]['ItemLink'])      or ''
-			local ItemDate  = string.match(Item, Types[t]['ItemDate'])      or ''
-			local ItemDate  = Types[t]['DateToNumber'](ItemDate)
+		for Item in string.gmatch(Raw, Type.MatchItem) do
+			local ItemTitle = string.match(Item, '<title.->(.-)</title>' ) or 'Untitled'
+			local ItemLink  = string.match(Item, Type.MatchItemLink)       or nil
+			local ItemDate  = string.match(Item, Type.MatchItemDate)       or nil
+			local ItemDate  = Type.DateToNumber(ItemDate)
 			table.insert(Feeds[f], {
 				Title = ItemTitle,
 				Link  = ItemLink,
@@ -120,7 +97,7 @@ function Input(Feed)
 		end
 
 		if #Feeds[f] == 0 then
-			Feeds[f]['Error'] = {
+			Feeds[f].Error = {
 				Description = 'No items found.',
 				Title       = Feeds[f]['Title'],
 				Link        = Feeds[f]['Link']
@@ -130,19 +107,139 @@ function Input(Feed)
 		
 		-- EVENT FILE MODULE
 		Update_EventFile()
+
+		-- CLEAR ERRORS FROM PREVIOUS UPDATE
+		Feeds[f].Error = nil
 	end
 
-	Feeds[f]['Error'] = nil
 	return true
 end
 
 -----------------------------------------------------------------------
--- FORMAT FUNCTIONS
+-- OUTPUT
 
-function IdentifyType(RawString)
+function Output()
+	local Queue = {}
+
+	-- MAKE SYNTAX PRETTIER
+	local Feed  = Feeds[f]
+	local Type  = Types[Feed.Type]
+	local Error = Feed.Error
+
+	-- BUILD QUEUE
+	Queue['CurrentFeed']   = f
+	Queue['NumberOfItems'] = #Feed
+
+	-- CHECK FOR INPUT ERRORS
+	local MinItems = SELF:GetNumberOption('MinItems', 0)
+
+	if Error then
+		-- ERROR; QUEUE MESSAGES
+		Queue['FeedTitle']  = Error.Title
+		Queue['FeedLink']   = Error.Link
+		Queue['ItemTitle1'] = Error.Description
+		Queue['ItemLink1']  = Error.Link
+
+		for i = 2, MinItems do
+			Queue['ItemTitle'..i] = ''
+			Queue['ItemLink'..i]  = ''
+			Queue['ItemDate'..i]  = ''
+		end
+	else
+		-- NO ERROR; QUEUE FEED
+		Queue['FeedTitle'] = Feed.Title
+		Queue['FeedLink']  = Feed.Link or ''
+
+		for i = 1, math.max(#Feed, MinItems) do
+			Queue['ItemTitle'..i] = Feed[i].Title or ''
+			Queue['ItemLink'..i]  = Feed[i].Link  or ''
+			Queue['ItemDate'..i]  = Feed[i].Date  or ''
+			Queue['ItemDate'..i]  = Type.DateToString(Queue['ItemDate'..i])
+		end
+	end
+
+	-- SET VARIABLES
+	VariablePrefix = SELF:GetOption('VariablePrefix', '')
+	for k, v in pairs(Queue) do
+		SKIN:Bang('!SetVariable', VariablePrefix..k, v)
+	end
+	
+	-- FINISH ACTION   
+	local FinishAction = SELF:GetOption('FinishAction', '')
+	if FinishAction ~= '' then
+		SKIN:Bang(FinishAction)
+	end
+
+	return Error and Error.Description or 'Finished #'..f..' ('..Feed.MeasureName..'). Type: '..Feed.Type..'. Items: '..#Feed..'.'
+end
+
+-----------------------------------------------------------------------
+-- TYPES
+
+function DefineTypes()
+	Types = {
+		GoogleCalendar = {
+			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
+			MatchItem     = '<entry.-</entry>',
+			MatchItemLink = '<link.-href=["\'](.-)["\']',
+			MatchItemDate = 'startTime=["\'](.-)["\']',
+			DateToNumber  = GoogleCalendar_DateToNumber,
+			DateToString  = function(n) return os.date(TimestampFormat, n) end
+			},
+		RememberTheMilk = {
+			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
+			MatchItem     = '<entry.-</entry>',
+			MatchItemLink = '<link.-href=["\'](.-)["\']',
+			MatchItemDate = '<span class=["\']rtm_due_value["\']>(.-)</span>',
+			DateToNumber  = NoChange,
+			DateToString  = NoChange
+			},
+		RSS = {
+			MatchLink     = '<link.->(.-)</link>',
+			MatchItem     = '<item.-</item>',
+			MatchItemLink = '<link.->(.-)</link>',
+			MatchItemDate = '<pubDate.->(.-)</pubDate>',
+			DateToNumber  = NoChange,
+			DateToString  = NoChange
+			},
+		Atom = {
+			MatchLink     = '<link.-href=["\'](.-)["\']',
+			MatchItem     = '<entry.-</entry>',
+			MatchItemLink = '<link.-href=["\'](.-)["\']',
+			MatchItemDate = '<updated.->(.-)</updated>',
+			DateToNumber  = NoChange,
+			DateToString  = NoChange
+			}
+		}
+end
+
+function GoogleCalendar_DateToNumber(s)
+	local year, month, day, hour, min, sec
+	local MatchTime = '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.'
+	local MatchDate = '(.+)%-(.+)%-(.+)'
+
+	if string.match(s, MatchTime) then
+		year, month, day, hour, min, sec = string.match(s, MatchTime)
+		return os.time{ year = year, month = month, day = day, hour = hour, min = min, sec = sec }
+	elseif string.match(s, MatchDate) then
+		year, month, day = string.match(s, MatchDate)
+		hour, min, sec = 0, 0, 0
+		return os.time{ year = year, month = month, day = day, hour = hour, min = min, sec = sec }
+	else
+		return os.time()
+	end
+end
+
+function NoChange(a)
+	return a
+end
+
+-------------------------
+
+function IdentifyType(s)
 	-- COLLAPSE CONTAINER TAGS
 	for _, v in ipairs{ 'item', 'entry' } do
-		RawString = string.gsub(RawString, '<'..v..'.->.+</'..v..'>', '<'..v..'></'..v..'>') -- e.g. '<entry.->.+</entry>' --> '<entry></entry>'
+		s = string.gsub(s, '<'..v..'.->.+</'..v..'>', '<'..v..'></'..v..'>') -- e.g. '<entry.->.+</entry>' --> '<entry></entry>'
 	end
 
 	--DEFINE RSS MARKER TESTS
@@ -188,7 +285,7 @@ function IdentifyType(RawString)
 	-- RUN RSS MARKER TESTS
 	local Class = false
 	for _, v in ipairs(TestRSS) do
-		Class = v(RawString)
+		Class = v(s)
 		if Class then break end
 	end
 
@@ -196,9 +293,9 @@ function IdentifyType(RawString)
 	if Class == 'RSS' then
 		return 'RSS'
 	elseif Class == 'Atom' then
-		if string.match(RawString, 'xmlns:gCal') then
+		if string.match(s, 'xmlns:gCal') then
 			return 'GoogleCalendar'
-		elseif string.match(RawString, '<subtitle>rememberthemilk.com</subtitle>') then
+		elseif string.match(s, '<subtitle>rememberthemilk.com</subtitle>') then
 			return 'RememberTheMilk'
 		else
 			return 'Atom'
@@ -208,40 +305,8 @@ function IdentifyType(RawString)
 	end
 end
 
-function GoogleCalendar_DateToNumber(DateString)
-	local year, month, day, hour, min, sec
-	if string.match(DateString, 'T') then
-		year, month, day, hour, min, sec = string.match(DateString, '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.')
-	else
-		year, month, day = string.match(DateString, '(.+)%-(.+)%-(.+)')
-		hour = 0
-		min  = 0
-		sec  = 0
-	end
-	return os.time{ year = year, month = month, day = day, hour = hour, min = min, sec = sec }
-end
-
-function NoChange(a)
-	return a
-end
-
 -----------------------------------------------------------------------
 -- EXTERNAL COMMANDS
-
-function ShowNext()
-	f = (f % #Feeds) + 1
-	SKIN:Bang('!UpdateMeasure', SELF:GetName())
-end
-
-function ShowPrevious()
-	f = (f == 1) and #Feeds or (f - 1)
-	SKIN:Bang('!UpdateMeasure', SELF:GetName())
-end
-
-function Show(a)
-	f = tonumber(a)
-	SKIN:Bang('!UpdateMeasure', SELF:GetName())
-end
 
 function Refresh(a)
 	a = a and tonumber(a) or f
@@ -252,30 +317,19 @@ function Refresh(a)
 	end
 end
 
------------------------------------------------------------------------
---ERRORS
+function Show(a)
+	f = tonumber(a)
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+end
 
-function OutputError(e)
-	for k, v in pairs{
-		NumberOfItems = 0,
-		FeedTitle     = e['Title'],
-		FeedLink      = e['Link'],
-		ItemTitle1    = e['Description'],
-		ItemLink1     = e['Link'],
-		ItemDate1     = ''
-	} do
-		SKIN:Bang('!SetVariable', VariablePrefix..k, v)
-	end
+function ShowNext()
+	f = (f % #Feeds) + 1
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+end
 
-	for i = 2, MinItems do
-		SKIN:Bang('!SetVariable', VariablePrefix..'ItemTitle'..i, '')
-		SKIN:Bang('!SetVariable', VariablePrefix..'ItemLink'..i,  '')
-		SKIN:Bang('!SetVariable', VariablePrefix..'ItemDate'..i,  '')
-	end
-
-	if Debug == 1 then
-		SKIN:Bang('!Log', 'Reader: '..e['Description'])
-	end
+function ShowPrevious()
+	f = (f == 1) and #Feeds or (f - 1)
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
 end
 
 -----------------------------------------------------------------------
@@ -289,14 +343,14 @@ function Initialize_EventFile()
 		for EventFile in string.gmatch(SELF:GetOption('EventFile',''),'[^%|]+') do
 			i = i + 1
 			if Feeds[i] then 
-				Feeds[i]['EventFile'] = EventFile
+				Feeds[i]['EventFile'] = SKIN:MakePathAbsolute(EventFile)
 			end
 		end
 	end
 end
 
 function Update_EventFile()
-	if (Feeds[f]['Type'] == 'GoogleCalendar') and Feeds[f]['EventFile'] then
+	if Feeds[f]['EventFile'] and (Feeds[f]['Type'] == 'GoogleCalendar') then
 		--CREATE XML TABLE
 		local File = {}
 		table.insert(File, '<EventFile Title="'..Feeds[f]['Title']..'">')
@@ -316,42 +370,3 @@ function Update_EventFile()
 		end
 	end
 end
-
------------------------------------------------------------------------
--- CONSTANTS
-
--- DEFINE PATTERNS FOR PARSING AND FORMATTING DIFFERENT FEED TYPES
-Types = {
-	GoogleCalendar = {
-		Link         = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
-		Item         = '<entry.-</entry>',
-		ItemLink     = '<link.-href=["\'](.-)["\']',
-		ItemDate     = 'startTime=["\'](.-)["\']',
-		DateToNumber = GoogleCalendar_DateToNumber,
-		DateToString = function(DateNumber) return os.date(TimestampFormat, DateNumber) end
-		},
-	RememberTheMilk = {
-		Link         = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
-		Item         = '<entry.-</entry>',
-		ItemLink     = '<link.-href=["\'](.-)["\']',
-		ItemDate     = '<span class=["\']rtm_due_value["\']>(.-)</span>',
-		DateToNumber = NoChange,
-		DateToString = NoChange
-		},
-	RSS = {
-		Link         = '<link.->(.-)</link>',
-		Item         = '<item.-</item>',
-		ItemLink     = '<link.->(.-)</link>',
-		ItemDate     = '<pubDate.->(.-)</pubDate>',
-		DateToNumber = NoChange,
-		DateToString = NoChange
-		},
-	Atom = {
-		Link         = '<link.-href=["\'](.-)["\']',
-		Item         = '<entry.-</entry>',
-		ItemLink     = '<link.-href=["\'](.-)["\']',
-		ItemDate     = '<updated.->(.-)</updated>',
-		DateToNumber = NoChange,
-		DateToString = NoChange
-		}
-	}
