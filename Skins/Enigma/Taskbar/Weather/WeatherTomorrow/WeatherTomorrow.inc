@@ -1,13 +1,6 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
-[Variables]
-@include=#@#Measures\YahooWeather.inc
-CurrentCode=#WeatherCode#
-
-;---------------------------------------------------------------------
-; MEASURES
-
 [MeasureBar]
 Measure=Calc
 Formula=(MeasureWeatherDay3Average - MeasureWeatherDay3Low) / (MeasureWeatherDay3High - MeasureWeatherDay3Low)

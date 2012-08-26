@@ -1,9 +1,6 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
-[Variables]
-@include=#@#Measures\YahooWeather.inc
-
 [MeasureTimeZone]
 Measure=Plugin
 Plugin=WebParser

@@ -1,10 +1,6 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
-[Variables]
-@include=#@#Measures\YahooWeather.inc
-CurrentCode=#WeatherCode#
-
 [MeasureClock]
 Measure=Time
 Format="%#I.%M %p"
