@@ -29,7 +29,7 @@ StringIndex=3
 [MeasurePreviewThumbnail]
 Measure=Plugin
 Plugin=WebParser
-Url=http://kaelri.github.com/Enigma/update/preview-150px.png
+Url=http://enigma.kaelri.com/update/preview-150px.png
 Download=1
 UpdateRate=3600
 
