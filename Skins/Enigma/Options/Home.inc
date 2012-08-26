@@ -8,7 +8,7 @@ LabelsQueue=
 [MeasureFeedTitle]
 Measure=Plugin
 Plugin=WebParser
-Url=http://kaelri.github.com/Enigma/update/version.xml
+Url=http://enigma.kaelri.com/update/version.xml
 RegExp=(?siU)<item>.*<title.*>(.*)</title>.*<version.*>(.*)</version>.*<link.*>(.*)</link>
 UpdateRate=3600
 StringIndex=1
