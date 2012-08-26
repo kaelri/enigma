@@ -17,8 +17,8 @@ FinishAction=!CommandMeasure MeasureScriptReader Refresh()
 [MeasureScriptReader]
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
-UpdateDivider=-1
 MeasureName=MeasureFeed
+MaxItems=1
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -34,8 +34,8 @@ MeterStyle=Style#Variant#Icon | #ReaderIconStyle#
 [Text]
 Meter=STRING
 MeterStyle=Style#Variant#Text
-Text=#ItemTitle1#
-LeftMouseUpAction=["#ItemLink1#"]
+Text=#Item1Title#
+LeftMouseUpAction=["#Item1Link#"]
 DynamicVariables=1
 
 [Label]

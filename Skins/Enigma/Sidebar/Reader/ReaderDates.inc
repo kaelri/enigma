@@ -107,15 +107,19 @@ FinishAction=!CommandMeasure MeasureScriptReader Refresh(8)
 Group=Tab8
 Disabled=1
 
+;-----------------------
+
 [MeasureScriptReader]
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
-UpdateDivider=-1
 MeasureName=MeasureFeed1
 MinItems=4
+MaxItems=4
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
 FinishAction=!Update
+
+;-----------------------
 
 [MeasureActive1]
 Measure=Calc
@@ -202,46 +206,46 @@ ToolTipText=#FeedLink#
 [ItemWhat1]
 Meter=STRING
 MeterStyle=StyleReaderText | StyleReaderTextSubheading | StyleReaderTextFirst
-Text=#ItemTitle1#
-LeftMouseUpAction=["#ItemLink1#"]
+Text=#Item1Title#
+LeftMouseUpAction=["#Item1Link#"]
 
 [ItemWhen1]
 Meter=STRING
 MeterStyle=StyleReaderSubtext
-Text=#ItemDate1#
+Text=#Item1Date#
 
 [ItemWhat2]
 Meter=STRING
 MeterStyle=StyleReaderText | StyleReaderTextSubheading
-Text=#ItemTitle2#
-LeftMouseUpAction=["#ItemLink2#"]
+Text=#Item2Title#
+LeftMouseUpAction=["#Item2Link#"]
 
 [ItemWhen2]
 Meter=STRING
 MeterStyle=StyleReaderSubtext
-Text=#ItemDate2#
+Text=#Item2Date#
 
 [ItemWhat3]
 Meter=STRING
 MeterStyle=StyleReaderText | StyleReaderTextSubheading
-Text=#ItemTitle3#
-LeftMouseUpAction=["#ItemLink3#"]
+Text=#Item3Title#
+LeftMouseUpAction=["#Item3Link#"]
 
 [ItemWhen3]
 Meter=STRING
 MeterStyle=StyleReaderSubtext
-Text=#ItemDate3#
+Text=#Item3Date#
 
 [ItemWhat4]
 Meter=STRING
 MeterStyle=StyleReaderText | StyleReaderTextSubheading
-Text=#ItemTitle4#
-LeftMouseUpAction=["#ItemLink4#"]
+Text=#Item4Title#
+LeftMouseUpAction=["#Item4Link#"]
 
 [ItemWhen4]
 Meter=STRING
 MeterStyle=StyleReaderSubtext
-Text=#ItemDate4#
+Text=#Item4Date#
 
 ;-----------------------
 ; BORDER & GRABBERS

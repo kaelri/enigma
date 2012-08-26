@@ -17,7 +17,6 @@ FinishAction=!CommandMeasure MeasureScriptReader Refresh()
 [MeasureScriptReader]
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
-UpdateDivider=-1
 MeasureName=MeasureFeed
 
 [MeasureNewMail]
@@ -43,7 +42,7 @@ DynamicVariables=1
 Meter=STRING
 MeterStyle=Style#Variant#Text
 Text=#NumberOfItems#
-LeftMouseUpAction=["#ItemLink1#"][!Redraw]
+LeftMouseUpAction=["#Item1Link#"][!Redraw]
 DynamicVariables=1
 
 [Label]

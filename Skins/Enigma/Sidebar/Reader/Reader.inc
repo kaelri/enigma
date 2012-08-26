@@ -106,15 +106,20 @@ FinishAction=!CommandMeasure MeasureScriptReader Refresh(8)
 Group=Tab8
 Disabled=1
 
+;-----------------------
+
 [MeasureScriptReader]
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 UpdateDivider=-1
 MeasureName=MeasureFeed1
 MinItems=8
+MaxItems=8
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
 FinishAction=!Update
+
+;-----------------------
 
 [MeasureActive1]
 Measure=Calc
@@ -201,58 +206,58 @@ ToolTipText=#FeedLink#
 [Item1]
 Meter=STRING
 MeterStyle=StyleReaderText | StyleReaderTextFirst
-Text=#ItemTitle1#
-LeftMouseUpAction=["#ItemLink1#"]
-ToolTipText=#ItemLink1#
+Text=#Item1Title#
+LeftMouseUpAction=["#Item1Link#"]
+ToolTipText=#Item1Link#
 
 [Item2]
 Meter=STRING
 MeterStyle=StyleReaderText
-Text=#ItemTitle2#
-LeftMouseUpAction=["#ItemLink2#"]
-ToolTipText=#ItemLink2#
+Text=#Item2Title#
+LeftMouseUpAction=["#Item2Link#"]
+ToolTipText=#Item2Link#
 
 [Item3]
 Meter=STRING
 MeterStyle=StyleReaderText
-Text=#ItemTitle3#
-LeftMouseUpAction=["#ItemLink3#"]
-ToolTipText=#ItemLink3#
+Text=#Item3Title#
+LeftMouseUpAction=["#Item3Link#"]
+ToolTipText=#Item3Link#
 
 [Item4]
 Meter=STRING
 MeterStyle=StyleReaderText
-Text=#ItemTitle4#
-LeftMouseUpAction=["#ItemLink4#"]
-ToolTipText=#ItemLink4#
+Text=#Item4Title#
+LeftMouseUpAction=["#Item4Link#"]
+ToolTipText=#Item4Link#
 
 [Item5]
 Meter=STRING
 MeterStyle=StyleReaderText
-Text=#ItemTitle5#
-LeftMouseUpAction=["#ItemLink5#"]
-ToolTipText=#ItemLink5#
+Text=#Item5Title#
+LeftMouseUpAction=["#Item5Link#"]
+ToolTipText=#Item5Link#
 
 [Item6]
 Meter=STRING
 MeterStyle=StyleReaderText
-Text=#ItemTitle6#
-LeftMouseUpAction=["#ItemLink6#"]
-ToolTipText=#ItemLink6#
+Text=#Item6Title#
+LeftMouseUpAction=["#Item6Link#"]
+ToolTipText=#Item6Link#
 
 [Item7]
 Meter=STRING
 MeterStyle=StyleReaderText
-Text=#ItemTitle7#
-LeftMouseUpAction=["#ItemLink7#"]
-ToolTipText=#ItemLink7#
+Text=#Item7Title#
+LeftMouseUpAction=["#Item7Link#"]
+ToolTipText=#Item7Link#
 
 [Item8]
 Meter=STRING
 MeterStyle=StyleReaderText
-Text=#ItemTitle8#
-LeftMouseUpAction=["#ItemLink8#"]
-ToolTipText=#ItemLink8#
+Text=#Item8Title#
+LeftMouseUpAction=["#Item8Link#"]
+ToolTipText=#Item8Link#
 
 ;-----------------------
 ; BORDER & GRABBERS
