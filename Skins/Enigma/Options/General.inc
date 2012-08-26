@@ -189,7 +189,6 @@ LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Calenda
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarEventFile')"
 TooltipTitle="Calendar Event Library (Filepath)"
 TooltipText=Click to select one or more calendar files to display events in Enigma Calendar.
-DynamicVariables=1
 
 [CalendarShowEventsName]
 Meter=STRING
@@ -199,12 +198,10 @@ Text="Show Events"
 [CalendarShowEventsText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#CalendarShowEventsLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarShowEvents')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarShowEvents')"
 TooltipTitle="Show Event Tooltips on Calendar (Yes/No)"
 TooltipText=Click to toggle whether the Calendar skins show events from your selected calendar file(s).
-DynamicVariables=1
 
 [CalendarMondaysName]
 Meter=STRING
@@ -214,12 +211,10 @@ Text="Start Day"
 [CalendarMondaysText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#CalendarMondaysLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarMondays')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarMondays')"
 TooltipTitle="First Weekday on Calendar Rows (Sun/Mon)"
 TooltipText=Click to toggle whether the Calendar skins show weeks beginning with Sunday or Monday.
-DynamicVariables=1
 
 [CalendarExtraDaysName]
 Meter=STRING
@@ -229,12 +224,10 @@ Text="Extra Dates"
 [CalendarExtraDaysText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#CalendarExtraDaysLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarExtraDays')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarExtraDays')"
 TooltipTitle="Show Extra Calendar Days (Y/N)"
 TooltipText=Click to toggle whether Enigma Calendar shows dates from the next and previous months.
-DynamicVariables=1
 
 [CalendarLeadingZeroesName]
 Meter=STRING
@@ -244,12 +237,10 @@ Text="Leading Zeroes"
 [CalendarLeadingZeroesText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#CalendarLeadingZeroesLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('CalendarLeadingZeroes')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarLeadingZeroes')"
 TooltipTitle="Show Leading Zeroes on Calendar Dates (Y/N)"
 TooltipText=You can also toggle whether the calendar shows leading zeroes for one-digit dates.
-DynamicVariables=1
 
 ;-----------------------
 
@@ -275,12 +266,10 @@ Text="Include Subfolders?"
 [GallerySubfoldersText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#GallerySubfoldersLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('GallerySubfolders')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GallerySubfolders')"
 TooltipTitle="Include Subfolders (Y/N)"
 TooltipText=Choose whether the Gallery skin includes images in subfolders within your chosen path.
-DynamicVariables=1
 
 [GalleryRatioName]
 Meter=STRING
@@ -309,7 +298,6 @@ LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('GalleryPosition')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryPosition')"
 TooltipTitle="Wallpaper Position (Center, Tile, Stretch, Fit, Fill)"
 TooltipText=Choose how the Gallery skin sets your desktop wallpaper. "Fit" and "Fill" are compatible with Windows 7 and above.
-DynamicVariables=1
 
 ;-----------------------
 
@@ -348,15 +336,13 @@ Meter=STRING
 MeterStyle=StyleName | StyleNameSub
 Text="Enable Switcher"
 
-[TyiptychDisabledText]
+[TriptychDisabledText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#TriptychDisabledLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TriptychDisabled')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TriptychDisabled')"
 TooltipTitle="Enable Switcher Action (Y/N)"
 TooltipText=You can choose to disable the switcher action entirely.
-DynamicVariables=1
 
 ;-----------------------
 

@@ -81,7 +81,6 @@ LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('SidebarSpacingFixed
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarSpacingFixed')"
 TooltipTitle="Sidebar Spacing (Y/N)"
 TooltipText=Click to toggle whether the Sidebar reserves space on the desktop for the Taskbar.
-DynamicVariables=1
 
 ;-----------------------
 
@@ -126,7 +125,6 @@ LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TaskbarSpacingFixed
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarSpacingFixed')"
 TooltipTitle="Taskbar Spacing (Y/N)"
 TooltipText=Click to toggle whether the Taskbar reserves space on the desktop for the Sidebar.
-DynamicVariables=1
 
 [TaskbarMaxSkinWidthName]
 Meter=STRING
@@ -169,7 +167,6 @@ LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TaskbarHideTriptych
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarHideTriptych')"
 TooltipTitle="Show Taskbar Triptych? (Y/N)"
 TooltipText=Divides the Taskbar and Second Taskbar skins into thirds. This may or may not look very good depending on the taskbar image you've selected.
-DynamicVariables=1
 
 ;-----------------------
 

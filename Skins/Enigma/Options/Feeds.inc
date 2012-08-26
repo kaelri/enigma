@@ -152,12 +152,10 @@ Text="Show Events"
 [GoogleCalendarWriteEventsText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#GoogleCalendarWriteEventsLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('GoogleCalendarWriteEvents')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GoogleCalendarWriteEvents')"
 TooltipTitle="Write Google Calendar Events to File (Yes/No)"
 TooltipText=Click to toggle whether your Calendar skins save your events in a calendar file. If enabled, the file is saved to your Resources folder. You can also select the file to display today's appointments in Enigma Calendar.
-DynamicVariables=1
 
 ;-----------------------
 

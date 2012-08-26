@@ -98,12 +98,10 @@ Text="Units"
 [UnitText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#UnitLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('Unit')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Unit')"
 TooltipTitle="Temperature Units (Celsius/Fahrenheit)"
 TooltipText=Click to toggle whether Enigma Weather and Enigma World display temperature, speed and pressure units in Imperial (Fahrenheit) or metric (Celcius).
-DynamicVariables=1
 
 ;-----------------------
 

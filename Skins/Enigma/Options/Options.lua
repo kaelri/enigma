@@ -17,7 +17,7 @@ function Initialize()
 		local Labels = Options[Name].Labels
 		for i, v in ipairs(Loop) do
 			if v == SKIN:GetVariable(Name) then
-				SKIN:Bang('!SetVariable', Name..'Label', Labels[i])
+				SKIN:Bang('!SetOption', Name..'Text', 'Text', Labels[i])
 				break
 			end
 		end
@@ -30,7 +30,8 @@ function Write(Key, Value, Wait)
 
 	-- IF NO VALUE IS GIVEN, ADVANCE BY LOOP
 	if not Value then
-		for i, v in ipairs(Option.Loop) do
+		local Loop = Option.Loop
+		for i, v in ipairs(Loop) do
 			if v == SKIN:GetVariable(Key) then
 				Value = Loop[(i % #Loop) + 1]
 				break
@@ -65,6 +66,7 @@ function Default(Key, Confirm)
 	if not Confirm then
 		-- PROMPT CONFIRMATION
 		SKIN:Bang('!SetVariable', 'SelectedDefault', Key)
+		SKIN:Bang('!UpdateMeterGroup', 'Default')
 		SKIN:Bang('!ShowMeterGroup', 'Default')
 		SKIN:Bang('!Redraw')
 	else

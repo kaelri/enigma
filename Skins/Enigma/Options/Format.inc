@@ -158,7 +158,6 @@ LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('ColorImage')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ColorImage')"
 TooltipTitle="Image Color (W/B)"
 TooltipText=Click to type the color of #Stylesheet#'s images. For Enigma Dark, this should be "W" (white) for optimal contrast. For Enigma Light, use "B" (black). This setting may be irrelevant depending on your chosen stylesheet.
-DynamicVariables=1
 
 ;-----------------------
 
@@ -238,35 +237,31 @@ TooltipText=You may change the font sizes used in #Stylesheet#. Be aware, howeve
 
 ;-----------------------
 
-[SidebarBordersTopName]
+[HideBordersTopName]
 Meter=STRING
 MeterStyle=StyleName
 Text="Sidebar Borders"
 
-[SidebarBordersTopText]
+[HideBordersTopText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#HideBordersTopLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('HideBordersTop')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('HideBordersTop')"
 TooltipTitle="Show Sidebar Borders (Y/N)"
 TooltipText=Click to toggle whether Enigma Sidebar skins display a separator at the top and/or bottom of each skin.
-DynamicVariables=1
 
-[SidebarBordersBottomName]
+[HideBordersBottomName]
 Meter=STRING
 MeterStyle=StyleName | StyleNameSub
 Text="Bottom Borders"
 
-[SidebarBordersBottomText]
+[HideBordersBottomText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#HideBordersBottomLabel#
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('HideBordersBottom')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('HideBordersBottom')"
 TooltipTitle="Show Bottom Borders (Y/N)"
 TooltipText=Click to toggle whether Enigma Sidebar skins display a separator at the top and/or bottom of each skin.
-DynamicVariables=1
 
 ;-----------------------
 
