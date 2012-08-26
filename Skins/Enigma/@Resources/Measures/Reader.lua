@@ -1,11 +1,8 @@
 function Initialize()
 	-- SET UPDATE DIVIDER
 	SKIN:Bang('!SetOption', SELF:GetName(), 'UpdateDivider', -1)
-	-- This script should never update on a schedule. It should only update
-	-- when it gets a "Refresh" command from WebParser.
-
-	-- GET GENERAL OPTIONS
-	TimestampFormat = SELF:GetOption('TimestampFormat', '%I.%M %p on %d %B %Y')
+	-- This script never needs to update on a schedule. It should only
+	-- update when it gets a "Refresh" command from WebParser.
 
 	-- CREATE MAIN DATABASE
 	Feeds = {}
@@ -27,11 +24,16 @@ function Initialize()
 			})
 	end
 
-	-- EVENT FILE MODULE
-	Initialize_EventFile()
+	-- MODULES
+	EventFile_Initialize()
+	HistoryFile_Initialize()
 
 	-- SET STARTING FEED
 	f = f or 1
+
+	-- SET USER INPUT
+	UserInput = false
+	-- Used to detect when an item has been marked as read.
 end
 
 function Update()
@@ -54,7 +56,7 @@ function Input(a)
 			Link        = 'http://enigma.kaelri.com/support'
 			}
 		return false
-	elseif Raw ~= Feeds[f].Raw then
+	elseif (Raw ~= Feeds[f].Raw) or UserInput then
 		Feeds[f].Raw = Raw
 
 		-- DETERMINE FEED FORMAT AND CONTENTS
@@ -74,27 +76,71 @@ function Input(a)
 		-- MAKE SYNTAX PRETTIER
 		local Type = Types[t]
 
-		-- CREATE DATABASE
+		-- GET NEW DATA
 		Feeds[f].Title = string.match(Raw, '<title.->(.-)</title>') or 'Untitled'
 		Feeds[f].Link  = string.match(Raw, Type.MatchLink)          or nil
 
-		for i in ipairs(Feeds[f]) do
-			table.remove(Feeds[f], i)
-		end
-		-- Future versions will check for existing items in the database and add only
-		-- newer items. For now, we simply recreate the table from scratch each time.
-
+		local Items = {}
 		for Item in string.gmatch(Raw, Type.MatchItem) do
-			local ItemTitle = string.match(Item, '<title.->(.-)</title>' ) or 'Untitled'
-			local ItemLink  = string.match(Item, Type.MatchItemLink)       or nil
-			local ItemDate  = string.match(Item, Type.MatchItemDate)       or nil
-			local ItemDate  = Type.DateToNumber(ItemDate)
-			table.insert(Feeds[f], {
-				Title = ItemTitle,
-				Link  = ItemLink,
-				Date  = ItemDate
+			-- CHECK EXISTENCE
+			local Title = string.match(Item, '<title.->(.-)</title>' ) or 'Untitled'
+			local Link  = string.match(Item, Type.MatchItemLink)       or nil
+			local ID    = string.match(Item, Type.MatchItemID)         or Link or Title
+			local Desc  = string.match(Item, Type.MatchItemDesc)       or nil
+			local Date  = string.match(Item, Type.MatchItemDate)       or nil
+
+			-- ADDITIONAL PROCESSING
+			local Desc  = Desc and string.gsub(Desc, '<.->',       '') or nil
+			local Desc  = Desc and string.gsub(Desc, '&lt;.-&gt;', '') or nil
+			local Date  = Date and Type.DateToNumber(Date)             or nil
+
+			table.insert(Items, {
+				ID      = ID,
+				Title   = Title,
+				Link    = Link,
+				Desc    = Desc,
+				Date    = Date,
+				Unread  = 1
 				})
 		end
+
+		-- IDENTIFY DUPLICATES
+		-- If any new item matches an old item, sync the "unread" value and
+		-- mark the old item as a duplicate.
+		for i, OldItem in ipairs(Feeds[f]) do
+			for j, NewItem in ipairs(Items) do
+				if NewItem.ID == OldItem.ID then
+					Items[j].Unread = OldItem.Unread
+					Feeds[f][i].Match = j
+				end
+			end
+		end
+
+		-- CLEAR DUPLICATES OR ALL HISTORY
+		local KeepOldItems = SELF:GetNumberOption('KeepOldItems', 0)
+
+		if (KeepOldItems == 1) and Type.MergeItems then
+			for i = #Feeds[f], 1, -1 do
+				if Feeds[f][i].Match then
+					table.remove(Feeds[f], i)
+				end
+			end
+		else
+			for i = 1, #Feeds[f] do
+				table.remove(Feeds[f])
+			end
+		end
+
+		-- ADD NEW ITEMS
+		for i = #Items, 1, -1 do
+			if Items[i] then
+				table.insert(Feeds[f], 1, Items[i])
+			end
+		end
+
+		-- CHECK NUMBER OF ITEMS
+		local MaxItems = SELF:GetNumberOption('MaxItems', nil)
+		local MaxItems = (MaxItems > 0) and MaxItems or nil
 
 		if #Feeds[f] == 0 then
 			Feeds[f].Error = {
@@ -103,13 +149,21 @@ function Input(a)
 				Link        = Feeds[f]['Link']
 			}
 			return false
+		elseif MaxItems and (#Feeds[f] > MaxItems) then
+			for i = #Feeds[f], (MaxItems + 1), -1 do
+				table.remove(Feeds[f])
+			end
 		end
 		
-		-- EVENT FILE MODULE
-		Update_EventFile()
+		-- MODULES
+		EventFile_Update(f)
+		HistoryFile_Update(f)
 
 		-- CLEAR ERRORS FROM PREVIOUS UPDATE
 		Feeds[f].Error = nil
+
+		-- RESET USER INPUT
+		UserInput = false
 	end
 
 	return true
@@ -131,19 +185,25 @@ function Output()
 	Queue['NumberOfItems'] = #Feed
 
 	-- CHECK FOR INPUT ERRORS
-	local MinItems = SELF:GetNumberOption('MinItems', 0)
+	local MinItems  = SELF:GetNumberOption('MinItems', 0)
+	local Timestamp = SELF:GetOption('Timestamp', '%I.%M %p on %d %B %Y')
 
 	if Error then
 		-- ERROR; QUEUE MESSAGES
-		Queue['FeedTitle']  = Error.Title
-		Queue['FeedLink']   = Error.Link
-		Queue['ItemTitle1'] = Error.Description
-		Queue['ItemLink1']  = Error.Link
+		Queue['FeedTitle']   = Error.Title
+		Queue['FeedLink']    = Error.Link
+		Queue['Item1Title']  = Error.Description
+		Queue['Item1Link']   = Error.Link
+		Queue['Item1Desc']   = ''
+		Queue['Item1Date']   = ''
+		Queue['Item1Unread'] = 0
 
 		for i = 2, MinItems do
-			Queue['ItemTitle'..i] = ''
-			Queue['ItemLink'..i]  = ''
-			Queue['ItemDate'..i]  = ''
+			Queue['Item'..i..'Title']   = ''
+			Queue['Item'..i..'Link']    = ''
+			Queue['Item'..i..'Desc']    = ''
+			Queue['Item'..i..'Date']    = ''
+			Queue['Item'..i..'Unread']  = 0
 		end
 	else
 		-- NO ERROR; QUEUE FEED
@@ -151,15 +211,18 @@ function Output()
 		Queue['FeedLink']  = Feed.Link or ''
 
 		for i = 1, math.max(#Feed, MinItems) do
-			Queue['ItemTitle'..i] = Feed[i].Title or ''
-			Queue['ItemLink'..i]  = Feed[i].Link  or ''
-			Queue['ItemDate'..i]  = Feed[i].Date  or ''
-			Queue['ItemDate'..i]  = Type.DateToString(Queue['ItemDate'..i])
+			local Item = Feed[i] or {}			
+			Queue['Item'..i..'Title']   = Item.Title   or ''
+			Queue['Item'..i..'Link']    = Item.Link    or Feed.Link or ''
+			Queue['Item'..i..'Desc']    = Item.Desc    or ''
+			Queue['Item'..i..'Date']    = Item.Date    or ''
+			Queue['Item'..i..'Date']    = Type.DateToString(Queue['Item'..i..'Date'], Timestamp)
+			Queue['Item'..i..'Unread']  = Item.Unread  or ''
 		end
 	end
 
 	-- SET VARIABLES
-	VariablePrefix = SELF:GetOption('VariablePrefix', '')
+	local VariablePrefix = SELF:GetOption('VariablePrefix', '')
 	for k, v in pairs(Queue) do
 		SKIN:Bang('!SetVariable', VariablePrefix..k, v)
 	end
@@ -170,7 +233,55 @@ function Output()
 		SKIN:Bang(FinishAction)
 	end
 
-	return Error and Error.Description or 'Finished #'..f..' ('..Feed.MeasureName..'). Type: '..Feed.Type..'. Items: '..#Feed..'.'
+	return Error and Error.Description or 'Finished #'..f..' ('..Feed.MeasureName..'). Name: '..Feed.Title..'. Type: '..Feed.Type..'. Items: '..#Feed..'.'
+end
+
+-----------------------------------------------------------------------
+-- EXTERNAL COMMANDS
+
+function Refresh(a)
+	a = a and tonumber(a) or f
+	if a == f then
+		SKIN:Bang('!UpdateMeasure', SELF:GetName())
+	else
+		Input(a)
+	end
+end
+
+function Show(a)
+	f = tonumber(a)
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+end
+
+function ShowNext()
+	f = (f % #Feeds) + 1
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+end
+
+function ShowPrevious()
+	f = (f == 1) and #Feeds or (f - 1)
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+end
+
+function MarkRead(a, b)
+	b = b and tonumber(b) or f
+	Feeds[b][a].Unread = 0
+	UserInput = true
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+end
+
+function MarkUnread(a, b)
+	b = b and tonumber(b) or f
+	Feeds[b][a].Unread = 1
+	UserInput = true
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+end
+
+function ToggleUnread(a, b)
+	b = b and tonumber(b) or f
+	Feeds[b][a].Unread = 1 - Feeds[b][a].Unread
+	UserInput = true
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
 end
 
 -----------------------------------------------------------------------
@@ -178,37 +289,48 @@ end
 
 function DefineTypes()
 	Types = {
-		GoogleCalendar = {
-			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
-			MatchItem     = '<entry.-</entry>',
-			MatchItemLink = '<link.-href=["\'](.-)["\']',
-			MatchItemDate = 'startTime=["\'](.-)["\']',
-			DateToNumber  = GoogleCalendar_DateToNumber,
-			DateToString  = function(n) return os.date(TimestampFormat, n) end
-			},
-		RememberTheMilk = {
-			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
-			MatchItem     = '<entry.-</entry>',
-			MatchItemLink = '<link.-href=["\'](.-)["\']',
-			MatchItemDate = '<span class=["\']rtm_due_value["\']>(.-)</span>',
-			DateToNumber  = NoChange,
-			DateToString  = NoChange
-			},
 		RSS = {
 			MatchLink     = '<link.->(.-)</link>',
 			MatchItem     = '<item.-</item>',
+			MatchItemID   = '<guid.->(.-)</guid>',
 			MatchItemLink = '<link.->(.-)</link>',
+			MatchItemDesc = '<description.->(.-)</description>',
 			MatchItemDate = '<pubDate.->(.-)</pubDate>',
 			DateToNumber  = NoChange,
-			DateToString  = NoChange
+			DateToString  = NoChange,
+			MergeItems    = true
 			},
 		Atom = {
 			MatchLink     = '<link.-href=["\'](.-)["\']',
 			MatchItem     = '<entry.-</entry>',
+			MatchItemID   = '<id.->(.-)</id>',
 			MatchItemLink = '<link.-href=["\'](.-)["\']',
+			MatchItemDesc = '<summary.->(.-)</summary>',
 			MatchItemDate = '<updated.->(.-)</updated>',
 			DateToNumber  = NoChange,
-			DateToString  = NoChange
+			DateToString  = NoChange,
+			MergeItems    = true
+			},
+		GoogleCalendar = {
+			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
+			MatchItem     = '<entry.-</entry>',
+			MatchItemID   = '<id.->(.-)</id>',
+			MatchItemLink = '<link.-href=["\'](.-)["\']',
+			MatchItemDate = 'startTime=["\'](.-)["\']',
+			DateToNumber  = GoogleCalendar_DateToNumber,
+			DateToString  = function(n, Format) return os.date(Format, n) end,
+			MergeItems    = false
+			},
+		RememberTheMilk = {
+			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
+			MatchItem     = '<entry.-</entry>',
+			MatchItemID   = '<id.->(.-)</id>',
+			MatchItemLink = '<link.-href=["\'](.-)["\']',
+			MatchItemDesc = '<summary.->(.-)</summary>',
+			MatchItemDate = '<span class=["\']rtm_due_value["\']>(.-)</span>',
+			DateToNumber  = NoChange,
+			DateToString  = NoChange,
+			MergeItems    = false
 			}
 		}
 end
@@ -275,8 +397,9 @@ function IdentifyType(s)
 			elseif HaveEntries and not HaveItems then
 				return 'Atom'
 			else
-				-- If both kinds of tags are present, and no markers are given, then I give up because your feed is ridiculous.
-				-- If neither tag is present, then no type can be confirmed.
+				-- If both kinds of tags are present, and no markers are given, then I give up
+				-- because your feed is ridiculous. And if neither tag is present, then no type
+				-- can be confirmed (and there would be no usable data anyway).
 				return false
 			end
 		end
@@ -306,67 +429,150 @@ function IdentifyType(s)
 end
 
 -----------------------------------------------------------------------
--- EXTERNAL COMMANDS
+-- EVENT FILE MODULE
 
-function Refresh(a)
-	a = a and tonumber(a) or f
-	if a == f then
-		SKIN:Bang('!UpdateMeasure', SELF:GetName())
-	else
-		Input(a)
+function EventFile_Initialize()
+	local EventFiles = {}
+	local AllEventFiles = SELF:GetOption('EventFile', '')
+	for EventFile in string.gmatch(AllEventFiles, '[^%|]+') do
+		table.insert(EventFiles, EventFile)
+	end
+	for i, v in ipairs(Feeds) do
+		local EventFile = EventFiles[i] or SELF:GetName()..'_Feed'..i..'Events.xml'
+		Feeds[i].EventFile = SKIN:MakePathAbsolute(EventFile)
 	end
 end
 
-function Show(a)
-	f = tonumber(a)
-	SKIN:Bang('!UpdateMeasure', SELF:GetName())
-end
+function EventFile_Update(a)
+	local f = a or f
 
-function ShowNext()
-	f = (f % #Feeds) + 1
-	SKIN:Bang('!UpdateMeasure', SELF:GetName())
-end
-
-function ShowPrevious()
-	f = (f == 1) and #Feeds or (f - 1)
-	SKIN:Bang('!UpdateMeasure', SELF:GetName())
+	local WriteEvents = SELF:GetNumberOption('WriteEvents', 0)
+	if (WriteEvents == 1) and (Feeds[f].Type == 'GoogleCalendar') then
+		-- CREATE XML TABLE
+		local WriteLines = {}
+		table.insert(WriteLines, '<EventFile Title="'..Feeds[f].Title..'">')
+		for i, v in ipairs(Feeds[f]) do
+			local ItemDate = os.date('*t', v.Date)
+			table.insert(WriteLines, '<Event Month="'..ItemDate['month']..'" Day="'..ItemDate['day']..'" Desc="'..v.Title..'"/>')
+		end
+		table.insert(WriteLines, '</EventFile>')
+		
+		-- WRITE FILE
+		local WriteFile = io.output(Feeds[f].EventFile, 'w')
+		if WriteFile then
+			local WriteContent = table.concat(WriteLines, '\r\n')
+			WriteFile:write(WriteContent)
+			WriteFile:close()
+		else
+			SKIN:Bang('!Log', SELF:GetName()..': cannot open file: '..Feeds[f].EventFile)
+		end
+	end
 end
 
 -----------------------------------------------------------------------
--- EVENT FILE MODULE
+-- HISTORY FILE MODULE
 
-function Initialize_EventFile()
-	local WriteEvents = SELF:GetNumberOption('WriteEvents', 0)
-	if WriteEvents == 1 then
-		local i = 0
-		local AllEventFiles = SELF:GetOption('EventFile')
-		for EventFile in string.gmatch(SELF:GetOption('EventFile',''),'[^%|]+') do
-			i = i + 1
-			if Feeds[i] then 
-				Feeds[i]['EventFile'] = SKIN:MakePathAbsolute(EventFile)
+function HistoryFile_Initialize()
+	-- DETERMINE FILEPATH
+	HistoryFile = SELF:GetOption('HistoryFile', SELF:GetName()..'History.xml')
+	HistoryFile = SKIN:MakePathAbsolute(HistoryFile)
+
+	-- CREATE HISTORY DATABASE
+	History = {}
+
+	-- CHECK IF FILE EXISTS
+	local ReadFile = io.open(HistoryFile)
+	if ReadFile then
+		local ReadContent = ReadFile:read('*all')
+		ReadFile:close()
+
+		-- PARSE HISTORY FROM LAST SESSION
+		for ReadFeed in string.gmatch(ReadContent, '<feed>(.-)</feed>') do
+			local ReadFeedURL = string.match(ReadFeed, '<url>(.-)</url>')
+			History[ReadFeedURL] = {}
+			for ReadItem in string.gmatch(ReadFeed, '<item>(.-)</item>') do
+				-- CHECK EXISTENCE
+				local ID     = string.match(ReadItem, '<ID>(.-)</ID>')
+				local Title  = string.match(ReadItem, '<Title>(.-)</Title>')
+				local Link   = string.match(ReadItem, '<Link>(.-)</Link>')
+				local Desc   = string.match(ReadItem, '<Desc>(.-)</Desc>')
+				local Date   = string.match(ReadItem, '<Date>(.-)</Date>')
+				local Unread = string.match(ReadItem, '<Unread>(.-)</Unread>')
+
+				-- ADDITIONAL PROCESSING
+				local Date   = tonumber(Date) or Date
+				local Unread = tonumber(Unread)
+
+				table.insert(History[ReadFeedURL], {
+					ID     = ID,
+					Title  = Title,
+					Link   = Link,
+					Desc   = Desc,
+					Date   = Date,
+					Unread = Unread
+					})
+			end
+		end
+	end
+
+	-- ADD HISTORY TO MAIN DATABASE
+	-- For each feed, if URLs match, add all contents from History[h] to Feeds[f].
+	for f, Feed in ipairs(Feeds) do
+		local h = Feed.Measure:GetOption('URL')
+		Feeds[f].URL = h
+		if History[h] then
+			for _, Item in ipairs(History[h]) do
+				table.insert(Feeds[f], Item)
 			end
 		end
 	end
 end
 
-function Update_EventFile()
-	if Feeds[f]['EventFile'] and (Feeds[f]['Type'] == 'GoogleCalendar') then
-		--CREATE XML TABLE
-		local File = {}
-		table.insert(File, '<EventFile Title="'..Feeds[f]['Title']..'">')
-		for i, v in ipairs(Feeds[f]) do
-			local ItemDate = os.date('*t', v['Date'])
-			table.insert(File, '<Event Month="'..ItemDate['month']..'" Day="'..ItemDate['day']..'" Desc="'..v['Title']..'"/>')
+function HistoryFile_Update(a)
+	local f = a or f
+
+	local WriteHistory = SELF:GetNumberOption('WriteHistory', 0)
+	if WriteHistory == 1 then
+		-- CLEAR AND REBUILD FEED HISTORY
+		local h = Feeds[f].URL
+		History[h] = {}
+		for i, Item in ipairs(Feeds[f]) do
+			table.insert(History[h], Item)
 		end
-		table.insert(File, '</EventFile>')
-		
-		--WRITE FILE
-		local hFile = io.output(Feeds[f]['EventFile'], 'w')
-		if io.type(hFile) == 'file' then
-			io.write(table.concat(File, '\r\n'))
-			io.close(hFile)
+
+		-- GENERATE XML TABLE
+		local WriteLines = {}
+		for WriteURL, WriteFeed in pairs(History) do
+			table.insert(WriteLines,                  '<feed>')
+			table.insert(WriteLines,                  '\t<url>'..WriteURL..'</url>')
+			for _, WriteItem in ipairs(WriteFeed) do
+				table.insert(WriteLines,              '\t<item>')
+				for k, v in pairs(WriteItem) do
+					table.insert(WriteLines,          '\t\t<'..k..'>'..v..'</'..k..'>')
+				end
+				table.insert(WriteLines,              '\t</item>')
+			end
+			table.insert(WriteLines,                  '</feed>')
+		end
+
+		-- WRITE XML TO FILE
+		local WriteFile = io.open(HistoryFile, 'w')
+		if WriteFile then
+			local WriteContent = table.concat(WriteLines, '\n')
+			WriteFile:write(WriteContent)
+			WriteFile:close()
 		else
-			SKIN:Bang('!Log', 'Reader: cannot open file: '..Feeds[f]['EventFile'])
+			SKIN:Bang('!Log', SELF:GetName()..': cannot open file: '..HistoryFile)
 		end
 	end
+end
+
+function ClearHistory()
+	local DeleteFile = io.open(HistoryFile)
+	if DeleteFile then
+		DeleteFile:close()
+		os.remove(HistoryFile)
+		SKIN:Bang('!Log', SELF:GetName()..': deleted history cache at '..HistoryFile)
+	end
+	SKIN:Bang('!Refresh')
 end
