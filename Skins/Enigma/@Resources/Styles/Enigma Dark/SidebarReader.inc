@@ -3,22 +3,22 @@
 
 [Variables]
 FeedTitle=Loading...
-ItemTitle1=
-ItemTitle2=
-ItemTitle3=
-ItemTitle4=
-ItemTitle5=
-ItemTitle6=
-ItemTitle7=
-ItemTitle8=
-ItemDate1=
-ItemDate2=
-ItemDate3=
-ItemDate4=
-ItemDate5=
-ItemDate6=
-ItemDate7=
-ItemDate8=
+Item1Title=
+Item2Title=
+Item3Title=
+Item4Title=
+Item5Title=
+Item6Title=
+Item7Title=
+Item8Title=
+Item1Date=
+Item2Date=
+Item3Date=
+Item4Date=
+Item5Date=
+Item6Date=
+Item7Date=
+Item8Date=
 
 ;---------------------------------------------------------------------
 ; READER
@@ -40,7 +40,6 @@ X=10
 Y=15
 W=25
 H=25
-DynamicVariables=1
 
 [StyleReaderTitle]
 X=37

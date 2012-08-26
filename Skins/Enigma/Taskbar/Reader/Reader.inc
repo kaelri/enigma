@@ -19,6 +19,7 @@ Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 MeasureName=MeasureFeed
 MaxItems=1
+FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw]
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -29,10 +30,14 @@ MeterStyle=Style#Variant#Background
 
 [Icon]
 Meter=IMAGE
+Group=FeedData
 MeterStyle=Style#Variant#Icon | #ReaderIconStyle#
+LeftMouseUpAction=["#Item1Link#"]
+DynamicVariables=1
 
 [Text]
 Meter=STRING
+Group=FeedData
 MeterStyle=Style#Variant#Text
 Text=#Item1Title#
 LeftMouseUpAction=["#Item1Link#"]
@@ -40,6 +45,7 @@ DynamicVariables=1
 
 [Label]
 Meter=STRING
+Group=FeedData
 MeterStyle=Style#Variant#Label
 Text=#FeedTitle#
 DynamicVariables=1

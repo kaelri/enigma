@@ -18,10 +18,12 @@ FinishAction=!CommandMeasure MeasureScriptReader Refresh()
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 MeasureName=MeasureFeed
+FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw]
 
 [MeasureNewMail]
 Measure=CALC
-Formula=#NumberOfItems#>0
+Group=FeedData
+Formula=#NumberOfItems# > 0
 DynamicVariables=1
 
 ;---------------------------------------------------------------------
@@ -33,6 +35,7 @@ MeterStyle=Style#Variant#Background
 
 [Icon]
 Meter=IMAGE
+Group=FeedData
 MeterStyle=Style#Variant#Icon | StyleGmailIcon
 MeasureName=MeasureNewMail
 LeftMouseUpAction=["#FeedLink#]
@@ -40,9 +43,10 @@ DynamicVariables=1
 
 [Text]
 Meter=STRING
+Group=FeedData
 MeterStyle=Style#Variant#Text
 Text=#NumberOfItems#
-LeftMouseUpAction=["#Item1Link#"][!Redraw]
+LeftMouseUpAction=["#Item1Link#"]
 DynamicVariables=1
 
 [Label]

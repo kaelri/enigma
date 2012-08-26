@@ -1,6 +1,5 @@
 [Variables]
 WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":" ","'s Facebook Notifications":"","Top Stories - Google ":""
-ReaderWriteEvents=0
 
 ;---------------------------------------------------------------------
 ; MEASURES
@@ -22,6 +21,7 @@ MeasureName=MeasureFeed
 MaxItems=1
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
+FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw]
 
 ;---------------------------------------------------------------------
 ; METERS
@@ -32,10 +32,14 @@ MeterStyle=Style#Variant#Background
 
 [Icon]
 Meter=IMAGE
+Group=FeedData
 MeterStyle=Style#Variant#Icon | #ReaderIconStyle#
+LeftMouseUpAction=["#Item1Link#"]
+DynamicVariables=1
 
 [Text]
 Meter=STRING
+Group=FeedData
 MeterStyle=Style#Variant#Text
 Text=#Item1Title#
 LeftMouseUpAction=["#Item1Link#"]
@@ -43,6 +47,7 @@ DynamicVariables=1
 
 [Label]
 Meter=STRING
+Group=FeedData
 MeterStyle=Style#Variant#Label
 Text=#Item1Date#
 DynamicVariables=1
