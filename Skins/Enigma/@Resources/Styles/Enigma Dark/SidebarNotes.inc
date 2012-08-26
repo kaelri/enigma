@@ -34,7 +34,6 @@ FontSize=#Size3#
 FontFace=#Font#
 AntiAlias=1
 ToolTipWidth=#SidebarWidth#
-DynamicVariables=1
 
 [StyleNotesText]
 X=12
@@ -49,7 +48,6 @@ StringStyle=NORMAL
 AntiAlias=1
 ClipString=1
 ToolTipWidth=#SidebarWidth#
-DynamicVariables=1
 
 ;-----------------------
 ; BORDER

@@ -1,62 +1,73 @@
 function Initialize()
-	sVariablePrefix = SELF:GetOption('VariablePrefix','')
-	sContentDivider = SELF:GetOption('ContentDivider','')
-	sFinishAction = SELF:GetOption('FinishAction')
+	-- GET NOTE PATHS
+	Notes = {}
+	local AllPaths = SELF:GetOption('Path', '')
+	for Path in AllPaths:gmatch('[^%|]+') do
+		local Path = SKIN:MakePathAbsolute(Path)
+		local Dir, Name, Ext = Path:match('(.-)([^\\]-)%.([^%.]+)$')
+		table.insert(Notes, {
+			Path = Path,
+			Name = Name
+			})
+	end
 
-	GetFiles()
-
-	iCurrentNote=1
+	-- SET STARTING NOTE
+	n = n or 1
 end
 
 function Update()
-	local sNotePath=assert(tNotes[iCurrentNote],'Invalid Note number '..iCurrentNote)
-	SKIN:Bang('!SetVariable','CurrentNote',iCurrentNote)
+	local Queue = {}
+
+	-- BUILD QUEUE
+	Queue['CurrentNote'] = n
+	Queue['Name']        = Notes[n].Name
+	Queue['Path']        = Notes[n].Path
 	
-	-----------------------------------------------------------------------
-	-- DETERMINE CONTENT
-	
-	local sNoteDir,sNoteName,sNoteExt = string.match(sNotePath, '(.-)([^\\]-)%.([^%.]+)$')
-	
-	local sRawFile=io.input(sNotePath)
-	local sRaw=io.read('*all')
-	io.close(sRawFile)
-	
-	local sNoteContent=string.gsub(sRaw,sContentDivider..'.*','')
-	
-	--sNoteContent = (sContentDivider~='' and string.match(sRaw,sContentDivider)) and string.match(sRaw,'(.-)'..sContentDivider) or sRaw
-		
-	for k,v in pairs({ -- OUTPUT
-		Path=sNotePath,
-		Name=sNoteName,
-		Content=string.gsub(sNoteContent,'- ','· '),
-	}) do SKIN:Bang('!SetVariable',sVariablePrefix..k,v) end	
-	
-	if sFinishAction ~= '' then -- FINISH ACTION
-		SKIN:Bang(sFinishAction)
+	-- READ FILE	
+	local File    = io.input(Notes[n].Path)
+	local Content = nil
+	if File then
+		Content = File:read('*all')
+		File:close()
+	else
+		Content = 'Could not open file: '..Notes[n].Path
 	end
 	
-	return 'Success!'	
+	-- STRIP CONTENT DIVIDER & FORMAT LISTS
+	local Divider    = SELF:GetOption('ContentDivider','')
+	local Content    = Content:gsub(Divider..'.*', '')
+	local Content    = Content:gsub('- ', '· ')
+	Queue['Content'] = Content
+		
+	-- OUTPUT
+	local VariablePrefix = SELF:GetOption('VariablePrefix', '')
+	for k, v in pairs(Queue) do
+		SKIN:Bang('!SetVariable', VariablePrefix..k, v)
+	end
+	
+	-- FINISH ACTION   
+	local FinishAction = SELF:GetOption('FinishAction', '')
+	if FinishAction ~= '' then
+		SKIN:Bang(FinishAction)
+	end
+	
+	return 'Finished #'..n..' ('..Notes[n].Path..').'
 end
 
-function GetFiles()
-	tNotes = {}
-	for a in string.gmatch(SELF:GetOption('NotePath',''),'[^%|]+') do
-		table.insert(tNotes,SKIN:MakePathAbsolute(a))
-	end
+-----------------------------------------------------------------------
+-- EXTERNAL COMMANDS
+
+function Show(a)
+	n = tonumber(a)
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
 end
 
 function ShowPrevious()
-	iCurrentNote = iCurrentNote==1 and #tNotes or iCurrentNote-1
-	Update()
+	n = (n == 1) and #Notes or (n - 1)
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
 end
 
 function ShowNext()
-	iCurrentNote = iCurrentNote % #tNotes + 1
-	Update()
-end
-
-function NoteError(sErrorPath, sErrorName, sErrorContent)
-	SKIN:Bang('!SetVariable',sVariablePrefix..'Path',sErrorPath)
-	SKIN:Bang('!SetVariable',sVariablePrefix..'Name',sErrorName)
-	SKIN:Bang('!SetVariable',sVariablePrefix..'Content',sErrorContent)
+	n = (n % #Notes) + 1
+	SKIN:Bang('!UpdateMeasure', SELF:GetName())
 end

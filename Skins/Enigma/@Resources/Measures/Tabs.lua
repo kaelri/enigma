@@ -1,7 +1,12 @@
 function Initialize()
 	NumberOfTabs = tonumber(SKIN:GetVariable('NumberOfTabs'))
-	Type = SELF:GetOption('Type', 'Reader')
-	TotalTabs = SELF:GetNumberOption('TotalTabs', 8)
+	Type         = SELF:GetOption('Type', 'Reader')
+	TotalTabs    = SELF:GetNumberOption('TotalTabs', 8)
+
+	Functions = {
+		Reader = UpdateReader,
+		Notes  = UpdateNotes
+		}
 end
 
 function Update()
@@ -11,13 +16,7 @@ function Update()
 			SKIN:Bang('!ShowMeterGroup', 'Tab'..i)
 		end
 
-		if Type == 'Reader' then
-			UpdateReader()
-		elseif Type == 'Notes' then
-			UpdateNotes()
-		end
-
-		SKIN:Bang('!Update')
+		Functions[Type]()
 	end
 
 	for i = NumberOfTabs + 1, TotalTabs do
@@ -25,11 +24,13 @@ function Update()
 			SKIN:Bang('!SetOptionGroup', 'Tab'..i, v, 0)
 		end
 	end
+
+	SKIN:Bang('!Update')
 end
 
 function UpdateReader()
-	local Measures = {'MeasureFeed1'}
-	for i = 2, NumberOfTabs do
+	local Measures = {}
+	for i = 1, NumberOfTabs do
 		table.insert(Measures, 'MeasureFeed'..i)
 	end
 	SKIN:Bang('!SetOption', 'MeasureScriptReader', 'MeasureName', table.concat(Measures, '|'))
@@ -37,10 +38,10 @@ function UpdateReader()
 end
 
 function UpdateNotes()
-	local Files = { SKIN:GetVariable('NotesFile1') }
-	for i = 2, NumberOfTabs do
+	local Files = {}
+	for i = 1, NumberOfTabs do
 		table.insert(Files, SKIN:GetVariable('NotesFile'..i))
 	end
-	SKIN:Bang('!SetOption', 'MeasureNote', 'NotePath', table.concat(Files, '|'))
-	SKIN:Bang('!CommandMeasure', 'MeasureNote', 'GetFiles()')
+	SKIN:Bang('!SetOption', 'MeasureNote', 'Path', table.concat(Files, '|'))
+	SKIN:Bang('!CommandMeasure', 'MeasureNote', 'Initialize()')
 end
