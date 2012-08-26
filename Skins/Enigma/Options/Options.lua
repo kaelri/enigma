@@ -41,7 +41,7 @@ function Write(Key, Value, Wait)
 
 	-- APPLY OPTION-SPECIFIC PARSING
 	if Option.Parse then
-		Value = Option.Parse(Value)
+		Value = Option.Parse(Key, Value)
 	end
 
 	-- WRITE
@@ -85,11 +85,16 @@ end
 -----------------------------------------------------------------------
 -- OPTION-SPECIFIC PARSING FUNCTIONS
 
-function ParseGmail(Key, Value)
+function ParseProtocol(_, Value)
+	return string.match(Value, '://') and Value or 'http://'..Value
+end
+
+function ParseGmail(_, Value)
 	return string.gsub(Value, '@gmail.com', '')
 end
 
-function ParseGcal(Key, Value)
+function ParseGcal(_, Value)
+	Value = ParseProtocol(_, Value)
 	return string.gsub(Value, '/basic', '/full')
 end
 
@@ -98,10 +103,6 @@ function ParseAppPath(Key, Value)
 	local DependentValue = string.match(Value, '%.exe$') and string.match(Value, '([^/\\]+)$') or 'Rainmeter.exe'
 	Write(DependentKey, DependentValue, true)
 	return Value
-end
-
-function ParseURL(Key, Value)
-	-- body
 end
 
 -----------------------------------------------------------------------
@@ -202,13 +203,16 @@ function DefineOptions()
 
 		--FEEDS
 		Feed1 = {
-			Configs = { 'Sidebar\\Reader', 'Sidebar\\Reader\\Reader1' }
+			Configs = { 'Sidebar\\Reader', 'Sidebar\\Reader\\Reader1' },
+			Parse   = ParseProtocol
 			},
 		Feed2 = {
-			Configs = { 'Sidebar\\Reader', 'Sidebar\\Reader\\Reader2' }
+			Configs = { 'Sidebar\\Reader', 'Sidebar\\Reader\\Reader2' },
+			Parse   = ParseProtocol
 			},
 		Feed3 = {
-			Configs = { 'Sidebar\\Reader', 'Sidebar\\Reader\\Reader3' }
+			Configs = { 'Sidebar\\Reader', 'Sidebar\\Reader\\Reader3' },
+			Parse   = ParseProtocol
 			},
 		GmailUsername = {
 			Configs = { 'Sidebar\\Reader\\Gmail', 'Taskbar\\Reader\\Gmail' },
@@ -218,7 +222,8 @@ function DefineOptions()
 			Configs = { 'Sidebar\\Reader\\Gmail', 'Taskbar\\Reader\\Gmail' },
 			},
 		FacebookFeed = {
-			Configs = { 'Sidebar\\Reader\\Facebook', 'Taskbar\\Reader\\Facebook' }
+			Configs = { 'Sidebar\\Reader\\Facebook', 'Taskbar\\Reader\\Facebook' },
+			Parse   = ParseProtocol
 			},
 		GoogleCalendar1 = {
 			Configs = { 'Sidebar\\Reader\\Gcal', 'Taskbar\\Reader\\Gcal' },
@@ -398,7 +403,8 @@ function DefineOptions()
 			Configs = { 'Taskbar\\Search\\Search1', 'Taskbar\\Search\\Run' }
 			},
 		Search1Command = {
-			Configs = { 'Taskbar\\Search\\Search1', 'Taskbar\\Search\\Run' }
+			Configs = { 'Taskbar\\Search\\Search1', 'Taskbar\\Search\\Run' },
+			Parse   = ParseProtocol
 			},
 		Search1Icon = {
 			Configs = { 'Taskbar\\Search\\Search1', 'Taskbar\\Search\\Run' }
@@ -407,7 +413,8 @@ function DefineOptions()
 			Configs = { 'Taskbar\\Search\\Search2', 'Taskbar\\Search\\Run' }
 			},
 		Search2Command = {
-			Configs = { 'Taskbar\\Search\\Search2', 'Taskbar\\Search\\Run' }
+			Configs = { 'Taskbar\\Search\\Search2', 'Taskbar\\Search\\Run' },
+			Parse   = ParseProtocol
 			},
 		Search2Icon = {
 			Configs = { 'Taskbar\\Search\\Search2', 'Taskbar\\Search\\Run' }
@@ -416,7 +423,8 @@ function DefineOptions()
 			Configs = { 'Taskbar\\Search\\Search3', 'Taskbar\\Search\\Run' }
 			},
 		Search3Command = {
-			Configs = { 'Taskbar\\Search\\Search3', 'Taskbar\\Search\\Run' }
+			Configs = { 'Taskbar\\Search\\Search3', 'Taskbar\\Search\\Run' },
+			Parse   = ParseProtocol
 			},
 		Search3Icon = {
 			Configs = { 'Taskbar\\Search\\Search3', 'Taskbar\\Search\\Run' }
@@ -425,7 +433,8 @@ function DefineOptions()
 			Configs = { 'Taskbar\\Search\\Search4', 'Taskbar\\Search\\Run' }
 			},
 		Search4Command = {
-			Configs = { 'Taskbar\\Search\\Search4', 'Taskbar\\Search\\Run' }
+			Configs = { 'Taskbar\\Search\\Search4', 'Taskbar\\Search\\Run' },
+			Parse   = ParseProtocol
 			},
 		Search4Icon = {
 			Configs = { 'Taskbar\\Search\\Search4', 'Taskbar\\Search\\Run' }
@@ -434,7 +443,8 @@ function DefineOptions()
 			Configs = { 'Taskbar\\Search\\Search5', 'Taskbar\\Search\\Run' }
 			},
 		Search5Command = {
-			Configs = { 'Taskbar\\Search\\Search5', 'Taskbar\\Search\\Run' }
+			Configs = { 'Taskbar\\Search\\Search5', 'Taskbar\\Search\\Run' },
+			Parse   = ParseProtocol
 			},
 		Search5Icon = {
 			Configs = { 'Taskbar\\Search\\Search5', 'Taskbar\\Search\\Run' }
