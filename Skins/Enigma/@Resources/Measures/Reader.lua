@@ -487,30 +487,18 @@ function HistoryFile_Initialize()
 		ReadFile:close()
 
 		-- PARSE HISTORY FROM LAST SESSION
-		for ReadFeed in string.gmatch(ReadContent, '<feed>(.-)</feed>') do
-			local ReadFeedURL = string.match(ReadFeed, '<url>(.-)</url>')
+		for ReadFeedURL, ReadFeed in string.gmatch(ReadContent, '<feed URL=(%b"")>(.-)</feed>') do
+			local ReadFeedURL = string.match(ReadFeedURL, '^"(.-)"$')
 			History[ReadFeedURL] = {}
-			for ReadItem in string.gmatch(ReadFeed, '<item>(.-)</item>') do
-				-- CHECK EXISTENCE
-				local ID     = string.match(ReadItem, '<ID>(.-)</ID>')
-				local Title  = string.match(ReadItem, '<Title>(.-)</Title>')
-				local Link   = string.match(ReadItem, '<Link>(.-)</Link>')
-				local Desc   = string.match(ReadItem, '<Desc>(.-)</Desc>')
-				local Date   = string.match(ReadItem, '<Date>(.-)</Date>')
-				local Unread = string.match(ReadItem, '<Unread>(.-)</Unread>')
-
-				-- ADDITIONAL PROCESSING
-				local Date   = tonumber(Date) or Date
-				local Unread = tonumber(Unread)
-
-				table.insert(History[ReadFeedURL], {
-					ID     = ID,
-					Title  = Title,
-					Link   = Link,
-					Desc   = Desc,
-					Date   = Date,
-					Unread = Unread
-					})
+			for ReadItem in string.gmatch(ReadFeed, '<item(.-)/>') do
+				local Keys = {}
+				for k,v in string.gmatch(ReadItem, '(%w+)=(%b"")') do
+					local strip = string.match(v, '^"(.-)"$"')
+					Keys[k] = string.gsub(strip, '&quot;', '"')
+				end
+				Keys.Date = tonumber(Keys.Date) or Keys.Date
+				Keys.Unread = tonumber(Keys.Unread)
+				table.insert(History[ReadFeedURL], Keys)
 			end
 		end
 	end
@@ -543,14 +531,15 @@ function HistoryFile_Update(a)
 		-- GENERATE XML TABLE
 		local WriteLines = {}
 		for WriteURL, WriteFeed in pairs(History) do
-			table.insert(WriteLines,                  '<feed>')
-			table.insert(WriteLines,                  '\t<url>'..WriteURL..'</url>')
+			table.insert(WriteLines,                  '<feed URL="'..WriteURL..'">')
 			for _, WriteItem in ipairs(WriteFeed) do
-				table.insert(WriteLines,              '\t<item>')
+				local line = {}
 				for k, v in pairs(WriteItem) do
-					table.insert(WriteLines,          '\t\t<'..k..'>'..v..'</'..k..'>')
+					local escape = string.gsub(v, '"', '&quot;')
+					local item = string.format('%s=%q', k, escape)
+					table.insert(line, item)
 				end
-				table.insert(WriteLines,              '\t</item>')
+				table.insert(WriteLines, '\t<item '..table.concat(line, ' ')..'/>')
 			end
 			table.insert(WriteLines,                  '</feed>')
 		end
