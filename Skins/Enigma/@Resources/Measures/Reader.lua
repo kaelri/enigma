@@ -490,15 +490,16 @@ function HistoryFile_Initialize()
 		for ReadFeedURL, ReadFeed in string.gmatch(ReadContent, '<feed URL=(%b"")>(.-)</feed>') do
 			local ReadFeedURL = string.match(ReadFeedURL, '^"(.-)"$')
 			History[ReadFeedURL] = {}
-			for ReadItem in string.gmatch(ReadFeed, '<item(.-)/>') do
-				local Keys = {}
-				for k,v in string.gmatch(ReadItem, '(%w+)=(%b"")') do
-					local strip = string.match(v, '^"(.-)"$"')
-					Keys[k] = string.gsub(strip, '&quot;', '"')
+			for ReadItem in string.gmatch(ReadFeed, '<item>(.-)</item>') do
+				local Item = {}
+				for Key, Value in string.gmatch(ReadItem, '<(.-)>(.-)</.->') do
+					Value = Value:gsub('&lt;', '<')
+					Value = Value:gsub('&gt;', '>')
+					Item[Key] = Value
 				end
-				Keys.Date = tonumber(Keys.Date) or Keys.Date
-				Keys.Unread = tonumber(Keys.Unread)
-				table.insert(History[ReadFeedURL], Keys)
+				Item.Date = tonumber(Item.Date) or Item.Date
+				Item.Unread = tonumber(Item.Unread)
+				table.insert(History[ReadFeedURL], Item)
 			end
 		end
 	end
@@ -531,17 +532,17 @@ function HistoryFile_Update(a)
 		-- GENERATE XML TABLE
 		local WriteLines = {}
 		for WriteURL, WriteFeed in pairs(History) do
-			table.insert(WriteLines,                  '<feed URL="'..WriteURL..'">')
+			table.insert(WriteLines, string.format(         '<feed URL=%q>', WriteURL))
 			for _, WriteItem in ipairs(WriteFeed) do
-				local line = {}
-				for k, v in pairs(WriteItem) do
-					local escape = string.gsub(v, '"', '&quot;')
-					local item = string.format('%s=%q', k, escape)
-					table.insert(line, item)
+				table.insert(WriteLines,                    '\t<item>')
+				for Key, Value in pairs(WriteItem) do
+					Value = string.gsub(Value, '<', '&lt;')
+					Value = string.gsub(Value, '>', '&gt;')
+					table.insert(WriteLines, string.format( '\t\t<%s>%s</%s>', Key, Value, Key))
 				end
-				table.insert(WriteLines, '\t<item '..table.concat(line, ' ')..'/>')
+				table.insert(WriteLines,                    '\t</item>')
 			end
-			table.insert(WriteLines,                  '</feed>')
+			table.insert(WriteLines,                        '</feed>')
 		end
 
 		-- WRITE XML TO FILE
