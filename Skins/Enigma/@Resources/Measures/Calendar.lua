@@ -65,11 +65,11 @@ end -- Initialize
 function Update()
 	Date = os.date('*t')
 	if Date.day ~= iDayOnLastUpdate then
-		Events()
-		
 		iDayOnLastUpdate = Date.day
 		tCurrMonth[2] = 28+(((Date.year%4 == 0 and Date.year%100 ~= 0) or Date.year%400 == 0) and 1 or 0)
-		local iStartDay = Rotate(tonumber(os.date('%w', os.time{year = Date.year, month = Date.month, day = 1})))
+		iStartDay = Rotate(tonumber(os.date('%w', os.time{year = Date.year, month = Date.month, day = 1})))
+		
+		Events()
 		
 		----------------------------------------------
 		-- !SETOPTIONS
@@ -123,7 +123,7 @@ function Events() -- Parse Events table.
 			local color = string.match(event.color, ',') and ConvertToHex(event.color) or event.color
 			local desc = table.concat{
 				event.desc,
-				event.year and ' ('..math.abs(Year-event.year)..')' or '',
+				event.year and ' ('..math.abs(Date.year-event.year)..')' or '',
 				event.title and ' -'..event.title or '',
 			}
 			
@@ -191,7 +191,7 @@ function Vars(line,source) -- Makes allowance for {Variables}
 		if tbl[strip] then
 			return tbl[strip]
 		elseif W[v1 or 'nil'] and D[v2 or 'nil'] then -- Variable day.
-			local L,wD = 36+D[v2]-iStartDay, rotate(D[v2])
+			local L,wD = 36+D[v2]-iStartDay, Rotate(D[v2])
 			return W[v1] < 4 and wD+1-iStartDay+(iStartDay > wD and 7 or 0)+7*W[v1] or L-math.ceil((L-tCurrMonth[Date.month])/7)*7
 		else -- Error
 			return ErrMsg(0,'Invalid Variable',b,source and 'in '..source or '')
