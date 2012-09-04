@@ -12,7 +12,7 @@ function Initialize()
 
 	-- GET MEASURE NAMES
 	local AllMeasureNames = SELF:GetOption('MeasureName', '')
-	for MeasureName in string.gmatch(AllMeasureNames, '[^%|]+') do
+	for MeasureName in AllMeasureNames:gmatch('[^%|]+') do
 		table.insert(Feeds, {
 			Measure     = SKIN:GetMeasure(MeasureName),
 			MeasureName = MeasureName,
@@ -77,41 +77,44 @@ function Input(a)
 		local Type = Types[t]
 
 		-- GET NEW DATA
-		Feeds[f].Title = string.match(Raw, '<title.->(.-)</title>') or 'Untitled'
-		Feeds[f].Link  = string.match(Raw, Type.MatchLink)          or nil
+		Feeds[f].Title = Raw:match('<title.->(.-)</title>') or 'Untitled'
+		Feeds[f].Link  = Raw:match(Type.MatchLink)          or nil
 
 		local Items = {}
-		for Item in string.gmatch(Raw, Type.MatchItem) do
-			-- CHECK EXISTENCE
-			local Title = string.match(Item, '<title.->(.-)</title>' ) or 'Untitled'
-			local Link  = string.match(Item, Type.MatchItemLink)       or nil
-			local ID    = string.match(Item, Type.MatchItemID)         or Link or Title
-			local Desc  = string.match(Item, Type.MatchItemDesc)       or nil
-			local Date  = string.match(Item, Type.MatchItemDate)       or nil
+		for RawItem in Raw:gmatch(Type.MatchItem) do
+			local Item  = {}
 
-			-- ADDITIONAL PROCESSING
-			local Desc  = Desc and string.gsub(Desc, '<.->',       '') or nil
-			local Desc  = Desc and string.gsub(Desc, '&lt;.-&gt;', '') or nil
-			local Date  = Date and Type.DateToNumber(Date)             or nil
+			-- MATCH RAW DATA
+			Item.Unread = 1
+			Item.Title  = RawItem:match('<title.->(.-)</title>')     or nil
+			Item.Link   = RawItem:match(Type.MatchItemLink)          or nil
+			Item.Desc   = RawItem:match(Type.MatchItemDesc)          or nil
+			Item.Date   = RawItem:match(Type.MatchItemDate)          or nil
+			Item.ID     = RawItem:match(Type.MatchItemID)            or Item.Link or Item.Title or Item.Desc or Item.Date
 
-			table.insert(Items, {
-				ID      = ID,
-				Title   = Title,
-				Link    = Link,
-				Desc    = Desc,
-				Date    = Date,
-				Unread  = 1
-				})
+			-- ADDITIONAL PARSING
+			if (not Item.Title) or (Item.Title == '') then
+				Item.Title = 'Untitled'
+			end
+			if Item.Desc then
+				Item.Desc = Item.Desc:gsub('<.->', '')
+				Item.Desc = Item.Desc:gsub('%s%s+', ' ')
+			end
+			Item.Date, Item.AllDay, Item.RealDate = IdentifyDate(Item.Date, t)
+
+			table.insert(Items, Item)
 		end
-
+		
 		-- IDENTIFY DUPLICATES
-		-- If any new item matches an old item, sync the "unread" value and
-		-- mark the old item as a duplicate.
 		for i, OldItem in ipairs(Feeds[f]) do
 			for j, NewItem in ipairs(Items) do
 				if NewItem.ID == OldItem.ID then
-					Items[j].Unread = OldItem.Unread
 					Feeds[f][i].Match = j
+					Items[j].Unread   = OldItem.Unread
+					if NewItem.RealDate == 0 then
+						Items[j].Date   = OldItem.Date
+						Items[j].AllDay = OldItem.AllDay
+					end
 				end
 			end
 		end
@@ -212,12 +215,11 @@ function Output()
 
 		for i = 1, math.max(#Feed, MinItems) do
 			local Item = Feed[i] or {}			
-			Queue['Item'..i..'Title']   = Item.Title   or ''
-			Queue['Item'..i..'Link']    = Item.Link    or Feed.Link or ''
-			Queue['Item'..i..'Desc']    = Item.Desc    or ''
-			Queue['Item'..i..'Date']    = Item.Date    or ''
-			Queue['Item'..i..'Date']    = Type.DateToString(Queue['Item'..i..'Date'], Timestamp)
-			Queue['Item'..i..'Unread']  = Item.Unread  or ''
+			Queue['Item'..i..'Title']   = Item.Title  or ''
+			Queue['Item'..i..'Link']    = Item.Link   or Feed.Link or ''
+			Queue['Item'..i..'Desc']    = Item.Desc   or ''
+			Queue['Item'..i..'Unread']  = Item.Unread or ''
+			Queue['Item'..i..'Date']    = Item.Date and os.date(Timestamp, Item.Date) or ''
 		end
 	end
 
@@ -296,9 +298,18 @@ function DefineTypes()
 			MatchItemLink = '<link.->(.-)</link>',
 			MatchItemDesc = '<description.->(.-)</description>',
 			MatchItemDate = '<pubDate.->(.-)</pubDate>',
-			DateToNumber  = NoChange,
-			DateToString  = NoChange,
-			MergeItems    = true
+			MergeItems    = true,
+			ParseDate     = function(s)
+				local Date = {}
+				local MatchTime = '%a%a%a, (%d%d) (%a%a%a) (%d%d%d%d) (%d%d)%:(%d%d)%:(%d%d) (.-)$'
+				local MatchDate = '%a%a%a, (%d%d) (%a%a%a) (%d%d%d%d)$'
+				if s:match(MatchTime) then
+					Date.day, Date.month, Date.year, Date.hour, Date.min, Date.sec, Date.Offset = s:match(MatchTime)
+				elseif s:match(MatchDate) then
+					Date.day, Date.month, Date.year = s:match(MatchDate)
+				end
+				return (Date.year and Date.month and Date.day) and Date or nil
+			end
 			},
 		Atom = {
 			MatchLink     = '<link.-href=["\'](.-)["\']',
@@ -307,19 +318,38 @@ function DefineTypes()
 			MatchItemLink = '<link.-href=["\'](.-)["\']',
 			MatchItemDesc = '<summary.->(.-)</summary>',
 			MatchItemDate = '<updated.->(.-)</updated>',
-			DateToNumber  = NoChange,
-			DateToString  = NoChange,
-			MergeItems    = true
+			MergeItems    = true,
+			ParseDate     = function(s)
+				local Date = {}
+				local MatchTime = '(%d%d%d%d)%-(%d%d)%-(%d%d)T(%d%d)%:(%d%d)%:(%d%d)(.-)$'
+				local MatchDate = '(%d%d%d%d)%-(%d%d)%-(%d%d)$'
+				if s:match(MatchTime) then
+					Date.year, Date.month, Date.day, Date.hour, Date.min, Date.sec, Date.Offset = s:match(MatchTime)
+				elseif s:match(MatchDate) then
+					Date.year, Date.month, Date.day = s:match(MatchDate)
+				end
+				return Date
+			end
 			},
 		GoogleCalendar = {
 			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
 			MatchItem     = '<entry.-</entry>',
 			MatchItemID   = '<id.->(.-)</id>',
 			MatchItemLink = '<link.-href=["\'](.-)["\']',
+			MatchItemDesc = '<summary.->(.-)</summary>',
 			MatchItemDate = 'startTime=["\'](.-)["\']',
-			DateToNumber  = GoogleCalendar_DateToNumber,
-			DateToString  = function(n, Format) return os.date(Format, n) end,
-			MergeItems    = false
+			MergeItems    = false,
+			ParseDate     = function(s)
+				local Date = {}
+				local MatchTime = '(%d%d%d%d)%-(%d%d)%-(%d%d)T(%d%d)%:(%d%d)%:(%d%d)%.%d+(.-)$'
+				local MatchDate = '(%d%d%d%d)%-(%d%d)%-(%d%d)$'
+				if s:match(MatchTime) then
+					Date.year, Date.month, Date.day, Date.hour, Date.min, Date.sec, Date.Offset = s:match(MatchTime)
+				elseif s:match(MatchDate) then
+					Date.year, Date.month, Date.day = s:match(MatchDate)
+				end
+				return Date
+			end
 			},
 		RememberTheMilk = {
 			MatchLink     = '<link.-rel=.-alternate.-href=["\'](.-)["\']',
@@ -328,32 +358,20 @@ function DefineTypes()
 			MatchItemLink = '<link.-href=["\'](.-)["\']',
 			MatchItemDesc = '<summary.->(.-)</summary>',
 			MatchItemDate = '<span class=["\']rtm_due_value["\']>(.-)</span>',
-			DateToNumber  = NoChange,
-			DateToString  = NoChange,
-			MergeItems    = false
+			MergeItems    = false,
+			ParseDate     = function(s)
+				local Date = {}
+				local MatchTime = '%a%a%a (%d+) (%a%a%a) (%d+) at (%d+)%:(%d+)(%a%a)' -- e.g. 'Wed 7 Nov 12 at 3:17PM'
+				local MatchDate = '%a%a%a (%d+) (%a%a%a) (%d+)' -- e.g. 'Tue 25 Dec 12'
+				if s:match(MatchTime) then
+					Date.day, Date.month, Date.year, Date.hour, Date.min, Date.Meridiem = s:match(MatchTime)
+				elseif s:match(MatchDate) then
+					Date.day, Date.month, Date.year = s:match(MatchDate)
+				end
+				return Date
+			end
 			}
 		}
-end
-
-function GoogleCalendar_DateToNumber(s)
-	local year, month, day, hour, min, sec
-	local MatchTime = '(.+)%-(.+)%-(.+)T(.+):(.+):(.+)%.'
-	local MatchDate = '(.+)%-(.+)%-(.+)'
-
-	if string.match(s, MatchTime) then
-		year, month, day, hour, min, sec = string.match(s, MatchTime)
-		return os.time{ year = year, month = month, day = day, hour = hour, min = min, sec = sec }
-	elseif string.match(s, MatchDate) then
-		year, month, day = string.match(s, MatchDate)
-		hour, min, sec = 0, 0, 0
-		return os.time{ year = year, month = month, day = day, hour = hour, min = min, sec = sec }
-	else
-		return os.time()
-	end
-end
-
-function NoChange(a)
-	return a
 end
 
 -------------------------
@@ -361,7 +379,7 @@ end
 function IdentifyType(s)
 	-- COLLAPSE CONTAINER TAGS
 	for _, v in ipairs{ 'item', 'entry' } do
-		s = string.gsub(s, '<'..v..'.->.+</'..v..'>', '<'..v..'></'..v..'>') -- e.g. '<entry.->.+</entry>' --> '<entry></entry>'
+		s = s:gsub('<'..v..'.->.+</'..v..'>', '<'..v..'></'..v..'>') -- e.g. '<entry.->.+</entry>' --> '<entry></entry>'
 	end
 
 	--DEFINE RSS MARKER TESTS
@@ -370,7 +388,7 @@ function IdentifyType(s)
 		function(a)
 			-- If the feed contains these tags outside of <item> or <entry>, RSS is confirmed.
 			for _, v in ipairs{ '<rss', '<channel', '<lastBuildDate', '<pubDate', '<ttl', '<description' } do
-				if string.match(a, v) then
+				if a:match(v) then
 					return 'RSS'
 				end
 			end
@@ -380,7 +398,7 @@ function IdentifyType(s)
 		function(a)
 			-- Alternatively, if the feed contains these tags outside of <item> or <entry>, Atom is confirmed.
 			for _, v in ipairs{ '<feed', '<subtitle' } do
-				if string.match(a, v) then
+				if a:match(v) then
 					return 'Atom'
 				end
 			end
@@ -389,8 +407,8 @@ function IdentifyType(s)
 
 		function(a)
 			-- If no markers are present, we search for <item> or <entry> tags to confirm the type.
-			local HaveItems   = string.match(a, '<item')
-			local HaveEntries = string.match(a, '<entry')
+			local HaveItems   = a:match('<item')
+			local HaveEntries = a:match('<entry')
 
 			if HaveItems and not HaveEntries then
 				return 'RSS'
@@ -416,9 +434,9 @@ function IdentifyType(s)
 	if Class == 'RSS' then
 		return 'RSS'
 	elseif Class == 'Atom' then
-		if string.match(s, 'xmlns:gCal') then
+		if s:match('xmlns:gCal') then
 			return 'GoogleCalendar'
-		elseif string.match(s, '<subtitle>rememberthemilk.com</subtitle>') then
+		elseif s:match('<subtitle>rememberthemilk.com</subtitle>') then
 			return 'RememberTheMilk'
 		else
 			return 'Atom'
@@ -428,13 +446,98 @@ function IdentifyType(s)
 	end
 end
 
+-------------------------
+
+function IdentifyDate(s, t)
+	-- PARSE STRING BY TYPE
+	local Date = s and Types[t].ParseDate(s) or {}
+
+	Date.year   = tonumber(Date.year)  or nil
+	Date.month  = tonumber(Date.month) or MonthAcronyms[Date.month] or nil
+	Date.day    = tonumber(Date.day)   or nil
+	Date.hour   = tonumber(Date.hour)  or nil
+	Date.min    = tonumber(Date.min)   or nil
+	Date.sec    = tonumber(Date.sec)   or 0
+
+	-- FIND ENOUGH ELEMENTS, OR DEFAULT TO RETRIEVAL DATE
+	local RealDate, AllDay
+
+	if (Date.year and Date.month and Date.day) then
+		RealDate = 1
+
+		-- DETECT ALL-DAY EVENT
+		if (Date.hour and Date.min) then
+			AllDay    = 0
+		else
+			AllDay    = 1
+			Date.hour = 0
+			Date.min  = 0
+		end
+
+		-- CHANGE 12-HOUR to 24-HOUR
+		if Date.Meridiem then
+			if (Date.Meridiem == 'AM') and (Date.hour == 12) then
+				Date.hour = 0
+			elseif (Date.Meridiem == 'PM') and (Date.hour < 12) then
+				Date.hour = Date.hour + 12
+			end
+		end
+
+		-- FIND CLOSEST MATCH FOR TWO-DIGIT YEAR
+		if Date.year < 100 then
+			local CurrentYear    = os.date('*t').year
+			local CurrentCentury = math.floor(CurrentYear / 100) * 100
+			local IfThisCentury  = CurrentCentury + Date.year
+			local IfNextCentury  = CurrentCentury + Date.year + 100
+			if math.abs(CurrentYear - IfThisCentury) < math.abs(CurrentYear - IfNextCentury) then
+				Date.year = IfThisCentury
+			else
+				Date.year = IfNextCentury
+			end
+		end
+
+		-- GET CURRENT LOCAL OFFSET FROM UTC
+		local UTC             = os.date('!*t')
+		local LocalTime       = os.date('*t')
+		local DaylightSavings = LocalTime.isdst and 3600 or 0
+		local LocalOffset     = os.time(LocalTime) - os.time(UTC) + DaylightSavings
+
+		-- GET INPUT OFFSET FROM UTC (OR DEFAULT TO LOCAL)
+		if (Date.Offset) and (Date.Offset ~= '') then
+			if Date.Offset:match('%a') then
+				Date.Offset = TimeZones[Date.Offset] and (TimeZones[Date.Offset] * 3600) or 0
+			elseif Date.Offset:match('%d') then
+				local Direction, Hours, Minutes = Date.Offset:match('^([^%d]-)(%d+)[^%d]-(%d%d)')
+
+				Direction = Direction:match('%-') and -1 or 1
+				Hours     = tonumber(Hours) * 3600
+				Minutes   = tonumber(Minutes) and (tonumber(Minutes) * 60) or 0
+
+				Date.Offset = (Hours + Minutes) * Direction
+			end
+		else
+			Date.Offset = LocalOffset
+		end
+
+		-- RETURN CONVERTED DATE
+		Date     = os.time(Date) + LocalOffset - Date.Offset
+	else
+		-- NO USABLE DATE FOUND; USE RETRIEVAL DATE INSTEAD
+		RealDate = 0
+		AllDay   = 0
+		Date     = os.time()
+	end
+
+	return Date, AllDay, RealDate
+end
+
 -----------------------------------------------------------------------
 -- EVENT FILE MODULE
 
 function EventFile_Initialize()
 	local EventFiles = {}
 	local AllEventFiles = SELF:GetOption('EventFile', '')
-	for EventFile in string.gmatch(AllEventFiles, '[^%|]+') do
+	for EventFile in AllEventFiles:gmatch('[^%|]+') do
 		table.insert(EventFiles, EventFile)
 	end
 	for i, v in ipairs(Feeds) do
@@ -487,12 +590,12 @@ function HistoryFile_Initialize()
 		ReadFile:close()
 
 		-- PARSE HISTORY FROM LAST SESSION
-		for ReadFeedURL, ReadFeed in string.gmatch(ReadContent, '<feed URL=(%b"")>(.-)</feed>') do
-			local ReadFeedURL = string.match(ReadFeedURL, '^"(.-)"$')
+		for ReadFeedURL, ReadFeed in ReadContent:gmatch('<feed URL=(%b"")>(.-)</feed>') do
+			local ReadFeedURL = ReadFeedURL:match('^"(.-)"$')
 			History[ReadFeedURL] = {}
-			for ReadItem in string.gmatch(ReadFeed, '<item>(.-)</item>') do
+			for ReadItem in ReadFeed:gmatch('<item>(.-)</item>') do
 				local Item = {}
-				for Key, Value in string.gmatch(ReadItem, '<(.-)>(.-)</.->') do
+				for Key, Value in ReadItem:gmatch('<(.-)>(.-)</.->') do
 					Value = Value:gsub('&lt;', '<')
 					Value = Value:gsub('&gt;', '>')
 					Item[Key] = Value
@@ -566,3 +669,68 @@ function ClearHistory()
 	end
 	SKIN:Bang('!Refresh')
 end
+
+-----------------------------------------------------------------------
+-- CONSTANTS
+
+TimeZones = {
+	IDLW = -12, --  International Date Line West 
+	NT   = -11, --  Nome 
+	CAT  = -10, --  Central Alaska 
+	HST  = -10, --  Hawaii Standard 
+	HDT  = -9,	--  Hawaii Daylight 
+	YST  = -9,  --  Yukon Standard 
+	YDT  = -8,  --  Yukon Daylight 
+	PST  = -8,  --  Pacific Standard 
+	PDT  = -7,  --  Pacific Daylight 
+	MST  = -7,  --  Mountain Standard 
+	MDT  = -6,  --  Mountain Daylight 
+	CST  = -6,  --  Central Standard 
+	CDT  = -5,  --  Central Daylight 
+	EST  = -5,  --  Eastern Standard 
+	EDT  = -4,  --  Eastern Daylight 
+	AST  = -3,  --  Atlantic Standard 
+	ADT  = -2,  --  Atlantic Daylight 
+	WAT  = -1,  --  West Africa 
+	GMT  =  0,  --  Greenwich Mean 
+	UTC  =  0,  --  Universal (Coordinated) 
+	Z    =  0,  --  Zulu, alias for UTC 
+	WET  =  0,  --  Western European 
+	BST  =  1,  --  British Summer 
+	CET  =  1,  --  Central European 
+	MET  =  1,  --  Middle European 
+	MEWT =  1,  --  Middle European Winter 
+	MEST =  2,  --  Middle European Summer 
+	CEST =  2,  --  Central European Summer 
+	MESZ =  2,  --  Middle European Summer 
+	FWT  =  1,  --  French Winter 
+	FST  =  2,  --  French Summer 
+	EET  =  2,  --  Eastern Europe, USSR Zone 1 
+	EEST =  3,  --  Eastern European Daylight 
+	WAST =  7,  --  West Australian Standard 
+	WADT =  8,  --  West Australian Daylight 
+	CCT  =  8,  --  China Coast, USSR Zone 7 
+	JST  =  9,  --  Japan Standard, USSR Zone 8 
+	EAST = 10,  --  Eastern Australian Standard 
+	EADT = 11,  --  Eastern Australian Daylight 
+	GST  = 10,  --  Guam Standard, USSR Zone 9 
+	NZT  = 12,  --  New Zealand 
+	NZST = 12,  --  New Zealand Standard 
+	NZDT = 13,  --  New Zealand Daylight 
+	IDLE = 12   --  International Date Line East 
+	}
+
+MonthAcronyms = {
+	Jan = 1,
+	Feb = 2,
+	Mar = 3,
+	Apr = 4,
+	May = 5,
+	Jun = 6,
+	Jul = 7,
+	Aug = 8,
+	Sep = 9,
+	Oct = 10,
+	Nov = 11,
+	Dec = 12
+	}
