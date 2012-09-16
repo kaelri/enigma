@@ -1,15 +1,3 @@
---[[ TO-DO:
-
-- Separate history file update so it (can) only run on skin close/refresh.
-- Display combined feeds. (Easy to generate, but need to change "Mark" functions to hit origin tables.)
-- Mark All as read/unread
-- Date output formatter.
-- Save feed unread counts.
-- Gcal end times + duration?
-- Lua-fy DecodeCharacterReference so I can use tags properly. (Output ONLY.)
-
-]]
-
 function Initialize()
 	-- SET UPDATE DIVIDER
 	SKIN:Bang('!SetOption', SELF:GetName(), 'UpdateDivider', -1)
@@ -98,11 +86,11 @@ function Input(a)
 
 			-- MATCH RAW DATA
 			Item.Unread = 1
-			Item.Title  = RawItem:match('<title.->(.-)</title>')     or nil
-			Item.Link   = RawItem:match(Type.MatchItemLink)          or nil
-			Item.Desc   = RawItem:match(Type.MatchItemDesc)          or nil
-			Item.Date   = RawItem:match(Type.MatchItemDate)          or nil
-			Item.ID     = RawItem:match(Type.MatchItemID)            or Item.Link or Item.Title or Item.Desc or Item.Date
+			Item.Title  = RawItem:match('<title.->(.-)</title>') or nil
+			Item.Link   = RawItem:match(Type.MatchItemLink)      or nil
+			Item.Desc   = RawItem:match(Type.MatchItemDesc)      or nil
+			Item.Date   = RawItem:match(Type.MatchItemDate)      or nil
+			Item.ID     = RawItem:match(Type.MatchItemID)        or Item.Link or Item.Title or Item.Desc or Item.Date
 
 			-- ADDITIONAL PARSING
 			if (not Item.Title) or (Item.Title == '') then
@@ -486,6 +474,13 @@ function IdentifyDate(s, t)
 			Date.min  = 0
 		end
 
+		-- GET CURRENT LOCAL TIME, UTC OFFSET
+		-- These values are referenced in several procedures below.
+		local UTC             = os.date('!*t')
+		local LocalTime       = os.date('*t')
+		local DaylightSavings = LocalTime.isdst and 3600 or 0
+		local LocalOffset     = os.time(LocalTime) - os.time(UTC) + DaylightSavings
+
 		-- CHANGE 12-HOUR to 24-HOUR
 		if Date.Meridiem then
 			if (Date.Meridiem == 'AM') and (Date.hour == 12) then
@@ -497,7 +492,7 @@ function IdentifyDate(s, t)
 
 		-- FIND CLOSEST MATCH FOR TWO-DIGIT YEAR
 		if Date.year < 100 then
-			local CurrentYear    = os.date('*t').year
+			local CurrentYear    = LocalTime.year
 			local CurrentCentury = math.floor(CurrentYear / 100) * 100
 			local IfThisCentury  = CurrentCentury + Date.year
 			local IfNextCentury  = CurrentCentury + Date.year + 100
@@ -508,11 +503,7 @@ function IdentifyDate(s, t)
 			end
 		end
 
-		-- GET CURRENT LOCAL OFFSET FROM UTC
-		local UTC             = os.date('!*t')
-		local LocalTime       = os.date('*t')
-		local DaylightSavings = LocalTime.isdst and 3600 or 0
-		local LocalOffset     = os.time(LocalTime) - os.time(UTC) + DaylightSavings
+
 
 		-- GET INPUT OFFSET FROM UTC (OR DEFAULT TO LOCAL)
 		if (Date.Offset) and (Date.Offset ~= '') then
@@ -635,15 +626,20 @@ end
 function HistoryFile_Update(a)
 	local f = a or f
 
+	-- CLEAR AND REBUILD HISTORY
+	local h = Feeds[f].URL
+	History[h] = {}
+	for i, Item in ipairs(Feeds[f]) do
+		table.insert(History[h], Item)
+	end
+
+	-- WRITE HISTORY IF REQUESTED
+	WriteHistory()
+end
+
+function WriteHistory()
 	local WriteHistory = SELF:GetNumberOption('WriteHistory', 0)
 	if WriteHistory == 1 then
-		-- CLEAR AND REBUILD FEED HISTORY
-		local h = Feeds[f].URL
-		History[h] = {}
-		for i, Item in ipairs(Feeds[f]) do
-			table.insert(History[h], Item)
-		end
-
 		-- GENERATE XML TABLE
 		local WriteLines = {}
 		for WriteURL, WriteFeed in pairs(History) do
@@ -690,7 +686,7 @@ TimeZones = {
 	NT   = -11, --  Nome 
 	CAT  = -10, --  Central Alaska 
 	HST  = -10, --  Hawaii Standard 
-	HDT  = -9,	--  Hawaii Daylight 
+	HDT  = -9,  --  Hawaii Daylight 
 	YST  = -9,  --  Yukon Standard 
 	YDT  = -8,  --  Yukon Daylight 
 	PST  = -8,  --  Pacific Standard 
