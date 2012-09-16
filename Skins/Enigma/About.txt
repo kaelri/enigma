@@ -79,6 +79,7 @@ App: Rainmeter 2.4 Beta (r1626)
 - CoreTemp: fixed all skins being labeled "1" instead of the actual core number.
 - Options: now adds "http://" to web URLs if no protocol is given.
 - Options: fixed being unable to set App4Path and App5Path.
+- Moon: fixed image names.
 - Network: fixed IP address clipping.
 - Reader: major script overhaul. Performance improvements, stronger format parsing. Fixes numerous issues.
 - Reader: fixed issue with mixed quote types in feeds.
