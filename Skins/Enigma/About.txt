@@ -67,18 +67,19 @@ RainRGB                Jeffrey Morley
 -----------------------
 CHANGELOG
 
-5 Beta 1
---------
-Date: ???
-App: Rainmeter ???
+4 Patch 1
+---------
+Date: 16 September, 2012
+App: Rainmeter 2.4 Beta (r1626)
 
 - Facebook: fixed missing icon and wrong feed URL.
 - Google Calendar: fixed displaying all-day events.
 - Google Calendar: fixed issue with daylight savings time shifting event times by 1 hour.
 - CoreTemp: fixed all skins being labeled "1" instead of the actual core number.
+- Options: now adds "http://" to web URLs if no protocol is given.
 - Options: fixed being unable to set App4Path and App5Path.
 - Network: fixed IP address clipping.
-- Reader: major script overhaul. Performance improvements, stronger format parsing.
+- Reader: major script overhaul. Performance improvements, stronger format parsing. Fixes numerous issues.
 - Reader: fixed issue with mixed quote types in feeds.
 - World: fixed issue with DaylightSavingTime setting being wrongly used.
 

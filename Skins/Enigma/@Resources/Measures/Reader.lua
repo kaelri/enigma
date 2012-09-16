@@ -1,3 +1,15 @@
+--[[ TO-DO:
+
+- Separate history file update so it (can) only run on skin close/refresh.
+- Display combined feeds. (Easy to generate, but need to change "Mark" functions to hit origin tables.)
+- Mark All as read/unread
+- Date output formatter.
+- Save feed unread counts.
+- Gcal end times + duration?
+- Lua-fy DecodeCharacterReference so I can use tags properly. (Output ONLY.)
+
+]]
+
 function Initialize()
 	-- SET UPDATE DIVIDER
 	SKIN:Bang('!SetOption', SELF:GetName(), 'UpdateDivider', -1)
