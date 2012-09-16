@@ -10,6 +10,7 @@ Measure=PhysicalMemory
 [MeasureHD]
 Measure=FreeDiskSpace
 Drive=#Drive1#:
+IgnoreRemovable=0
 UpdateDivider=60
 
 [MeasurePower]

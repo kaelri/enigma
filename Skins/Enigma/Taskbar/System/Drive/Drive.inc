@@ -4,20 +4,24 @@
 [MeasureDriveFree]
 Measure=FreeDiskSpace
 Drive=#Drive#:
+IgnoreRemovable=0
 
 [MeasureDriveUsed]
 Measure=FreeDiskSpace
 Drive=#Drive#:
+IgnoreRemovable=0
 InvertMeasure=1
 
 [MeasureDriveTotal]
 Measure=FreeDiskSpace
 Drive=#Drive#
+IgnoreRemovable=0
 Total=1
 
 [MeasureDriveType]
 Measure=FreeDiskSpace
 Drive=#Drive#:
+IgnoreRemovable=0
 Type=1
 IfAboveValue=2
 IfAboveAction=!SetOption "Text" "Text" "%1"
@@ -27,6 +31,7 @@ IfBelowAction=!SetOption "Text" "Text" "Removed"
 ; [MeasureDriveName]
 ; Measure=FreeDiskSpace
 ; Drive=#Drive#:
+; IgnoreRemovable=0
 ; Label=1
 ; UpdateDivider=-1
 
