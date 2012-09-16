@@ -18,7 +18,6 @@ FinishAction=!CommandMeasure MeasureScriptReader Refresh()
 Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 MeasureName=MeasureFeed
-MaxItems=1
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
 FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw]

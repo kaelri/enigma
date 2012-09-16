@@ -113,7 +113,6 @@ Measure=Script
 ScriptFile="#@#Measures\Reader.lua"
 MeasureName=MeasureFeed1
 MinItems=4
-MaxItems=4
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
 FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw][!SetVariable Reset 0]
