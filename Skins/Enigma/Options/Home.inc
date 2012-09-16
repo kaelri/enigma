@@ -212,7 +212,7 @@ Text="Website"
 Meter=STRING
 MeterStyle=StyleText
 Text="enigma.kaelri.com"
-LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=downloads"]
+LeftMouseUpAction=["http://enigma.kaelri.com/"]
 
 [WebsiteCaption]
 Meter=STRING
