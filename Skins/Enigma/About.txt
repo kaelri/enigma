@@ -67,6 +67,13 @@ RainRGB                Jeffrey Morley
 -----------------------
 CHANGELOG
 
+Enigma 5
+--------
+Date: 21 November, 2012
+App: Rainmeter 2.4 Beta (r???)
+
+- World: fixed daylight savings error.
+
 4 Patch 1
 ---------
 Date: 16 September, 2012

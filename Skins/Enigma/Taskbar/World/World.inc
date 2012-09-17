@@ -6,19 +6,21 @@ Measure=Plugin
 Plugin=WebParser
 UpdateRate=3600
 Url=http://ws.geonames.org/timezone?lat=#CurrentCodeLat#&lng=#CurrentCodeLon#
-RegExp=<gmtOffset>(.*)</gmtOffset>
+RegExp=<dstOffset>(.*)</dstOffset>
 StringIndex=1
 
 [MeasureTime]
 Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
+DaylightSavingTime=0
 
 [MeasureTimeSeconds]
 Measure=Time
 TimeZone=[MeasureTimeZone]
 Format="%#S"
 DynamicVariables=1
+DaylightSavingTime=0
 
 [MeasureClock]
 Measure=Time
@@ -26,6 +28,7 @@ Format="%#I.%M %p"
 TimeZone=[MeasureTimeZone]
 Substitute="PM":"pm","AM":"am"
 DynamicVariables=1
+DaylightSavingTime=0
 
 [MeasureBar]
 Measure=Calc

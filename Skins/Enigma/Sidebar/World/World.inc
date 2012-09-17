@@ -6,13 +6,14 @@ Measure=Plugin
 Plugin=WebParser
 UpdateRate=3600
 Url=http://ws.geonames.org/timezone?lat=#CurrentCodeLat#&lng=#CurrentCodeLon#
-RegExp=<gmtOffset>(.*)</gmtOffset>
+RegExp=<dstOffset>(.*)</dstOffset>
 StringIndex=1
 
 [MeasureTime]
 Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
+DaylightSavingTime=0
 
 [MeasureReal1]
 Measure=Time
@@ -20,6 +21,7 @@ TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 Format="%#H.%M.%S  ·  %a"
 Substitute="Sun":"SUN","Mon":"MON","Tue":"TUE","Wed":"WED","Thu":"THU","Fri":"FRI","Sat":"SAT"
+DaylightSavingTime=0
 
 [MeasureReal2]
 Measure=Time
@@ -27,6 +29,7 @@ TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 Format="%#d %b  ·  %Y"
 Substitute="Jan":"JAN","Feb":"FEB","Mar":"MAR","Apr":"APR","May":"MAY","Jun":"JUN","Jul":"JUL","Aug":"AUG","Sep":"SEP","Oct":"OCT","Nov":"NOV","Dec":"DEC"
+DaylightSavingTime=0
 
 ;---------------------------------------------------------------------
 ; METERS
