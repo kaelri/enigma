@@ -72,6 +72,7 @@ Enigma 5
 Date: 21 November, 2012
 App: Rainmeter 2.4 Beta (r???)
 
+- Process: improved accuracy of usage percentages.
 - World: fixed daylight savings error.
 
 4 Patch 1
