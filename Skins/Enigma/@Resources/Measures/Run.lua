@@ -14,8 +14,7 @@ function Initialize()
 	end
 end
 
-function Run()
-	local command = SKIN:GetVariable('Run')
+function Run(command)
 	if string.match(string.lower(command), '^search%d? ') then
 		local num = tonumber(string.match(string.lower(command), '^search(%d)') or 1)
 		local searchnum = (num>=1 and num<=5) and num or 1
