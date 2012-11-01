@@ -184,7 +184,7 @@ end -- BuiltInEvents
 
 function Vars(line,source) -- Makes allowance for {Variables}
 	local D, W = {sun=0, mon=1, tue=2, wed=3, thu=4, fri=5, sat=6}, {first=0, second=1, third=2, fourth=3, last=4}
-	local tbl = BuiltInEvents()
+	local tbl = BuiltInEvents{year = Date.year, today = Date.day, month = Date.month}
 	
 	return tostring(line):gsub('{([^}]+)}', function(variable)
 		local strip = variable:lower()
