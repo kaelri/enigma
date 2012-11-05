@@ -1,41 +1,40 @@
 function Initialize()
-	local file = io.input(SKIN:GetVariable('@') .. 'User\\Run.cfg')
+	local file = io.open(SKIN:GetVariable('@') .. 'User\\Run.cfg', 'r')
 	Execute = {}
-	if io.type(file) == 'file' then
-		for line in io.lines() do
-			if not string.match(line,'^;')then
-				local key,command = string.match(line, '^%s-([^=]+)=(.+)')
+	if file then
+		for line in file:lines() do
+			if not line:match('^;')then
+				local key, command = line:match('^%s-([^=]+)=(.+)')
 				if key and command then
-					Execute[string.lower(string.match(key, '(.+)%s-$'))] = command
+					Execute[key:lower():match:('(.+)%s-$'))] = command
 				end
 			end
 		end
-		io.close(file)
+		file:close()
 	end
 end
 
 function Run(command)
-	if string.match(string.lower(command), '^search%d? ') then
-		local num = tonumber(string.match(string.lower(command), '^search(%d)') or 1)
+	if command:lower():match('^search%d? ') then
+		local num = tonumber(command:lower():match('^search(%d)') or 1)
 		local searchnum = (num>=1 and num<=5) and num or 1
-		local term = string.gsub(string.match(command, '^......%d? (.+)'), '%s', '%%%%20')
-		local search = string.gsub(SKIN:GetVariable('Search'..searchnum..'Command'), '%$UserInput%$', term)
+		local term = command:match('^......%d? (.+)'):gsub('%s', '%%%%20')
+		local search = SKIN:GetVariable(('Search%dCommand'):format(searchnum)):gsub:'%$UserInput%$', term)
 		SKIN:Bang(search)
-	elseif string.match(string.lower(command), '^web ') then
-		local term = string.match(command, '^... (.+)')
+	elseif command:lower():match('^web ') then
+		local term = command:match('^... (.+)')
 		local tbl = {}
-		for word in string.gmatch(term, '[^%.]+') do table.insert(tbl, word) end
-		SKIN:Bang('"http://'..(#tbl>=3 and '' or 'www.')..table.concat(tbl,'.')..(#tbl>=2 and '"' or '.com"'))
-	elseif string.match(string.lower(command), '^http://') then
-		SKIN:Bang('"'..command..'"')
-	elseif string.match(string.lower(command), '^options') then
-		local term = string.match(command, '^.+ (.+)')
-		local options = {home='',general='',music='',feeds='',world='',apps='',search='',format='',layout='',}
-		if options[term or ''] then
-			SKIN:Bang('!WriteKeyValue','Variables','Panel',term,'#ROOTCONFIGPATH#Options\\Options.ini')
+		for word in term:gmatch('[^%.]+') do table.insert(tbl, word) end
+		SKIN:Bang('"http://' .. (#tbl>=3 and '' or 'www.') .. table.concat(tbl,'.') .. (#tbl>=2 and '"' or '.com"'))
+	elseif command:lower():match('^http://') then
+		SKIN:Bang(('%q'):format(command))
+	elseif command:lower():match('^options') then
+		local term = command:match('^.+ (.+)')
+		if ('home|general|music|feeds|world|apps|search|format|layout'):find(term) then
+			SKIN:Bang('!WriteKeyValue', 'Variables', 'Panel', term, '#ROOTCONFIGPATH#Options\\Options.ini')
 		end
 		SKIN:Bang('!ActivateConfig','Enigma\\Options')
 	else
-		SKIN:Bang(Execute[string.lower(command)] or command)
+		SKIN:Bang(Execute[command:lower())] or command)
 	end
 end
