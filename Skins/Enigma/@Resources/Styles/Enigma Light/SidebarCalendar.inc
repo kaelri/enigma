@@ -24,6 +24,9 @@ W=16
 H=16
 SolidColor=255, 255, 255, 25
 
+[StyleCalendarLabelBackgroundCurrent]
+SolidColor=255, 255, 255, 50
+
 [StyleCalendarLabelBackgroundFirst]
 X=(#FirstX#-18)
 
