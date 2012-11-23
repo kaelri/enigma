@@ -90,7 +90,7 @@ end
 
 function ParseGcal(_, Value)
 	Value = ParseProtocol(_, Value)
-	return Value:gsub(Value, '/basic', '/full')
+	return Value:gsub('/basic', '/full')
 end
 
 function ParseAppPath(Key, Value)
