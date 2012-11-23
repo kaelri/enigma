@@ -17,7 +17,7 @@ end
 
 function Write(Key, Value, Wait)
 	local Option = Options[Key]
-	if not Option then print(Key) end
+	
 	-- IF NO VALUE IS GIVEN, ADVANCE BY LOOP
 	if not Value then
 		local Loop = Option.Loop
