@@ -5,42 +5,28 @@ function Initialize()
 	
 	-- SET LABELS FOR CURRENT TAB
 	for Name in SELF:GetOption('LabelsQueue'):gmatch('[^%|]+') do
-		for i, v in ipairs(Options[Name].Loop) do
-			if v == SKIN:GetVariable(Name) then
-				SKIN:Bang('!SetOption', Name .. 'Text', 'Text', Options[Name].Labels[i])
-				break
-			end
-		end
+		local pos = TablePosition(Options[Name].Loop, Name)
+		SKIN:Bang('!SetOption', Name .. 'Text', 'Text', Options[Name].Labels[pos])
 	end
-	
 end
 
 function Write(Key, Value, Wait)
-	local Option = Options[Key]
-	
 	-- IF NO VALUE IS GIVEN, ADVANCE BY LOOP
 	if not Value then
-		local Loop = Option.Loop
-		for i, v in ipairs(Loop) do
-			if v == SKIN:GetVariable(Key) then
-				Value = Loop[(i % #Loop) + 1]
-				break
-			end
-		end
-	end
-
-	-- APPLY OPTION-SPECIFIC PARSING
-	if Option.Parse then
-		Value = Option.Parse(Key, Value)
+		local pos = TablePosition(Options[Key].Loop, SKIN:GetVariable(Key))
+		Value = Options[Key].Loop[(pos % #Options[Key].Loop) + 1]
 	end
 
 	-- WRITE
-	SKIN:Bang('!WriteKeyValue', 'Variables', Key, Value, Option.File and SKIN:GetVariable('StyleSettings') or SKIN:GetVariable('EnigmaSettings'))
+	SKIN:Bang('!WriteKeyValue', 'Variables', Key,
+		Options[Key].Parse and Options[Key].Parse(Key, Value) or Value,
+		Options[Key].File and SKIN:GetVariable('StyleSettings') or SKIN:GetVariable('EnigmaSettings')
+	)
 
 	-- WAIT OR REFRESH
 	if not Wait then
-		-- if Option.Configs then
-		-- 	for _, Config in ipairs(Option.Configs) do
+		-- if Options[Key].Configs then
+		-- 	for _, Config in ipairs(Options[Key].Configs) do
 		-- 		SKIN:Bang('!Refresh', RootConfig .. Config)
 		-- 	end
 		-- 	SKIN:Bang('!Refresh')
@@ -48,6 +34,14 @@ function Write(Key, Value, Wait)
 		-- 	SKIN:Bang('!Refresh *')
 		-- end
 		SKIN:Bang('!Refresh *')
+	end
+end
+
+function TablePosition(tbl, key)
+	for i, v in ipairs(tbl) do
+		if v == key then
+			return i
+		end
 	end
 end
 
