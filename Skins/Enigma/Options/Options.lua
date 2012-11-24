@@ -6,7 +6,7 @@ function Initialize()
 	end
 end
 
-function Write(Key, Value, Wait)
+function Write(Key, Value, Wait, SkipParse)
 	-- IF NO VALUE IS GIVEN, ADVANCE BY LOOP
 	if not Value then
 		local pos = TablePosition(Options[Key].Loop, SKIN:GetVariable(Key))
@@ -15,7 +15,7 @@ function Write(Key, Value, Wait)
 
 	-- WRITE
 	SKIN:Bang('!WriteKeyValue', 'Variables', Key,
-		Options[Key].Parse and Options[Key].Parse(Key, Value) or Value,
+		(Options[Key].Parse and not SkipParse) and Options[Key].Parse(Key, Value) or Value,
 		Options[Key].File and SKIN:GetVariable('StyleSettings') or SKIN:GetVariable('EnigmaSettings')
 	)
 
@@ -53,11 +53,11 @@ function Default(Key, Confirm)
 	else
 		-- RESET DEPENDENTS
 		for _, DependentKey in ipairs(Options[Key].Dependents or {}) do
-			Write(DependentKey, SKIN:GetVariable('Default' .. DependentKey), true)
+			Write(DependentKey, SKIN:GetVariable('Default' .. DependentKey), true, true)
 		end
 
 		-- RESET SELF
-		Write(Key, SKIN:GetVariable('Default' .. Key))
+		Write(Key, SKIN:GetVariable('Default' .. Key), false, true)
 	end
 end
 
