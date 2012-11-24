@@ -82,7 +82,7 @@ Text="Gmail Username"
 [GmailUsernameText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#GmailUsername#"
+Text="#GmailUsername#@#GmailDomain#"
 LeftMouseUpAction=!CommandMeasure "MeasureInputFeeds" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GmailUsername')"
 TooltipTitle="Google Account Username"

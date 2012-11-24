@@ -44,9 +44,9 @@ MusicPlayer=iTunes
 Feed1=http://news.google.com/news?pz=1&ned=us&hl=en&topic=h&num=10&output=rss
 Feed2=http://rainmeter.net/forum/feed.php
 Feed3=http://kaelri.com/feed/
-GmailUsername=YourUsernameHere
+GmailUsername=YourUsername
 GmailPassword=YourPasswordHere
-GmailDomain=gmail.com
+GmailDomain=domain.com
 GmailUrl=https://#GmailUsername#:#GmailPassword#@gmail.google.com/gmail/feed/atom
 FacebookFeed=YourFacebookFeedHere
 GoogleCalendar1=YourCalendarAddressHere
@@ -64,11 +64,11 @@ TwitterPassword=YourPasswordHere
 ;-----------------------
 ; WORLD
 
-WeatherCode=44418
-WeatherCodeName=London
-WeatherCodeLat=51.51
-WeatherCodeLon=-0.13
-Unit=c
+WeatherCode=
+WeatherCodeName=YourWeatherCodeHere
+WeatherCodeLat=
+WeatherCodeLon=
+Unit=f
 World1WeatherCode=44418
 World1WeatherCodeName=London
 World1WeatherCodeLat=51.51
@@ -129,3 +129,4 @@ Search4Icon=#@#Images\Search\Twitter.#ColorImage#.png
 Search5=Rainmeter.net
 Search5Command="https://www.google.com/search?q=site%3Ahttp%3A%2F%2Frainmeter.net%2Fcms%2F%20$UserInput$"
 Search5Icon=#@#Images\Search\Run.#ColorImage#.png
+TaskbarHideTriptych=0

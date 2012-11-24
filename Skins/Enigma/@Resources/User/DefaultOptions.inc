@@ -47,10 +47,10 @@ DefaultMusicPlayer=iTunes
 DefaultFeed1=http://news.google.com/news?pz=1&ned=us&hl=en&topic=h&num=10&output=rss
 DefaultFeed2=http://rainmeter.net/forum/feed.php
 DefaultFeed3=http://kaelri.com/feed/
-DefaultGmailUsername=YourUsernameHere
+DefaultGmailUsername=YourUsername
 DefaultGmailPassword=YourPasswordHere
-DefaultGmailDomain=gmail.com
-DefaultGmailUrl=https://#*GmailUsername*#:#*GmailPassword*#@gmail.google.com/gmail/feed/atom
+DefaultGmailDomain=domain.com
+DefaultGmailUrl=https://#GmailUsername#:#GmailPassword#@gmail.google.com/gmail/feed/atom
 DefaultFacebookFeed=YourFacebookFeedHere
 DefaultGoogleCalendar1=YourCalendarAddressHere
 DefaultGoogleCalendar2=YourCalendarAddressHere
