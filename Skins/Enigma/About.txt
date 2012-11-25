@@ -69,9 +69,11 @@ CHANGELOG
 
 Enigma 5
 --------
-Date: 21 November, 2012
+Date: 1 January, 2013
 App: Rainmeter 2.4 Beta (r???)
 
+- Gmail: added support for Google Apps domains.
+- Options: now refreshes only the affected skins when changing options.
 - Process: improved accuracy of usage percentages.
 - World: fixed daylight savings error.
 
