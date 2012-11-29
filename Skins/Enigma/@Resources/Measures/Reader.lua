@@ -552,25 +552,24 @@ end
 function EventFile_Update(a)
 	local f = a or f
 
-	local WriteEvents = SELF:GetNumberOption('WriteEvents', 0)
-	if (WriteEvents == 1) and (Feeds[f].Type == 'GoogleCalendar') then
+	if (SELF:GetNumberOption('WriteEvents', 0) > 0) and (Feeds[f].Type == 'GoogleCalendar') then
 		-- CREATE XML TABLE
 		local WriteLines = {}
-		table.insert(WriteLines, '<EventFile Title="'..Feeds[f].Title..'">')
+		table.insert(WriteLines, ('<EventFile Title=%q>'):format(Feeds[f].Title))
 		for i, v in ipairs(Feeds[f]) do
 			local ItemDate = os.date('*t', v.Date)
-			table.insert(WriteLines, '<Event Month="'..ItemDate['month']..'" Day="'..ItemDate['day']..'" Desc="'..v.Title..'"/>')
+			table.insert(WriteLines, ('\t<Event Month=%q Day=%q Year=%q Description=%q/>'):format(ItemDate.month, ItemDate.day, Item.year, v.Title))
+
 		end
 		table.insert(WriteLines, '</EventFile>')
 		
 		-- WRITE FILE
-		local WriteFile = io.output(Feeds[f].EventFile, 'w')
+		local WriteFile = io.open(Feeds[f].EventFile, 'w')
 		if WriteFile then
-			local WriteContent = table.concat(WriteLines, '\r\n')
-			WriteFile:write(WriteContent)
+			WriteFile:write(table.concat(WriteLines, '\r\n'))
 			WriteFile:close()
 		else
-			SKIN:Bang('!Log', SELF:GetName()..': cannot open file: '..Feeds[f].EventFile)
+			SKIN:Bang('!Log', ('%s: cannot open file: %s'):format(SELF:GetName(), Feeds[f].EventFile))
 		end
 	end
 end

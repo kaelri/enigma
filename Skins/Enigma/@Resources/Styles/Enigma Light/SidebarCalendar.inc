@@ -17,31 +17,24 @@ W=(#SidebarWidth#-20)
 H=1
 Hidden=#HideBordersTop#
 
-[StyleCalendarLabelBackground]
-X=#SpacingX#r
-Y=18
-W=16
-H=16
-SolidColor=255, 255, 255, 25
-
-[StyleCalendarLabelBackgroundCurrent]
-SolidColor=255, 255, 255, 50
-
-[StyleCalendarLabelBackgroundFirst]
-X=(#FirstX#-18)
-
 [StyleCalendarLabel]
 X=#SpacingX#r
-Y=20
+Y=26
+W=16
+H=16
 FontColor=#Color1#
 FontFace=#Font#
 FontSize=#Size3#
-StringAlign=CENTER
+StringAlign=CenterCenter
 StringStyle=NORMAL
 AntiAlias=1
+SolidColor=255, 255, 255, 25
+
+[StyleCalendarLabelCurrent]
+SolidColor=255, 255, 255, 50
 
 [StyleCalendarLabelFirst]
-X=(#FirstX#-10)
+X=(#FirstX#-8)
 
 [StyleCalendarText]
 X=#SpacingX#r
