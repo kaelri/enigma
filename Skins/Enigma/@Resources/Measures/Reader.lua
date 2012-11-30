@@ -558,7 +558,7 @@ function EventFile_Update(a)
 		table.insert(WriteLines, ('<EventFile Title=%q>'):format(Feeds[f].Title))
 		for i, v in ipairs(Feeds[f]) do
 			local ItemDate = os.date('*t', v.Date)
-			table.insert(WriteLines, ('\t<Event Month=%q Day=%q Year=%q Description=%q/>'):format(ItemDate.month, ItemDate.day, Item.year, v.Title))
+			table.insert(WriteLines, ('\t<Event Month=%q Day=%q Year=%q Description=%q/>'):format(ItemDate.month, ItemDate.day, ItemDate.year, v.Title))
 
 		end
 		table.insert(WriteLines, '</EventFile>')
