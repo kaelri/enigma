@@ -1,7 +1,7 @@
 function Initialize()
 	-- SET LABELS FOR CURRENT TAB
 	for Name in SELF:GetOption('LabelsQueue'):gmatch('[^%|]+') do
-		local pos = TablePosition(Options[Name].Loop, Name)
+		local pos = TablePosition(Options[Name].Loop, SKIN:GetVariable(Name))
 		SKIN:Bang('!SetOption', Name .. 'Text', 'Text', Options[Name].Labels[pos])
 	end
 end
