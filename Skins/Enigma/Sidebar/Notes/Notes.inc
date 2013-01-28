@@ -17,7 +17,7 @@ ScriptFile="#@#Measures\Notes.lua"
 UpdateDivider=10
 Path=#NotesFile1#
 ContentDivider=<donotshow>
-FinishAction=[!UpdateMeasureGroup "NotesData"][!UpdateMeterGroup "NotesData"][!Redraw][!SetVariable Reset 0]
+FinishAction=[!UpdateMeasureGroup "NotesData"][!UpdateMeterGroup "NotesData"][!Redraw]
 
 [MeasureActive1]
 Measure=Calc
@@ -120,55 +120,55 @@ MeterStyle=StyleNotesBorderBottom
 [Grabber1]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive1] | StyleNotesGrabberFirst
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(1)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(1)"][!SetVariable Reset 0]
 Group=NotesData | Tab2
 Hidden=1
 
 [Grabber2]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive2]
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(2)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(2)"][!SetVariable Reset 0]
 Group=NotesData | Tab2
 Hidden=1
 
 [Grabber3]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive3]
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(3)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(3)"][!SetVariable Reset 0]
 Group=NotesData | Tab2
 Hidden=1
 
 [Grabber4]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive4]
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(4)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(4)"][!SetVariable Reset 0]
 Group=NotesData | Tab4
 Hidden=1
 
 [Grabber5]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive5]
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(5)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(5)"][!SetVariable Reset 0]
 Group=NotesData | Tab5
 Hidden=1
 
 [Grabber6]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive6]
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(6)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(6)"][!SetVariable Reset 0]
 Group=NotesData | Tab6
 Hidden=1
 
 [Grabber7]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive7]
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(7)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(7)"][!SetVariable Reset 0]
 Group=NotesData | Tab7
 Hidden=1
 
 [Grabber8]
 Meter=IMAGE
 MeterStyle=StyleNotesGrabber | StyleNotesGrabber[MeasureActive8]
-LeftMouseUpAction=!CommandMeasure "MeasureNote" "Show(8)"
+LeftMouseUpAction=[!CommandMeasure "MeasureNote" "Show(8)"][!SetVariable Reset 0]
 Group=NotesData | Tab8
 Hidden=1
