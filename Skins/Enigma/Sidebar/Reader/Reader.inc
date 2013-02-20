@@ -117,7 +117,7 @@ MinItems=8
 MaxItems=8
 WriteEvents=#ReaderWriteEvents#
 EventFile=#ReaderEventFile#
-FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw][!SetVariable Reset 0]
+FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw]
 
 ;-----------------------
 
@@ -279,55 +279,55 @@ MeterStyle=StyleReaderBorderBottom
 [Grabber1]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive1] | StyleReaderGrabberFirst
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(1)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(1)"][!SetVariable Reset 0]
 Group=FeedData | Tab2
 Hidden=1
 
 [Grabber2]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive2]
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(2)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(2)"][!SetVariable Reset 0]
 Group=FeedData | Tab2
 Hidden=1
 
 [Grabber3]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive3]
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(3)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(3)"][!SetVariable Reset 0]
 Group=FeedData | Tab3
 Hidden=1
 
 [Grabber4]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive4]
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(4)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(4)"][!SetVariable Reset 0]
 Group=FeedData | Tab4
 Hidden=1
 
 [Grabber5]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive5]
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(5)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(5)"][!SetVariable Reset 0]
 Group=FeedData | Tab5
 Hidden=1
 
 [Grabber6]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive6]
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(6)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(6)"][!SetVariable Reset 0]
 Group=FeedData | Tab6
 Hidden=1
 
 [Grabber7]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive7]
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(7)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(7)"][!SetVariable Reset 0]
 Group=FeedData | Tab7
 Hidden=1
 
 [Grabber8]
 Meter=IMAGE
 MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive8]
-LeftMouseUpAction=!CommandMeasure "MeasureScriptReader" "Show(8)"
+LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(8)"][!SetVariable Reset 0]
 Group=FeedData | Tab8
 Hidden=1
