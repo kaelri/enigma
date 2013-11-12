@@ -200,7 +200,7 @@ Group=FeedData
 MeterStyle=StyleReaderTitle
 Text=#FeedTitle#
 LeftMouseUpAction=["#FeedLink#"]
-ToolTipText=#FeedLink#
+ToolTipText=#FeedTitle#
 
 ;-----------------------
 ; ITEMS
@@ -211,7 +211,7 @@ Group=FeedData
 MeterStyle=StyleReaderText | StyleReaderTextFirst
 Text=#Item1Title#
 LeftMouseUpAction=["#Item1Link#"]
-ToolTipText=#Item1Link#
+ToolTipText=#Item1Title#
 
 [Item2]
 Meter=STRING
@@ -219,7 +219,7 @@ Group=FeedData
 MeterStyle=StyleReaderText
 Text=#Item2Title#
 LeftMouseUpAction=["#Item2Link#"]
-ToolTipText=#Item2Link#
+ToolTipText=#Item2Title#
 
 [Item3]
 Meter=STRING
@@ -227,7 +227,7 @@ Group=FeedData
 MeterStyle=StyleReaderText
 Text=#Item3Title#
 LeftMouseUpAction=["#Item3Link#"]
-ToolTipText=#Item3Link#
+ToolTipText=#Item3Title#
 
 [Item4]
 Meter=STRING
@@ -235,7 +235,7 @@ Group=FeedData
 MeterStyle=StyleReaderText
 Text=#Item4Title#
 LeftMouseUpAction=["#Item4Link#"]
-ToolTipText=#Item4Link#
+ToolTipText=#Item4Title#
 
 [Item5]
 Meter=STRING
@@ -243,7 +243,7 @@ Group=FeedData
 MeterStyle=StyleReaderText
 Text=#Item5Title#
 LeftMouseUpAction=["#Item5Link#"]
-ToolTipText=#Item5Link#
+ToolTipText=#Item5Title#
 
 [Item6]
 Meter=STRING
@@ -251,7 +251,7 @@ Group=FeedData
 MeterStyle=StyleReaderText
 Text=#Item6Title#
 LeftMouseUpAction=["#Item6Link#"]
-ToolTipText=#Item6Link#
+ToolTipText=#Item6Title#
 
 [Item7]
 Meter=STRING
@@ -259,7 +259,7 @@ Group=FeedData
 MeterStyle=StyleReaderText
 Text=#Item7Title#
 LeftMouseUpAction=["#Item7Link#"]
-ToolTipText=#Item7Link#
+ToolTipText=#Item7Title#
 
 [Item8]
 Meter=STRING
@@ -267,7 +267,7 @@ Group=FeedData
 MeterStyle=StyleReaderText
 Text=#Item8Title#
 LeftMouseUpAction=["#Item8Link#"]
-ToolTipText=#Item8Link#
+ToolTipText=#Item8Title#
 
 ;-----------------------
 ; BORDER & GRABBERS
