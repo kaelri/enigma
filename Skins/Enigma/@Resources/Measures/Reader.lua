@@ -11,7 +11,7 @@ function Initialize()
 	DefineTypes()
 
 	-- GET MEASURE NAMES
-	local AllMeasureNames = SELF:GetOption('MeasureName', '')
+	local AllMeasureNames = SELF:GetOption('MeasureName')
 	for MeasureName in AllMeasureNames:gmatch('[^%|]+') do
 		table.insert(Feeds, {
 			Measure     = SKIN:GetMeasure(MeasureName),
@@ -86,19 +86,15 @@ function Input(a)
 
 			-- MATCH RAW DATA
 			Item.Unread = 1
-			Item.Title  = RawItem:match('<title.->(.-)</title>') or nil
+			Item.Title  = RawItem:match('<title.->(.-)</title>') or 'Untitled'
 			Item.Link   = RawItem:match(Type.MatchItemLink)      or nil
 			Item.Desc   = RawItem:match(Type.MatchItemDesc)      or nil
 			Item.Date   = RawItem:match(Type.MatchItemDate)      or nil
 			Item.ID     = RawItem:match(Type.MatchItemID)        or Item.Link or Item.Title or Item.Desc or Item.Date
 
 			-- ADDITIONAL PARSING
-			if (not Item.Title) or (Item.Title == '') then
-				Item.Title = 'Untitled'
-			end
 			if Item.Desc then
-				Item.Desc = Item.Desc:gsub('<.->', '')
-				Item.Desc = Item.Desc:gsub('%s%s+', ' ')
+				Item.Desc = Item.Desc:gsub('<.->', ''):gsub('%s%s+', ' ')
 			end
 			Item.Date, Item.AllDay, Item.RealDate = IdentifyDate(Item.Date, t)
 
@@ -142,14 +138,14 @@ function Input(a)
 		end
 
 		-- CHECK NUMBER OF ITEMS
-		local MaxItems = SELF:GetNumberOption('MaxItems', nil)
+		local MaxItems = SELF:GetNumberOption('MaxItems')
 		local MaxItems = (MaxItems > 0) and MaxItems or nil
 
 		if #Feeds[f] == 0 then
 			Feeds[f].Error = {
 				Description = 'No items found.',
-				Title       = Feeds[f]['Title'],
-				Link        = Feeds[f]['Link']
+				Title       = Feeds[f].Title,
+				Link        = Feeds[f].Link
 			}
 			return false
 		elseif MaxItems and (#Feeds[f] > MaxItems) then
@@ -176,16 +172,13 @@ end
 -- OUTPUT
 
 function Output()
-	local Queue = {}
-
 	-- MAKE SYNTAX PRETTIER
 	local Feed  = Feeds[f]
 	local Type  = Types[Feed.Type]
 	local Error = Feed.Error
 
 	-- BUILD QUEUE
-	Queue['CurrentFeed']   = f
-	Queue['NumberOfItems'] = #Feed
+	local Queue = {CurrentFeed = f, NumberOfItems = #Feed,}
 
 	-- CHECK FOR INPUT ERRORS
 	local MinItems  = SELF:GetNumberOption('MinItems', 0)
@@ -193,13 +186,13 @@ function Output()
 
 	if Error then
 		-- ERROR; QUEUE MESSAGES
-		Queue['FeedTitle']   = Error.Title
-		Queue['FeedLink']    = Error.Link
-		Queue['Item1Title']  = Error.Description
-		Queue['Item1Link']   = Error.Link
-		Queue['Item1Desc']   = ''
-		Queue['Item1Date']   = ''
-		Queue['Item1Unread'] = 0
+		Queue.FeedTitle   = Error.Title
+		Queue.FeedLink    = Error.Link
+		Queue.Item1Title  = Error.Description
+		Queue.Item1Link   = Error.Link
+		Queue.Item1Desc   = ''
+		Queue.Item1Date   = ''
+		Queue.Item1Unread = 0
 
 		for i = 2, MinItems do
 			Queue['Item'..i..'Title']   = ''
@@ -210,8 +203,8 @@ function Output()
 		end
 	else
 		-- NO ERROR; QUEUE FEED
-		Queue['FeedTitle'] = Feed.Title
-		Queue['FeedLink']  = Feed.Link or ''
+		Queue.FeedTitle = Feed.Title
+		Queue.FeedLink  = Feed.Link or ''
 
 		for i = 1, math.max(#Feed, MinItems) do
 			local Item = Feed[i] or {}			
@@ -224,7 +217,7 @@ function Output()
 	end
 
 	-- SET VARIABLES
-	local VariablePrefix = SELF:GetOption('VariablePrefix', '')
+	local VariablePrefix = SELF:GetOption('VariablePrefix')
 	for k, v in pairs(Queue) do
 		SKIN:Bang('!SetVariable', VariablePrefix..k, v)
 	end
@@ -235,7 +228,7 @@ function Output()
 		SKIN:Bang(FinishAction)
 	end
 
-	return Error and Error.Description or 'Finished #'..f..' ('..Feed.MeasureName..'). Name: '..Feed.Title..'. Type: '..Feed.Type..'. Items: '..#Feed..'.'
+	return Error and Error.Description or ('Finished #%d (%s). Name: %s. Type: %s. Items: %d.'):format(f, Feed.MeasureName, Feed.Title, Feed.Type, #Feed)
 end
 
 -----------------------------------------------------------------------
@@ -377,10 +370,8 @@ end
 -------------------------
 
 function IdentifyType(s)
-	-- COLLAPSE CONTAINER TAGS
-	for _, v in ipairs{ 'item', 'entry' } do
-		s = s:gsub('<'..v..'.->.+</'..v..'>', '<'..v..'></'..v..'>') -- e.g. '<entry.->.+</entry>' --> '<entry></entry>'
-	end
+	-- COLLAPSE CONTAINER TAGS e.g. '<entry.->.+</entry>' --> '<entry></entry>'
+	s = s:gsub('<item.->.+</item>', '<item></item>'):gsub('<entry.->.+</entry>', '<entry></entry>')
 
 	--DEFINE RSS MARKER TESTS
 	--Each of these test functions will be run in turn, until one of them gets a solid match on the format type.
@@ -476,10 +467,9 @@ function IdentifyDate(s, t)
 
 		-- GET CURRENT LOCAL TIME, UTC OFFSET
 		-- These values are referenced in several procedures below.
-		local UTC             = os.date('!*t')
 		local LocalTime       = os.date('*t')
 		local DaylightSavings = LocalTime.isdst and 3600 or 0
-		local LocalOffset     = os.time(LocalTime) - os.time(UTC) + DaylightSavings
+		local LocalOffset     = os.time(LocalTime) - os.time(os.date('!*t')) + DaylightSavings
 
 		-- CHANGE 12-HOUR to 24-HOUR
 		if Date.Meridiem then
@@ -543,9 +533,8 @@ function EventFile_Initialize()
 	for EventFile in AllEventFiles:gmatch('[^%|]+') do
 		table.insert(EventFiles, EventFile)
 	end
-	for i, v in ipairs(Feeds) do
-		local EventFile = EventFiles[i] or SELF:GetName()..'_Feed'..i..'Events.xml'
-		Feeds[i].EventFile = SKIN:MakePathAbsolute(EventFile)
+	for i = 1, #Feeds do
+		Feeds[i].EventFile = SKIN:MakePathAbsolute(EventFiles[i] or ('%s_Feed%dEvents.xml'):format(SELF:GetName(), i))
 	end
 end
 
@@ -579,8 +568,7 @@ end
 
 function HistoryFile_Initialize()
 	-- DETERMINE FILEPATH
-	HistoryFile = SELF:GetOption('HistoryFile', SELF:GetName()..'History.xml')
-	HistoryFile = SKIN:MakePathAbsolute(HistoryFile)
+	HistoryFile = SKIN:MakePathAbsolute(SELF:GetOption('HistoryFile', SELF:GetName() .. 'History.xml'))
 
 	-- CREATE HISTORY DATABASE
 	History = {}
@@ -592,15 +580,12 @@ function HistoryFile_Initialize()
 		ReadFile:close()
 
 		-- PARSE HISTORY FROM LAST SESSION
-		for ReadFeedURL, ReadFeed in ReadContent:gmatch('<feed URL=(%b"")>(.-)</feed>') do
-			local ReadFeedURL = ReadFeedURL:match('^"(.-)"$')
+		for ReadFeedURL, ReadFeed in ReadContent:gmatch('<feed URL="([^"]+)">(.-)</feed>') do
 			History[ReadFeedURL] = {}
 			for ReadItem in ReadFeed:gmatch('<item>(.-)</item>') do
 				local Item = {}
 				for Key, Value in ReadItem:gmatch('<(.-)>(.-)</.->') do
-					Value = Value:gsub('&lt;', '<')
-					Value = Value:gsub('&gt;', '>')
-					Item[Key] = Value
+					Item[Key] = Value:gsub('&([^;]+);', {lt = '<', gt = '>',})
 				end
 				Item.Date = tonumber(Item.Date) or Item.Date
 				Item.Unread = tonumber(Item.Unread)
@@ -642,27 +627,24 @@ function WriteHistory()
 		-- GENERATE XML TABLE
 		local WriteLines = {}
 		for WriteURL, WriteFeed in pairs(History) do
-			table.insert(WriteLines, string.format(         '<feed URL=%q>', WriteURL))
+			table.insert(WriteLines, ('<feed URL=%q>'):format(WriteURL))
 			for _, WriteItem in ipairs(WriteFeed) do
-				table.insert(WriteLines,                    '\t<item>')
+				table.insert(WriteLines, '\t<item>')
 				for Key, Value in pairs(WriteItem) do
-					Value = string.gsub(Value, '<', '&lt;')
-					Value = string.gsub(Value, '>', '&gt;')
-					table.insert(WriteLines, string.format( '\t\t<%s>%s</%s>', Key, Value, Key))
+					table.insert(WriteLines, ('\t\t<%s>%s</%s>'):format(Key, Value:gsub('<', '&lt;'):gsub('>', '&gt;'), Key))
 				end
-				table.insert(WriteLines,                    '\t</item>')
+				table.insert(WriteLines, '\t</item>')
 			end
-			table.insert(WriteLines,                        '</feed>')
+			table.insert(WriteLines, '</feed>')
 		end
 
 		-- WRITE XML TO FILE
 		local WriteFile = io.open(HistoryFile, 'w')
 		if WriteFile then
-			local WriteContent = table.concat(WriteLines, '\n')
-			WriteFile:write(WriteContent)
+			WriteFile:write(table.concat(WriteLines, '\n'))
 			WriteFile:close()
 		else
-			SKIN:Bang('!Log', SELF:GetName()..': cannot open file: '..HistoryFile)
+			SKIN:Bang('!Log', ('%s: cannot open file: %s'):format(SELF:GetName(), HistoryFile))
 		end
 	end
 end
@@ -672,7 +654,7 @@ function ClearHistory()
 	if DeleteFile then
 		DeleteFile:close()
 		os.remove(HistoryFile)
-		SKIN:Bang('!Log', SELF:GetName()..': deleted history cache at '..HistoryFile)
+		SKIN:Bang('!Log', ('%s: deleted history cache at %s'):format(SELF:GetName(), HistoryFile))
 	end
 	SKIN:Bang('!Refresh')
 end

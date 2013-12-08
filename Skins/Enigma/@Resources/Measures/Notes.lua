@@ -1,13 +1,12 @@
 function Initialize()
 	-- GET NOTE PATHS
 	Notes = {}
-	local AllPaths = SELF:GetOption('Path', '')
+	local AllPaths = SELF:GetOption('Path')
 	for Path in AllPaths:gmatch('[^%|]+') do
 		local Path = SKIN:MakePathAbsolute(Path)
-		local Dir, Name, Ext = Path:match('(.-)([^\\]-)%.([^%.]+)$')
 		table.insert(Notes, {
 			Path = Path,
-			Name = Name
+			Name = Path:match('.-([^\\]-)%.[^%.]+$'),
 			})
 	end
 
@@ -16,33 +15,28 @@ function Initialize()
 end
 
 function Update()
-	local Queue = {}
-
 	-- BUILD QUEUE
-	Queue['CurrentNote'] = n
-	Queue['Name']        = Notes[n].Name
-	Queue['Path']        = Notes[n].Path
+	local Queue = {
+		CurrentNote = n,
+		Name = Notes[n].Name,
+		Path = Notes[n].Path,
+	}
 	
 	-- READ FILE	
-	local File    = io.input(Notes[n].Path)
-	local Content = nil
+	local File = io.open(Notes[n].Path, 'r')
 	if File then
-		Content = File:read('*all')
+		-- STRIP CONTENT DIVIDER & FORMAT LISTS
+		local Divider = SELF:GetOption('ContentDivider', '')
+		Queue.Content = File:read('*all'):gsub(Divider .. '.*', ''):gsub('- ', '· ')
 		File:close()
 	else
-		Content = 'Could not open file: '..Notes[n].Path
+		Queue.Content = 'Could not open file: ' .. Notes[n].Path
 	end
 	
-	-- STRIP CONTENT DIVIDER & FORMAT LISTS
-	local Divider    = SELF:GetOption('ContentDivider','')
-	local Content    = Content:gsub(Divider..'.*', '')
-	local Content    = Content:gsub('- ', '· ')
-	Queue['Content'] = Content
-		
 	-- OUTPUT
-	local VariablePrefix = SELF:GetOption('VariablePrefix', '')
+	local VariablePrefix = SELF:GetOption('VariablePrefix')
 	for k, v in pairs(Queue) do
-		SKIN:Bang('!SetVariable', VariablePrefix..k, v)
+		SKIN:Bang('!SetVariable', VariablePrefix .. k, v)
 	end
 	
 	-- FINISH ACTION   
@@ -51,7 +45,7 @@ function Update()
 		SKIN:Bang(FinishAction)
 	end
 	
-	return 'Finished #'..n..' ('..Notes[n].Path..').'
+	return string.format('Finished #%d (%s).', n, Notes[n].Path)
 end
 
 -----------------------------------------------------------------------
