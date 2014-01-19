@@ -26,7 +26,6 @@ Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 Format="%#H.%M.%S  ·  %a"
-Substitute="Sun":"SUN","Mon":"MON","Tue":"TUE","Wed":"WED","Thu":"THU","Fri":"FRI","Sat":"SAT"
 DaylightSavingTime=0
 
 [MeasureReal2]
@@ -34,7 +33,6 @@ Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
 Format="%#d %b  ·  %Y"
-Substitute="Jan":"JAN","Feb":"FEB","Mar":"MAR","Apr":"APR","May":"MAY","Jun":"JUN","Jul":"JUL","Aug":"AUG","Sep":"SEP","Oct":"OCT","Nov":"NOV","Dec":"DEC"
 DaylightSavingTime=0
 
 ;---------------------------------------------------------------------
@@ -97,6 +95,7 @@ Text="%1, %2"
 Meter=STRING
 MeterStyle=StyleWorldDigital2
 MeasureName=MeasureReal2
+StringCase=UPPER
 
 ;-------------------------
 ; TEXT 2 and WEATHER
@@ -118,3 +117,4 @@ LeftMouseUpAction=[[MeasureYahooWeather]][!Redraw]
 Meter=STRING
 MeterStyle=StyleWorldDigital
 MeasureName=MeasureReal1
+StringCase=UPPER
