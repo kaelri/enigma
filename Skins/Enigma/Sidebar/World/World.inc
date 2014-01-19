@@ -9,11 +9,11 @@ TimeZone=0
 Measure=Plugin
 Plugin=WebParser
 Url=https://maps.googleapis.com/maps/api/timezone/xml?location=#CurrentCodeLat#,#CurrentCodeLon#&timestamp=[&MeasureUTC:]&sensor=false
-RegExp=(?siU)<raw_offset>(.*)</raw_offset>
+RegExp=(?siU)<raw_offset>(.*)</dst_offset>
 StringIndex=1
 DynamicVariables=1
 RegExpSubstitute=1
-Substitute="^([^/]*)$":"(\1/3600)"
+Substitute="(.*)</raw_offset>[^<]*<dst_offset>(.*)":"((\1+\2)/3600)"
 
 [MeasureTime]
 Measure=Time
