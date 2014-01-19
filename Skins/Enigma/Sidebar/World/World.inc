@@ -1,13 +1,19 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
+[MeasureUTC]
+Measure=Time
+TimeZone=0
+
 [MeasureTimeZone]
 Measure=Plugin
 Plugin=WebParser
-UpdateRate=3600
-Url=http://ws.geonames.org/timezone?lat=#CurrentCodeLat#&lng=#CurrentCodeLon#
-RegExp=<dstOffset>(.*)</dstOffset>
+Url=https://maps.googleapis.com/maps/api/timezone/xml?location=#CurrentCodeLat#,#CurrentCodeLon#&timestamp=[&MeasureUTC:]&sensor=false
+RegExp=(?siU)<raw_offset>(.*)</raw_offset>
 StringIndex=1
+DynamicVariables=1
+RegExpSubstitute=1
+Substitute="^([^/]*)$":"(\1/3600)"
 
 [MeasureTime]
 Measure=Time
