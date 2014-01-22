@@ -3,11 +3,9 @@ function Initialize()
 	Execute = {}
 	if file then
 		for line in file:lines() do
-			if not line:match('^;')then
-				local key, command = line:match('^%s-([^=]+)=(.+)')
-				if key and command then
-					Execute[key:lower():match:('(.+)%s-$'))] = command
-				end
+			local key, command = line:match('^%s-([^=]+)=(.+)')
+			if line:match('^%s-[^;]') and key and command then
+				Execute[key:lower():match('(.+)%s-$')] = command
 			end
 		end
 		file:close()
@@ -15,26 +13,26 @@ function Initialize()
 end
 
 function Run(command)
-	if command:lower():match('^search%d? ') then
-		local num = tonumber(command:lower():match('^search(%d)') or 1)
-		local searchnum = (num>=1 and num<=5) and num or 1
-		local term = command:match('^......%d? (.+)'):gsub('%s', '%%%%20')
-		local search = SKIN:GetVariable(('Search%dCommand'):format(searchnum)):gsub:'%$UserInput%$', term)
+	lcommand = command:lower()
+	if lcommand:match('^search%d? .+') then
+		local num, term = command:match('^......(%d?) (.+)')
+		num = tonumber(num ~= '' and num or 1)
+		local searchnum = ('Search%dCommand'):format((num >= 1 and num <= 5) and num or 1)
+		local search = SKIN:GetVariable(searchnum):gsub('%$UserInput%$', (term:gsub('%s', '%%%%20')))
 		SKIN:Bang(search)
-	elseif command:lower():match('^web ') then
-		local term = command:match('^... (.+)')
-		local tbl = {}
+	elseif lcommand:match('^web .+') then
+		local tbl, term = {}, command:match('^... (.+)')
 		for word in term:gmatch('[^%.]+') do table.insert(tbl, word) end
-		SKIN:Bang('"http://' .. (#tbl>=3 and '' or 'www.') .. table.concat(tbl,'.') .. (#tbl>=2 and '"' or '.com"'))
-	elseif command:lower():match('^http://') then
+		SKIN:Bang('"http://' .. (#tbl >= 3 and '' or 'www.') .. table.concat(tbl, '.') .. (#tbl >= 2 and '"' or '.com"'))
+	elseif lcommand:match('^https?://.+') then
 		SKIN:Bang(('%q'):format(command))
-	elseif command:lower():match('^options') then
-		local term = command:match('^.+ (.+)')
-		if ('home|general|music|feeds|world|apps|search|format|layout'):find(term) then
+	elseif lcommand:match('^options') then
+		local term = lcommand:match('^.+ (.+)') or 'none'
+		if ('home|general|music|feeds|world|apps|search|format|layout'):find(term:gsub('|', '')) then
 			SKIN:Bang('!WriteKeyValue', 'Variables', 'Panel', term, '#ROOTCONFIGPATH#Options\\Options.ini')
 		end
-		SKIN:Bang('!ActivateConfig','Enigma\\Options')
+		SKIN:Bang('!ActivateConfig', 'Enigma\\Options')
 	else
-		SKIN:Bang(Execute[command:lower())] or command)
+		SKIN:Bang(Execute[lcommand] or command)
 	end
 end
