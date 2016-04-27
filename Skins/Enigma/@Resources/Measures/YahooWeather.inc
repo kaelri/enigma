@@ -3,7 +3,7 @@ Measure=Plugin
 Plugin=WebParser
 UpdateRate=1800
 Url=https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid=#CurrentCode# AND u="#Unit#"
-RegExp=(?siU).*distance="(.*)".*pressure="(.*)".*speed="(.*)".*temperature="(.*)".*city="(.*)".*country="(.*)".*region="(.*)".*chill="(.*)".*direction="(.*)".*speed="(.*)".*humidity="(.*)".*pressure="(.*)".*rising="(.*)".*visibility="(.*)".*sunrise="(.*)".*sunset="(.*)".*<title>.*:.*m .*(.*)</title>.*lat>(.*)<.*long>(.*)<.*condition.*code="(.*)".*temp="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*
+RegExp=(?siU).*distance="(.*)".*pressure="(.*)".*speed="(.*)".*temperature="(.*)".*city="(.*)".*country="(.*)".*region="(.*)".*chill="(.*)".*direction="(.*)".*speed="(.*)".*humidity="(.*)".*pressure="(.*)".*rising="(.*)".*visibility="(.*)".*sunrise="(.*)".*sunset="(.*)".*<title>.*:.*m .*(.*)</title>.*lat>(.*)<.*long>(.*)<.*condition.*code="(.*)".*temp="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*
 
 ;-----------------------
 ; UNITS
@@ -170,26 +170,26 @@ StringIndex=22
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=23
+StringIndex=28
 
 [MeasureWeatherDay2Date]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=24
+StringIndex=29
 Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
 
 [MeasureWeatherDay2High]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=25
+StringIndex=30
 
 [MeasureWeatherDay2Low]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=26
+StringIndex=31
 
 [MeasureWeatherDay2Average]
 Measure=Calc
@@ -199,7 +199,7 @@ Formula=ROUND((MeasureWeatherDay2Low+MeasureWeatherDay2High)/2)
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=27
+StringIndex=32
 
 ;-------------------------
 ; DAY 3
@@ -208,26 +208,26 @@ StringIndex=27
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=28
+StringIndex=33
 
 [MeasureWeatherDay3Date]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=29
+StringIndex=34
 Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
 
 [MeasureWeatherDay3High]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=30
+StringIndex=35
 
 [MeasureWeatherDay3Low]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=31
+StringIndex=36
 
 [MeasureWeatherDay3Average]
 Measure=Calc
@@ -237,7 +237,7 @@ Formula=ROUND((MeasureWeatherDay3Low+MeasureWeatherDay3High)/2)
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=32
+StringIndex=37
 
 ;-----------------------
 ; LOGO
