@@ -64,6 +64,20 @@ end
 -----------------------------------------------------------------------
 -- OPTION-SPECIFIC PARSING FUNCTIONS
 
+function urlEncode( str )
+   if ( str ) then
+      str = string.gsub( str, "\n", "\r\n" )
+      str = string.gsub( str, "([^%w ])",
+         function (c) return string.format( "%%%02X", string.byte(c) ) end )
+      str = string.gsub( str, " ", "+" )
+   end
+   return str
+end
+
+function ParsePassword(_, Value)
+	return urlEncode(Value)
+end
+
 function ParseProtocol(_, Value)
 	return Value:match('://') and Value or 'http://' .. Value
 end
@@ -169,7 +183,10 @@ Options = {
 		Parse   = ParseGmail,
 		Dependents = {'GmailPassword', 'GmailUrl', 'GmailDomain'}
 	},
-	GmailPassword = {Configs = { 'Sidebar\\Reader\\Gmail', 'Taskbar\\Reader\\Gmail' },},
+	GmailPassword = {
+		Configs = { 'Sidebar\\Reader\\Gmail', 'Taskbar\\Reader\\Gmail' },
+		Parse   = ParsePassword
+	},
 	GmailUrl = {},
 	GmailDomain = {},
 	FacebookFeed = {
