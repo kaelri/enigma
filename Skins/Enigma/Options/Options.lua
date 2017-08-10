@@ -89,6 +89,21 @@ function ParseAppPath(Key, Value)
 	return Value
 end
 
+function urlEncode(str)
+	local encode = function(input)
+		return string.format("%%%02X", input:byte())
+	end
+	
+	if str then
+		return (str:gsub("\n", "\r\n"):gsub("([^%w ])", encode):gsub(" ", "+"))
+	end
+	return str
+ end
+ 
+ function ParsePassword(_, Value)
+ 	return urlEncode(Value)
+ end
+
 -----------------------------------------------------------------------
 -- MASTER TABLE
 -- The Options table defines value loops, display labels, target configs, etc. for all Enigma options.
@@ -169,7 +184,10 @@ Options = {
 		Parse   = ParseGmail,
 		Dependents = {'GmailPassword', 'GmailUrl', 'GmailDomain'}
 	},
-	GmailPassword = {Configs = { 'Sidebar\\Reader\\Gmail', 'Taskbar\\Reader\\Gmail' },},
+	GmailPassword = {
+		Configs = { 'Sidebar\\Reader\\Gmail', 'Taskbar\\Reader\\Gmail' },
+		Parse = ParsePassword,
+	},
 	GmailUrl = {},
 	GmailDomain = {},
 	FacebookFeed = {
