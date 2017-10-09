@@ -1,19 +1,13 @@
-Enigma is a “suite” for [Rainmeter](http://www.rainmeter.net/) a system monitoring and desktop customization application for Windows PCs.
-
----
+Enigma is a “suite” for [Rainmeter](http://www.rainmeter.net/), a system monitoring and desktop customization application for Windows PCs.
 
 ## Authors
 
 - [Kaelri](https://www.kaelri.com/)
 - [smurfier](https://github.com/smurfier) (acting)
 
----
-
 ## License
 
 This software has been released to you under a [Creative Commons Attribution-Noncommercial-Share Alike 3.0 License](http://creativecommons.org/licenses/by-nc-sa/3.0/). 
-
----
 
 ## Credits
 
@@ -33,8 +27,6 @@ The following free or licensed works are hereby gratefully attributed for their 
 - [RainRGB](http://rainmeter.net/forum/viewtopic.php?f=18&t=6215) by [Jeffrey Morley](http://jsmorley.deviantart.com/)
 - [Syzygy](http://linkz57.deviantart.com/art/Syzygy-A-work-in-progress-129297185) by [Linkz57](http://linkz57.deviantart.com/)
 - Concepts, code and feedback by [Alex2539](http://alex2539.deviantart.com/), [Alex Becherer](http://alexbecherer.tumblr.com/), dragonmage, [FlyingHyrax](http://flyinghyrax.deviantart.com/), [Greg Schoppe](http://www.gschoppe.com/), [Jeffrey Morley](http://jsmorley.deviantart.com/), [Jiri Mahel](http://customize.org/mepu), [kenz0](http://customize.org/Kenz0), miniority, [Zinsho](http://rainmeter.net/forum/memberlist.php?mode=viewprofile&u=9995)
-
----
 
 ## Changelog
 
