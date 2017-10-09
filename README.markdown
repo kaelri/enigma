@@ -1,29 +1,38 @@
-Enigma is a featured "suite" for the Windows system monitoring application, [Rainmeter](http://www.rainmeter.net/).
+Enigma is a “suite” for [Rainmeter](http://www.rainmeter.net/) a system monitoring and desktop customization application for Windows PCs.
 
-- Author: [Kaelri](https://www.kaelri.com/), [smurfier](https://github.com/smurfier) (acting)
-- Created: 15 November 2008
-- License: [Creative Commons Attribution-Noncommercial-Share Alike 3.0 License](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+---
+
+## Authors
+
+- [Kaelri](https://www.kaelri.com/)
+- [smurfier](https://github.com/smurfier) (acting)
+
+---
+
+## License
+
+This software has been released to you under a [Creative Commons Attribution-Noncommercial-Share Alike 3.0 License](http://creativecommons.org/licenses/by-nc-sa/3.0/). 
 
 ---
 
 ## Credits
 
-Enigma contains licensed work by the following people:
+The following free or licensed works are hereby gratefully attributed for their inclusion in Enigma:
 
-Blackface Clock by unknown author
-CleanGlass by lassekongo
-ecqlipse 2 by chrfb
-FindWOEID by Jeffrey Morley
-H.E.A.V.E.N by burnsplayguitar
-LuaCalendar by Smurfier
-MoonShine by benjam, jER
-MoxaWeather by moxamax
-NOOTO VS by lassekongo
-Rainmeter Calendar by limpet
-Rainmeter Logo Packs by kenz0
-RainRGB by Jeffrey Morley
-Syzygy by Linkz57
-Concepts, code and feedback by Alex2539, Alex Becherer, dragonmage, FlyingHyrax, Greg Schoppe, Jeffrey Morley, Jiri Mahel, kenz0, miniority, Zinsho
+- Blackface Clock by anonymous
+- [CleanGlass](http://lassekongo83.deviantart.com/art/CleanGlass-VS-98916844) by [lassekongo](http://lassekongo83.deviantart.com/)
+- [ecqlipse 2](http://chrfb.deviantart.com/art/quot-ecqlipse-2-quot-PNG-59941546) by [chrfb](http://chrfb.deviantart.com/)
+- “FindWOEID” by [Jeffrey Morley](http://jsmorley.deviantart.com/)
+- [H.E.A.V.E.N](http://burnsplayguitar.deviantart.com/art/H-E-A-V-E-N-133139719) by [burnsplayguitar](http://burnsplayguitar.deviantart.com/)
+- [LuaCalendar](http://smurfier.deviantart.com/art/LuaCalendar-3-5-280738925) by [Smurfier](https://github.com/smurfier)
+- [MoonShine](http://customize.org/rainmeter/skins/38542) by [benjam](http://customize.org/benjam), [jER](http://customize.org/jER)
+- [MoxaWeather](http://customize.org/rainmeter/skins/45767) by [moxamax](http://customize.org/moxamax)
+- [NOOTO VS](http://lassekongo83.deviantart.com/art/NOOTO-VS-104181358) by [lassekongo](http://lassekongo83.deviantart.com/)
+- [Rainmeter Calendar](http://limpet.deviantart.com/art/Rainmeter-Calendar-106839760) by [limpet](http://limpet.deviantart.com/)
+- [Rainmeter Logo Packs](http://customize.org/rainmeter/skins/65688) by [kenz0](http://kenz0.s201.xrea.com/)
+- [RainRGB](http://rainmeter.net/forum/viewtopic.php?f=18&t=6215) by [Jeffrey Morley](http://jsmorley.deviantart.com/)
+- [Syzygy](http://linkz57.deviantart.com/art/Syzygy-A-work-in-progress-129297185) by [Linkz57](http://linkz57.deviantart.com/)
+- Concepts, code and feedback by [Alex2539](http://alex2539.deviantart.com/), [Alex Becherer](http://alexbecherer.tumblr.com/), dragonmage, [FlyingHyrax](http://flyinghyrax.deviantart.com/), [Greg Schoppe](http://www.gschoppe.com/), [Jeffrey Morley](http://jsmorley.deviantart.com/), [Jiri Mahel](http://customize.org/mepu), [kenz0](http://customize.org/Kenz0), miniority, [Zinsho](http://rainmeter.net/forum/memberlist.php?mode=viewprofile&u=9995)
 
 ---
 
@@ -31,7 +40,7 @@ Concepts, code and feedback by Alex2539, Alex Becherer, dragonmage, FlyingHyrax,
 
 ### 4 Patch 1
 
-Date: 16 September, 2012
+Date: 16 September, 2012  
 App: Rainmeter 2.4 Beta (r1626)
 
 - Facebook: fixed missing icon and wrong feed URL.
@@ -50,7 +59,7 @@ App: Rainmeter 2.4 Beta (r1626)
 
 ### Enigma 4
 
-Date: 7 August, 2012
+Date: 7 August, 2012  
 App: Rainmeter 2.4 Beta (r1593)
 
 - Sidebar and Taskbar: now update automatically to changes in work area.
@@ -62,7 +71,7 @@ App: Rainmeter 2.4 Beta (r1593)
 
 ### 4 Beta 2
 
-Date: 26 July, 2012
+Date: 26 July, 2012  
 App: Rainmeter 2.4 Beta (r1570)
 
 - Run: added user-editable pre-defined shortcuts, as well as built-in "search" and "web" shortcuts. [by Smurfier]
@@ -71,7 +80,7 @@ App: Rainmeter 2.4 Beta (r1570)
 
 ### 4 Beta 1
 
-Date: 25 July, 2012
+Date: 25 July, 2012  
 App: Rainmeter 2.4 Beta (r1570)
 
 - [Skins] Added Process: sorts Windows processes by CPU usage.
@@ -127,8 +136,9 @@ App: Rainmeter 2.4 Beta (r1570)
 
 ### 3.1
 
-Date: 7 August 2011
+Date: 7 August 2011  
 App: Rainmeter 2.1 Beta (r895)
+
 - [Skins] Changed all: reversed global mouse actions. Now middle-click to refresh, and double-click to cycle variants. (Consideration for those with no middle mouse buttons.)
 - [Skins] Changed all: renamed "StyleX" variable to "VariantN", to avoid confusion between "styles" and "stylesheets".
 - [Skins] Changed Options: update checker now only appears in About panel.
@@ -151,8 +161,9 @@ App: Rainmeter 2.1 Beta (r895)
 
 ### 3.1 Beta 2
 
-Date: 31 July 2011
+Date: 31 July 2011  
 App: Rainmeter 2.1 Beta (r885)
+
 - Added Notes1, Notes2, Notes3: individual displays for user-chosen notepad files.
 - Changed all skins: moved common measures into @include files, located in Resources\Modules (e.g. MeasureYahooWeather.inc, MeasureGmail.inc).
 - Changed all skins: cleaned up tooltips, moved double-click refresh action to stylesheet files.
@@ -182,8 +193,9 @@ App: Rainmeter 2.1 Beta (r885)
 
 ### 3.1 Beta 1
 
-Date: 15 July 2011
+Date: 15 July 2011  
 App: Rainmeter 2.1 Beta (r863)
+
 - Added Second Taskbar.
 - Added System-CoreTemp: measures up to 4 CPU core temperatures.
 - Added Volume: increases, decreases and mutes system volume on left-, right- and middle-click.
@@ -233,8 +245,9 @@ App: Rainmeter 2.1 Beta (r863)
 
 ### 3.0
 
-Date: 6 June 2011
+Date: 6 June 2011  
 App: Rainmeter 2.1 Beta (r822)
+
 - Added online documentation: (http://enigma.kaelri.com/)
 - Added "Enigma Light" stylesheet.
 - Added Gallery: rotating image slideshow.
@@ -253,8 +266,9 @@ App: Rainmeter 2.1 Beta (r822)
 
 ### 2.8 Beta 2
 
-Date: 5 December 2010
+Date: 5 December 2010  
 App: Rainmeter 1.4 Beta (r642)
+
 - Changed all skins: double-click to refresh.
 - Changed Taskbar skins: reorganized into groups to make configs menu smaller and cleaner.
 - Changed Enigma: now checks website for updates, provides one-click upgrade link.
@@ -269,8 +283,9 @@ App: Rainmeter 1.4 Beta (r642)
 
 ### 2.8 Beta 1
 
-Date: 26 November 2010
+Date: 26 November 2010  
 App: Rainmeter 1.4 Beta (r622)
+
 - Added "Stylesheet" variable. Meter styles can now be swapped out without affecting skin functionality.
 - Added Facebook Reader.
 - Added Icon versions of all Launcher skins.
@@ -297,9 +312,11 @@ App: Rainmeter 1.4 Beta (r622)
 
 ### 2.7
 
-Date: 29 May 2010
-App: Rainmeter 1.1
-Special thanks to dragonmage, smurfier and other members of the Rainmeter community, who maintained Enigma in my absence.
+Date: 29 May 2010  
+App: Rainmeter 1.1  
+
+*Special thanks to dragonmage, smurfier and other members of the Rainmeter community, who maintained Enigma in my absence.*
+
 - Changed Calendar: added dates from next and previous months.
 - Changed Music-Winamp: added images.
 - Changed World: new time zone provider, added manual offset variable for daylight savings.
@@ -307,8 +324,9 @@ Special thanks to dragonmage, smurfier and other members of the Rainmeter commun
 
 ### 2.6.1
 
-Date: 4 November 2009
+Date: 4 November 2009  
 App: Rainmeter 1.1
+
 - Added Remember the Milk Reader.
 - Fixed Gmail-Reader: skin would be blank with only one new message.
 - Fixed Music\Winamp (both Sidebar and Taskbar variants): eliminated overlapping text, misnamed measure.
@@ -318,8 +336,9 @@ App: Rainmeter 1.1
 
 ### 2.6
 
-Date: 18 October 2009
+Date: 18 October 2009  
 App: Rainmeter 1.1
+
 - Optimized for Rainmeter 1.1.
 - Added Launcher (1-5): individual launcher skins with Taskbar stylesheet.
 - Added MoxaWeather-3Days-Horizontal.
@@ -344,8 +363,9 @@ App: Rainmeter 1.1
 
 ### 2.6 Beta 4
 
-Date: 14 October 2009
+Date: 14 October 2009  
 App: Rainmeter 1.1 r261
+
 - Added common variable inclusion: Variables.INC.
 - Added common module inclusion: StyleTaskbar.INC.
 - Added common module inclusion: StyleTaskbar-Mini.INC.
@@ -365,8 +385,9 @@ App: Rainmeter 1.1 r261
 
 ### 2.6 Beta 3
 
-Date: 8 September 2009
+Date: 8 September 2009  
 App: Rainmeter 1.1 r213
+
 - Added Resources: all images and supporting files moved here, referenced from skins by absolute paths.
 - Added Music-Winamp.
 - Changed all skins: added Metadata.
@@ -384,8 +405,9 @@ App: Rainmeter 1.1 r213
 
 ### 2.6 Beta 2
 
-Date: 18 August 2009
+Date: 18 August 2009  
 App: Rainmeter 1.1 r181
+
 - Changed all skins: invisible backing added to all applicable.
 - Changed Installer: properly identifies Program Files on 64-bit.
 - Changed Reader: tabbed list showing all four default feeds.
@@ -396,8 +418,9 @@ App: Rainmeter 1.1 r181
 
 ### 2.6 Beta 1
 
-Date: 15 August 2009
+Date: 15 August 2009  
 App: Rainmeter 1.1 r181
+
 - Added Rain.
 - Added Moon: modified from MoonShine by benjam.
 - Added World.
@@ -422,14 +445,16 @@ App: Rainmeter 1.1 r181
 
 ### 2.5.1
 
-Date: 7 August 2009
+Date: 7 August 2009  
 App: Rainmeter 1.0
+
 - Optimized for Rainmeter 1.0.
 
 ### 2.5
 
-Date: 7 August, 2009
+Date: 7 August, 2009  
 App: Rainmeter 1.0
+
 - Added Configure: automated multi-file variable editor.
 - Changed Setup: overhauled GUI, folder detection for new Rainmeter scheme.
 - Changed Templates: compatible with RainThemes, auto-adjust to user's resolution.
@@ -460,8 +485,9 @@ App: Rainmeter 1.0
 
 ### 2.1
 
-Date: 20 March, 2009
+Date: 20 March, 2009  
 App: Rainmeter 0.14
+
 - Changed Instructions: revised troubleshooting section.
 - Changed Setup: now automatically detects user's Program Files directory.
 - Changed Reader: title now clears stuck links on mouseover. (Thanks to moosatov.)
@@ -470,8 +496,9 @@ App: Rainmeter 0.14
 
 ### 2.0
 
-Date: 20 February, 2009
+Date: 20 February, 2009  
 App: Rainmeter 0.14
+
 - Added EnigmaSetup2.0.exe: automatic installer for the theme, fonts, and Beginner template. (The existing Rainmeter.ini is backed up.)
 - Added "Home" GUI widget manager: clickable menu tool for activating skins and switching between variations.
 - Added "Toggle": shows/hides the Sidebar and all skins in the "Sidebar" class.
@@ -491,8 +518,9 @@ App: Rainmeter 0.14
 
 ### 1.1
 
-Date: 3 January, 2009
+Date: 3 January, 2009  
 App: Samurize 1.64.3, Rainmeter 0.14
+
 - Reorganized Rainmeter theme.
 - Fixed Location bug.
 - Began third Rainmeter set: "Tray."
@@ -512,8 +540,9 @@ Planned for future release:
 
 ### 1.0
 
-Date: 18 November, 2008
+Date: 18 November, 2008  
 App: Samurize 1.64.3, Rainmeter 0.14
+
 - Revised text instructions.
 - Replaced missing file (BorderHour.png) in Rainmeter Theme\Enigma\Sidebar\Clock.
 - Replaced missing file (BorderMinute.png) in Rainmeter Theme\Enigma\Sidebar\Clock.
@@ -521,6 +550,7 @@ App: Samurize 1.64.3, Rainmeter 0.14
 
 ### 0.9
 
-Date: 15 November, 2008
+Date: 15 November, 2008  
 App: Samurize 1.64.3
+
 - Original.
