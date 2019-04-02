@@ -21,7 +21,7 @@ MeasureName=MeasureWeatherIcon
 Meter=STRING
 MeterStyle=StyleWeather#Variant#Text
 MeasureName=MeasureWeatherTemp
-Postfix="°"
+Postfix="ï¿½"
 LeftMouseUpAction=[[MeasureYahooWeather]]
 
 [Desc]
@@ -40,7 +40,7 @@ MeterStyle=StyleWeather#Variant#Separator
 Meter=STRING
 MeasureName=MeasureWeatherWindChill
 MeterStyle=StyleWeather#Variant#Text | StyleWeather#Variant#TextSub
-Postfix="°"
+Postfix="ï¿½"
 
 [WindChillLabel]
 Meter=STRING
@@ -64,7 +64,7 @@ Meter=STRING
 MeasureName=MeasureWeatherWindDirection
 MeasureName2=MeasureWeatherWindDirectionCardinal
 MeterStyle=StyleWeather#Variant#Text | StyleWeather#Variant#TextSub
-Text=%1° (%2)
+Text=%1ï¿½ (%2)
 
 [WindDirectionLabel]
 Meter=STRING
@@ -104,8 +104,9 @@ Text=Pressure
 [AtmoVisibility]
 Meter=STRING
 MeasureName=MeasureWeatherAtmoVisibility
+MeasureName2=MeasureWeatherUnitDistance
 MeterStyle=StyleWeather#Variant#Text | StyleWeather#Variant#TextSub
-Postfix="%"
+Text=%1 %2
 
 [AtmoVisibilityLabel]
 Meter=STRING
@@ -128,7 +129,7 @@ MeasureName=MeasureWeatherDay2Icon
 Meter=STRING
 MeterStyle=StyleWeather#Variant#Text
 MeasureName=MeasureWeatherDay2Average
-Postfix="°"
+Postfix="ï¿½"
 LeftMouseUpAction=[[MeasureWeatherRSS]]
 
 [Date2]
@@ -152,7 +153,7 @@ MeasureName=MeasureWeatherDay3Icon
 Meter=STRING
 MeterStyle=StyleWeather#Variant#Text
 MeasureName=MeasureWeatherDay3Average
-Postfix="°"
+Postfix="ï¿½"
 LeftMouseUpAction=[[MeasureWeatherRSS]]
 
 [Date3]

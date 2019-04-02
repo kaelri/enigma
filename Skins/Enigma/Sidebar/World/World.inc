@@ -12,12 +12,8 @@ Formula=MeasureUTC-11644473600
 [MeasureTimeZone]
 Measure=Plugin
 Plugin=WebParser
-Url=https://maps.googleapis.com/maps/api/timezone/xml?location=#CurrentCodeLat#,#CurrentCodeLon#&timestamp=[&MeasureUNIX]&sensor=false
-RegExp=(?siU)<raw_offset>(.*)</dst_offset>
-StringIndex=1
-DynamicVariables=1
-RegExpSubstitute=1
-Substitute="(.*)</raw_offset>[^<]*<dst_offset>(.*)":"((\1+\2)/3600)"
+Url=[MeasureYahooWeather]
+StringIndex=8
 
 [MeasureTime]
 Measure=Time
@@ -29,14 +25,14 @@ DaylightSavingTime=0
 Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
-Format="%#H.%M.%S  ·  %a"
+Format="%#H.%M.%S  ï¿½  %a"
 DaylightSavingTime=0
 
 [MeasureReal2]
 Measure=Time
 TimeZone=[MeasureTimeZone]
 DynamicVariables=1
-Format="%#d %b  ·  %Y"
+Format="%#d %b  ï¿½  %Y"
 DaylightSavingTime=0
 
 ;---------------------------------------------------------------------
@@ -114,7 +110,7 @@ Meter=STRING
 MeterStyle=StyleWorldText
 MeasureName=MeasureWeatherTemp
 MeasureName2=MeasureWeatherDesc
-Text="%1° · %2"
+Text="%1ï¿½ ï¿½ %2"
 LeftMouseUpAction=[[MeasureYahooWeather]][!Redraw]
 
 [Digital]

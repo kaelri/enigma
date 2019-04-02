@@ -12,13 +12,8 @@ Formula=MeasureUTC-11644473600
 [MeasureTimeZone]
 Measure=Plugin
 Plugin=WebParser
-UpdateRate=3600
-Url=https://maps.googleapis.com/maps/api/timezone/xml?location=#CurrentCodeLat#,#CurrentCodeLon#&timestamp=[&MeasureUNIX]&sensor=false
-RegExp=(?siU)<raw_offset>(.*)</dst_offset>
-StringIndex=1
-DynamicVariables=1
-RegExpSubstitute=1
-Substitute="(.*)</raw_offset>[^<]*<dst_offset>(.*)":"((\1+\2)/3600)"
+Url=[MeasureYahooWeather]
+StringIndex=8
 
 [MeasureTime]
 Measure=Time

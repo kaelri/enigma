@@ -1,36 +1,10 @@
 [MeasureYahooWeather]
 Measure=Plugin
 Plugin=WebParser
+Url=https://wxdata.weather.com/wxdata/weather/local/#CurrentCode#?cc=*&unit=#unit#&dayf=6
+RegExp="(?siU)<ut>(.*)</ut>.*<ud>(.*)</ud>.*<us>(.*)</us>.*<up>(.*)</up>.*<ur>(.*)</ur>.*<lat>(.*)</lat>.*<lon>(.*)</lon>.*<zone>(.*)</zone>.*<lsup>(.*)</lsup>.*<obst>(.*)</obst>.*<tmp>(.*)</tmp>.*<flik>(.*)</flik>.*<t>(.*)</t>.*<icon>(.*)</icon>.*<r>(.*)</r>.*<d>(.*)</d>.*<s>(.*)</s>.*<gust>(.*)</gust>.*<d>(.*)</d>.*<t>(.*)</t>.*<hmid>(.*)</hmid>.*<vis.(.*)</vis>.*<i>(.*)</i>.*<t>(.*)</t>.*<dewp>(.*)</dewp>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<dayf>.*<day d="0" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="1" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="2" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="3" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="4" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="5" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*"
+ErrorString="error"
 UpdateRate=1800
-Url=https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid=#CurrentCode# AND u="#Unit#"
-RegExp=(?siU).*distance="(.*)".*pressure="(.*)".*speed="(.*)".*temperature="(.*)".*city="(.*)".*country="(.*)".*region="(.*)".*chill="(.*)".*direction="(.*)".*speed="(.*)".*humidity="(.*)".*pressure="(.*)".*rising="(.*)".*visibility="(.*)".*sunrise="(.*)".*sunset="(.*)".*<title>.*:.*m .*(.*)</title>.*lat>(.*)<.*long>(.*)<.*condition.*code="(.*)".*temp="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*forecast.*code="(.*)".*day="(.*)".*high="(.*)".*low="(.*)".*text="(.*)".*
-
-;-----------------------
-; UNITS
-
-[MeasureWeatherUnitDistance]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=1
-
-[MeasureWeatherUnitPressure]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=2
-
-[MeasureWeatherUnitSpeed]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=3
-
-[MeasureWeatherUnitTemp]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=4
 
 ;-----------------------
 ; LOCATION
@@ -39,19 +13,52 @@ StringIndex=4
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=5
-
-[MeasureWeatherCountry]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=6
+StringIndex=10
+RegExpSubstitute=1
+Substitute="^(.*), (.*), (.*)$":"\1"
 
 [MeasureWeatherRegion]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=7
+StringIndex=10
+RegExpSubstitute=1
+Substitute="^(.*), (.*), (.*)$":"\2"
+
+[MeasureWeatherCountry]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=10
+RegExpSubstitute=1
+Substitute="^(.*), (.*), (.*)$":"\3"
+
+;-----------------------
+; UNITS
+
+[MeasureWeatherUnitTemp]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=1
+
+[MeasureWeatherUnitDistance]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=2
+
+[MeasureWeatherUnitPressure]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=4
+
+[MeasureWeatherUnitSpeed]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=3
 
 ;-----------------------
 ; WIND
@@ -60,13 +67,13 @@ StringIndex=7
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=8
+StringIndex=12
 
 [MeasureWeatherWindDirection]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=9
+StringIndex=19
 
 [MeasureWeatherWindDirectionCardinal]
 Measure=Calc
@@ -77,7 +84,7 @@ Substitute="10":"EbS","11":"ESE","12":"SEbE","13":"SE","14":"SEbS","15":"SSE","1
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=10
+StringIndex=17
 
 ;-----------------------
 ; ATMOSPHERE
@@ -86,25 +93,25 @@ StringIndex=10
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=11
-
-[MeasureWeatherAtmoPressure]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=12
-
-[MeasureWeatherAtmoRising]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=13
+StringIndex=21
 
 [MeasureWeatherAtmoVisibility]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=14
+StringIndex=22
+
+[MeasureWeatherAtmoPressure]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=15
+
+[MeasureWeatherAtmoRising]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=16
 
 ;--------------------------------
 ; SUN
@@ -113,13 +120,13 @@ StringIndex=14
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=15
+StringIndex=31
 
 [MeasureWeatherSunset]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=16
+StringIndex=32
 
 ;--------------------------------
 ; REGION
@@ -128,68 +135,63 @@ StringIndex=16
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=17
+StringIndex=8
 
 [MeasureWeatherLatitude]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=18
+StringIndex=6
 
 [MeasureWeatherLongitude]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=19
+StringIndex=7
+
 
 ;--------------------------------
 ; CURRENT
-
-[MeasureWeatherIcon]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=20
-
-[MeasureWeatherTemp]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=21
 
 [MeasureWeatherDesc]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=22
+StringIndex=13
 
-;-------------------------
-; DAY 2
-
-[MeasureWeatherDay2Icon]
+[MeasureWeatherIcon]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=28
+StringIndex=14
+
+[MeasureWeatherTemp]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=11
+
+;-------------------------
+; DAY 2
 
 [MeasureWeatherDay2Date]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=29
-Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
-
-[MeasureWeatherDay2High]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=30
+StringIndex=36
+;Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
 
 [MeasureWeatherDay2Low]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=31
+StringIndex=39
+
+[MeasureWeatherDay2High]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=38
 
 [MeasureWeatherDay2Average]
 Measure=Calc
@@ -199,35 +201,35 @@ Formula=ROUND((MeasureWeatherDay2Low+MeasureWeatherDay2High)/2)
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=32
+StringIndex=43
 
-;-------------------------
-; DAY 3
-
-[MeasureWeatherDay3Icon]
+[MeasureWeatherDay2Icon]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=33
+StringIndex=42
+
+;-------------------------
+; DAY 3
 
 [MeasureWeatherDay3Date]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=34
-Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
-
-[MeasureWeatherDay3High]
-Measure=Plugin
-Plugin=WebParser
-Url=[MeasureYahooWeather]
-StringIndex=35
+StringIndex=44
+;Substitute="Sun":"Sunday","Mon":"Monday","Tue":"Tuesday","Wed":"Wednesday","Thu":"Thursday","Fri":"Friday","Sat":"Saturday"
 
 [MeasureWeatherDay3Low]
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=36
+StringIndex=47
+
+[MeasureWeatherDay3High]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=46
 
 [MeasureWeatherDay3Average]
 Measure=Calc
@@ -237,11 +239,17 @@ Formula=ROUND((MeasureWeatherDay3Low+MeasureWeatherDay3High)/2)
 Measure=Plugin
 Plugin=WebParser
 Url=[MeasureYahooWeather]
-StringIndex=37
+StringIndex=51
+
+[MeasureWeatherDay3Icon]
+Measure=Plugin
+Plugin=WebParser
+Url=[MeasureYahooWeather]
+StringIndex=50
 
 ;-----------------------
 ; LOGO
-; Yahoo! Weather requires that any application which uses their API include the Y!W logo and a link to their website. This section will automatically insert those elements into any skin which uses this measure module. Please do not remove these elements if you are redistributing this file with your own skin.
+; Weather.com requires that any application which uses their API include the logo and a link to their website. This section will automatically insert those elements into any skin which uses this measure module. Please do not remove these elements if you are redistributing this file with your own skin.
 
 [YahooWeatherLogo]
 Meter=IMAGE
@@ -251,5 +259,5 @@ ImageName=#@#Images\MoxaWeather\Logo.png
 H=25
 W=25
 Hidden=1
-LeftMouseUpAction=["http://weather.yahoo.com/"][!Redraw]
-ToolTipText=Powered by Yahoo! Weather.
+LeftMouseUpAction=["http://weather.com/"][!Redraw]
+ToolTipText=Powered by Weather.com

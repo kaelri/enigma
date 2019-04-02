@@ -7,7 +7,7 @@ Enigma is a “suite” for [Rainmeter](http://www.rainmeter.net/), a system mon
 
 ## License
 
-This software has been released to you under a [Creative Commons Attribution-Noncommercial-Share Alike 3.0 License](http://creativecommons.org/licenses/by-nc-sa/3.0/). 
+This software has been released to you under a [Creative Commons Attribution-Noncommercial-Share Alike 3.0 License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
 
 ## Credits
 
@@ -29,6 +29,10 @@ The following free or licensed works are hereby gratefully attributed for their 
 - Concepts, code and feedback by [Alex2539](http://alex2539.deviantart.com/), [Alex Becherer](http://alexbecherer.tumblr.com/), dragonmage, [FlyingHyrax](http://flyinghyrax.deviantart.com/), [Greg Schoppe](http://www.gschoppe.com/), [Jeffrey Morley](http://jsmorley.deviantart.com/), [Jiri Mahel](http://customize.org/mepu), [kenz0](http://customize.org/Kenz0), miniority, [Zinsho](http://rainmeter.net/forum/memberlist.php?mode=viewprofile&u=9995)
 
 ## Changelog
+
+### 2019-04-02
+
+- Applied updates/fixes to the Weather skin functionality by [eclectic-tech](http://eclectic-tech.deviantart.com/gallery/), based on steps provided [here](https://forum.rainmeter.net/viewtopic.php?f=5&t=30807).
 
 ### 4 Patch 1
 
