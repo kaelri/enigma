@@ -6,8 +6,7 @@ LabelsQueue=
 ; MEASURES
 
 [MeasureFeedTitle]
-Measure=Plugin
-Plugin=WebParser
+Measure==WebParser
 Url=http://enigma.kaelri.com/update/version.xml
 RegExp=(?siU)<item>.*<title.*>(.*)</title>.*<version.*>(.*)</version>.*<link.*>(.*)</link>
 UpdateRate=3600
@@ -15,20 +14,17 @@ StringIndex=1
 FinishAction=[!EnableMeasure MeasureVersionCheck]
 
 [MeasureFeedVersion]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 Url=[MeasureFeedTitle]
 StringIndex=2
 
 [MeasureFeedLink]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 Url=[MeasureFeedTitle]
 StringIndex=3
 
 [MeasurePreviewThumbnail]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 Url=http://enigma.kaelri.com/update/preview-150px.png
 Download=1
 UpdateRate=3600

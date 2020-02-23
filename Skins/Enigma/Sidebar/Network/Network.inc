@@ -40,8 +40,7 @@ SysInfoType=IP_ADDRESS
 SysInfoData=1
 
 [MeasureWAN]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=21600
 Url=http://checkip.dyndns.org
 RegExp="(?siU)Address: (.*)</body>"
@@ -156,7 +155,7 @@ MeasureName=MeasureNetIn#SystemGraphType#
 [NetOutLabel]
 Meter=STRING
 MeterStyle=StyleSystem#Variant#GraphLabel | StyleSystem#Variant#GraphLabel1
-; Prefix="· "
+; Prefix="ï¿½ "
 Text="UP"
 
 [NetOutNumber]
@@ -170,7 +169,7 @@ NumOfDecimals=0
 Meter=STRING
 MeterStyle=StyleSystem#Variant#GraphLabel | StyleSystem#Variant#GraphLabel2
 Text="DOWN"
-; Postfix=" ·"
+; Postfix=" ï¿½"
 
 [NetInNumber]
 Meter=STRING

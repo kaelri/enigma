@@ -2,8 +2,7 @@
 ; MEASURES
 
 [MeasureWAN]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=21600
 Url=http://checkip.dyndns.org
 RegExp="(?siU)Address: (.*)</body>"

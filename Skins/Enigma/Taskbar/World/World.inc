@@ -10,8 +10,7 @@ Measure=Calc
 Formula=MeasureUTC-11644473600
 
 [MeasureTimeZone]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 Url=[MeasureYahooWeather]
 StringIndex=8
 

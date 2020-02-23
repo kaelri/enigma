@@ -13,8 +13,7 @@ Type=Reader
 TotalTabs=8
 
 [MeasureFeed1]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL1#
 RegExp=(?siU)(.*)$
@@ -23,8 +22,7 @@ Substitute=#WebParserSubstitute#
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(1)
 
 [MeasureFeed2]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL2#
 RegExp=(?siU)(.*)$
@@ -35,8 +33,7 @@ Group=Tab2
 Disabled=1
 
 [MeasureFeed3]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL3#
 RegExp=(?siU)(.*)$
@@ -47,8 +44,7 @@ Group=Tab3
 Disabled=1
 
 [MeasureFeed4]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL4#
 RegExp=(?siU)(.*)$
@@ -59,8 +55,7 @@ Group=Tab4
 Disabled=1
 
 [MeasureFeed5]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL5#
 RegExp=(?siU)(.*)$
@@ -71,8 +66,7 @@ Group=Tab5
 Disabled=1
 
 [MeasureFeed6]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL6#
 RegExp=(?siU)(.*)$
@@ -83,8 +77,7 @@ Group=Tab6
 Disabled=1
 
 [MeasureFeed7]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL7#
 RegExp=(?siU)(.*)$
@@ -95,8 +88,7 @@ Group=Tab7
 Disabled=1
 
 [MeasureFeed8]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=#ReaderUpdateRate#
 URL=#ReaderURL8#
 RegExp=(?siU)(.*)$

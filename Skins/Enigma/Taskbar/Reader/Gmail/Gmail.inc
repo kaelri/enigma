@@ -5,8 +5,7 @@ WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":
 ; MEASURES
 
 [MeasureFeed]
-Measure=Plugin
-Plugin=WebParser
+Measure=WebParser
 UpdateRate=120
 URL=#GmailUrl#
 RegExp=(?siU)(.*)$
