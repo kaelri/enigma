@@ -2,14 +2,12 @@
 ; MEASURES
 
 [MeasureBinCount]
-Measure=Plugin
-Plugin=RecycleManager
+Measure=RecycleManager
 RecycleType=COUNT
 UpdateDivider=10
 
 ; [MeasureBinSize]
-; Measure=Plugin
-; Plugin=RecycleManager
+; Measure=RecycleManager
 ; RecycleType=SIZE
 ; UpdateDivider=10
 
