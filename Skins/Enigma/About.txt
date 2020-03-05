@@ -6,7 +6,7 @@ by Kaelri
 -----------------------
 ABOUT
 
-Enigma is a featured "suite" for the Windows system monitoring tool, Rainmeter. 
+Enigma is a featured "suite" for the Windows system monitoring tool, Rainmeter.
 
 For more information, visit the official website at (http://enigma.kaelri.com).
 
@@ -42,26 +42,26 @@ Concepts and Feedback  Alex2539
 
 SKINS
 
-LuaCalendar            Smurfier       
+LuaCalendar            Smurfier
 MoonShine              benjam
-                       jER 
-MoxaWeather            moxamax         
+                       jER
+MoxaWeather            moxamax
 Rainmeter Calendar     limpet
 
 IMAGES
 
 Blackface Clock        Unknown
-CleanGlass             lassekongo     
-ecqlipse 2             chrfb      
-H.E.A.V.E.N            burnsplayguitar    
-NOOTO VS               lassekongo     
-Rainmeter Logo Packs   kenz0       
-Syzygy                 Linkz57   
+CleanGlass             lassekongo
+ecqlipse 2             chrfb
+H.E.A.V.E.N            burnsplayguitar
+NOOTO VS               lassekongo
+Rainmeter Logo Packs   kenz0
+Syzygy                 Linkz57
 
 ADDONS
 
 FindWOEID              Jeffrey Morley
-RainRGB                Jeffrey Morley       
+RainRGB                Jeffrey Morley
 
 
 -----------------------
