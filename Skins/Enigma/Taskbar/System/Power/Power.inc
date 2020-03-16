@@ -12,23 +12,23 @@ PowerState=PERCENT
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StylePWRIcon
+MeterStyle=Style[#Variant]Icon | StylePWRIcon
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar | StylePWR#Variant#Bar
+MeterStyle=Style[#Variant]Bar | StylePWR[#Variant]Bar
 MeasureName=MeasurePower
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasurePower
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 Text="PWR"

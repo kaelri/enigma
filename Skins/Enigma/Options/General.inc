@@ -12,7 +12,7 @@ LabelsQueue=CalendarShowEvents|CalendarExtraDays|CalendarLeadingZeroes|CalendarM
 [Arrow]
 Meter=IMAGE
 MeterStyle=StyleMenuArrow
-Y=#ArrowY#
+Y=[#ArrowY]
 
 ;-----------------------
 ; GENERAL
@@ -38,8 +38,8 @@ Text="1st Notes File"
 [Notes1PathText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#Note1Path#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note1Path" "#EnigmaSettings#" "#Note1Path#"]
+Text="[#Note1Path]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "Note1Path" "[#EnigmaSettings]" "[#Note1Path]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Note1Path')"
 TooltipTitle="1st Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
@@ -52,8 +52,8 @@ Text="2nd Notes File"
 [Notes2PathText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#Note2Path#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note2Path" "#EnigmaSettings#" "#Note2Path#"]
+Text="[#Note2Path]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "Note2Path" "[#EnigmaSettings]" "[#Note2Path]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Note2Path')"
 TooltipTitle="2nd Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
@@ -66,8 +66,8 @@ Text="3rd Notes File"
 [Notes3PathText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#Note3Path#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "Note3Path" "#EnigmaSettings#" "#Note3Path#"]
+Text="[#Note3Path]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "Note3Path" "[#EnigmaSettings]" "[#Note3Path]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Note3Path')"
 TooltipTitle="3rd Text File Location"
 TooltipText=Click to choose the text files to be displayed by each of Enigma Notes' three 'pages.' By default, Enigma uses text files inside its own folder to store your notes. However, you may wish to use an external file to integrate it with another application, or to prevent it from being erased when you update your Rainmeter skins.
@@ -80,7 +80,7 @@ Text="Height"
 [NotesHeightText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#NoteHeight#"
+Text="[#NoteHeight]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NoteHeight')"
 TooltipTitle="Notes Display Height (pixels)"
@@ -96,7 +96,7 @@ Text="1st Drive"
 [Drive1Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#Drive1#"
+Text="[#Drive1]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive1')"
 TooltipTitle="1st Drive Letter"
@@ -110,7 +110,7 @@ Text="2nd Drive"
 [Drive2Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#Drive2#"
+Text="[#Drive2]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive2')"
 TooltipTitle="2nd Drive Letter"
@@ -124,7 +124,7 @@ Text="3rd Drive"
 [Drive3Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#Drive3#"
+Text="[#Drive3]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('Drive3')"
 TooltipTitle="3rd Drive Letter"
@@ -140,7 +140,7 @@ Text=Graph Type
 [SystemGraphTypeText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#SystemGraphType#"
+Text="[#SystemGraphType]"
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('SystemGraphType')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SystemGraphType')"
 TooltipTitle="System Graph Type (Floating/Percent)"
@@ -154,7 +154,7 @@ Text=Max Down Speed
 [NetworkMaxDownloadText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#NetworkMaxDownload#"
+Text="[#NetworkMaxDownload]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NetworkMaxDownload')"
 TooltipTitle="Maximum Download Speed (B)"
@@ -168,7 +168,7 @@ Text=Max Up Speed
 [NetworkMaxUploadText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#NetworkMaxUpload#"
+Text="[#NetworkMaxUpload]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('NetworkMaxUpload')"
 TooltipTitle="Maximum Upload Speed (B)"
@@ -184,8 +184,8 @@ Text="Calendar File"
 [CalendarEventFileText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#CalendarEventFile#
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "CalendarEventFile" "#EnigmaSettings#" "#CalendarEventFile#"]
+Text=[#CalendarEventFile]
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "CalendarEventFile" "[#EnigmaSettings]" "[#CalendarEventFile]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('CalendarEventFile')"
 TooltipTitle="Calendar Event Library (Filepath)"
 TooltipText=Click to select one or more calendar files to display events in Enigma Calendar.
@@ -252,8 +252,8 @@ Text="Gallery Path"
 [GalleryPathText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#GalleryPath#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "Folder" "Variables" "GalleryPath" "#EnigmaSettings#" "#GalleryPath#"]
+Text="[#GalleryPath]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "Folder" "Variables" "GalleryPath" "[#EnigmaSettings]" "[#GalleryPath]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryPath')"
 TooltipTitle="Folder Location (C:\Users\...)"
 TooltipText=Click to type the path to the folder containing the images which you would like Enigma Gallery to display.
@@ -279,7 +279,7 @@ Text="Aspect Ratio"
 [GalleryRatioText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#GalleryRatio#"
+Text="[#GalleryRatio]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryRatio')"
 TooltipTitle="Image Aspect Ratio (width/height)"
@@ -293,7 +293,7 @@ Text="Wallpaper Position"
 [GalleryPositionText]
 Meter=STRING
 MeterStyle=StyleText
-Text=#GalleryPosition#
+Text=[#GalleryPosition]
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('GalleryPosition')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('GalleryPosition')"
 TooltipTitle="Wallpaper Position (Center, Tile, Stretch, Fit, Fill)"
@@ -309,7 +309,7 @@ Text="Volume Step"
 [VolumeIncrementText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#VolumeIncrement#%"
+Text="[#VolumeIncrement]%"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 8"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('VolumeIncrement')"
 TooltipTitle="Volume Change Increment (percent)"
@@ -325,7 +325,7 @@ Text="Switcher Time"
 [TriptychIntervalText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#TriptychInterval#"
+Text="[#TriptychInterval]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 9"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TriptychInterval')"
 TooltipTitle="Switcher Rotation Period (seconds)"
@@ -354,7 +354,7 @@ Text="Process Time"
 [ProcessIntervalText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#ProcessInterval#"
+Text="[#ProcessInterval]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputGeneral" "ExecuteBatch 10"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('ProcessInterval')"
 TooltipTitle="Process Update Period (seconds)"

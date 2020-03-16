@@ -25,40 +25,40 @@ Formula=MeasureSeconds / 60
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleClockIcon
-ToolTipText=[MeasureText] [MeasureLabel]
+MeterStyle=Style[#Variant]Icon | StyleClockIcon
+ToolTipText=[&MeasureText] [&MeasureLabel]
 DynamicVariables=1
 
 [Seconds]
 Meter=ROUNDLINE
-MeterStyle=Style#Variant#Icon | StyleClockHands | StyleClockSeconds
+MeterStyle=Style[#Variant]Icon | StyleClockHands | StyleClockSeconds
 MeasureName=MeasureTime
 
 [Hours]
 Meter=ROUNDLINE
-MeterStyle=Style#Variant#Icon | StyleClockHands | StyleClockHours
+MeterStyle=Style[#Variant]Icon | StyleClockHands | StyleClockHours
 MeasureName=MeasureTime
 
 [Minutes]
 Meter=ROUNDLINE
-MeterStyle=Style#Variant#Icon | StyleClockHands | StyleClockMinutes
+MeterStyle=Style[#Variant]Icon | StyleClockHands | StyleClockMinutes
 MeasureName=MeasureTime
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureText
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 MeasureName=MeasureLabel
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar
+MeterStyle=Style[#Variant]Bar
 MeasureName=MeasureBar

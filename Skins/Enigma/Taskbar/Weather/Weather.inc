@@ -10,26 +10,26 @@ Formula=(MeasureWeatherTemp - MeasureWeatherDay2Low) / (MeasureWeatherDay2High -
 
 [Background]
 Meter=IMAGE
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleWeather#Variant#Icon
+MeterStyle=Style[#Variant]Icon | StyleWeather[#Variant]Icon
 MeasureName=MeasureWeatherIcon
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureWeatherTemp
-Postfix="°"
-LeftMouseUpAction=[[MeasureYahooWeather]]
+Postfix="ï¿½"
+LeftMouseUpAction=[[&MeasureYahooWeather]]
 
 [Label]
 Meter=STRING
 MeasureName=MeasureWeatherDesc
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar
+MeterStyle=Style[#Variant]Bar
 MeasureName=MeasureBar

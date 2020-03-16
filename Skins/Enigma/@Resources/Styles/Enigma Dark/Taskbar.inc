@@ -10,34 +10,34 @@ MiddleMouseUpAction=!Refresh
 ; TASKBAR (1)
 
 [StyleTaskbarBase]
-ImageName=#TaskbarImage#
-W=(#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#)
-H=#TaskbarHeight#
-ImageAlpha=#TaskbarAlpha#
+ImageName=[#TaskbarImage]
+W=([#WORKAREAWIDTH] - [#TaskbarSpacingFixed] * [#SidebarWidth])
+H=[#TaskbarHeight]
+ImageAlpha=[#TaskbarAlpha]
 
 [StyleTaskbarFilter]
-SolidColor=#ColorFilter2#
+SolidColor=[#ColorFilter2]
 X=r
 Y=r
-W=(#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#)
-H=#TaskbarHeight#
-Hidden=#TaskbarHideTriptych#
+W=([#WORKAREAWIDTH] - [#TaskbarSpacingFixed] * [#SidebarWidth])
+H=[#TaskbarHeight]
+Hidden=[#TaskbarHideTriptych]
 
 [StyleTaskbarPanel]
-ImageName=#TaskbarImage#
-X=((#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#) / 3)
-W=((#WORKAREAWIDTH# - #TaskbarSpacingFixed# * #SidebarWidth#) / 3)
-H=#TaskbarHeight#
-ImageAlpha=#TaskbarAlpha#
-Hidden=#TaskbarHideTriptych#
+ImageName=[#TaskbarImage]
+X=(([#WORKAREAWIDTH] - [#TaskbarSpacingFixed] * [#SidebarWidth]) / 3)
+W=(([#WORKAREAWIDTH] - [#TaskbarSpacingFixed] * [#SidebarWidth]) / 3)
+H=[#TaskbarHeight]
+ImageAlpha=[#TaskbarAlpha]
+Hidden=[#TaskbarHideTriptych]
 
 ;---------------------------------------------------------------------
 ; TASKBAR (2)
 
 [StyleTaskbar2Base]
-ImageName=#SecondTaskbarImage#
+ImageName=[#SecondTaskbarImage]
 
 [StyleTaskbar2Filter]
 
 [StyleTaskbar2Panel]
-ImageName=#SecondTaskbarImage#
+ImageName=[#SecondTaskbarImage]

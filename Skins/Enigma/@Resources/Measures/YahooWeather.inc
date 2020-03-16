@@ -1,6 +1,6 @@
 [MeasureYahooWeather]
 Measure=WebParser
-Url=https://wxdata.weather.com/wxdata/weather/local/#CurrentCode#?cc=*&unit=#unit#&dayf=6
+Url=https://wxdata.weather.com/wxdata/weather/local/[#CurrentCode]?cc=*&unit=[#unit]&dayf=6
 RegExp="(?siU)<ut>(.*)</ut>.*<ud>(.*)</ud>.*<us>(.*)</us>.*<up>(.*)</up>.*<ur>(.*)</ur>.*<lat>(.*)</lat>.*<lon>(.*)</lon>.*<zone>(.*)</zone>.*<lsup>(.*)</lsup>.*<obst>(.*)</obst>.*<tmp>(.*)</tmp>.*<flik>(.*)</flik>.*<t>(.*)</t>.*<icon>(.*)</icon>.*<r>(.*)</r>.*<d>(.*)</d>.*<s>(.*)</s>.*<gust>(.*)</gust>.*<d>(.*)</d>.*<t>(.*)</t>.*<hmid>(.*)</hmid>.*<vis.(.*)</vis>.*<i>(.*)</i>.*<t>(.*)</t>.*<dewp>(.*)</dewp>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<dayf>.*<day d="0" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="1" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="2" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="3" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="4" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*<day d="5" t="(.*)" dt="(.*)">.*<hi>(.*)</hi>.*<low>(.*)</low>.*<sunr>(.*)</sunr>.*<suns>(.*)</suns>.*<icon>(.*)</icon>.*<t>(.*)</t>.*"
 ErrorString="error"
 UpdateRate=1800
@@ -220,9 +220,9 @@ StringIndex=50
 
 [YahooWeatherLogo]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon
+MeterStyle=Style[#Variant]Icon
 Group=EnigmaMouseover
-ImageName=#@#Images\MoxaWeather\Logo.png
+ImageName=[#@]Images\MoxaWeather\Logo.png
 H=25
 W=25
 Hidden=1

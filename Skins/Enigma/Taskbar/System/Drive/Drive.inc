@@ -3,24 +3,24 @@
 
 [MeasureDriveFree]
 Measure=FreeDiskSpace
-Drive=#Drive#:
+Drive=[#Drive]:
 IgnoreRemovable=0
 
 [MeasureDriveUsed]
 Measure=FreeDiskSpace
-Drive=#Drive#:
+Drive=[#Drive]:
 IgnoreRemovable=0
 InvertMeasure=1
 
 [MeasureDriveTotal]
 Measure=FreeDiskSpace
-Drive=#Drive#
+Drive=[#Drive]
 IgnoreRemovable=0
 Total=1
 
 [MeasureDriveType]
 Measure=FreeDiskSpace
-Drive=#Drive#:
+Drive=[#Drive]:
 IgnoreRemovable=0
 Type=1
 IfAboveValue=2
@@ -30,7 +30,7 @@ IfBelowAction=!SetOption "Text" "Text" "Removed"
 
 ; [MeasureDriveName]
 ; Measure=FreeDiskSpace
-; Drive=#Drive#:
+; Drive=[#Drive]:
 ; IgnoreRemovable=0
 ; Label=1
 ; UpdateDivider=-1
@@ -40,30 +40,30 @@ IfBelowAction=!SetOption "Text" "Text" "Removed"
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleHDDIcon
-LeftMouseUpAction=["#Drive#:\"]
-ToolTipTitle=Explore #Drive#:\
+MeterStyle=Style[#Variant]Icon | StyleHDDIcon
+LeftMouseUpAction=["[#Drive]:\"]
+ToolTipTitle=Explore [#Drive]:\
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar | StyleHDD#Variant#Bar
+MeterStyle=Style[#Variant]Bar | StyleHDD[#Variant]Bar
 MeasureName=MeasureDriveUsed
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureDriveFree
 AutoScale=1
 NumOfDecimals=0
-LeftMouseUpAction=["#Drive#:\"]
-ToolTipTitle=Explore #Drive#:\
+LeftMouseUpAction=["[#Drive]:\"]
+ToolTipTitle=Explore [#Drive]:\
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 ; MeasureName=MeasureDriveName
-Text=#Drive#
+Text=[#Drive]

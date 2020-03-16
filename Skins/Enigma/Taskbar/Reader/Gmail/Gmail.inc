@@ -7,22 +7,22 @@ WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":
 [MeasureFeed]
 Measure=WebParser
 UpdateRate=120
-URL=#GmailUrl#
+URL=[#GmailUrl]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh()
 
 [MeasureScriptReader]
 Measure=Script
-ScriptFile="#@#Measures\Reader.lua"
+ScriptFile="[#@]Measures\Reader.lua"
 MeasureName=MeasureFeed
 FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw]
 
 [MeasureNewMail]
 Measure=CALC
 Group=FeedData
-Formula=#NumberOfItems# > 0
+Formula=[#NumberOfItems] > 0
 DynamicVariables=1
 
 ;---------------------------------------------------------------------
@@ -30,25 +30,25 @@ DynamicVariables=1
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
 Group=FeedData
-MeterStyle=Style#Variant#Icon | StyleGmailIcon
+MeterStyle=Style[#Variant]Icon | StyleGmailIcon
 MeasureName=MeasureNewMail
-LeftMouseUpAction=["#FeedLink#]
+LeftMouseUpAction=["[#FeedLink]]
 DynamicVariables=1
 
 [Text]
 Meter=STRING
 Group=FeedData
-MeterStyle=Style#Variant#Text
-Text=#NumberOfItems#
-LeftMouseUpAction=["#Item1Link#"]
+MeterStyle=Style[#Variant]Text
+Text=[#NumberOfItems]
+LeftMouseUpAction=["[#Item1Link]"]
 DynamicVariables=1
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 Text="MAIL"

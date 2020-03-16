@@ -16,13 +16,13 @@ StringIndex=8
 
 [MeasureTime]
 Measure=Time
-TimeZone=[MeasureTimeZone]
+TimeZone=[&MeasureTimeZone]
 DynamicVariables=1
 DaylightSavingTime=0
 
 [MeasureTimeSeconds]
 Measure=Time
-TimeZone=[MeasureTimeZone]
+TimeZone=[&MeasureTimeZone]
 Format="%#S"
 DynamicVariables=1
 DaylightSavingTime=0
@@ -30,7 +30,7 @@ DaylightSavingTime=0
 [MeasureClock]
 Measure=Time
 Format="%#I.%M %p"
-TimeZone=[MeasureTimeZone]
+TimeZone=[&MeasureTimeZone]
 Substitute="PM":"pm","AM":"am"
 DynamicVariables=1
 DaylightSavingTime=0
@@ -44,40 +44,40 @@ Formula=MeasureTimeSeconds / 60
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleClockIcon
+MeterStyle=Style[#Variant]Icon | StyleClockIcon
 
 [Seconds]
 Meter=ROUNDLINE
-MeterStyle=Style#Variant#Icon | StyleClockHands | StyleClockSeconds
+MeterStyle=Style[#Variant]Icon | StyleClockHands | StyleClockSeconds
 MeasureName=MeasureTime
 
 [Hours]
 Meter=ROUNDLINE
-MeterStyle=Style#Variant#Icon | StyleClockHands | StyleClockHours
+MeterStyle=Style[#Variant]Icon | StyleClockHands | StyleClockHours
 MeasureName=MeasureTime
 
 [Minutes]
 Meter=ROUNDLINE
-MeterStyle=Style#Variant#Icon | StyleClockHands | StyleClockMinutes
+MeterStyle=Style[#Variant]Icon | StyleClockHands | StyleClockMinutes
 MeasureName=MeasureTime
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text | StyleWorld#Variant#Text
+MeterStyle=Style[#Variant]Text | StyleWorld[#Variant]Text
 MeasureName=MeasureClock
 MeasureName2=MeasureWeatherCity
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label | StyleWorld#Variant#Label
+MeterStyle=Style[#Variant]Label | StyleWorld[#Variant]Label
 MeasureName=MeasureWeatherCity
 MeasureName2=MeasureClock
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar
+MeterStyle=Style[#Variant]Bar
 MeasureName=MeasureBar

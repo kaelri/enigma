@@ -13,14 +13,14 @@ StringIndex=1
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureWAN
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 Text="WAN"

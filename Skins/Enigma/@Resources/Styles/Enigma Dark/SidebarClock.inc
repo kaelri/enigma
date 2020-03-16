@@ -2,14 +2,14 @@
 ; SIDEBAR CLOCK
 
 [StyleClockBorder]
-SolidColor=#ColorBorder4#
+SolidColor=[#ColorBorder4]
 X=10
 Y=5
-W=(#SidebarWidth#-20)
+W=([#SidebarWidth]-20)
 H=1
 
 [StyleClockFace]
-ImageName=#SidebarClockFace#
+ImageName=[#SidebarClockFace]
 Y=5
 OffsetX=0
 OffsetY=0
@@ -21,7 +21,7 @@ StartAngle=4.7123889
 RotationAngle=6.2831853
 LineStart=0
 LineWidth=1
-LineColor=#ColorLink2#
+LineColor=[#ColorLink2]
 Solid=0
 ValueReminder=60
 AntiAlias=1
@@ -33,7 +33,7 @@ StartAngle=4.7123889
 RotationAngle=6.2831853
 LineStart=0
 LineWidth=2
-LineColor=#Color1#
+LineColor=[#Color1]
 Solid=0
 ValueReminder=43200
 AntiAlias=1
@@ -45,7 +45,7 @@ StartAngle=4.7123889
 RotationAngle=6.2831853
 LineStart=0
 LineWidth=2
-LineColor=#Color1#
+LineColor=[#Color1]
 Solid=0
 ValueReminder=3600
 AntiAlias=1
@@ -53,32 +53,32 @@ AntiAlias=1
 [StyleClockWeek]
 W=150
 StringStyle=BOLD
-FontColor=#Color1#
-FontSize=#Size2#
-FontFace=#Font#
+FontColor=[#Color1]
+FontSize=[#Size2]
+FontFace=[#Font]
 AntiAlias=1
 
 [StyleClockDate]
 W=150
 StringStyle=NORMAL
-FontColor=#Color2#
-FontSize=#Size2#
-FontFace=#Font#
+FontColor=[#Color2]
+FontSize=[#Size2]
+FontFace=[#Font]
 AntiAlias=1
 
 [StyleClockLocation]
 W=150
 StringStyle=NORMAL
-FontColor=#Color2#
-FontSize=#Size2#
-FontFace=#Font#
+FontColor=[#Color2]
+FontSize=[#Size2]
+FontFace=[#Font]
 AntiAlias=1
 
 ;-----------------------
 ; BIG RIGHT
 
 [StyleClockBRBackground]
-W=(#SidebarWidth#+52.5)
+W=([#SidebarWidth]+52.5)
 H=105
 
 [StyleClockBRFace]
@@ -120,11 +120,11 @@ StringAlign=LEFT
 ; BIG LEFT
 
 [StyleClockBLBackground]
-W=(#SidebarWidth#+52.5)
+W=([#SidebarWidth]+52.5)
 H=105
 
 [StyleClockBLFace]
-X=(#SidebarWidth#-47.5)
+X=([#SidebarWidth]-47.5)
 W=95
 H=95
 
@@ -206,7 +206,7 @@ StringAlign=LEFT
 H=70
 
 [StyleClockLLFace]
-X=(#SidebarWidth#-70)
+X=([#SidebarWidth]-70)
 W=60
 H=60
 

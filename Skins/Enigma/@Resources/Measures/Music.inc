@@ -1,6 +1,6 @@
 [MeasureMediaPlayer]
 Measure=NowPlaying
-PlayerName=#MusicPlayer#
+PlayerName=[#MusicPlayer]
 PlayerType=FILE
 
 [MeasureTrack]

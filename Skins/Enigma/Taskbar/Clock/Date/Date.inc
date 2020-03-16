@@ -22,21 +22,21 @@ Substitute="Jan":"31","Feb":"28","Mar":"31","Apr":"30","May":"31","Jun":"30","Ju
 [MeasureBar]
 Measure=Calc
 DynamicVariables=1
-Formula=MeasureDate / [MeasureMonthTotal]
+Formula=MeasureDate / [&MeasureMonthTotal]
 
 ;---------------------------------------------------------------------
 ; METERS
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureDate
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 MeasureName=MeasureMonth

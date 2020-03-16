@@ -22,7 +22,7 @@ UpdateDivider=30
 [Arrow]
 Meter=IMAGE
 MeterStyle=StyleMenuArrow
-Y=#ArrowY#
+Y=[#ArrowY]
 
 ;-----------------------
 ; LAYOUT
@@ -48,7 +48,7 @@ Text="Sidebar Width"
 [SidebarWidthText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#SidebarWidth#"
+Text="[#SidebarWidth]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarWidth')"
 TooltipTitle="Sidebar Width (px)"
@@ -62,7 +62,7 @@ Text="Transparency"
 [SidebarAlphaText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#SidebarAlpha#"
+Text="[#SidebarAlpha]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarAlpha')"
 TooltipTitle="Sidebar Transparency (0-255)"
@@ -76,7 +76,7 @@ Text="Spacing"
 [SidebarSpacingFixedText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#SidebarSpacingFixedLabel#"
+Text="[#SidebarSpacingFixedLabel]"
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('SidebarSpacingFixed')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarSpacingFixed')"
 TooltipTitle="Sidebar Spacing (Y/N)"
@@ -92,7 +92,7 @@ Text="Taskbar Height"
 [TaskbarHeightText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#TaskbarHeight#"
+Text="[#TaskbarHeight]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarHeight')"
 TooltipTitle="Taskbar Height (px)"
@@ -106,7 +106,7 @@ Text="Transparency"
 [TaskbarAlphaText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#TaskbarAlpha#"
+Text="[#TaskbarAlpha]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarAlpha')"
 TooltipTitle="Taskbar Transparency (0-255)"
@@ -120,7 +120,7 @@ Text="Spacing"
 [TaskbarSpacingFixedText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#TaskbarSpacingFixedLabel#"
+Text="[#TaskbarSpacingFixedLabel]"
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TaskbarSpacingFixed')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarSpacingFixed')"
 TooltipTitle="Taskbar Spacing (Y/N)"
@@ -134,7 +134,7 @@ Text="Maximum Text Width"
 [TaskbarMaxSkinWidthText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#TaskbarMaxSkinWidth#"
+Text="[#TaskbarMaxSkinWidth]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMaxSkinWidth')"
 TooltipTitle="Maximum Text Width for Taskbar Skins (px)"
@@ -148,7 +148,7 @@ Text="Minimum Text Width"
 [TaskbarMinSkinWidthText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#TaskbarMinSkinWidth#"
+Text="[#TaskbarMinSkinWidth]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputLayout" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarMinSkinWidth')"
 TooltipTitle="Minimum Text Width for Taskbar Skins (px)"
@@ -162,7 +162,7 @@ Text="Triptych"
 [TaskbarHideTriptychText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#TaskbarHideTriptychLabel#"
+Text="[#TaskbarHideTriptychLabel]"
 LeftMouseUpAction=!CommandMeasure MeasureInputScript "Write('TaskbarHideTriptych')"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarHideTriptych')"
 TooltipTitle="Show Taskbar Triptych? (Y/N)"
@@ -177,7 +177,7 @@ Text="Textures"
 
 [BarImageBase]
 Meter=IMAGE
-ImageName=#@#Images\Home\ConfigLayout.png
+ImageName=[#@]Images\Home\ConfigLayout.png
 X=215
 Y=-9r
 
@@ -191,56 +191,56 @@ H=54
 
 [TaskbarImage]
 Meter=IMAGE
-ImageAlpha=#TaskbarAlpha#
+ImageAlpha=[#TaskbarAlpha]
 X=2r
 Y=2r
 H=7
 W=79
 TooltipWidth=300
-ImageName=#TaskbarImage#
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "TaskbarImage" "#StyleSettings#" "#TaskbarImage#"]
+ImageName=[#TaskbarImage]
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "TaskbarImage" "[#StyleSettings]" "[#TaskbarImage]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('TaskbarImage')"
 TooltipTitle="Taskbar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.
 
 [SecondTaskbarImage]
 Meter=IMAGE
-ImageAlpha=#TaskbarAlpha#
+ImageAlpha=[#TaskbarAlpha]
 X=r
 Y=43r
 H=7
 W=79
 TooltipWidth=300
-ImageName=#SecondTaskbarImage#
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "SecondTaskbarImage" "#StyleSettings#" "#SecondTaskbarImage#"]
+ImageName=[#SecondTaskbarImage]
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "SecondTaskbarImage" "[#StyleSettings]" "[#SecondTaskbarImage]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SecondTaskbarImage')"
 TooltipTitle="Second Taskbar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.
 
 [SidebarImage]
 Meter=IMAGE
-ImageAlpha=#SidebarAlpha#
+ImageAlpha=[#SidebarAlpha]
 X=r
 Y=-35r
 H=34
 W=14
 TooltipWidth=300
-ImageName=#SidebarImage#
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "SidebarImage" "#StyleSettings#" "#SidebarImage#"]
+ImageName=[#SidebarImage]
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "SidebarImage" "[#StyleSettings]" "[#SidebarImage]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SidebarImage')"
 TooltipTitle="Sidebar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.
 
 [SecondSidebarImage]
 Meter=IMAGE
-ImageAlpha=#SidebarAlpha#
+ImageAlpha=[#SidebarAlpha]
 X=65r
 Y=r
 H=34
 W=14
 TooltipWidth=300
-ImageName=#SecondSidebarImage#
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "SecondSidebarImage" "#StyleSettings#" "#SecondSidebarImage#"]
+ImageName=[#SecondSidebarImage]
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "SecondSidebarImage" "[#StyleSettings]" "[#SecondSidebarImage]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('SecondSidebarImage')"
 TooltipTitle="Second Sidebar Background Image"
 TooltipText=Click each bar to type the locations of the background images used by your Taskbar, Second Taskbar, Sidebar and Second Sidebar.

@@ -5,17 +5,17 @@
 Measure=Plugin
 Plugin=CoreTemp
 CoreTempType=Temperature
-CoreTempIndex=#Core#
+CoreTempIndex=[#Core]
 
 [MeasureCoreTempMax]
 Measure=Plugin
 Plugin=CoreTemp
 CoreTempType=TjMax
-CoreTempIndex=#Core#
+CoreTempIndex=[#Core]
 
 [MeasureLabel]
 Measure=Calc
-Formula=#Core#+1
+Formula=[#Core]+1
 UpdateDivider=-1
 
 [MeasureBar]
@@ -28,20 +28,20 @@ Formula=MeasureCoreTemp / MeasureCoreTempMax
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureCoreTemp
-Postfix="°"
+Postfix="ï¿½"
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 MeasureName=MeasureLabel
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar
+MeterStyle=Style[#Variant]Bar
 MeasureName=MeasureBar

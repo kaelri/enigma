@@ -36,28 +36,28 @@ Formula=(MeasureMoonOverlay + 1) / 16
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureMoonText
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 Text="LUNA"
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleMoonIcon
+MeterStyle=Style[#Variant]Icon | StyleMoonIcon
 
 [IconOverlay]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleMoonIconOverlay
+MeterStyle=Style[#Variant]Icon | StyleMoonIconOverlay
 MeasureName=MeasureMoonOverlay
 
 [Bar]
 Meter=BAR
-MeterStyle=Style#Variant#Bar
+MeterStyle=Style[#Variant]Bar
 MeasureName=MeasureBar

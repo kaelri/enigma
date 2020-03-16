@@ -31,7 +31,7 @@ UpdateRate=3600
 
 [MeasureVersionCheck]
 Measure=Calc
-Formula=MeasureFeedVersion - #EnigmaVersionAbsolute#
+Formula=MeasureFeedVersion - [#EnigmaVersionAbsolute]
 IfAboveValue=0
 IfAboveAction=[!SetOption UpdateText MeterStyle "StyleText | StyleUpdateTextYes"][!SetOption UpdateCaption MeterStyle "StyleNotes | StyleUpdateNotesYes"][!ShowMeter UpdatePreview][!Redraw]
 IfEqualValue=0
@@ -56,7 +56,7 @@ Text="Version"
 [VersionText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#EnigmaVersion#"
+Text="[#EnigmaVersion]"
 FontColor=255,255,255,217
 
 [DateName]
@@ -67,7 +67,7 @@ Text="Date"
 [DateText]
 Meter=STRING
 MeterStyle=StyleText
-Text="#EnigmaDate#"
+Text="[#EnigmaDate]"
 FontColor=255,255,255,217
 
 [RevName]
@@ -78,8 +78,8 @@ Text="Platform"
 [RevText]
 Meter=STRING
 MeterStyle=StyleText
-Text="Rainmeter #EnigmaRev#"
-FontColor=#ColorLink#
+Text="Rainmeter [#EnigmaRev]"
+FontColor=[#ColorLink]
 LeftMouseUpAction=["http://rainmeter.net"]
 ToolTipText="Visit Rainmeter.net."
 
@@ -92,7 +92,7 @@ Text="License"
 Meter=STRING
 MeterStyle=StyleText
 Text="Creative Commons BY-NC-SA 3.0"
-FontColor=#ColorLink#
+FontColor=[#ColorLink]
 LeftMouseUpAction=["http://enigma.kaelri.com/index.php?p=legal"]
 ToolTipText="View license and credits."
 
@@ -105,7 +105,7 @@ Text="Author"
 Meter=STRING
 MeterStyle=StyleText
 Text="Kaelri"
-FontColor=#ColorLink#
+FontColor=[#ColorLink]
 LeftMouseUpAction=["http://kaelri.com"]
 ToolTipText="View author's website."
 
@@ -133,7 +133,7 @@ Meter=Image
 MeasureName=MeasurePreviewThumbnail
 X=r
 Y=15r
-LeftMouseUpAction=["[MeasureFeedLink]"]
+LeftMouseUpAction=["[&MeasureFeedLink]"]
 ToolTipText=[MeasureFeedLink]
 DynamicVariables=1
 Hidden=1
@@ -152,7 +152,7 @@ Text=If this message does not disappear, Enigma may be unable to check for updat
 [StyleUpdateTextYes]
 DynamicVariables=1
 Text=[MeasureFeedTitle]
-LeftMouseUpAction=["[MeasureFeedLink]"]
+LeftMouseUpAction=["[&MeasureFeedLink]"]
 ToolTipText=[MeasureFeedLink]
 
 [StyleUpdateNotesYes]
@@ -165,7 +165,7 @@ Text=An update is available!
 FontColor=255,255,255,128
 DynamicVariables=1
 Text=None.
-LeftMouseUpAction=["[MeasureFeedLink]"]
+LeftMouseUpAction=["[&MeasureFeedLink]"]
 ToolTipText=[MeasureFeedLink]
 
 [StyleUpdateNotesNo]
@@ -188,8 +188,8 @@ Y=90r
 Meter=STRING
 MeterStyle=StyleText
 Text="View"
-LeftMouseUpAction=["#ROOTCONFIGPATH#About.txt"]
-ToolTipText="#ROOTCONFIGPATH#About.txt"
+LeftMouseUpAction=["[#ROOTCONFIGPATH]About.txt"]
+ToolTipText="[#ROOTCONFIGPATH]About.txt"
 
 [ReadmeCaption]
 Meter=STRING

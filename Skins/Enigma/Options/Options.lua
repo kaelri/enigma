@@ -72,9 +72,9 @@ function ParseGmail(_, Value)
 	local id, domain = Value:match('^([^@]+)@?(.*)')
 	if domain == '' then domain = 'gmail.com' end -- No domain was given.
 	if domain == 'gmail.com' then
-		Write('GmailUrl', 'https://#*GmailUsername*#:#*GmailPassword*#@gmail.google.com/gmail/feed/atom', true)
+		Write('GmailUrl', 'https://[#*GmailUsername*]:[#*GmailPassword*]@gmail.google.com/gmail/feed/atom', true)
 	else
-		Write('GmailUrl', 'https://#*GmailUsername*#%40#*GmailDomain*#:#*GmailPassword*#@mail.google.com/a/#*GmailDomain*#/feed/atom/', true)
+		Write('GmailUrl', 'https://[#*GmailUsername*]%40[#*GmailDomain*]:[#*GmailPassword*]@mail.google.com/a/[#*GmailDomain*]/feed/atom/', true)
 	end
 	Write('GmailDomain', domain, true)
 	return id

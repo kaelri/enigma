@@ -7,93 +7,93 @@ WebParserSubstitute="<![CDATA[":"","]]>":"","/PRE&gt;":"","PRE&gt;":"","&nbsp;":
 
 [MeasureActivateTabs]
 Measure=Script
-ScriptFile=#@#Measures\Tabs.lua
+ScriptFile=[#@]Measures\Tabs.lua
 UpdateDivider=-1
 Type=Reader
 TotalTabs=8
 
 [MeasureFeed1]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL1#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL1]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(1)
 
 [MeasureFeed2]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL2#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL2]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(2)
 Group=Tab2
 Disabled=1
 
 [MeasureFeed3]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL3#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL3]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(3)
 Group=Tab3
 Disabled=1
 
 [MeasureFeed4]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL4#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL4]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(4)
 Group=Tab4
 Disabled=1
 
 [MeasureFeed5]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL5#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL5]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(5)
 Group=Tab5
 Disabled=1
 
 [MeasureFeed6]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL6#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL6]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(6)
 Group=Tab6
 Disabled=1
 
 [MeasureFeed7]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL7#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL7]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(7)
 Group=Tab7
 Disabled=1
 
 [MeasureFeed8]
 Measure=WebParser
-UpdateRate=#ReaderUpdateRate#
-URL=#ReaderURL8#
+UpdateRate=[#ReaderUpdateRate]
+URL=[#ReaderURL8]
 RegExp=(?siU)(.*)$
 DecodeCharacterReference=1
-Substitute=#WebParserSubstitute#
+Substitute=[#WebParserSubstitute]
 FinishAction=!CommandMeasure MeasureScriptReader Refresh(8)
 Group=Tab8
 Disabled=1
@@ -102,67 +102,67 @@ Disabled=1
 
 [MeasureScriptReader]
 Measure=Script
-ScriptFile="#@#Measures\Reader.lua"
+ScriptFile="[#@]Measures\Reader.lua"
 MeasureName=MeasureFeed1
 MinItems=4
-WriteEvents=#ReaderWriteEvents#
-EventFile=#ReaderEventFile#
+WriteEvents=[#ReaderWriteEvents]
+EventFile=[#ReaderEventFile]
 FinishAction=[!UpdateMeasureGroup "FeedData"][!UpdateMeterGroup "FeedData"][!Redraw]
 
 ;-----------------------
 
 [MeasureActive1]
 Measure=Calc
-Formula=#CurrentFeed#=1
+Formula=[#CurrentFeed]=1
 DynamicVariables=1
 Group=FeedData | Tab2
 Disabled=1
 
 [MeasureActive2]
 Measure=Calc
-Formula=#CurrentFeed#=2
+Formula=[#CurrentFeed]=2
 DynamicVariables=1
 Group=FeedData | Tab2
 Disabled=1
 
 [MeasureActive3]
 Measure=Calc
-Formula=#CurrentFeed#=3
+Formula=[#CurrentFeed]=3
 DynamicVariables=1
 Group=FeedData | Tab3
 Disabled=1
 
 [MeasureActive4]
 Measure=Calc
-Formula=#CurrentFeed#=4
+Formula=[#CurrentFeed]=4
 DynamicVariables=1
 Group=FeedData | Tab4
 Disabled=1
 
 [MeasureActive5]
 Measure=Calc
-Formula=#CurrentFeed#=5
+Formula=[#CurrentFeed]=5
 DynamicVariables=1
 Group=FeedData | Tab5
 Disabled=1
 
 [MeasureActive6]
 Measure=Calc
-Formula=#CurrentFeed#=6
+Formula=[#CurrentFeed]=6
 DynamicVariables=1
 Group=FeedData | Tab6
 Disabled=1
 
 [MeasureActive7]
 Measure=Calc
-Formula=#CurrentFeed#=7
+Formula=[#CurrentFeed]=7
 DynamicVariables=1
 Group=FeedData | Tab7
 Disabled=1
 
 [MeasureActive8]
 Measure=Calc
-Formula=#CurrentFeed#=8
+Formula=[#CurrentFeed]=8
 DynamicVariables=1
 Group=FeedData | Tab8
 Disabled=1
@@ -181,16 +181,16 @@ MeterStyle=StyleReaderBorder
 [Icon]
 Meter=IMAGE
 Group=FeedData
-MeterStyle=#ReaderIconStyle#
-LeftMouseUpAction=["#FeedLink#"]
+MeterStyle=[#ReaderIconStyle]
+LeftMouseUpAction=["[#FeedLink]"]
 
 [Title]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderTitle
-Text=#FeedTitle#
-LeftMouseUpAction=["#FeedLink#"]
-ToolTipText=#FeedLink#
+Text=[#FeedTitle]
+LeftMouseUpAction=["[#FeedLink]"]
+ToolTipText=[#FeedLink]
 
 ;-----------------------
 ; ITEMS
@@ -199,53 +199,53 @@ ToolTipText=#FeedLink#
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderText | StyleReaderTextSubheading | StyleReaderTextFirst
-Text=#Item1Title#
-LeftMouseUpAction=["#Item1Link#"]
+Text=[#Item1Title]
+LeftMouseUpAction=["[#Item1Link]"]
 
 [ItemWhen1]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderSubtext
-Text=#Item1Date#
+Text=[#Item1Date]
 
 [ItemWhat2]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderText | StyleReaderTextSubheading
-Text=#Item2Title#
-LeftMouseUpAction=["#Item2Link#"]
+Text=[#Item2Title]
+LeftMouseUpAction=["[#Item2Link]"]
 
 [ItemWhen2]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderSubtext
-Text=#Item2Date#
+Text=[#Item2Date]
 
 [ItemWhat3]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderText | StyleReaderTextSubheading
-Text=#Item3Title#
-LeftMouseUpAction=["#Item3Link#"]
+Text=[#Item3Title]
+LeftMouseUpAction=["[#Item3Link]"]
 
 [ItemWhen3]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderSubtext
-Text=#Item3Date#
+Text=[#Item3Date]
 
 [ItemWhat4]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderText | StyleReaderTextSubheading
-Text=#Item4Title#
-LeftMouseUpAction=["#Item4Link#"]
+Text=[#Item4Title]
+LeftMouseUpAction=["[#Item4Link]"]
 
 [ItemWhen4]
 Meter=STRING
 Group=FeedData
 MeterStyle=StyleReaderSubtext
-Text=#Item4Date#
+Text=[#Item4Date]
 
 ;-----------------------
 ; BORDER & GRABBERS
@@ -256,56 +256,56 @@ MeterStyle=StyleReaderBorderBottom
 
 [Grabber1]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive1] | StyleReaderGrabberFirst
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive1] | StyleReaderGrabberFirst
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(1)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab2
 Hidden=1
 
 [Grabber2]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive2]
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive2]
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(2)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab2
 Hidden=1
 
 [Grabber3]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive3]
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive3]
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(3)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab3
 Hidden=1
 
 [Grabber4]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive4]
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive4]
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(4)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab4
 Hidden=1
 
 [Grabber5]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive5]
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive5]
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(5)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab5
 Hidden=1
 
 [Grabber6]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive6]
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive6]
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(6)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab6
 Hidden=1
 
 [Grabber7]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive7]
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive7]
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(7)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab7
 Hidden=1
 
 [Grabber8]
 Meter=IMAGE
-MeterStyle=StyleReaderGrabber | StyleReaderGrabber[MeasureActive8]
+MeterStyle=StyleReaderGrabber | StyleReaderGrabber[&MeasureActive8]
 LeftMouseUpAction=[!CommandMeasure "MeasureScriptReader" "Show(8)"][!CommandMeasure Switcher Reset]
 Group=FeedData | Tab8
 Hidden=1

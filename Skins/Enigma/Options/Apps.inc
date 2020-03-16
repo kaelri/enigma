@@ -12,7 +12,7 @@ LabelsQueue=
 [Arrow]
 Meter=IMAGE
 MeterStyle=StyleMenuArrow
-Y=#ArrowY#
+Y=[#ArrowY]
 
 ;-----------------------
 ; APPS
@@ -38,11 +38,11 @@ Text="1st Launcher App"
 [App1Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App1#"
+Text="[#App1]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 1"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1')"
 TooltipTitle="1st Application Name"
-TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
+TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.[#CRLF][#CRLF]The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
 [App1PathName]
 Meter=STRING
@@ -52,7 +52,7 @@ Text="Location"
 [App1PathText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App1Path#"
+Text="[#App1Path]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 2"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Path')"
 TooltipTitle="1st File Location"
@@ -66,7 +66,7 @@ Text="Label"
 [App1LabelText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App1Label#"
+Text="[#App1Label]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 3"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Label')"
 TooltipTitle="1st Application Label"
@@ -80,8 +80,8 @@ Text="Icon"
 [App1IconText]
 Meter=IMAGE
 MeterStyle=StyleImage
-ImageName="#App1Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App1Icon" "#EnigmaSettings#" "#App1Icon#"]
+ImageName="[#App1Icon]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "App1Icon" "[#EnigmaSettings]" "[#App1Icon]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App1Icon')"
 TooltipTitle="1st Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
@@ -96,11 +96,11 @@ Text="2nd Launcher App"
 [App2Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App2#"
+Text="[#App2]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 4"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2')"
 TooltipTitle="2nd Application Name"
-TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
+TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.[#CRLF][#CRLF]The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
 [App2PathName]
 Meter=STRING
@@ -110,7 +110,7 @@ Text="Location"
 [App2PathText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App2Path#"
+Text="[#App2Path]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 5"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Path')"
 TooltipTitle="2nd File Location"
@@ -124,7 +124,7 @@ Text="Label"
 [App2LabelText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App2Label#"
+Text="[#App2Label]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 6"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Label')"
 TooltipTitle="2nd Application Label"
@@ -138,8 +138,8 @@ Text="Icon"
 [App2IconText]
 Meter=IMAGE
 MeterStyle=StyleImage
-ImageName="#App2Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App2Icon" "#EnigmaSettings#" "#App2Icon#"]
+ImageName="[#App2Icon]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "App2Icon" "[#EnigmaSettings]" "[#App2Icon]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App2Icon')"
 TooltipTitle="2nd Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
@@ -154,11 +154,11 @@ Text="3rd Launcher App"
 [App3Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App3#"
+Text="[#App3]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 7"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3')"
 TooltipTitle="3rd Application Name"
-TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
+TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.[#CRLF][#CRLF]The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
 [App3PathName]
 Meter=STRING
@@ -168,7 +168,7 @@ Text="Location"
 [App3PathText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App3Path#"
+Text="[#App3Path]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 8"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Path')"
 TooltipTitle="3rd File Location"
@@ -182,7 +182,7 @@ Text="Label"
 [App3LabelText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App3Label#"
+Text="[#App3Label]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 9"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Label')"
 TooltipTitle="3rd Application Label"
@@ -196,8 +196,8 @@ Text="Icon"
 [App3IconText]
 Meter=IMAGE
 MeterStyle=StyleImage
-ImageName="#App3Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App3Icon" "#EnigmaSettings#" "#App3Icon#"]
+ImageName="[#App3Icon]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "App3Icon" "[#EnigmaSettings]" "[#App3Icon]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Icon')"
 TooltipTitle="3rd Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
@@ -212,11 +212,11 @@ Text="4th Launcher App"
 [App4Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App4#"
+Text="[#App4]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 10"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4')"
 TooltipTitle="4th Application Name"
-TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
+TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.[#CRLF][#CRLF]The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
 [App4PathName]
 Meter=STRING
@@ -226,7 +226,7 @@ Text="Location"
 [App4PathText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App4Path#"
+Text="[#App4Path]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 11"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App3Path')"
 TooltipTitle="4th File Location"
@@ -240,7 +240,7 @@ Text="Label"
 [App4LabelText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App4Label#"
+Text="[#App4Label]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 12"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4Label')"
 TooltipTitle="4th Application Label"
@@ -254,8 +254,8 @@ Text="Icon"
 [App4IconText]
 Meter=IMAGE
 MeterStyle=StyleImage
-ImageName="#App4Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App4Icon" "#EnigmaSettings#" "#App4Icon#"]
+ImageName="[#App4Icon]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "App4Icon" "[#EnigmaSettings]" "[#App4Icon]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App4Icon')"
 TooltipTitle="4th Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.
@@ -270,11 +270,11 @@ Text="5th Launcher App"
 [App5Text]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App5#"
+Text="[#App5]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 13"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5')"
 TooltipTitle="5th Application Name"
-TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.#CRLF##CRLF#The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
+TooltipText=Click to type the names, locations, icons and one-word descriptions of up to five of your favorite applications, folders or web addresses. These will be used by Enigma Launcher to display links and buttons which launch these locations when clicked.[#CRLF][#CRLF]The 'name' and 'label' of each Launcher is purely cosmetic, and will not affect the function of the skin.
 
 [App5PathName]
 Meter=STRING
@@ -284,7 +284,7 @@ Text="Location"
 [App5PathText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App5Path#"
+Text="[#App5Path]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 14"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Path')"
 TooltipTitle="5th File Location"
@@ -298,7 +298,7 @@ Text="Label"
 [App5LabelText]
 Meter=STRING
 MeterStyle=StyleText | StyleInput
-Text="#App5Label#"
+Text="[#App5Label]"
 LeftMouseUpAction=!CommandMeasure "MeasureInputApps" "ExecuteBatch 15"
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Label')"
 TooltipTitle="5th Application Label"
@@ -312,8 +312,8 @@ Text="Icon"
 [App5IconText]
 Meter=IMAGE
 MeterStyle=StyleImage
-ImageName="#App5Icon#"
-LeftMouseUpAction=["#@#Addons\RainFile\RainFile.exe" "File" "Variables" "App5Icon" "#EnigmaSettings#" "#App5Icon#"]
+ImageName="[#App5Icon]"
+LeftMouseUpAction=["[#@]Addons\RainFile\RainFile.exe" "File" "Variables" "App5Icon" "[#EnigmaSettings]" "[#App5Icon]"]
 RightMouseUpAction=!CommandMeasure MeasureInputScript "Default('App5Icon')"
 TooltipTitle="5th Image Location"
 TooltipText=You may choose any BMP, JPG, PNG, GIF or ICO image to use as an icon. Square images are recommended.

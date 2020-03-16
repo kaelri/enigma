@@ -16,20 +16,20 @@ StringIndex=8
 
 [MeasureTime]
 Measure=Time
-TimeZone=[MeasureTimeZone]
+TimeZone=[&MeasureTimeZone]
 DynamicVariables=1
 DaylightSavingTime=0
 
 [MeasureReal1]
 Measure=Time
-TimeZone=[MeasureTimeZone]
+TimeZone=[&MeasureTimeZone]
 DynamicVariables=1
 Format="%#H.%M.%S  �  %a"
 DaylightSavingTime=0
 
 [MeasureReal2]
 Measure=Time
-TimeZone=[MeasureTimeZone]
+TimeZone=[&MeasureTimeZone]
 DynamicVariables=1
 Format="%#d %b  �  %Y"
 DaylightSavingTime=0
@@ -110,7 +110,7 @@ MeterStyle=StyleWorldText
 MeasureName=MeasureWeatherTemp
 MeasureName2=MeasureWeatherDesc
 Text="%1� � %2"
-LeftMouseUpAction=[[MeasureYahooWeather]][!Redraw]
+LeftMouseUpAction=[[&MeasureYahooWeather]][!Redraw]
 
 [Digital]
 Meter=STRING

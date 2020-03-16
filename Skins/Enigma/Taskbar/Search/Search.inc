@@ -3,21 +3,21 @@
 
 [Background]
 Meter=Image
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon
+MeterStyle=Style[#Variant]Icon
 LeftMouseUpAction=!CommandMeasure "MeasureSearch" "ExecuteBatch 1"
-ImageName=#SearchIcon#
+ImageName=[#SearchIcon]
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
-Text="#Search#"
+MeterStyle=Style[#Variant]Text
+Text="[#Search]"
 LeftMouseUpAction=!CommandMeasure "MeasureSearch" "ExecuteBatch 1"
 
 [Label]
 Meter=STRING
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 Text="SEARCH"

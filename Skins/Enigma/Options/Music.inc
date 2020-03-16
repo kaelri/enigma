@@ -12,13 +12,13 @@ LabelsQueue=
 [Arrow]
 Meter=IMAGE
 MeterStyle=StyleMenuArrow
-Y=#ArrowY#
+Y=[#ArrowY]
 
 [Grabber]
 Meter=IMAGE
-ImageName=#@#Images\Grabber.W.png
+ImageName=[#@]Images\Grabber.W.png
 X=213
-Y=(59+(#MusicPlayerType#*20))
+Y=(59+([#MusicPlayerType]*20))
 
 ;-----------------------
 ; MUSIC
@@ -95,7 +95,7 @@ MeterStyle=StyleText | StyleTextSub
 Text="Media Player Classic"
 LeftMouseUpAction=[!CommandMeasure MeasureInputScript "Write('MusicPlayerType', '7', 'wait')"][!CommandMeasure MeasureInputScript "Write('MusicPlayer', 'WLM')"]
 TooltipTitle="Media Player Classic"
-TooltipText=Partially supported, using the Windows Live Messenger interface.#CRLF##CRLF#Note that the 'Send Now Playing information to MSN Messenger' option must be enabled in the player's settings (View -> Options -> Tweaks).
+TooltipText=Partially supported, using the Windows Live Messenger interface.[#CRLF][#CRLF]Note that the 'Send Now Playing information to MSN Messenger' option must be enabled in the player's settings (View -> Options -> Tweaks).
 
 [MusicPlayerText8]
 Meter=STRING

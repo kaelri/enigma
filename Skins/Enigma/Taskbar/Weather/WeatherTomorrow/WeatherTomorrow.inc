@@ -10,22 +10,22 @@ Formula=(MeasureWeatherDay3Average - MeasureWeatherDay3Low) / (MeasureWeatherDay
 
 [Background]
 Meter=IMAGE
-MeterStyle=Style#Variant#Background
+MeterStyle=Style[#Variant]Background
 
 [Icon]
 Meter=IMAGE
-MeterStyle=Style#Variant#Icon | StyleWeather#Variant#Icon
+MeterStyle=Style[#Variant]Icon | StyleWeather[#Variant]Icon
 MeasureName=MeasureWeatherDay3Icon
 
 [Text]
 Meter=STRING
-MeterStyle=Style#Variant#Text
+MeterStyle=Style[#Variant]Text
 MeasureName=MeasureWeatherDay3Average
-Postfix="°"
-LeftMouseUpAction=[[MeasureYahooWeather]]
+Postfix="ï¿½"
+LeftMouseUpAction=[[&MeasureYahooWeather]]
 
 [Label]
 Meter=STRING
 MeasureName=MeasureWeatherDay3Desc
-MeterStyle=Style#Variant#Label
+MeterStyle=Style[#Variant]Label
 Text=Tomorrow

@@ -8,9 +8,9 @@ Stylesheet=Enigma Dark
 ;-----------------------
 ; GENERAL
 
-Note1Path=#@#User\Notes\Notes.txt
-Note2Path=#@#User\Notes\Tasks.txt
-Note3Path=#@#User\Notes\About.txt
+Note1Path=[#@]User\Notes\Notes.txt
+Note2Path=[#@]User\Notes\Tasks.txt
+Note3Path=[#@]User\Notes\About.txt
 NoteHeight=200
 Drive1=C
 Drive2=E
@@ -18,7 +18,7 @@ Drive3=F
 NetworkMaxDownload=1000000
 NetworkMaxUpload=500000
 SystemGraphType=Floating
-CalendarEventFile=#@#User\Calendars\Holidays.xml
+CalendarEventFile=[#@]User\Calendars\Holidays.xml
 CalendarShowEvents=1
 CalendarExtraDays=1
 CalendarLeadingZeroes=0
@@ -47,7 +47,7 @@ Feed3=http://kaelri.com/feed/
 GmailUsername=YourUsername
 GmailPassword=YourPasswordHere
 GmailDomain=domain.com
-GmailUrl=https://#GmailUsername#:#GmailPassword#@gmail.google.com/gmail/feed/atom
+GmailUrl=https://[#GmailUsername]:[#GmailPassword]@gmail.google.com/gmail/feed/atom
 FacebookFeed=YourFacebookFeedHere
 GoogleCalendar1=YourCalendarAddressHere
 GoogleCalendar2=YourCalendarAddressHere
@@ -89,44 +89,44 @@ App1=Chrome
 App1Path=chrome.exe
 App1PathHandle=chrome.exe
 App1Label=WEB
-App1Icon=#@#Images\Launcher\Chrome.#ColorImage#.png
+App1Icon=[#@]Images\Launcher\Chrome.[#ColorImage].png
 App2=Notepad
 App2Path=notepad.exe
 App2PathHandle=notepad.exe
 App2Label=TEXT
-App2Icon=#@#Images\Launcher\Text.#ColorImage#.png
+App2Icon=[#@]Images\Launcher\Text.[#ColorImage].png
 App3=Explorer
 App3Path=explorer.exe
 App3PathHandle=explorer.exe
 App3Label=FILES
-App3Icon=#@#Images\Launcher\Start.#ColorImage#.png
+App3Icon=[#@]Images\Launcher\Start.[#ColorImage].png
 App4=Skype
 App4Path=C:\Program Files\Skype\Phone\skype.exe
 App4PathHandle=skype.exe
 App4Label=CHAT
-App4Icon=#@#Images\Launcher\Skype.#ColorImage#.png
+App4Icon=[#@]Images\Launcher\Skype.[#ColorImage].png
 App5=Rainmeter.net
 App5Path=http://rainmeter.net/
 App5Handle=rainmeter.exe
 App5Label=FORUM
-App5Icon=#@#Images\Launcher\Rainmeter.png
+App5Icon=[#@]Images\Launcher\Rainmeter.png
 
 ;-----------------------
 ; SEARCH
 
 Search1=Google
 Search1Command="http://google.com/search?q=$UserInput$"
-Search1Icon=#@#Images\Search\Google.#ColorImage#.png
+Search1Icon=[#@]Images\Search\Google.[#ColorImage].png
 Search2=Wikipedia
 Search2Command="http://en.wikipedia.org/wiki/$UserInput$"
-Search2Icon=#@#Images\Search\Wiki.#ColorImage#.png
+Search2Icon=[#@]Images\Search\Wiki.[#ColorImage].png
 Search3=YouTube
 Search3Command="http://www.youtube.com/results?search_query=$UserInput$"
-Search3Icon=#@#Images\Search\YouTube.#ColorImage#.png
+Search3Icon=[#@]Images\Search\YouTube.[#ColorImage].png
 Search4=Twitter
 Search4Command="https://twitter.com/#!/search/$UserInput$"
-Search4Icon=#@#Images\Search\Twitter.#ColorImage#.png
+Search4Icon=[#@]Images\Search\Twitter.[#ColorImage].png
 Search5=Rainmeter.net
 Search5Command="https://www.google.com/search?q=site%3Ahttp%3A%2F%2Frainmeter.net%2Fcms%2F%20$UserInput$"
-Search5Icon=#@#Images\Search\Run.#ColorImage#.png
+Search5Icon=[#@]Images\Search\Run.[#ColorImage].png
 TaskbarHideTriptych=0

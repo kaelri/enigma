@@ -47,7 +47,7 @@ function Run(command)
 			command = function()
 				local term = lcommand:match('^.+ (.+)') or 'none'
 				if ('home|general|music|feeds|world|apps|search|format|layout'):find(term:gsub('|', '')) then
-					SKIN:Bang('!WriteKeyValue', 'Variables', 'Panel', term, '#ROOTCONFIGPATH#Options\\Options.ini')
+					SKIN:Bang('!WriteKeyValue', 'Variables', 'Panel', term, '[#ROOTCONFIGPATH]Options\\Options.ini')
 				end
 				SKIN:Bang('!ActivateConfig', 'Enigma\\Options')
 			end
