@@ -72,9 +72,9 @@ function ParseGmail(_, Value)
 	local id, domain = Value:match('^([^@]+)@?(.*)')
 	if domain == '' then domain = 'gmail.com' end -- No domain was given.
 	if domain == 'gmail.com' then
-		Write('GmailUrl', 'https://[#*GmailUsername*]:[#*GmailPassword*]@gmail.google.com/gmail/feed/atom', true)
+		Write('GmailUrl', 'https://#*GmailUsername*#:#*GmailPassword*#@gmail.google.com/gmail/feed/atom', true)
 	else
-		Write('GmailUrl', 'https://[#*GmailUsername*]%40[#*GmailDomain*]:[#*GmailPassword*]@mail.google.com/a/[#*GmailDomain*]/feed/atom/', true)
+		Write('GmailUrl', 'https://#*GmailUsername*#%40#*GmailDomain*#:#*GmailPassword*#@mail.google.com/a/#*GmailDomain*#/feed/atom/', true)
 	end
 	Write('GmailDomain', domain, true)
 	return id
@@ -153,7 +153,7 @@ Options = {
 	GalleryRatio = {Configs = { 'Sidebar\\Gallery' },},
 	GalleryPosition = { 
 		Configs = { 'Sidebar\\Gallery' },
-		Loop    = { 'Center', 'Tile', 'Stretch', 'Fit', 'Fill' }
+		Loop    = { 'Center', 'Tile', 'Stretch', 'Fit', 'Fill', 'Span' }
 	},
 	VolumeIncrement = {Configs = { 'Sidebar\\Volume', 'Taskbar\\Volume' },},
 	TriptychInterval = {Configs = { 'Sidebar\\Gallery', 'Sidebar\\Notes', 'Sidebar\\Reader', 'Sidebar\\Reader\\Gcal', 'Sidebar\\Reader\\RememberTheMilk' },},
@@ -217,67 +217,67 @@ Options = {
 	RTMlist2 = {Configs = { 'Sidebar\\Reader\\RememberTheMilk' },},
 	RTMlist3 = {Configs = { 'Sidebar\\Reader\\RememberTheMilk' },},
 	-- WORLD
-	WeatherCode = {
-		Dependents = { 'WeatherCodeName', 'WeatherCodeLat', 'WeatherCodeLon' },
-		Configs    = {
-			'Sidebar\\Clock',
-			'Sidebar\\Weather',
-			'Taskbar\\Weather',
-			'Taskbar\\Weather\\Location',
-			'Taskbar\\Weather\\Sunrise',
-			'Taskbar\\Weather\\Sunset',
-			'Taskbar\\Weather\\WeatherToday',
-			'Taskbar\\Weather\\WeatherTomorrow',
-			'Taskbar\\_Extras\\Clock+Location',
-			'Taskbar\\_Extras\\TrayClock'
-		}
-	},
-	WeatherCodeName = {},
-	WeatherCodeLat = {},
-	WeatherCodeLon = {},
-	Unit = { 
-		Configs = {
-			'Sidebar\\Clock',
-			'Sidebar\\Weather',
-			'Sidebar\\World\\World1',
-			'Sidebar\\World\\World2',
-			'Sidebar\\World\\World3',
-			'Taskbar\\Weather',
-			'Taskbar\\Weather\\Location',
-			'Taskbar\\Weather\\Sunrise',
-			'Taskbar\\Weather\\Sunset',
-			'Taskbar\\Weather\\WeatherToday',
-			'Taskbar\\Weather\\WeatherTomorrow',
-			'Taskbar\\World\\World1',
-			'Taskbar\\World\\World2',
-			'Taskbar\\World\\World3',
-			'Taskbar\\_Extras\\Clock+Location',
-			'Taskbar\\_Extras\\TrayClock'
-		},
-		Loop    = { 'c', 'f' },
-		Labels  = { 'Celsius', 'Fahrenheit' }
-	},
-	World1WeatherCode = {
-		Dependents = { 'World1WeatherCodeName', 'World1WeatherCodeLat', 'World1WeatherCodeLon' },
-		Configs    = { 'Sidebar\\World\\World1', 'Taskbar\\World\\World1' }
-	},
-	World1WeatherCodeName = {},
-	World1WeatherCodeLat = {},
-	World1WeatherCodeLon = {},
-	World2WeatherCode = {
-		Dependents = { 'World2WeatherCodeName', 'World2WeatherCodeLat', 'World2WeatherCodeLon' },
-		Configs    = { 'Sidebar\\World\\World2', 'Taskbar\\World\\World2' }
-	},
-	World2WeatherCodeName = {},
-	World2WeatherCodeLat = {},
-	World2WeatherCodeLon = {},
-	World3WeatherCode = {
-		Dependents = { 'World3WeatherCodeName', 'World3WeatherCodeLat', 'World3WeatherCodeLon' },
-		Configs    = {}
-	},
-	World3WeatherCodeName = {},
-	World3WeatherCodeLat = {},
-	World3WeatherCodeLon = {},
+	-- WeatherCode = {
+		-- Dependents = { 'WeatherCodeName', 'WeatherCodeLat', 'WeatherCodeLon' },
+		-- Configs    = {
+			-- 'Sidebar\\Clock',
+			-- 'Sidebar\\Weather',
+			-- 'Taskbar\\Weather',
+			-- 'Taskbar\\Weather\\Location',
+			-- 'Taskbar\\Weather\\Sunrise',
+			-- 'Taskbar\\Weather\\Sunset',
+			-- 'Taskbar\\Weather\\WeatherToday',
+			-- 'Taskbar\\Weather\\WeatherTomorrow',
+			-- 'Taskbar\\_Extras\\Clock+Location',
+			-- 'Taskbar\\_Extras\\TrayClock'
+		-- }
+	-- },
+	-- WeatherCodeName = {},
+	-- WeatherCodeLat = {},
+	-- WeatherCodeLon = {},
+	-- Unit = { 
+		-- Configs = {
+			-- 'Sidebar\\Clock',
+			-- 'Sidebar\\Weather',
+			-- 'Sidebar\\World\\World1',
+			-- 'Sidebar\\World\\World2',
+			-- 'Sidebar\\World\\World3',
+			-- 'Taskbar\\Weather',
+			-- 'Taskbar\\Weather\\Location',
+			-- 'Taskbar\\Weather\\Sunrise',
+			-- 'Taskbar\\Weather\\Sunset',
+			-- 'Taskbar\\Weather\\WeatherToday',
+			-- 'Taskbar\\Weather\\WeatherTomorrow',
+			-- 'Taskbar\\World\\World1',
+			-- 'Taskbar\\World\\World2',
+			-- 'Taskbar\\World\\World3',
+			-- 'Taskbar\\_Extras\\Clock+Location',
+			-- 'Taskbar\\_Extras\\TrayClock'
+		-- },
+		-- Loop    = { 'c', 'f' },
+		-- Labels  = { 'Celsius', 'Fahrenheit' }
+	-- },
+	-- World1WeatherCode = {
+		-- Dependents = { 'World1WeatherCodeName', 'World1WeatherCodeLat', 'World1WeatherCodeLon' },
+		-- Configs    = { 'Sidebar\\World\\World1', 'Taskbar\\World\\World1' }
+	-- },
+	-- World1WeatherCodeName = {},
+	-- World1WeatherCodeLat = {},
+	-- World1WeatherCodeLon = {},
+	-- World2WeatherCode = {
+		-- Dependents = { 'World2WeatherCodeName', 'World2WeatherCodeLat', 'World2WeatherCodeLon' },
+		-- Configs    = { 'Sidebar\\World\\World2', 'Taskbar\\World\\World2' }
+	-- },
+	-- World2WeatherCodeName = {},
+	-- World2WeatherCodeLat = {},
+	-- World2WeatherCodeLon = {},
+	-- World3WeatherCode = {
+		-- Dependents = { 'World3WeatherCodeName', 'World3WeatherCodeLat', 'World3WeatherCodeLon' },
+		-- Configs    = {}
+	-- },
+	-- World3WeatherCodeName = {},
+	-- World3WeatherCodeLat = {},
+	-- World3WeatherCodeLon = {},
 	-- APPS
 	App1 = {Configs = { 'Taskbar\\Launcher\\Launcher1' },},
 	App1Path = {
