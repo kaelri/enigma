@@ -1,8 +1,6 @@
-- Click here to edit your notes!
-
 - Middle-click any skin to refresh.
 
-- Double-click any skin to switch to the next variant.
+- Double-click any skin for next variant.
 
 - Load the "Enigma\Options" skin to change your settings.
 
