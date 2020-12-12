@@ -4,6 +4,7 @@ Enigma is a “suite” for [Rainmeter](http://www.rainmeter.net/), a system mon
 
 - [Kaelri](https://www.kaelri.com/)
 - [smurfier](https://github.com/smurfier) (acting)
+- [eclectic-tech](https://github.com/eclectic-tech) (contributor)
 
 ## License
 
