@@ -1,6 +1,11 @@
 ;---------------------------------------------------------------------
 ; MEASURES
 
+[MeasureWeatherDay3Average]
+Measure=Calc
+Formula=ROUND(([@ForecastDay3NightTemperature:]+[@ForecastDay3DayTemperature:])/2)
+DynamicVariables=1
+
 [MeasureBar]
 Measure=Calc
 Formula=(MeasureWeatherDay3Average - [@ForecastDay3NightTemperature:]) / ([@ForecastDay3DayTemperature:] - [@ForecastDay3NightTemperature:])
@@ -22,7 +27,7 @@ MeasureName=@ForecastDay3DayIcon
 Meter=STRING
 MeterStyle=Style#Variant#Text
 MeasureName=MeasureWeatherDay3Average
-Postfix="°"
+Postfix="Â°"
 LeftMouseUpAction=[[MeasureYahooWeather]]
 
 [Label]
